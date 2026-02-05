@@ -20,6 +20,7 @@ const Footer = () => {
         { name: 'Coaching', path: '/coaching' },
         { name: 'Business Services', path: '/business-services' },
         { name: 'Meet The Attorneys', path: '/meet-attorneys' },
+        { name: 'Blog', path: '/blog' },
         { name: 'Contact Us', path: '/contact' },
     ];
 

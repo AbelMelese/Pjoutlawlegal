@@ -29,6 +29,7 @@ const Navbar = () => {
         { name: 'Coaching', path: '/coaching' },
         { name: 'Business Services', path: '/business-services' },
         { name: 'Meet The Attorneys', path: '/meet-attorneys' },
+        { name: 'Blog', path: '/blog' },
         { name: 'Contact Us', path: '/contact' },
     ];
 
@@ -71,11 +72,11 @@ const Navbar = () => {
 
                         {/* Desktop Navigation */}
                         <div className="hidden xl:flex items-center gap-1 bg-slate-100/50 p-1 rounded-full backdrop-blur-sm">
-                            {navLinks.slice(0, 5).map((link) => (
+                            {navLinks.filter(link => link.path !== '/contact').map((link) => (
                                 <Link
                                     key={link.path}
                                     to={link.path}
-                                    className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden ${location.pathname === link.path
+                                    className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden ${location.pathname === link.path
                                         ? 'bg-white text-[#0f172a] shadow-md'
                                         : 'text-slate-600 hover:text-[#0f172a] hover:bg-white/50'
                                         }`}

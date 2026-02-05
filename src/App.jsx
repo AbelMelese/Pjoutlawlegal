@@ -8,6 +8,8 @@ import Coaching from './pages/Coaching';
 import BusinessServices from './pages/BusinessServices';
 import MeetAttorneys from './pages/MeetAttorneys';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
             <Route path="/business-services" element={<BusinessServices />} />
             <Route path="/meet-attorneys" element={<MeetAttorneys />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
           </Routes>
         </main>
         <Footer />
