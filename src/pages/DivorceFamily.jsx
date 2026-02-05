@@ -80,13 +80,13 @@ const DivorceFamily = () => {
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="animate-enter">
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-6 border border-white/10 backdrop-blur-md">
-                                <Scale size={18} className="text-amber-400" />
+                                <Scale size={18} className="text-[#c4a052]" />
                                 <span className="text-white font-medium text-sm tracking-wide uppercase">Legal Representation</span>
                             </div>
 
                             <h1 className="text-5xl md:text-7xl font-bold text-white font-['Playfair_Display'] mb-8 leading-tight">
                                 Divorce & <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Family Law</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Family Law</span>
                             </h1>
 
                             <p className="text-xl text-slate-400 mb-12 leading-relaxed">
@@ -97,7 +97,7 @@ const DivorceFamily = () => {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link
                                     to="/contact"
-                                    className="btn-glow flex items-center justify-center gap-2 px-8 py-4 bg-amber-500 text-white rounded-full font-bold text-lg hover:bg-amber-600"
+                                    className="btn-glow flex items-center justify-center gap-2 px-8 py-4 bg-[#c4a052] text-white rounded-full font-bold text-lg hover:bg-[#a88c3d]"
                                 >
                                     <span>Get Legal Help</span>
                                     <ArrowRight size={20} />
@@ -113,7 +113,7 @@ const DivorceFamily = () => {
                         </div>
 
                         <div className="hidden lg:block relative animate-float-delayed">
-                            <div className="absolute -inset-4 bg-gradient-to-br from-amber-500/30 to-blue-600/30 rounded-[2.5rem] blur-2xl"></div>
+                            <div className="absolute -inset-4 bg-gradient-to-br from-[#c4a052]/30 to-blue-600/30 rounded-[2.5rem] blur-2xl"></div>
                             <div className="glass-dark rounded-[2rem] p-10 border border-white/10 relative">
                                 <h3 className="text-3xl font-bold text-white font-['Playfair_Display'] mb-8">
                                     Why Choose Us?
@@ -126,8 +126,8 @@ const DivorceFamily = () => {
                                         { icon: MessageSquare, text: 'Clear communication and responsive support' }
                                     ].map((feature, index) => (
                                         <div key={index} className="flex items-center gap-4 group">
-                                            <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-amber-500 transition-colors duration-300">
-                                                <feature.icon size={24} className="text-amber-400 group-hover:text-white transition-colors" />
+                                            <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-[#c4a052] transition-colors duration-300">
+                                                <feature.icon size={24} className="text-[#c4a052] group-hover:text-white transition-colors" />
                                             </div>
                                             <span className="text-slate-300 text-lg group-hover:text-white transition-colors">{feature.text}</span>
                                         </div>
@@ -162,11 +162,11 @@ const DivorceFamily = () => {
                                 </div>
 
                                 <div className="flex items-start gap-8 relative z-10">
-                                    <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 text-amber-500 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                                    <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 text-[#c4a052] shadow-lg group-hover:rotate-6 transition-transform duration-300">
                                         <service.icon size={32} />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 font-['Playfair_Display'] group-hover:text-amber-600 transition-colors">
+                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 font-['Playfair_Display'] group-hover:text-[#a88c3d] transition-colors">
                                             {service.title}
                                         </h3>
                                         <p className="text-slate-500 mb-6 leading-relaxed">
@@ -176,7 +176,7 @@ const DivorceFamily = () => {
                                             {service.items.map((item, i) => (
                                                 <span
                                                     key={i}
-                                                    className="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold group-hover:bg-amber-50 group-hover:text-amber-700 transition-colors"
+                                                    className="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold group-hover:bg-[#c4a052]/10 group-hover:text-[#c4a052]700 transition-colors"
                                                 >
                                                     {item}
                                                 </span>
@@ -197,7 +197,7 @@ const DivorceFamily = () => {
                         <div>
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
                                 A Strategic Approach Focused on{' '}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">Your Goals</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Your Goals</span>
                             </h2>
                             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                                 Ending a marriage is never easy. At Phyllis J Outlaw Mediation Service, we understand the
@@ -215,7 +215,7 @@ const DivorceFamily = () => {
                                     'Settlement negotiation',
                                 ].map((item, index) => (
                                     <div key={index} className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                                        <CheckCircle size={20} className="text-amber-500" />
+                                        <CheckCircle size={20} className="text-[#c4a052]" />
                                         <span className="text-slate-700 font-medium">{item}</span>
                                     </div>
                                 ))}
@@ -238,7 +238,7 @@ const DivorceFamily = () => {
             <section className="py-24 bg-white">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        Speak With Our Team <span className="text-amber-500">Today</span>
+                        Speak With Our Team <span className="text-[#c4a052]">Today</span>
                     </h2>
                     <div className="flex justify-center gap-6">
                         <Link
@@ -255,3 +255,5 @@ const DivorceFamily = () => {
 };
 
 export default DivorceFamily;
+
+

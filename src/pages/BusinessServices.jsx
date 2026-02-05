@@ -149,7 +149,7 @@ const BusinessServices = () => {
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold text-white font-['Playfair_Display'] mb-8">
-                        Business <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-200">Services</span>
+                        Business <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#d4b872]">Services</span>
                     </h1>
 
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto mb-12">
@@ -184,7 +184,7 @@ const BusinessServices = () => {
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
                                 {businessAdvising.title}
                             </h2>
-                            <p className="text-2xl text-amber-600 font-['Playfair_Display'] italic mb-6">
+                            <p className="text-2xl text-[#a88c3d] font-['Playfair_Display'] italic mb-6">
                                 "{businessAdvising.subtitle}"
                             </p>
                             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
@@ -194,7 +194,7 @@ const BusinessServices = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 {businessAdvising.helpsWith.slice(0, 6).map((item, i) => (
                                     <div key={i} className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 bg-amber-500 rounded-full"></div>
+                                        <div className="w-1.5 h-1.5 bg-[#c4a052] rounded-full"></div>
                                         <span className="text-slate-700 text-sm font-medium">{item}</span>
                                     </div>
                                 ))}
@@ -207,7 +207,7 @@ const BusinessServices = () => {
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
                                 <div className="grid grid-cols-2 gap-4 relative z-10">
                                     <div className="bg-white/10 p-6 rounded-2xl backdrop-blur-md border border-white/10 text-white">
-                                        <TrendingUp size={32} className="text-amber-400 mb-4" />
+                                        <TrendingUp size={32} className="text-[#c4a052] mb-4" />
                                         <h4 className="font-bold text-lg">Growth Strategy</h4>
                                     </div>
                                     <div className="bg-white/10 p-6 rounded-2xl backdrop-blur-md border border-white/10 text-white mt-8">
@@ -294,12 +294,12 @@ const BusinessServices = () => {
                         <div className="lg:order-1 relative">
                             <div className="absolute -inset-4 bg-emerald-500/20 rounded-[2.5rem] rotate-3 blur-md"></div>
                             <div className="relative bg-slate-800 rounded-[2rem] p-10 border border-white/10 shadow-2xl flex flex-col justify-center h-full">
-                                <Quote size={48} className="text-amber-500 mb-6" />
+                                <Quote size={48} className="text-[#c4a052] mb-6" />
                                 <p className="text-2xl md:text-3xl font-['Playfair_Display'] text-white leading-relaxed mb-8 italic">
                                     “Phyllis J. Outlaw & Associates provides exceptional legal services and always represents our best interest. The attorneys are accessible and highly responsive to our requests.”
                                 </p>
                                 <div>
-                                    <p className="text-amber-400 font-bold text-lg">Dr. Mary Quinn</p>
+                                    <p className="text-[#c4a052] font-bold text-lg">Dr. Mary Quinn</p>
                                     <p className="text-slate-400 text-sm">Council of Women Ministers & Male Support Division, Inc. Washington, DC</p>
                                 </div>
                                 <div className="mt-8 pt-8 border-t border-white/10">
@@ -340,7 +340,7 @@ const BusinessServices = () => {
                                     </p>
                                     <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
                                         <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
-                                            <CheckCircle size={18} className="text-amber-500" />
+                                            <CheckCircle size={18} className="text-[#c4a052]" />
                                             Case Highlight
                                         </h4>
                                         <p className="text-slate-600 italic">"{area.highlight}"</p>
@@ -380,7 +380,7 @@ const BusinessServices = () => {
             <section className="py-24 bg-white">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        Stop Guessing. Start <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">Growing.</span>
+                        Stop Guessing. Start <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Growing.</span>
                     </h2>
                     <Link
                         to="/contact"
@@ -395,3 +395,5 @@ const BusinessServices = () => {
 };
 
 export default BusinessServices;
+
+

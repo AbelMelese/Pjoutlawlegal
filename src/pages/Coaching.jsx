@@ -79,10 +79,10 @@ const Coaching = () => {
                 'Reconnect business with purpose',
             ],
             note: 'We blend practical business insight with coaching.',
-            color: 'from-amber-500 to-amber-600',
-            bgColor: 'bg-amber-50',
-            accent: 'text-amber-600',
-            border: 'border-amber-100',
+            color: 'from-[#c4a052] to-[#a88c3d]',
+            bgColor: 'bg-[#c4a052]/10',
+            accent: 'text-[#a88c3d]',
+            border: 'border-[#c4a052]/30',
             image: businessCoachingImg
         },
     ];
@@ -107,7 +107,7 @@ const Coaching = () => {
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-enter">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-8 backdrop-blur-md border border-white/10">
-                        <MessageCircle size={18} className="text-amber-400" />
+                        <MessageCircle size={18} className="text-[#c4a052]" />
                         <span className="text-white font-medium text-sm tracking-wide uppercase">Personal & Professional Growth</span>
                     </div>
 
@@ -213,7 +213,7 @@ const Coaching = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-20">
                         <h2 className="text-4xl font-bold text-white font-['Playfair_Display'] mb-4">
-                            What Makes Our Coaching <span className="text-amber-400">Different</span>
+                            What Makes Our Coaching <span className="text-[#c4a052]">Different</span>
                         </h2>
                     </div>
 
@@ -223,7 +223,7 @@ const Coaching = () => {
                                 key={index}
                                 className="glass-dark p-8 rounded-2xl border border-white/5 hover:bg-white/5 transition-colors"
                             >
-                                <item.icon size={32} className="text-amber-400 mb-6" />
+                                <item.icon size={32} className="text-[#c4a052] mb-6" />
                                 <h3 className="text-xl font-bold text-white mb-3 font-['Playfair_Display']">
                                     {item.title}
                                 </h3>
@@ -242,11 +242,11 @@ const Coaching = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 rounded-full mb-6">
-                                <GraduationCap size={18} className="text-amber-400" />
+                                <GraduationCap size={18} className="text-[#c4a052]" />
                                 <span className="text-white font-medium text-sm tracking-wide uppercase">Professional Development</span>
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                                Seminars & <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">Training</span>
+                                Seminars & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Training</span>
                             </h2>
                             <p className="text-xl text-slate-600 italic mb-8">
                                 "Tired of viewing the same in-house training video? Need an innovative solution for your professional development training needs?"
@@ -257,7 +257,7 @@ const Coaching = () => {
 
                             <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 mb-8">
                                 <h4 className="font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
-                                    <Presentation className="text-amber-500" />
+                                    <Presentation className="text-[#c4a052]" />
                                     Training Topics Include:
                                 </h4>
                                 <div className="grid sm:grid-cols-2 gap-3">
@@ -272,7 +272,7 @@ const Coaching = () => {
                                         'Senior Executive Development'
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-center gap-2">
-                                            <div className="w-1.5 h-1.5 bg-amber-500 rounded-full"></div>
+                                            <div className="w-1.5 h-1.5 bg-[#c4a052] rounded-full"></div>
                                             <span className="text-slate-700 text-sm font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -285,7 +285,7 @@ const Coaching = () => {
                         </div>
 
                         <div className="relative">
-                            <div className="absolute -inset-4 bg-amber-500/20 rounded-[2.5rem] rotate-3 blur-md"></div>
+                            <div className="absolute -inset-4 bg-[#c4a052]/20 rounded-[2.5rem] rotate-3 blur-md"></div>
                             <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
                                 <img
                                     src={workshopMeeting}
@@ -294,7 +294,7 @@ const Coaching = () => {
                                 />
                                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-8 pt-24">
                                     <p className="text-white font-['Playfair_Display'] text-2xl font-bold">Professional Development</p>
-                                    <p className="text-amber-400 font-medium">Workshops & Training Sessions</p>
+                                    <p className="text-[#c4a052] font-medium">Workshops & Training Sessions</p>
                                 </div>
                             </div>
                         </div>
@@ -306,7 +306,7 @@ const Coaching = () => {
             <section className="py-16 md:py-24 bg-white">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        Your Next Chapter Begins With <br /><span className="text-amber-500">One Conversation</span>
+                        Your Next Chapter Begins With <br /><span className="text-[#c4a052]">One Conversation</span>
                     </h2>
                     <Link
                         to="/contact"
@@ -321,3 +321,5 @@ const Coaching = () => {
 };
 
 export default Coaching;
+
+

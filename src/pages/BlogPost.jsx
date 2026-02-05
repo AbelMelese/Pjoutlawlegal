@@ -141,7 +141,7 @@ const BlogPost = () => {
                         </Link>
 
                         <div className="flex items-center gap-4 mb-6">
-                            <span className="px-4 py-1.5 bg-amber-500 text-white rounded-full text-sm font-bold">
+                            <span className="px-4 py-1.5 bg-[#c4a052] text-white rounded-full text-sm font-bold">
                                 {post.category}
                             </span>
                             <span className="text-white/60 text-sm flex items-center gap-1">
@@ -188,7 +188,7 @@ const BlogPost = () => {
 
                     {/* Article Body */}
                     <article
-                        className="prose prose-lg prose-slate max-w-none prose-headings:font-['Playfair_Display'] prose-headings:text-slate-900 prose-a:text-amber-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-900 prose-li:marker:text-amber-500"
+                        className="prose prose-lg prose-slate max-w-none prose-headings:font-['Playfair_Display'] prose-headings:text-slate-900 prose-a:text-[#a88c3d] prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-900 prose-li:marker:text-[#c4a052]"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     />
 
@@ -217,7 +217,7 @@ const BlogPost = () => {
                         </p>
                         <Link
                             to="/contact"
-                            className="btn-glow inline-flex items-center gap-2 px-8 py-4 bg-amber-500 text-white rounded-full font-bold hover:bg-amber-400"
+                            className="btn-glow inline-flex items-center gap-2 px-8 py-4 bg-[#c4a052] text-white rounded-full font-bold hover:bg-[#c4a052]"
                         >
                             <span>Get Started</span>
                             <ArrowRight size={18} />
@@ -249,13 +249,13 @@ const BlogPost = () => {
                                     </div>
 
                                     <div className="p-6">
-                                        <span className="text-amber-600 text-sm font-bold">{relatedPost.category}</span>
-                                        <h3 className="text-lg font-bold text-slate-900 font-['Playfair_Display'] mt-2 mb-3 group-hover:text-amber-600 transition-colors line-clamp-2">
+                                        <span className="text-[#a88c3d] text-sm font-bold">{relatedPost.category}</span>
+                                        <h3 className="text-lg font-bold text-slate-900 font-['Playfair_Display'] mt-2 mb-3 group-hover:text-[#a88c3d] transition-colors line-clamp-2">
                                             {relatedPost.title}
                                         </h3>
                                         <Link
                                             to={`/blog/${relatedPost.id}`}
-                                            className="inline-flex items-center gap-1 text-slate-600 font-medium text-sm hover:text-amber-600 transition-colors"
+                                            className="inline-flex items-center gap-1 text-slate-600 font-medium text-sm hover:text-[#a88c3d] transition-colors"
                                         >
                                             Read More
                                             <ArrowRight size={14} />
@@ -272,3 +272,5 @@ const BlogPost = () => {
 };
 
 export default BlogPost;
+
+

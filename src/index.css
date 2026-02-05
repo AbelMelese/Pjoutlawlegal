@@ -4,12 +4,12 @@
 :root {
   --color-primary: #0f172a;
   --color-primary-light: #1e293b;
-  --color-gold: #fbbf24;
-  --color-gold-light: #fcd34d;
-  --color-gold-dark: #d97706;
+  --color-gold: #c4a052;
+  --color-gold-light: #d4b872;
+  --color-gold-dark: #a88c3d;
   --color-surface-glass: rgba(255, 255, 255, 0.7);
   --shadow-premium: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 0 20px -5px rgba(0, 0, 0, 0.05);
-  --shadow-gold: 0 20px 40px -10px rgba(251, 191, 36, 0.3);
+  --shadow-gold: 0 20px 40px -10px rgba(196, 160, 82, 0.3);
 }
 
 html {
@@ -62,11 +62,11 @@ h6 {
 
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4);
+    box-shadow: 0 0 0 0 rgba(196, 160, 82, 0.4);
   }
 
   50% {
-    box-shadow: 0 0 30px 0 rgba(251, 191, 36, 0);
+    box-shadow: 0 0 30px 0 rgba(196, 160, 82, 0);
   }
 }
 
@@ -190,7 +190,7 @@ h6 {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  background: linear-gradient(135deg, #c4a052 0%, #a88c3d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -213,7 +213,7 @@ h6 {
 }
 
 .blob-gold {
-  background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(196, 160, 82, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
 }
 
 .blob-blue {
@@ -226,7 +226,7 @@ h6 {
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #fbbf24, #d97706);
+  background: linear-gradient(90deg, #c4a052, #a88c3d);
   z-index: 9999;
   width: 0%;
   transition: width 0.1s;

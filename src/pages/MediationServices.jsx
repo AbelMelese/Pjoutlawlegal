@@ -60,8 +60,8 @@ const MediationServices = () => {
                 'Employer–employee disputes',
                 'Vendor and service disputes',
             ],
-            color: 'from-amber-500 to-amber-600',
-            bgColor: 'bg-amber-50/50',
+            color: 'from-[#c4a052] to-[#a88c3d]',
+            bgColor: 'bg-[#c4a052]/10/50',
             image: businessMediationImg
         },
         {
@@ -195,7 +195,7 @@ const MediationServices = () => {
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="animate-enter text-center lg:text-left">
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-['Playfair_Display'] mb-8 leading-tight">
-                                A Confidential, <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Court-Respected</span> Approach to Resolving Disputes
+                                A Confidential, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Court-Respected</span> Approach to Resolving Disputes
                             </h1>
 
                             <p className="text-xl text-slate-400 mb-8 leading-relaxed">
@@ -209,7 +209,7 @@ const MediationServices = () => {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                 <a
                                     href="tel:+12025482999"
-                                    className="btn-glow inline-flex items-center gap-3 px-8 py-4 bg-amber-500 text-white rounded-full font-bold text-lg hover:bg-amber-600 justify-center"
+                                    className="btn-glow inline-flex items-center gap-3 px-8 py-4 bg-[#c4a052] text-white rounded-full font-bold text-lg hover:bg-[#a88c3d] justify-center"
                                 >
                                     <Phone size={20} />
                                     <span>(202) 548-2999</span>
@@ -231,7 +231,7 @@ const MediationServices = () => {
                                 <div className="absolute bottom-6 left-6 right-6">
                                     <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
                                         <div className="flex items-center gap-4 mb-3">
-                                            <div className="p-3 bg-amber-500 rounded-full text-white">
+                                            <div className="p-3 bg-[#c4a052] rounded-full text-white">
                                                 <Users size={24} />
                                             </div>
                                             <div>
@@ -276,7 +276,7 @@ const MediationServices = () => {
                                     <div className="grid sm:grid-cols-2 gap-4">
                                         {service.benefits.map((benefit, i) => (
                                             <div key={i} className="flex items-start gap-3">
-                                                <CheckCircle size={20} className="text-amber-500 flex-shrink-0 mt-1" />
+                                                <CheckCircle size={20} className="text-[#c4a052] flex-shrink-0 mt-1" />
                                                 <span className="text-slate-600 font-medium">{benefit}</span>
                                             </div>
                                         ))}
@@ -284,7 +284,7 @@ const MediationServices = () => {
 
                                     <Link
                                         to="/contact"
-                                        className="inline-flex items-center gap-2 text-amber-600 font-bold hover:gap-4 transition-all duration-300 group"
+                                        className="inline-flex items-center gap-2 text-[#a88c3d] font-bold hover:gap-4 transition-all duration-300 group"
                                     >
                                         <span>Start Your Mediation</span>
                                         <ArrowRight size={18} />
@@ -319,17 +319,17 @@ const MediationServices = () => {
             {/* Process Steps Section */}
             <section className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-30 pointer-events-none">
-                    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+                    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c4a052]/50 to-transparent"></div>
                     <div className="blob blob-gold w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10"></div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-20">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 rounded-full mb-6 border border-amber-100">
-                            <span className="text-amber-600 font-bold text-sm tracking-wide uppercase">The Process</span>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c4a052]/10 rounded-full mb-6 border border-[#c4a052]/30">
+                            <span className="text-[#a88c3d] font-bold text-sm tracking-wide uppercase">The Process</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                            Seven Steps to <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">Resolution</span>
+                            Seven Steps to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Resolution</span>
                         </h2>
                         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                             Our structured approach ensures a clear path forward, keeping you informed and empowered at every stage.
@@ -349,9 +349,9 @@ const MediationServices = () => {
 
                                     {/* Center Icon */}
                                     <div className="relative z-10 flex-shrink-0">
-                                        <div className="w-16 h-16 rounded-full bg-white border-4 border-amber-50 shadow-xl flex items-center justify-center relative group">
-                                            <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                            <step.icon className="w-7 h-7 text-amber-500 relative z-10 group-hover:text-white transition-colors duration-300" />
+                                        <div className="w-16 h-16 rounded-full bg-white border-4 border-[#c4a052]/20 shadow-xl flex items-center justify-center relative group">
+                                            <div className="absolute inset-0 bg-gradient-to-br from-[#c4a052] to-[#a88c3d] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                            <step.icon className="w-7 h-7 text-[#c4a052] relative z-10 group-hover:text-white transition-colors duration-300" />
                                             <div className="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white z-20">
                                                 {index + 1}
                                             </div>
@@ -361,7 +361,7 @@ const MediationServices = () => {
                                     {/* Content Card */}
                                     <div className="flex-1 w-full lg:w-auto">
                                         <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:shadow-xl transition-all duration-300 relative group overflow-hidden">
-                                            <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-amber-400 to-amber-600"></div>
+                                            <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-[#c4a052] to-[#a88c3d]"></div>
                                             <h3 className="text-2xl font-bold text-slate-900 mb-4 font-['Playfair_Display']">
                                                 {step.title}
                                             </h3>
@@ -385,7 +385,7 @@ const MediationServices = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="order-2 lg:order-1 relative group">
-                            <div className="absolute -inset-4 bg-amber-500/20 rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+                            <div className="absolute -inset-4 bg-[#c4a052]/20 rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
                             <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
                                 <img src={justiceStatue} alt="Lady Justice" className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60"></div>
@@ -393,11 +393,11 @@ const MediationServices = () => {
                         </div>
 
                         <div className="order-1 lg:order-2">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 rounded-full mb-6 border border-amber-500/20">
-                                <span className="text-amber-400 font-bold text-sm tracking-wide uppercase">Benefits</span>
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c4a052]/10 rounded-full mb-6 border border-[#c4a052]/20">
+                                <span className="text-[#c4a052] font-bold text-sm tracking-wide uppercase">Benefits</span>
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-8">
-                                Why Mediation <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Works</span>
+                                Why Mediation <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Works</span>
                             </h2>
                             <p className="text-slate-400 text-lg mb-12">
                                 Mediation offers a constructive path forward, allowing all parties to find common ground without the adversity of a courtroom.
@@ -409,7 +409,7 @@ const MediationServices = () => {
                                         key={index}
                                         className="glass-dark rounded-xl p-6 hover:-translate-y-1 transition-transform duration-300 group flex items-start gap-5"
                                     >
-                                        <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-[#c4a052] to-[#a88c3d] rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                                             <item.icon size={24} className="text-white" />
                                         </div>
                                         <div>
@@ -430,7 +430,7 @@ const MediationServices = () => {
             <section className="py-24 bg-white">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        Ready for <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">Resolution?</span>
+                        Ready for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Resolution?</span>
                     </h2>
                     <div className="flex justify-center gap-6">
                         <Link
@@ -447,3 +447,5 @@ const MediationServices = () => {
 };
 
 export default MediationServices;
+
+

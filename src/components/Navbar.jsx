@@ -28,7 +28,6 @@ const Navbar = () => {
         { name: 'Divorce & Family Law', path: '/divorce-family-law' },
         { name: 'Coaching', path: '/coaching' },
         { name: 'Business Services', path: '/business-services' },
-        { name: 'Meet The Attorneys', path: '/meet-attorneys' },
         { name: 'Blog', path: '/blog' },
         { name: 'Contact Us', path: '/contact' },
     ];
@@ -36,17 +35,17 @@ const Navbar = () => {
     return (
         <>
             {/* Scroll Progress Bar */}
-            <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-amber-400 to-amber-600 z-[100] transition-all duration-100" style={{ width: `${scrollProgress * 100}%` }}></div>
+            <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#c4a052] to-[#a88c3d] z-[100] transition-all duration-100" style={{ width: `${scrollProgress * 100}%` }}></div>
 
             {/* Top Bar - Hidden on scroll for cleaner look */}
             <div className={`bg-[#0f172a] text-white py-2 px-4 hidden md:block transition-all duration-300 ${isScrolled ? '-translate-y-full absolute opacity-0' : 'relative opacity-100'}`}>
                 <div className="max-w-7xl mx-auto flex justify-between items-center text-xs tracking-widest font-medium uppercase">
                     <div className="flex items-center gap-6">
                         <span className="flex items-center gap-2">
-                            <span className="text-amber-400">Washington, DC</span> (202) 548-2999
+                            <span className="text-[#c4a052]">Washington, DC</span> (202) 548-2999
                         </span>
                     </div>
-                    <div className="flex items-center gap-2 hover:text-amber-400 transition-colors cursor-pointer">
+                    <div className="flex items-center gap-2 hover:text-[#c4a052] transition-colors cursor-pointer">
                         <span>lawfirm@pjoutlawlegal.com</span>
                     </div>
                 </div>
@@ -88,14 +87,14 @@ const Navbar = () => {
 
                         {/* Right Side Actions */}
                         <div className="hidden md:flex items-center gap-3">
-                            <Link to="/contact" className="hidden xl:block font-medium text-slate-600 hover:text-amber-600 transition-colors text-sm">
+                            <Link to="/contact" className="hidden xl:block font-medium text-slate-600 hover:text-[#a88c3d] transition-colors text-sm">
                                 Contact
                             </Link>
                             <a
                                 href="tel:+12025482999"
                                 className="btn-glow flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white rounded-full font-bold text-sm shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                             >
-                                <Phone size={16} className="text-amber-400" />
+                                <Phone size={16} className="text-[#c4a052]" />
                                 <span>Consultation</span>
                             </a>
                         </div>
@@ -143,7 +142,7 @@ const Navbar = () => {
                         <div className="mt-8 pt-8 border-t border-white/10">
                             <a
                                 href="tel:+12025482999"
-                                className="flex items-center justify-center gap-2 w-full py-4 bg-gradient-to-r from-amber-400 to-amber-600 text-[#0f172a] rounded-xl font-bold text-lg"
+                                className="flex items-center justify-center gap-2 w-full py-4 bg-gradient-to-r from-[#c4a052] to-[#a88c3d] text-[#0f172a] rounded-xl font-bold text-lg"
                             >
                                 <Phone size={20} />
                                 <span>(202) 548-2999</span>
@@ -160,3 +159,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

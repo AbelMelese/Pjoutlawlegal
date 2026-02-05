@@ -39,12 +39,6 @@ const Home = () => {
             color: 'from-blue-500 to-blue-600',
         },
         {
-            icon: Heart,
-            title: 'Elder Care Mediation',
-            description: 'Resolve family disputes about aging parents with compassion and understanding.',
-            color: 'from-rose-500 to-rose-600',
-        },
-        {
             icon: Users,
             title: 'Family Mediation',
             description: 'Heal family rifts and rebuild relationships through guided communication.',
@@ -54,7 +48,13 @@ const Home = () => {
             icon: Briefcase,
             title: 'Business Mediation',
             description: 'Resolve workplace disputes without costly litigation or damaged relationships.',
-            color: 'from-amber-500 to-amber-600',
+            color: 'from-[#c4a052] to-[#a88c3d]',
+        },
+        {
+            icon: Heart,
+            title: 'Coaching Services',
+            description: 'Strategic guidance for families, divorcing couples, and business professionals.',
+            color: 'from-rose-500 to-rose-600',
         },
     ];
 
@@ -83,7 +83,7 @@ const Home = () => {
         { value: '30+', label: 'Years Experience' },
         { value: '500+', label: 'Cases Resolved' },
         { value: '98%', label: 'Client Satisfaction' },
-        { value: '2', label: 'Office Locations' },
+        { value: '24hr', label: 'Response Time' },
     ];
 
     useEffect(() => {
@@ -109,15 +109,15 @@ const Home = () => {
                         {/* Left Content */}
                         <div className={`space-y-6 md:space-y-8 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                             <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-white/50 backdrop-blur-md border border-white/60 rounded-full shadow-sm animate-float">
-                                <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+                                <span className="w-2 h-2 bg-[#c4a052] rounded-full animate-pulse"></span>
                                 <span className="text-slate-600 text-xs md:text-sm font-semibold tracking-wide uppercase">Now Serving Nationwide</span>
                             </div>
 
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 font-['Playfair_Display'] leading-[1.1]">
                                 From Conflict to
-                                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600 relative">
+                                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d] relative">
                                     Clarity
-                                    <svg className="absolute w-full h-2 md:h-3 -bottom-1 left-0 text-amber-500 opacity-30" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                    <svg className="absolute w-full h-2 md:h-3 -bottom-1 left-0 text-[#c4a052] opacity-30" viewBox="0 0 100 10" preserveAspectRatio="none">
                                         <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
                                     </svg>
                                 </span>
@@ -139,7 +139,7 @@ const Home = () => {
                                     </div>
                                 </Link>
                                 <div className="flex items-center gap-4 px-4 py-2 md:px-6 md:py-4">
-                                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-amber-500 animate-pulse">
+                                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#c4a052] animate-pulse">
                                         <Phone size={20} />
                                     </div>
                                     <div className="text-left">
@@ -159,7 +159,7 @@ const Home = () => {
                                     ))}
                                 </div>
                                 <div>
-                                    <div className="flex text-amber-400">
+                                    <div className="flex text-[#c4a052]">
                                         {[1, 2, 3, 4, 5].map(s => <Star key={s} size={14} fill="currentColor" />)}
                                     </div>
                                     <p className="text-sm text-slate-500 font-medium">500+ Successful Resolutions</p>
@@ -185,7 +185,7 @@ const Home = () => {
 
                                 {/* Floating Card */}
                                 <div className="absolute top-10 right-0 md:-right-10 bg-white p-4 md:p-6 rounded-2xl shadow-xl animate-float z-20 max-w-[180px] md:max-w-[200px] border border-slate-100">
-                                    <div className="w-8 h-8 md:w-10 md:h-10 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 mb-3">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 bg-[#c4a052]/20 rounded-full flex items-center justify-center text-[#a88c3d] mb-3">
                                         <Scale size={20} />
                                     </div>
                                     <p className="text-slate-900 font-bold mb-1 text-sm md:text-base">98% Success Rate</p>
@@ -209,7 +209,7 @@ const Home = () => {
                         {stats.map((stat, i) => (
                             <div key={i} className="text-center group hover:-translate-y-2 transition-transform duration-300">
                                 <p className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 mb-2 font-['Outfit']">{stat.value}</p>
-                                <p className="text-amber-500 text-sm font-bold tracking-widest uppercase">{stat.label}</p>
+                                <p className="text-[#c4a052] text-sm font-bold tracking-widest uppercase">{stat.label}</p>
                             </div>
                         ))}
                     </div>
@@ -222,7 +222,7 @@ const Home = () => {
                     <div className="text-center mb-12 md:mb-20">
                         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-4 md:mb-6">
                             Mediation & Coaching<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">Built Around You</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Built Around You</span>
                         </h2>
                     </div>
 
@@ -238,9 +238,9 @@ const Home = () => {
                                 <h3 className="text-2xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">{service.title}</h3>
                                 <p className="text-slate-500 leading-relaxed mb-8">{service.description}</p>
 
-                                <div className="flex items-center gap-2 text-slate-900 font-bold group-hover:text-amber-600 transition-colors">
+                                <div className="flex items-center gap-2 text-slate-900 font-bold group-hover:text-[#a88c3d] transition-colors">
                                     <span className="text-sm uppercase tracking-wider">Learn More</span>
-                                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+                                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-[#c4a052]/20 transition-colors">
                                         <ArrowRight size={14} />
                                     </div>
                                 </div>
@@ -261,7 +261,7 @@ const Home = () => {
                         <div>
                             <h2 className="text-4xl md:text-6xl font-bold text-white font-['Playfair_Display'] mb-8">
                                 A Process That <br />
-                                <span className="text-amber-400">Works For You</span>
+                                <span className="text-[#c4a052]">Works For You</span>
                             </h2>
                             <p className="text-xl text-slate-400 mb-12 leading-relaxed">
                                 Whether you are navigating a divorce, resolving a family dispute, or facing conflict at work, our proven process is designed to create momentum.
@@ -274,7 +274,7 @@ const Home = () => {
                                     { title: "Move Forward", desc: "Resolve conflict with confidence and peace.", icon: CheckCircle },
                                 ].map((step, i) => (
                                     <div key={i} className="flex items-start gap-6 group">
-                                        <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-amber-400 group-hover:bg-amber-400 group-hover:text-slate-900 transition-all duration-300 shadow-lg">
+                                        <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#c4a052] group-hover:bg-[#c4a052] group-hover:text-slate-900 transition-all duration-300 shadow-lg">
                                             <step.icon size={28} />
                                         </div>
                                         <div>
@@ -287,7 +287,7 @@ const Home = () => {
                         </div>
 
                         <div className="relative">
-                            <div className="absolute -inset-4 bg-gradient-to-r from-amber-400 to-amber-600 rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
+                            <div className="absolute -inset-4 bg-gradient-to-r from-[#c4a052] to-[#a88c3d] rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
                             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10">
                                 <img
                                     src={lawBooks}
@@ -310,7 +310,7 @@ const Home = () => {
             {/* Testimonials */}
             <section className="py-20 md:py-32 bg-slate-50 relative">
                 <div className="max-w-5xl mx-auto px-4 text-center">
-                    <Award size={48} className="text-amber-500 mx-auto mb-8 animate-bounce" />
+                    <Award size={48} className="text-[#c4a052] mx-auto mb-8 animate-bounce" />
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-12 md:mb-16">Stories of Resolution</h2>
 
                     <div className="relative h-[300px]">
@@ -326,7 +326,7 @@ const Home = () => {
                                     </div>
                                     <div className="text-left">
                                         <p className="font-bold text-slate-900">{t.author}</p>
-                                        <p className="text-amber-600 text-sm font-semibold uppercase">{t.role}</p>
+                                        <p className="text-[#a88c3d] text-sm font-semibold uppercase">{t.role}</p>
                                     </div>
                                 </div>
                             </div>
@@ -338,7 +338,7 @@ const Home = () => {
                             <button
                                 key={i}
                                 onClick={() => setActiveTestimonial(i)}
-                                className={`transition-all duration-300 rounded-full ${i === activeTestimonial ? 'w-12 h-3 bg-amber-500' : 'w-3 h-3 bg-slate-300'}`}
+                                className={`transition-all duration-300 rounded-full ${i === activeTestimonial ? 'w-12 h-3 bg-[#c4a052]' : 'w-3 h-3 bg-slate-300'}`}
                             />
                         ))}
                     </div>
@@ -355,13 +355,13 @@ const Home = () => {
 
                 <div className="relative z-10 text-center max-w-4xl px-4">
                     <h2 className="text-4xl md:text-7xl font-bold text-white font-['Playfair_Display'] mb-6 md:mb-8">
-                        Let's Start a <span className="text-amber-400">Conversation</span>
+                        Let's Start a <span className="text-[#c4a052]">Conversation</span>
                     </h2>
                     <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
                         You don't have to figure it out alone. We are here to help you move forward.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                        <Link to="/contact" className="btn-glow px-10 py-5 bg-amber-500 text-white rounded-full font-bold text-xl shadow-lg hover:bg-amber-400">
+                        <Link to="/contact" className="btn-glow px-10 py-5 bg-[#c4a052] text-white rounded-full font-bold text-xl shadow-lg hover:bg-[#c4a052]">
                             Book Consultation
                         </Link>
                     </div>
@@ -372,3 +372,5 @@ const Home = () => {
 };
 
 export default Home;
+
+

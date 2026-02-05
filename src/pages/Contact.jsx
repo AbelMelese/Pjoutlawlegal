@@ -45,16 +45,16 @@ const Contact = () => {
             {/* Hero Section */}
             <section className="relative py-32 bg-[#0f172a] overflow-hidden">
                 <div className="absolute inset-0">
-                    <div className="blob bg-amber-500/20 w-[600px] h-[600px] top-[-100px] right-[-100px] rounded-full blur-3xl"></div>
+                    <div className="blob bg-[#c4a052]/20 w-[600px] h-[600px] top-[-100px] right-[-100px] rounded-full blur-3xl"></div>
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-enter">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-8 border border-white/10 backdrop-blur-md">
-                        <Mail size={18} className="text-amber-400" />
+                        <Mail size={18} className="text-[#c4a052]" />
                         <span className="text-white font-medium text-sm tracking-wide uppercase">Get In Touch</span>
                     </div>
                     <h1 className="text-5xl md:text-7xl font-bold text-white font-['Playfair_Display'] mb-8">
-                        Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Us</span>
+                        Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Us</span>
                     </h1>
                     <p className="text-xl text-slate-400 max-w-2xl mx-auto">
                         Let's start with a conversation. We will respond within one business day.
@@ -81,10 +81,10 @@ const Contact = () => {
                                     {[
                                         { icon: Phone, title: 'Phone', value: '(202) 548-2999', href: 'tel:+12025482999', color: 'text-slate-900' },
                                         { icon: Phone, title: 'Fax', value: '(202) 548-8114', href: 'tel:+12025488114', color: 'text-slate-900' },
-                                        { icon: Mail, title: 'Email', value: 'lawfirm@pjoutlawlegal.com', href: 'mailto:lawfirm@pjoutlawlegal.com', color: 'text-amber-600' }
+                                        { icon: Mail, title: 'Email', value: 'lawfirm@pjoutlawlegal.com', href: 'mailto:lawfirm@pjoutlawlegal.com', color: 'text-[#a88c3d]' }
                                     ].map((item, i) => (
                                         <a key={i} href={item.href} className="flex items-center gap-6 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all group">
-                                            <div className="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center group-hover:bg-amber-500 transition-colors">
+                                            <div className="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center group-hover:bg-[#c4a052] transition-colors">
                                                 <item.icon size={24} className="text-slate-400 group-hover:text-white transition-colors" />
                                             </div>
                                             <div>
@@ -99,7 +99,7 @@ const Contact = () => {
                             <div className="bg-slate-900 rounded-[2rem] p-8 text-white relative overflow-hidden">
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
                                 <div className="relative z-10 flex gap-4 items-start">
-                                    <MapPin size={24} className="text-amber-400 mt-1 flex-shrink-0" />
+                                    <MapPin size={24} className="text-[#c4a052] mt-1 flex-shrink-0" />
                                     <div>
                                         <h4 className="font-bold text-lg mb-2">Office Location</h4>
                                         <p className="text-slate-400 leading-relaxed">
@@ -117,7 +117,7 @@ const Contact = () => {
                         {/* Contact Form */}
                         <div className="order-1 lg:order-2">
                             <div className="bg-white rounded-[2.5rem] p-10 shadow-2xl border border-slate-100 relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl"></div>
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-[#c4a052]/10 rounded-full blur-3xl"></div>
 
                                 <h2 className="text-3xl font-bold text-slate-900 font-['Playfair_Display'] mb-2 relative z-10">
                                     Send Us a Message
@@ -132,7 +132,7 @@ const Contact = () => {
                                             <CheckCircle size={48} className="text-green-600" />
                                         </div>
                                         <h3 className="text-2xl font-bold text-slate-900 mb-2">Message Sent!</h3>
-                                        <button onClick={() => setSubmitted(false)} className="mt-8 text-amber-600 font-bold hover:underline">Send Another</button>
+                                        <button onClick={() => setSubmitted(false)} className="mt-8 text-[#a88c3d] font-bold hover:underline">Send Another</button>
                                     </div>
                                 ) : (
                                     <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
@@ -140,25 +140,25 @@ const Contact = () => {
                                             <div className="space-y-2">
                                                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">First Name</label>
                                                 <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required
-                                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400 focus:bg-white transition-all font-medium" />
+                                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4a052] focus:bg-white transition-all font-medium" />
                                             </div>
                                             <div className="space-y-2">
                                                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Last Name</label>
                                                 <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required
-                                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400 focus:bg-white transition-all font-medium" />
+                                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4a052] focus:bg-white transition-all font-medium" />
                                             </div>
                                         </div>
 
                                         <div className="space-y-2">
                                             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Email Address</label>
                                             <input type="email" name="email" value={formData.email} onChange={handleChange} required
-                                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400 focus:bg-white transition-all font-medium" />
+                                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4a052] focus:bg-white transition-all font-medium" />
                                         </div>
 
                                         <div className="space-y-2">
                                             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Message</label>
                                             <textarea name="message" rows={4} value={formData.message} onChange={handleChange} required
-                                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400 focus:bg-white transition-all font-medium resize-none" ></textarea>
+                                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4a052] focus:bg-white transition-all font-medium resize-none" ></textarea>
                                         </div>
 
                                         <div className="pt-4">
@@ -178,3 +178,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+

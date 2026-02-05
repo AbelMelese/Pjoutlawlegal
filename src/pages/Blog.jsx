@@ -131,18 +131,18 @@ const Blog = () => {
             {/* Hero Section */}
             <section className="relative py-20 md:py-32 bg-[#0f172a] overflow-hidden">
                 <div className="absolute inset-0">
-                    <div className="blob bg-amber-500/20 w-[600px] h-[600px] top-[-100px] right-[-100px] rounded-full blur-3xl"></div>
+                    <div className="blob bg-[#c4a052]/20 w-[600px] h-[600px] top-[-100px] right-[-100px] rounded-full blur-3xl"></div>
                     <div className="blob bg-blue-500/20 w-[500px] h-[500px] bottom-[-100px] left-[-100px] rounded-full blur-3xl"></div>
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-enter">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-8 backdrop-blur-md border border-white/10">
-                        <BookOpen size={18} className="text-amber-400" />
+                        <BookOpen size={18} className="text-[#c4a052]" />
                         <span className="text-white font-medium text-sm tracking-wide uppercase">Insights & Resources</span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold text-white font-['Playfair_Display'] mb-8">
-                        Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Blog</span>
+                        Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Blog</span>
                     </h1>
 
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto mb-12">
@@ -159,7 +159,7 @@ const Blog = () => {
                                 placeholder="Search articles..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-12 pr-4 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent backdrop-blur-md"
+                                className="w-full pl-12 pr-4 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#c4a052] focus:border-transparent backdrop-blur-md"
                             />
                         </div>
                     </div>
@@ -191,13 +191,13 @@ const Blog = () => {
                 <section className="py-16 md:py-20">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center gap-2 mb-8">
-                            <TrendingUp size={20} className="text-amber-500" />
+                            <TrendingUp size={20} className="text-[#c4a052]" />
                             <span className="text-sm font-bold text-slate-900 uppercase tracking-wider">Featured Article</span>
                         </div>
 
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div className="relative group">
-                                <div className="absolute -inset-4 bg-gradient-to-r from-amber-400 to-amber-600 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
+                                <div className="absolute -inset-4 bg-gradient-to-r from-[#c4a052] to-[#a88c3d] rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
                                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
                                     <img
                                         src={featuredPost.image}
@@ -209,7 +209,7 @@ const Blog = () => {
 
                             <div className="space-y-6">
                                 <div className="flex items-center gap-4">
-                                    <span className="px-4 py-1.5 bg-amber-100 text-amber-700 rounded-full text-sm font-bold">
+                                    <span className="px-4 py-1.5 bg-[#c4a052]/20 text-[#a88c3d] rounded-full text-sm font-bold">
                                         {featuredPost.category}
                                     </span>
                                     <span className="text-slate-400 text-sm flex items-center gap-1">
@@ -301,7 +301,7 @@ const Blog = () => {
                                             </span>
                                         </div>
 
-                                        <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3 group-hover:text-amber-600 transition-colors line-clamp-2">
+                                        <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3 group-hover:text-[#a88c3d] transition-colors line-clamp-2">
                                             {post.title}
                                         </h3>
 
@@ -319,7 +319,7 @@ const Blog = () => {
 
                                             <Link
                                                 to={`/blog/${post.id}`}
-                                                className="flex items-center gap-1 text-amber-600 font-bold text-sm group-hover:gap-2 transition-all"
+                                                className="flex items-center gap-1 text-[#a88c3d] font-bold text-sm group-hover:gap-2 transition-all"
                                             >
                                                 Read More
                                                 <ArrowRight size={14} />
@@ -345,12 +345,12 @@ const Blog = () => {
             {/* Newsletter CTA */}
             <section className="py-20 bg-[#0f172a] relative overflow-hidden">
                 <div className="absolute inset-0">
-                    <div className="blob bg-amber-500/10 w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
+                    <div className="blob bg-[#c4a052]/10 w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
                 </div>
 
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
                     <h2 className="text-4xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-6">
-                        Stay <span className="text-amber-400">Informed</span>
+                        Stay <span className="text-[#c4a052]">Informed</span>
                     </h2>
                     <p className="text-xl text-slate-400 mb-10">
                         Subscribe to our newsletter for the latest insights on mediation, family law, and conflict resolution.
@@ -360,9 +360,9 @@ const Blog = () => {
                         <input
                             type="email"
                             placeholder="Enter your email"
-                            className="flex-1 px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                            className="flex-1 px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#c4a052]"
                         />
-                        <button className="btn-glow px-8 py-4 bg-amber-500 text-white rounded-full font-bold hover:bg-amber-400 transition-colors">
+                        <button className="btn-glow px-8 py-4 bg-[#c4a052] text-white rounded-full font-bold hover:bg-[#c4a052] transition-colors">
                             Subscribe
                         </button>
                     </div>
@@ -373,3 +373,5 @@ const Blog = () => {
 };
 
 export default Blog;
+
+

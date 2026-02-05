@@ -65,18 +65,18 @@ const MeetAttorneys = () => {
             {/* Hero Section */}
             <section className="relative py-32 bg-[#0f172a] overflow-hidden">
                 <div className="absolute inset-0">
-                    <div className="blob bg-amber-500/20 w-[600px] h-[600px] top-[-100px] right-[-100px] rounded-full blur-3xl"></div>
+                    <div className="blob bg-[#c4a052]/20 w-[600px] h-[600px] top-[-100px] right-[-100px] rounded-full blur-3xl"></div>
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-enter">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-8 backdrop-blur-md border border-white/10">
-                        <Users size={18} className="text-amber-400" />
+                        <Users size={18} className="text-[#c4a052]" />
                         <span className="text-white font-medium text-sm tracking-wide uppercase">Meet The Team</span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-bold text-white font-['Playfair_Display'] mb-8">
                         Experienced Attorneys & <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Mediators</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Mediators</span>
                     </h1>
 
                     <p className="text-xl text-slate-400 max-w-3xl mx-auto mb-12">
@@ -93,7 +93,7 @@ const MeetAttorneys = () => {
                         <div key={index} className={`flex flex-col gap-16 items-start ${index === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
                             {/* Photo Side */}
                             <div className="w-full lg:w-5/12 relative">
-                                <div className="absolute -inset-4 bg-gradient-to-tr from-amber-500/30 to-blue-500/30 rounded-[2.5rem] rotate-2 blur-xl"></div>
+                                <div className="absolute -inset-4 bg-gradient-to-tr from-[#c4a052]/30 to-blue-500/30 rounded-[2.5rem] rotate-2 blur-xl"></div>
                                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
                                     <img src={person.image} alt={person.name} className="w-full object-cover aspect-[3/4] hover:scale-105 transition-transform duration-700" />
 
@@ -112,7 +112,7 @@ const MeetAttorneys = () => {
                                 <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-2">
                                     {person.name}
                                 </h2>
-                                <p className="text-xl text-amber-600 font-medium mb-8 font-serif italic">{person.role}</p>
+                                <p className="text-xl text-[#a88c3d] font-medium mb-8 font-serif italic">{person.role}</p>
 
                                 <div className="space-y-6 text-lg text-slate-600 leading-relaxed mb-10">
                                     {person.bio.map((p, i) => <p key={i}>{p}</p>)}
@@ -120,7 +120,7 @@ const MeetAttorneys = () => {
 
                                 <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
                                     <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-                                        <BadgeCheck size={24} className="text-amber-500" />
+                                        <BadgeCheck size={24} className="text-[#c4a052]" />
                                         Credentials & Admissions
                                     </h3>
                                     <div className="grid sm:grid-cols-2 gap-4">
@@ -142,7 +142,7 @@ const MeetAttorneys = () => {
             <section className="py-24 bg-white border-t border-slate-100">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        One Conversation Can Change <span className="text-amber-500">Everything</span>
+                        One Conversation Can Change <span className="text-[#c4a052]">Everything</span>
                     </h2>
                     <Link
                         to="/contact"
@@ -157,3 +157,5 @@ const MeetAttorneys = () => {
 };
 
 export default MeetAttorneys;
+
+
