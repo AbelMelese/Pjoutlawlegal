@@ -20,10 +20,10 @@ import {
     Plane,
     Quote
 } from 'lucide-react';
-import laborLawImg from '../assets/labor_law.png';
-import realEstateImg from '../assets/real_estate.png';
-import personalInjuryImg from '../assets/personal_injury.png';
-import immigrationImg from '../assets/immigration.png';
+const laborLawImg = "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800";
+const realEstateImg = "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800";
+const personalInjuryImg = "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800";
+const immigrationImg = "https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?auto=format&fit=crop&q=80&w=800";
 
 const BusinessServices = () => {
     const businessAdvising = {

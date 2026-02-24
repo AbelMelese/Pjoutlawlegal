@@ -16,10 +16,11 @@ import {
     Presentation
 } from 'lucide-react';
 import phyllisImage from '../assets/phyllis_outlaw.png';
-import workshopMeeting from '../assets/workshop_meeting.jpg';
-import familyCoachingImg from '../assets/family_coaching.png';
-import divorceCoachingImg from '../assets/divorce_coaching.png';
-import businessCoachingImg from '../assets/business_coaching.png';
+
+const workshopMeeting = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600";
+const familyCoachingImg = "https://images.unsplash.com/photo-1493804714600-6edb1cd93080?auto=format&fit=crop&q=80&w=800";
+const divorceCoachingImg = "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=800";
+const businessCoachingImg = "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800";
 
 const Coaching = () => {
     const coachingServices = [

@@ -21,12 +21,8 @@ import {
     Building
 } from 'lucide-react';
 import justiceStatue from '../assets/mediation_justice_statue.jpg';
-import mediationMeeting from '../assets/mediation_meeting.png';
-import familyMediationImg from '../assets/family_mediation.png';
-import businessMediationImg from '../assets/business_mediation.png';
-import civilMediationImg from '../assets/civil_mediation.png';
-import courtMediationImg from '../assets/court_mediation.png';
-import childCustodyImg from '../assets/child_custody.png';
+
+
 
 const MediationServices = () => {
     const services = [
@@ -45,7 +41,6 @@ const MediationServices = () => {
             ],
             color: 'from-blue-500 to-blue-600',
             bgColor: 'bg-blue-50/50',
-            image: familyMediationImg
         },
         {
             id: 'business',
@@ -62,7 +57,6 @@ const MediationServices = () => {
             ],
             color: 'from-[#c4a052] to-[#a88c3d]',
             bgColor: 'bg-[#c4a052]/10/50',
-            image: businessMediationImg
         },
         {
             id: 'civil',
@@ -78,7 +72,6 @@ const MediationServices = () => {
             ],
             color: 'from-emerald-500 to-emerald-600',
             bgColor: 'bg-emerald-50/50',
-            image: civilMediationImg
         },
         {
             id: 'court',
@@ -95,7 +88,6 @@ const MediationServices = () => {
             ],
             color: 'from-purple-500 to-purple-600',
             bgColor: 'bg-purple-50/50',
-            image: courtMediationImg
         },
         {
             id: 'custody',
@@ -112,7 +104,6 @@ const MediationServices = () => {
             ],
             color: 'from-rose-500 to-rose-600',
             bgColor: 'bg-rose-50/50',
-            image: childCustodyImg
         },
     ];
 
@@ -184,8 +175,7 @@ const MediationServices = () => {
             {/* Hero Section */}
             <section className="relative py-20 lg:py-32 bg-[#0f172a] overflow-hidden">
                 <div className="absolute inset-0">
-                    <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
-                        <img src={mediationMeeting} alt="Mediation Meeting" className="w-full h-full object-cover mix-blend-overlay" />
+                    <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 bg-gradient-to-bl from-slate-400 to-transparent mix-blend-overlay">
                     </div>
                     <div className="blob blob-gold w-[600px] h-[600px] top-[-100px] right-[-100px] opacity-20"></div>
                     <div className="blob blob-blue w-[500px] h-[500px] bottom-[-100px] left-[-100px] opacity-20"></div>
@@ -225,9 +215,8 @@ const MediationServices = () => {
                         </div>
 
                         <div className="relative hidden lg:block animate-enter delay-200">
-                            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] to-transparent opacity-60"></div>
-                                <img src={mediationMeeting} alt="Confidential Mediation" className="w-full h-auto" />
+                            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 h-[400px] bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
+                                <Scale size={160} className="text-white opacity-5" />
                                 <div className="absolute bottom-6 left-6 right-6">
                                     <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
                                         <div className="flex items-center gap-4 mb-3">
@@ -295,12 +284,9 @@ const MediationServices = () => {
                                 <div className="flex-1 w-full">
                                     <div className="relative group">
                                         <div className={`absolute -inset-4 bg-gradient-to-br ${service.color.replace('from', 'from-').replace('to', 'to-')} opacity-30 rounded-[2.5rem] blur-2xl group-hover:opacity-50 transition-opacity duration-500`}></div>
-                                        <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100">
-                                            <img
-                                                src={service.image}
-                                                alt={service.title}
-                                                className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700"
-                                            />
+                                        <div className={`relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 flex items-center justify-center h-[400px] bg-gradient-to-br ${service.color}`}>
+                                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+                                            <service.icon size={160} className="text-white opacity-20 transform group-hover:scale-110 transition-transform duration-700" />
                                             <div className="absolute bottom-6 right-6 p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/50">
                                                 <div className="flex items-center gap-2">
                                                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
@@ -386,9 +372,9 @@ const MediationServices = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="order-2 lg:order-1 relative group">
                             <div className="absolute -inset-4 bg-[#c4a052]/20 rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-                            <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
-                                <img src={justiceStatue} alt="Lady Justice" className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60"></div>
+                            <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl h-[600px] bg-gradient-to-br from-[#1e293b] to-[#0f172a] flex items-center justify-center">
+                                <Shield size={200} className="text-white opacity-5 transform group-hover:scale-110 transition-transform duration-700" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-80"></div>
                             </div>
                         </div>
 

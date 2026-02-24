@@ -12,7 +12,8 @@ import {
     Users
 } from 'lucide-react';
 import attorneyPortrait from '../assets/attorney_portrait.png';
-import attorneysReading from '../assets/attorneys_reading.jpg';
+
+const attorneysReading = "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&q=80&w=800";
 
 const MeetAttorneys = () => {
     const attorneys = [
