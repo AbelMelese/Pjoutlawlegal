@@ -17,13 +17,12 @@ import {
     ScrollText,
     Landmark,
     Stethoscope,
-    Plane,
     Quote
 } from 'lucide-react';
 const laborLawImg = "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800";
 const realEstateImg = "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800";
 const personalInjuryImg = "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800";
-const immigrationImg = "https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?auto=format&fit=crop&q=80&w=800";
+
 
 const BusinessServices = () => {
     const businessAdvising = {
@@ -95,14 +94,6 @@ const BusinessServices = () => {
             highlight: 'Our firm won a substantial award against a construction company for a pedestrian who was injured when a truck ran over his foot at a construction site. In some instances, the cases involved multiple corporations regarding general liability issues that often arise in construction projects.',
             image: personalInjuryImg,
             icon: Stethoscope
-        },
-        {
-            title: 'U.S. Immigration',
-            subtitle: 'Nationality Law',
-            description: 'The attorneys in our firm have over twenty years experience in representing clients in deportation proceedings in Baltimore, Maryland and Arlington, Virginia Courts. We have also represented clients on appeal before the Board of Immigration Appeals.',
-            highlight: 'Our attorneys have successfully represented clients in family immigration petitions and visas. We have represented hundreds of clients who are now US citizens as a result of our legal representation.',
-            image: immigrationImg,
-            icon: Plane
         }
     ];
 

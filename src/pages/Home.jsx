@@ -149,10 +149,7 @@ const Home = () => {
                     <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
                         {/* Left Content */}
                         <div className={`space-y-6 md:space-y-8 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                            <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-white/50 backdrop-blur-md border border-white/60 rounded-full shadow-sm animate-float">
-                                <span className="w-2 h-2 bg-[#c4a052] rounded-full animate-pulse"></span>
-                                <span className="text-slate-600 text-xs md:text-sm font-semibold tracking-wide uppercase">Now Serving Nationwide</span>
-                            </div>
+
 
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 font-['Playfair_Display'] leading-[1.1]">
                                 From Conflict to
@@ -324,7 +321,7 @@ const Home = () => {
 
                             <div className="space-y-8">
                                 {[
-                                    { title: "Book Consultation", desc: "No obligation, 15-minute free chat.", icon: Calendar },
+                                    { title: "Book Consultation", desc: "Schedule your consultation.", icon: Calendar },
                                     { title: "Get Clarity", desc: "We structure a plan tailored to your needs.", icon: Target },
                                     { title: "Move Forward", desc: "Resolve conflict with confidence and peace.", icon: CheckCircle },
                                 ].map((step, i) => (

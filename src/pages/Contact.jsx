@@ -57,7 +57,7 @@ const Contact = () => {
                         Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Us</span>
                     </h1>
                     <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                        Let's start with a conversation. We will respond within one business day.
+                        Let's start with a conversation.
                     </p>
                 </div>
             </section>
@@ -70,11 +70,10 @@ const Contact = () => {
                         <div className="space-y-10 order-2 lg:order-1">
                             <div>
                                 <h2 className="text-3xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
-                                    Prefer to Talk Live?
+                                    Book a Consultation.
                                 </h2>
                                 <p className="text-lg text-slate-500 mb-8">
-                                    We are available Monday–Friday, 9:00 AM – 5:30 PM (Eastern Time).
-                                    Call us today for a free 15-minute consultation.
+                                    Our office hours are Monday to Friday, 9 PM – 5 AM EST.
                                 </p>
 
                                 <div className="space-y-6">
@@ -119,12 +118,7 @@ const Contact = () => {
                             <div className="bg-white rounded-[2.5rem] p-10 shadow-2xl border border-slate-100 relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#c4a052]/10 rounded-full blur-3xl"></div>
 
-                                <h2 className="text-3xl font-bold text-slate-900 font-['Playfair_Display'] mb-2 relative z-10">
-                                    Send Us a Message
-                                </h2>
-                                <p className="text-slate-500 mb-8 relative z-10">
-                                    Complete the form below and we will respond shortly.
-                                </p>
+
 
                                 {submitted ? (
                                     <div className="py-20 text-center animate-enter">
@@ -163,7 +157,7 @@ const Contact = () => {
 
                                         <div className="pt-4">
                                             <button type="submit" disabled={isSubmitting} className="btn-glow w-full py-4 bg-slate-900 text-white rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2">
-                                                {isSubmitting ? <Loader2 className="animate-spin" /> : <> <span>Send Message</span> <Send size={18} /> </>}
+                                                {isSubmitting ? <Loader2 className="animate-spin" /> : <> <span>Submit</span> <Send size={18} /> </>}
                                             </button>
                                         </div>
                                     </form>
