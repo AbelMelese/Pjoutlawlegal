@@ -85,9 +85,6 @@ const Footer = () => {
                                 <p className="text-sm text-white/60">Mediation Service</p>
                             </div>
                         </div>
-                        <p className="text-white/70 mb-6 leading-relaxed">
-                            Our offices are located on Capitol Hill in the commercial district designated as an enterprise hub zone. We are conveniently located near the financial and business districts of the city, as well as to the federal and local courts in the District of Columbia and Maryland.
-                        </p>
                         <div className="flex gap-3">
                             {[Facebook, Linkedin, Twitter, Instagram].map((Icon, index) => (
                                 <a
