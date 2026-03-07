@@ -213,7 +213,7 @@ const BlogPost = () => {
                             Ready to Resolve Your Dispute?
                         </h3>
                         <p className="text-slate-400 mb-8">
-                            Schedule a free consultation with our experienced mediators today.
+                            Schedule a consultation with our experienced mediators today.
                         </p>
                         <Link
                             to="/contact"

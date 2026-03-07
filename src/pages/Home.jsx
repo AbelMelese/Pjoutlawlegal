@@ -170,7 +170,7 @@ const Home = () => {
                                     to="/contact"
                                     className="btn-glow flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-slate-900 text-white rounded-full font-bold text-base md:text-lg shadow-2xl hover:bg-slate-800"
                                 >
-                                    <span>Free Consultation</span>
+                                    <span>Book a Consultation</span>
                                     <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
                                         <ArrowRight size={16} />
                                     </div>

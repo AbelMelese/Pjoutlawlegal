@@ -48,7 +48,7 @@ const Footer = () => {
                                 <span className="text-[#c4a052]">Resolution</span>?
                             </h2>
                             <p className="text-white/70 text-lg max-w-xl">
-                                Schedule your free consultation today and take the first step toward clarity.
+                                Schedule your consultation today and take the first step toward clarity.
                             </p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">
