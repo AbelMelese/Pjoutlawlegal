@@ -16,11 +16,9 @@ import {
     Presentation
 } from 'lucide-react';
 import phyllisImage from '../assets/phyllis_outlaw.png';
-
-const workshopMeeting = "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600";
-const familyCoachingImg = "https://images.unsplash.com/photo-1493804714600-6edb1cd93080?auto=format&fit=crop&q=80&w=800";
-const divorceCoachingImg = "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=800";
-const businessCoachingImg = "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800";
+import seminarsTrainingImg from '../assets/seminars_training.jpg';
+import familyCoachingPhoto from '../assets/family_coaching_photo.jpg';
+import businessCoachingPhoto from '../assets/business_coaching_photo.jpg';
 
 const Coaching = () => {
     const coachingServices = [
@@ -42,7 +40,7 @@ const Coaching = () => {
             bgColor: 'bg-purple-50',
             accent: 'text-purple-600',
             border: 'border-purple-100',
-            image: familyCoachingImg
+            image: familyCoachingPhoto
         },
         {
             id: 'divorce',
@@ -63,7 +61,7 @@ const Coaching = () => {
             bgColor: 'bg-rose-50',
             accent: 'text-rose-600',
             border: 'border-rose-100',
-            image: divorceCoachingImg
+            image: null
         },
         {
             id: 'business',
@@ -84,7 +82,7 @@ const Coaching = () => {
             bgColor: 'bg-[#c4a052]/10',
             accent: 'text-[#a88c3d]',
             border: 'border-[#c4a052]/30',
-            image: businessCoachingImg
+            image: businessCoachingPhoto
         },
     ];
 
@@ -195,11 +193,25 @@ const Coaching = () => {
                                 <div className="flex-1 w-full">
                                     <div className={`relative bg-gradient-to-br ${service.color} rounded-[3rem] p-1 shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700`}>
                                         <div className="rounded-[2.8rem] overflow-hidden">
-                                            <img
-                                                src={service.image}
-                                                alt={service.title}
-                                                className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700"
-                                            />
+                                            {service.image ? (
+                                                <img
+                                                    src={service.image}
+                                                    alt={service.title}
+                                                    className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700"
+                                                />
+                                            ) : (
+                                                <div className={`w-full h-[400px] bg-gradient-to-br ${service.color} flex flex-col items-center justify-center gap-6 group`}>
+                                                    <div className="w-32 h-32 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform duration-500">
+                                                        <service.icon size={64} className="text-white drop-shadow-lg" />
+                                                    </div>
+                                                    <p className="text-white/80 text-xl font-['Playfair_Display'] font-bold tracking-wide">{service.title}</p>
+                                                    <div className="flex gap-2">
+                                                        {[...Array(3)].map((_, i) => (
+                                                            <div key={i} className="w-2 h-2 rounded-full bg-white/40"></div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -289,7 +301,7 @@ const Coaching = () => {
                             <div className="absolute -inset-4 bg-[#c4a052]/20 rounded-[2.5rem] rotate-3 blur-md"></div>
                             <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
                                 <img
-                                    src={workshopMeeting}
+                                    src={seminarsTrainingImg}
                                     alt="Professional Training Session"
                                     className="w-full object-cover"
                                 />

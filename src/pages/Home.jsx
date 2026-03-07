@@ -8,7 +8,6 @@ import {
     Users,
     Briefcase,
     Shield,
-    Star,
     Target,
     Award,
     ChevronRight,
@@ -184,23 +183,6 @@ const Home = () => {
                                         <p className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-wider">Call Us Now</p>
                                         <p className="text-slate-900 font-bold text-base md:text-lg">(202) 548-2999</p>
                                     </div>
-                                </div>
-                            </div>
-
-                            {/* Verified Badge */}
-                            <div className="flex items-center gap-4 pt-8 border-t border-slate-200/60">
-                                <div className="flex -space-x-3">
-                                    {[1, 2, 3].map((i) => (
-                                        <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                                            <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Client" className="w-full h-full object-cover" />
-                                        </div>
-                                    ))}
-                                </div>
-                                <div>
-                                    <div className="flex text-[#c4a052]">
-                                        {[1, 2, 3, 4, 5].map(s => <Star key={s} size={14} fill="currentColor" />)}
-                                    </div>
-                                    <p className="text-sm text-slate-500 font-medium">500+ Successful Resolutions</p>
                                 </div>
                             </div>
                         </div>

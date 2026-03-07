@@ -19,7 +19,7 @@ import {
     Stethoscope,
     Quote
 } from 'lucide-react';
-const laborLawImg = "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800";
+const laborLawImg = null;
 const realEstateImg = "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800";
 const personalInjuryImg = "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800";
 
@@ -339,11 +339,26 @@ const BusinessServices = () => {
                                 </div>
                                 <div className="flex-1 w-full relative group">
                                     <div className="absolute inset-0 bg-blue-600/5 rounded-[2rem] transform rotate-3 transition-transform group-hover:rotate-0"></div>
-                                    <img
-                                        src={area.image}
-                                        alt={area.title}
-                                        className="relative w-full rounded-[2rem] shadow-xl border border-slate-100 object-cover aspect-[4/3]"
-                                    />
+                                    {area.image ? (
+                                        <img
+                                            src={area.image}
+                                            alt={area.title}
+                                            className="relative w-full rounded-[2rem] shadow-xl border border-slate-100 object-cover aspect-[4/3]"
+                                        />
+                                    ) : (
+                                        <div className="relative w-full rounded-[2rem] shadow-xl border border-slate-100 aspect-[4/3] bg-gradient-to-br from-blue-600 to-blue-800 flex flex-col items-center justify-center gap-6 overflow-hidden">
+                                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
+                                            <div className="w-28 h-28 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform duration-500">
+                                                <area.icon size={56} className="text-white drop-shadow-lg" />
+                                            </div>
+                                            <p className="text-white/90 text-xl font-['Playfair_Display'] font-bold tracking-wide relative z-10">{area.title}</p>
+                                            <div className="flex gap-2">
+                                                {[...Array(3)].map((_, i) => (
+                                                    <div key={i} className="w-2 h-2 rounded-full bg-white/30"></div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         ))}

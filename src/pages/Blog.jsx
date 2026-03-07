@@ -7,7 +7,13 @@ import {
     Tag,
     Search,
     BookOpen,
-    TrendingUp
+    TrendingUp,
+    Scale,
+    Heart,
+    Briefcase,
+    MessageCircle,
+    Users,
+    Shield
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -25,6 +31,15 @@ const Blog = () => {
         'Legal Tips'
     ];
 
+    const categoryStyles = {
+        'Mediation': { icon: Scale, gradient: 'from-[#c4a052] to-[#a88c3d]' },
+        'Divorce': { icon: Heart, gradient: 'from-rose-500 to-rose-600' },
+        'Business': { icon: Briefcase, gradient: 'from-blue-500 to-blue-600' },
+        'Coaching': { icon: MessageCircle, gradient: 'from-purple-500 to-purple-600' },
+        'Family Law': { icon: Users, gradient: 'from-emerald-500 to-emerald-600' },
+        'Legal Tips': { icon: Shield, gradient: 'from-slate-600 to-slate-800' },
+    };
+
     const blogPosts = [
         {
             id: 1,
@@ -34,7 +49,6 @@ const Blog = () => {
             author: 'Phyllis J. Outlaw',
             date: 'January 28, 2026',
             readTime: '8 min read',
-            image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             featured: true
         },
         {
@@ -45,7 +59,6 @@ const Blog = () => {
             author: 'Phyllis J. Outlaw',
             date: 'January 20, 2026',
             readTime: '6 min read',
-            image: 'https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             featured: false
         },
         {
@@ -56,7 +69,6 @@ const Blog = () => {
             author: 'Asa Smith',
             date: 'January 15, 2026',
             readTime: '7 min read',
-            image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             featured: false
         },
         {
@@ -67,7 +79,6 @@ const Blog = () => {
             author: 'Phyllis J. Outlaw',
             date: 'January 10, 2026',
             readTime: '5 min read',
-            image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             featured: false
         },
         {
@@ -78,7 +89,6 @@ const Blog = () => {
             author: 'Phyllis J. Outlaw',
             date: 'January 5, 2026',
             readTime: '9 min read',
-            image: 'https://images.unsplash.com/photo-1536104968055-4d61aa56f46a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             featured: false
         },
         {
@@ -89,7 +99,6 @@ const Blog = () => {
             author: 'Asa Smith',
             date: 'December 28, 2025',
             readTime: '4 min read',
-            image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             featured: false
         },
         {
@@ -100,7 +109,6 @@ const Blog = () => {
             author: 'Phyllis J. Outlaw',
             date: 'December 20, 2025',
             readTime: '6 min read',
-            image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             featured: false
         },
         {
@@ -111,7 +119,6 @@ const Blog = () => {
             author: 'Asa Smith',
             date: 'December 15, 2025',
             readTime: '7 min read',
-            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             featured: false
         }
     ];
@@ -199,11 +206,23 @@ const Blog = () => {
                             <div className="relative group">
                                 <div className="absolute -inset-4 bg-gradient-to-r from-[#c4a052] to-[#a88c3d] rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
                                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
-                                    <img
-                                        src={featuredPost.image}
-                                        alt={featuredPost.title}
-                                        className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700"
-                                    />
+                                    {(() => {
+                                        const style = categoryStyles[featuredPost.category];
+                                        const Icon = style?.icon || BookOpen;
+                                        return (
+                                            <div className={`w-full h-[400px] bg-gradient-to-br ${style?.gradient || 'from-slate-600 to-slate-800'} flex flex-col items-center justify-center gap-6`}>
+                                                <div className="w-28 h-28 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform duration-500">
+                                                    <Icon size={56} className="text-white drop-shadow-lg" />
+                                                </div>
+                                                <p className="text-white/80 text-lg font-['Playfair_Display'] font-bold tracking-wide">{featuredPost.category}</p>
+                                                <div className="flex gap-2">
+                                                    {[...Array(3)].map((_, i) => (
+                                                        <div key={i} className="w-2 h-2 rounded-full bg-white/30"></div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        );
+                                    })()}
                                 </div>
                             </div>
 
@@ -277,11 +296,18 @@ const Blog = () => {
                                     className="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-100"
                                 >
                                     <div className="relative h-56 overflow-hidden">
-                                        <img
-                                            src={post.image}
-                                            alt={post.title}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                        />
+                                        {(() => {
+                                            const style = categoryStyles[post.category];
+                                            const Icon = style?.icon || BookOpen;
+                                            return (
+                                                <div className={`w-full h-full bg-gradient-to-br ${style?.gradient || 'from-slate-600 to-slate-800'} flex flex-col items-center justify-center gap-4 group-hover:scale-105 transition-transform duration-700`}>
+                                                    <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl">
+                                                        <Icon size={40} className="text-white drop-shadow-lg" />
+                                                    </div>
+                                                    <p className="text-white/70 text-sm font-bold tracking-wider uppercase">{post.category}</p>
+                                                </div>
+                                            );
+                                        })()}
                                         <div className="absolute top-4 left-4">
                                             <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-slate-900 rounded-full text-xs font-bold">
                                                 {post.category}
