@@ -12,9 +12,11 @@ import {
     Award,
     ChevronRight,
     ChevronLeft,
-    Calendar
+    Calendar,
+    Tv,
+    MapPin
 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Home = () => {
     const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -58,33 +60,33 @@ const Home = () => {
 
     const heroSlides = [
         {
-            title: "Divorce Mediation",
-            subtitle: "Fairness & Clarity",
-            description: "We guide you through the process of divorce with dignity, ensuring fair outcomes for both parties without the cost and stress of litigation.",
+            title: "Standard of Excellence",
+            subtitle: "Our Commitment",
+            description: "PHYLLIS J. OUTLAW & ASSOCIATES MAINTAINS THE HIGHEST STANDARD OF EXCELLENCE ON BEHALF OF OUR CLIENTS.",
             icon: Scale,
-            color: "bg-blue-500",
-            bg: "from-blue-900 to-slate-900"
-        },
-        {
-            title: "Family Mediation",
-            subtitle: "Healing Relationships",
-            description: "Rebuild and repair familial bonds through guided, constructive communication in a safe and neutral environment.",
-            icon: Users,
-            color: "bg-emerald-500",
-            bg: "from-emerald-900 to-slate-900"
-        },
-        {
-            title: "Business Services",
-            subtitle: "Professional Resolution",
-            description: "Resolve workplace conflicts and contract disputes swiftly to protect your business relationships and bottom line.",
-            icon: Briefcase,
             color: "bg-[#c4a052]",
             bg: "from-[#a88c3d] to-slate-900"
         },
         {
-            title: "Strategic Coaching",
-            subtitle: "Personalized Guidance",
-            description: "Targeted coaching to help you navigate life's toughest transitions and achieve your personal and professional goals.",
+            title: "Court-Appointed Mediator",
+            subtitle: "Knowledge & Expertise",
+            description: "A COURT-APPOINTED MEDIATOR WHO POSSESSES KNOWLEDGE, SKILLS AND EXPERTISE IN MEDIATION OF DISPUTES.",
+            icon: Users,
+            color: "bg-blue-500",
+            bg: "from-blue-900 to-slate-900"
+        },
+        {
+            title: "Innovative Methods",
+            subtitle: "Legal Excellence",
+            description: "OUR LEGAL TEAM EMPLOYS INNOVATIVE METHODS TO ENSURE A SUCCESSFUL OUTCOME FOR YOUR LEGAL MATTERS.",
+            icon: Briefcase,
+            color: "bg-emerald-500",
+            bg: "from-emerald-900 to-slate-900"
+        },
+        {
+            title: "Four Decades of Experience",
+            subtitle: "Proven Track Record",
+            description: "OUR FIRM POSSESSES OVER FOUR DECADES OF EXPERIENCE IN MEDIATION, ARBITRATION AND CIVIL LITIGATION.",
             icon: Target,
             color: "bg-rose-500",
             bg: "from-rose-900 to-slate-900"
@@ -151,9 +153,9 @@ const Home = () => {
 
 
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 font-['Playfair_Display'] leading-[1.1]">
-                                From Conflict to
+                                Phyllis J. Outlaw
                                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d] relative">
-                                    Clarity
+                                    & Associates
                                     <svg className="absolute w-full h-2 md:h-3 -bottom-1 left-0 text-[#c4a052] opacity-30" viewBox="0 0 100 10" preserveAspectRatio="none">
                                         <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="none" />
                                     </svg>
@@ -278,6 +280,73 @@ const Home = () => {
                                         <ArrowRight size={14} />
                                     </div>
                                 </Link>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* DC Office Location Section */}
+            <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-[#c4a052]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <div className="space-y-8">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c4a052]/10 rounded-full border border-[#c4a052]/30">
+                                <MapPin size={16} className="text-[#a88c3d]" />
+                                <span className="text-[#a88c3d] font-bold text-sm tracking-wide uppercase">Our Location</span>
+                            </div>
+                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] leading-tight">
+                                Serving Maryland &<br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Washington, DC</span>
+                            </h2>
+                            <p className="text-lg text-slate-600 leading-relaxed">
+                                Phyllis J. Outlaw & Associates have provided legal services to residents and local businesses in Maryland and Washington, DC. Our offices are located in the commercial district which is known for its resurgence and emerging small businesses. Our offices are convenient to the financial and business districts of the city, public transportation, as well as to the federal and local courts located in the District of Columbia and Maryland.
+                            </p>
+                        </div>
+                        <div className="relative">
+                            <div className="absolute -inset-4 bg-gradient-to-r from-[#c4a052] to-[#a88c3d] rounded-[2.5rem] rotate-2 opacity-20 blur-lg"></div>
+                            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 bg-gradient-to-br from-slate-800 to-slate-900 h-[300px] md:h-[400px] flex flex-col items-center justify-center p-8 text-center">
+                                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
+                                <MapPin size={64} className="text-[#c4a052] mb-6 relative z-10" />
+                                <h3 className="text-2xl font-bold text-white font-['Playfair_Display'] mb-2 relative z-10">412 H Street, NE</h3>
+                                <p className="text-slate-300 text-lg relative z-10">Washington, DC 20002</p>
+                                <p className="text-[#c4a052] font-semibold mt-4 relative z-10">(202) 548-2999</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* TV & Radio Appearances Marquee */}
+            <section className="py-12 md:py-16 bg-[#0f172a] relative overflow-hidden border-y border-white/10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c4a052]/10 rounded-full border border-[#c4a052]/20 mb-4">
+                        <Tv size={16} className="text-[#c4a052]" />
+                        <span className="text-[#c4a052] font-bold text-sm tracking-wide uppercase">As Seen On</span>
+                    </div>
+                    <p className="text-slate-400 text-lg">
+                        Phyllis J. Outlaw has appeared as a guest on radio, as well as local and national television shows.
+                    </p>
+                </div>
+                <div className="relative overflow-hidden">
+                    <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0f172a] to-transparent z-10"></div>
+                    <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0f172a] to-transparent z-10"></div>
+                    <div className="flex animate-marquee whitespace-nowrap">
+                        {[...Array(2)].map((_, setIndex) => (
+                            <div key={setIndex} className="flex items-center gap-12 px-6">
+                                {[
+                                    "CNN's Burden of Proof",
+                                    "C-Span's Fox News",
+                                    "BET's Business Report",
+                                    "WHUT's Evening Exchange",
+                                    "The Bottom Line hosted by former Congressman Kweisi Mfume"
+                                ].map((station, i) => (
+                                    <div key={i} className="flex items-center gap-4 px-8 py-4 bg-white/5 rounded-full border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300 flex-shrink-0">
+                                        <Tv size={20} className="text-[#c4a052]" />
+                                        <span className="text-white font-semibold text-lg whitespace-nowrap">{station}</span>
+                                    </div>
+                                ))}
                             </div>
                         ))}
                     </div>

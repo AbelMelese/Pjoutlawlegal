@@ -19,7 +19,7 @@ import {
     FileCheck,
     Gavel
 } from 'lucide-react';
-import justiceStatue from '../assets/mediation_justice_statue.jpg';
+
 
 
 
@@ -169,12 +169,17 @@ const MediationServices = () => {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="animate-enter text-center lg:text-left">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c4a052]/10 rounded-full mb-6 border border-[#c4a052]/20">
+                                <Scale size={16} className="text-[#c4a052]" />
+                                <span className="text-[#c4a052] font-bold text-sm tracking-wide uppercase">Mediation Services</span>
+                            </div>
+
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-['Playfair_Display'] mb-8 leading-tight">
-                                A Confidential, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Court-Respected</span> Approach to Resolving Disputes
+                                THE PATH FROM <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">CONFLICT TO RESOLUTION</span>
                             </h1>
 
-                            <p className="text-xl text-slate-400 mb-8 leading-relaxed">
-                                Our mediation services provide a structured, confidential, and impartial process to help parties resolve disputes without the expense, stress, and uncertainty of litigation.
+                            <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                                As a Court-Appointed Mediator, Phyllis J. Outlaw has conducted Mediation for Civil cases to include but not limited to Property issues and Family Law to include complex marital property involving complex business assets, custody and child support issues. Prepares Legal Separation, Property, Custody, Parenting Plans and Child Support Agreements.
                             </p>
 
                             <p className="text-lg text-slate-400 mb-10 leading-relaxed">

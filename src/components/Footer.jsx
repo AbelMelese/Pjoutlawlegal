@@ -11,7 +11,6 @@ import {
 } from 'lucide-react';
 
 const Footer = () => {
-    const currentYear = new Date().getFullYear();
 
     const quickLinks = [
         { name: 'Home', path: '/' },
@@ -202,7 +201,7 @@ const Footer = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/50">
                         <p>
-                            © {currentYear} Phyllis J Outlaw Mediation Service. All rights reserved.
+                            Copyright © 2026, Phyllis J. Outlaw & Associates
                         </p>
                         <div className="flex items-center gap-6">
                             <a href="#" className="hover:text-[#c4a052] transition-colors">Terms of Use</a>
