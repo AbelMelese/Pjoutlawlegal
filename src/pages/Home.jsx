@@ -17,6 +17,8 @@ import {
     MapPin
 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import scalesOfJusticeImg from '../assets/scales_of_justice.png';
+import dcBusinessStreetImg from '../assets/dc_business_street.png';
 
 const Home = () => {
     const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -60,36 +62,20 @@ const Home = () => {
 
     const heroSlides = [
         {
-            title: "Standard of Excellence",
-            subtitle: "Our Commitment",
             description: "PHYLLIS J. OUTLAW & ASSOCIATES MAINTAINS THE HIGHEST STANDARD OF EXCELLENCE ON BEHALF OF OUR CLIENTS.",
-            icon: Scale,
-            color: "bg-[#c4a052]",
-            bg: "from-[#a88c3d] to-slate-900"
+            image: scalesOfJusticeImg
         },
         {
-            title: "Court-Appointed Mediator",
-            subtitle: "Knowledge & Expertise",
             description: "A COURT-APPOINTED MEDIATOR WHO POSSESSES KNOWLEDGE, SKILLS AND EXPERTISE IN MEDIATION OF DISPUTES.",
-            icon: Users,
-            color: "bg-blue-500",
-            bg: "from-blue-900 to-slate-900"
+            image: scalesOfJusticeImg  // Placeholder — replace with Photo #264
         },
         {
-            title: "Innovative Methods",
-            subtitle: "Legal Excellence",
             description: "OUR LEGAL TEAM EMPLOYS INNOVATIVE METHODS TO ENSURE A SUCCESSFUL OUTCOME FOR YOUR LEGAL MATTERS.",
-            icon: Briefcase,
-            color: "bg-emerald-500",
-            bg: "from-emerald-900 to-slate-900"
+            image: scalesOfJusticeImg  // Placeholder — replace with Photo #44
         },
         {
-            title: "Four Decades of Experience",
-            subtitle: "Proven Track Record",
             description: "OUR FIRM POSSESSES OVER FOUR DECADES OF EXPERIENCE IN MEDIATION, ARBITRATION AND CIVIL LITIGATION.",
-            icon: Target,
-            color: "bg-rose-500",
-            bg: "from-rose-900 to-slate-900"
+            image: scalesOfJusticeImg  // Placeholder — replace with Photo #110
         }
     ];
 
@@ -190,44 +176,44 @@ const Home = () => {
                         </div>
 
                         {/* Right Visual - Slider */}
+                        {/* Right Visual - Full Image Slider */}
                         <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'} h-[420px] md:h-[500px] w-full mt-10 md:mt-0`}>
                             <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white bg-[#0f172a] transform md:-rotate-2 group">
-                                {/* Slides */}
-                                {heroSlides.map((slide, index) => {
-                                    const Icon = slide.icon;
-                                    return (
-                                        <div
-                                            key={index}
-                                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out flex flex-col items-center justify-center p-8 text-center ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
-                                        >
-                                            <div className={`absolute inset-0 bg-gradient-to-br ${slide.bg} opacity-90`}></div>
-                                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+                                {/* Image Slides */}
+                                {heroSlides.map((slide, index) => (
+                                    <div
+                                        key={index}
+                                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
+                                    >
+                                        {/* Background Image */}
+                                        <img
+                                            src={slide.image}
+                                            alt=""
+                                            className="absolute inset-0 w-full h-full object-cover"
+                                        />
+                                        {/* Dark gradient overlay for text readability */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
 
-                                            <div className="relative z-20 flex flex-col items-center">
-                                                <div className={`w-20 h-20 md:w-24 md:h-24 rounded-2xl ${slide.color} flex items-center justify-center mb-6 shadow-xl shadow-black/30 transform transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>
-                                                    <Icon size={40} className="text-white" />
-                                                </div>
-                                                <h3 className="text-3xl md:text-4xl font-bold text-white font-['Playfair_Display'] mb-3 drop-shadow-md">{slide.title}</h3>
-                                                <p className="text-[#c4a052] font-bold text-xs md:text-sm tracking-widest uppercase mb-6">{slide.subtitle}</p>
-                                                <p className="text-slate-200 text-sm md:text-base max-w-[280px] md:max-w-xs mx-auto leading-relaxed drop-shadow">
-                                                    {slide.description}
-                                                </p>
-                                            </div>
+                                        {/* Quote text overlay at bottom */}
+                                        <div className="absolute bottom-0 left-0 right-0 z-20 p-6 md:p-10">
+                                            <p className="text-white text-base md:text-lg font-semibold leading-relaxed drop-shadow-lg font-['Playfair_Display'] italic">
+                                                "{slide.description}"
+                                            </p>
                                         </div>
-                                    );
-                                })}
+                                    </div>
+                                ))}
 
                                 {/* Navigation Arrows */}
                                 <button
                                     onClick={prevSlide}
-                                    className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/20 hover:bg-black/40 border border-white/10 backdrop-blur-md flex items-center justify-center text-white transition-all transform hover:scale-110 focus:outline-none"
+                                    className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/30 hover:bg-black/50 border border-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all transform hover:scale-110 focus:outline-none"
                                     aria-label="Previous Slide"
                                 >
                                     <ChevronLeft size={24} />
                                 </button>
                                 <button
                                     onClick={nextSlide}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/20 hover:bg-black/40 border border-white/10 backdrop-blur-md flex items-center justify-center text-white transition-all transform hover:scale-110 focus:outline-none"
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/30 hover:bg-black/50 border border-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all transform hover:scale-110 focus:outline-none"
                                     aria-label="Next Slide"
                                 >
                                     <ChevronRight size={24} />
@@ -306,12 +292,19 @@ const Home = () => {
                         </div>
                         <div className="relative">
                             <div className="absolute -inset-4 bg-gradient-to-r from-[#c4a052] to-[#a88c3d] rounded-[2.5rem] rotate-2 opacity-20 blur-lg"></div>
-                            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 bg-gradient-to-br from-slate-800 to-slate-900 h-[300px] md:h-[400px] flex flex-col items-center justify-center p-8 text-center">
-                                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
-                                <MapPin size={64} className="text-[#c4a052] mb-6 relative z-10" />
-                                <h3 className="text-2xl font-bold text-white font-['Playfair_Display'] mb-2 relative z-10">412 H Street, NE</h3>
-                                <p className="text-slate-300 text-lg relative z-10">Washington, DC 20002</p>
-                                <p className="text-[#c4a052] font-semibold mt-4 relative z-10">(202) 548-2999</p>
+                            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 h-[300px] md:h-[400px]">
+                                <img
+                                    src={dcBusinessStreetImg}
+                                    alt="Washington DC commercial district"
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                                <div className="absolute bottom-6 left-6 right-6 z-10">
+                                    <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+                                        <p className="text-slate-900 font-bold font-['Playfair_Display'] text-lg">412 H Street, NE</p>
+                                        <p className="text-slate-600 text-sm">Washington, DC 20002 · (202) 548-2999</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

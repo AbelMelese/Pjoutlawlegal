@@ -19,6 +19,7 @@ import {
     FileCheck,
     Gavel
 } from 'lucide-react';
+import familyWithChildrenImg from '../assets/family_with_children.png';
 
 
 
@@ -205,8 +206,13 @@ const MediationServices = () => {
                         </div>
 
                         <div className="relative hidden lg:block animate-enter delay-200">
-                            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 h-[400px] bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
-                                <Scale size={160} className="text-white opacity-5" />
+                            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 h-[400px]">
+                                <img
+                                    src={familyWithChildrenImg}
+                                    alt="Family together"
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                                 <div className="absolute bottom-6 left-6 right-6">
                                     <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20">
                                         <div className="flex items-center gap-4 mb-3">
