@@ -1,180 +1,178 @@
-import {
-    Phone,
-    Mail,
-    MapPin,
-    Upload,
-    CheckCircle,
-    Loader2,
-    Send
-} from 'lucide-react';
-import HeroSlider from '../components/HeroSlider';
-import image1 from '../assets/image1.jpg';
-import image2 from '../assets/image 2.jpg';
+import { useState } from 'react';
+import { CheckCircle2, Mail, MapPin, PhoneCall, Send } from 'lucide-react';
+import PageHero from '../components/PageHero';
+import SectionHeading from '../components/SectionHeading';
+import { contactDetails } from '../data/siteContent';
 import booksImage from '../assets/books image.jpg';
+import cityImage from '../assets/image 2.jpg';
+import officeImage from '../assets/image1.jpg';
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        message: '',
-        file: null
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSubmitted(true);
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      message: '',
     });
+  };
 
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitted, setSubmitted] = useState(false);
+  return (
+    <div>
+      <PageHero
+        eyebrow="Contact"
+        title="Start with a brief, direct conversation."
+        description="Share the basics of the situation and the team can direct you toward the right next step."
+        slides={[
+          { title: 'Office', image: officeImage },
+          { title: 'District', image: cityImage },
+          { title: 'Books', image: booksImage },
+        ]}
+        actions={[
+          { label: 'Call now', href: contactDetails.phoneHref, icon: 'phone' },
+        ]}
+      />
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setIsSubmitting(false);
-        setSubmitted(true);
-        setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '', file: null });
-    };
+      <section className="page-section">
+        <div className="section-shell split-layout">
+          <div>
+            <SectionHeading
+              eyebrow="How to reach us"
+              title="Phone, email, or use the form."
+              description="If you already know the issue area, include that in your message so the initial response can be more focused."
+            />
 
-    const handleChange = (e) => {
-        const { name, value, files } = e.target;
-        if (name === 'file') {
-            setFormData(prev => ({ ...prev, file: files[0] }));
-        } else {
-            setFormData(prev => ({ ...prev, [name]: value }));
-        }
-    };
+            <div className="grid-cards-2 mt-10">
+              <article className="content-card">
+                <PhoneCall size={24} />
+                <h3>Phone</h3>
+                <p>{contactDetails.phone}</p>
+                <p>{contactDetails.officeHours}</p>
+              </article>
+              <article className="content-card">
+                <Mail size={24} />
+                <h3>Email</h3>
+                <p>{contactDetails.email}</p>
+                <p>Use email when you need to share background before the call.</p>
+              </article>
+              <article className="content-card">
+                <MapPin size={24} />
+                <h3>Office</h3>
+                <p>{contactDetails.addressLines.join(', ')}</p>
+                <p>{contactDetails.serviceArea}</p>
+              </article>
+            </div>
+          </div>
 
-    const heroSlides = [
-        {
-            title: "Contact Us",
-            subtitle: "Let's start with a conversation. We are here to listen and provide the guidance you need.",
-            image: image1
-        },
-        {
-            title: "Visit Our Office",
-            subtitle: "Located on Capitol Hill in the commercial district of Washington, DC.",
-            image: image2
-        },
-        {
-            title: "Schedule a Consultation",
-            subtitle: "Our legal and mediation experts are ready to assist you with your transition.",
-            image: booksImage
-        }
-    ];
+          <div className="content-card">
+            <p className="eyebrow">Consultation form</p>
+            <h3>Tell us what is happening.</h3>
 
-    return (
-        <div className="overflow-hidden bg-[#f8fafc]">
-            {/* Hero Section */}
-            <HeroSlider slides={heroSlides} staticTitle="Get In Touch" />
-
-            <section className="py-24 relative">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-16">
-
-                        {/* Contact Details */}
-                        <div className="space-y-10 order-2 lg:order-1">
-                            <div>
-                                <h2 className="text-3xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
-                                    Book a Consultation.
-                                </h2>
-                                <p className="text-lg text-slate-500 mb-8">
-                                    Our office hours are Monday to Friday, 9 PM – 5 AM EST.
-                                </p>
-
-                                <div className="space-y-6">
-                                    {[
-                                        { icon: Phone, title: 'Phone', value: '(202) 548-2999', href: 'tel:+12025482999', color: 'text-slate-900' },
-                                        { icon: Phone, title: 'Fax', value: '(202) 548-8114', href: 'tel:+12025488114', color: 'text-slate-900' },
-                                        { icon: Mail, title: 'Email', value: 'lawfirm@pjoutlawlegal.com', href: 'mailto:lawfirm@pjoutlawlegal.com', color: 'text-rose-600' }
-                                    ].map((item, i) => (
-                                        <a key={i} href={item.href} className="flex items-center gap-6 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all group">
-                                            <div className="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center group-hover:bg-purple-600 transition-colors">
-                                                <item.icon size={24} className="text-slate-400 group-hover:text-white transition-colors" />
-                                            </div>
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">{item.title}</p>
-                                                <p className={`text-xl font-bold ${item.color}`}>{item.value}</p>
-                                            </div>
-                                        </a>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className="bg-white rounded-[2rem] p-8 text-slate-900 relative overflow-hidden border border-slate-100 shadow-xl">
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-rose-50/50 opacity-50"></div>
-                                <div className="relative z-10 flex gap-4 items-start">
-                                    <MapPin size={24} className="text-purple-600 mt-1 flex-shrink-0" />
-                                    <div>
-                                        <h4 className="font-bold text-lg mb-2">Office Location</h4>
-                                        <p className="text-slate-600 leading-relaxed font-medium">
-                                            412 H Street, NE<br />
-                                            Washington, DC 20002
-                                        </p>
-                                        <p className="text-slate-500 leading-relaxed mt-4 text-sm">
-                                            Our offices are located on Capitol Hill in the commercial district designated as an enterprise hub zone. We are conveniently located near the financial and business districts of the city, as well as to the federal and local courts in the District of Columbia and Maryland.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Contact Form */}
-                        <div className="order-1 lg:order-2">
-                            <div className="bg-white rounded-[2.5rem] p-10 shadow-2xl border border-slate-100 relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
-
-
-
-                                {submitted ? (
-                                    <div className="py-20 text-center animate-enter">
-                                        <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                            <CheckCircle size={48} className="text-green-600" />
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-slate-900 mb-2">Message Sent!</h3>
-                                        <button onClick={() => setSubmitted(false)} className="mt-8 text-rose-600 font-bold hover:underline">Send Another</button>
-                                    </div>
-                                ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                                        <div className="grid md:grid-cols-2 gap-6">
-                                            <div className="space-y-2">
-                                                <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">First Name</label>
-                                                <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required
-                                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 focus:bg-white transition-all font-medium" />
-                                            </div>
-                                            <div className="space-y-2">
-                                                <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Last Name</label>
-                                                <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required
-                                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 focus:bg-white transition-all font-medium" />
-                                            </div>
-                                        </div>
-
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Email Address</label>
-                                            <input type="email" name="email" value={formData.email} onChange={handleChange} required
-                                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 focus:bg-white transition-all font-medium" />
-                                        </div>
-
-                                        <div className="space-y-2">
-                                            <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Message</label>
-                                            <textarea name="message" rows={4} value={formData.message} onChange={handleChange} required
-                                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 focus:bg-white transition-all font-medium resize-none" ></textarea>
-                                        </div>
-
-                                        <div className="pt-4">
-                                            <button type="submit" disabled={isSubmitting} className="btn-premium w-full py-4 bg-slate-900 text-white rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2">
-                                                {isSubmitting ? <Loader2 className="animate-spin" /> : <> <span>Submit</span> <Send size={18} /> </>}
-                                            </button>
-                                        </div>
-                                    </form>
-                                )}
-                            </div>
-                        </div>
-                    </div>
+            {submitted ? (
+              <div className="content-card">
+                <CheckCircle2 size={30} />
+                <h3>Message received.</h3>
+                <p>
+                  This demo form records the interaction locally for now. The UI
+                  behavior is fixed; if you want a real backend handler next, that
+                  would be a separate integration task.
+                </p>
+                <button
+                  type="button"
+                  className="primary-button"
+                  onClick={() => setSubmitted(false)}
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="form-shell">
+                <div className="field-grid">
+                  <div className="field-group">
+                    <label htmlFor="firstName">First name</label>
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="field-group">
+                    <label htmlFor="lastName">Last name</label>
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
                 </div>
-            </section>
+
+                <div className="field-grid">
+                  <div className="field-group">
+                    <label htmlFor="email">Email</label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="field-group">
+                    <label htmlFor="phone">Phone</label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+
+                <div className="field-group">
+                  <label htmlFor="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <button type="submit" className="primary-button">
+                  <Send size={18} />
+                  <span>Submit request</span>
+                </button>
+              </form>
+            )}
+          </div>
         </div>
-    );
+      </section>
+    </div>
+  );
 };
 
 export default Contact;
-
-

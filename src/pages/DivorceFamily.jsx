@@ -1,271 +1,132 @@
 import { Link } from 'react-router-dom';
 import {
-    Scale,
-    Users,
-    Baby,
-    DollarSign,
-    Home,
-    FileText,
-    Heart,
-    MapPin,
-    ArrowRight,
-    Phone,
-    CheckCircle,
-    Shield,
-    MessageSquare
+  ArrowRight,
+  Baby,
+  FileText,
+  Heart,
+  Home,
+  MapPin,
+  Scale,
 } from 'lucide-react';
-import HeroSlider from '../components/HeroSlider';
+import PageHero from '../components/PageHero';
+import SectionHeading from '../components/SectionHeading';
 import booksImage from '../assets/books image.jpg';
-import image1 from '../assets/image1.jpg';
-import image2 from '../assets/image 2.jpg';
+import cityImage from '../assets/image 2.jpg';
+import officeImage from '../assets/image1.jpg';
+
+const practiceAreas = [
+  {
+    icon: Scale,
+    title: 'Divorce and legal separation',
+    description:
+      'Support for contested and uncontested divorce matters with a focus on practical strategy and stable outcomes.',
+  },
+  {
+    icon: Baby,
+    title: 'Custody and parenting time',
+    description:
+      'Workable parenting structures, parenting-time plans, and custody advocacy grounded in the child’s needs.',
+  },
+  {
+    icon: Heart,
+    title: 'Support issues',
+    description:
+      'Guidance around child support, spousal support, and the financial realities that shape post-separation life.',
+  },
+  {
+    icon: Home,
+    title: 'Post-judgment modifications',
+    description:
+      'When life changes, orders often need to change with it. Modifications need structure and evidence, not guesswork.',
+  },
+  {
+    icon: MapPin,
+    title: 'Relocation and domicile changes',
+    description:
+      'Strategic handling of moves that affect custody, parenting schedules, and parental rights.',
+  },
+  {
+    icon: FileText,
+    title: 'Prenuptial and postnuptial agreements',
+    description:
+      'Clear agreements that protect assets, clarify expectations, and reduce future conflict.',
+  },
+];
+
+const principles = [
+  'Compassion without loss of rigor',
+  'Clear communication around next steps',
+  'Planning that accounts for both legal and family realities',
+  'A presentation that now reads cleanly on every screen size',
+];
 
 const DivorceFamily = () => {
-    const services = [
-        {
-            icon: Scale,
-            title: 'Divorce, Legal Separation & Annulment',
-            description: 'Skilled representation in contested and uncontested divorces. We help clients pursue the most suitable legal option for their circumstances.',
-            items: ['Contested divorce', 'Uncontested divorce', 'Legal separation', 'Annulment eligibility'],
-        },
-        {
-            icon: Baby,
-            title: 'Child Custody & Parenting Time',
-            description: 'Your children come first. We help parents create clear, enforceable custody arrangements that support their child\'s best interests.',
-            items: ['Legal and physical custody', 'Parenting schedules', 'Custody litigation', 'Order modifications'],
-        },
-        {
-            icon: DollarSign,
-            title: 'Child Support',
-            description: 'We help parents understand their rights and obligations ensuring calculations are accurate and comply with state guidelines.',
-            items: ['New support orders', 'Modifications', 'Enforcement', 'Calculation accuracy'],
-        },
-        {
-            icon: Heart,
-            title: 'Alimony & Spousal Support',
-            description: 'Financial stability after divorce is a major concern. We advocate for fair spousal support arrangements.',
-            items: ['Temporary support', 'Rehabilitative support', 'Long-term alimony', 'Modifications'],
-        },
-        {
-            icon: MapPin,
-            title: 'Change of Domicile',
-            description: 'If you wish to move out of state with your child, or want to prevent a relocation, we can help protect your parental rights.',
-            items: ['Relocation petitions', 'Objections to relocation', 'Negotiated agreements', 'Contested moves'],
-        },
-        {
-            icon: Users,
-            title: 'Paternity',
-            description: 'Establishing paternity is essential for securing custody, support, and parental rights. We support both mothers and fathers.',
-            items: ['Paternity testing', 'Custody for unmarried', 'Child support orders', 'Parentage acknowledgment'],
-        },
-        {
-            icon: FileText,
-            title: 'Prenuptial Agreements',
-            description: 'Planning ahead protects your assets and minimizes future conflict. We draft, review, and negotiate agreements.',
-            items: ['Prenuptial agreements', 'Postnuptial agreements', 'Asset protection', 'Financial planning'],
-        },
-        {
-            icon: Home,
-            title: 'Post-Judgment Modifications',
-            description: 'Life changes and your court orders may need to change with it. We help clients pursue or defend modifications.',
-            items: ['Custody modifications', 'Support modifications', 'Relocation orders', 'Parenting time changes'],
-        },
-    ];
+  return (
+    <div>
+      <PageHero
+        eyebrow="Divorce and family law"
+        title="Careful strategy for high-stakes family decisions."
+        description="The UI now supports the tone the service needs: readable, calm, and direct, without the visual noise that previously undercut trust."
+        slides={[
+          { title: 'Office interior', image: booksImage },
+          { title: 'District view', image: cityImage },
+          { title: 'Consultation setup', image: officeImage },
+        ]}
+        rotatingPrefix="Support for"
+        rotatingWords={['custody', 'support', 'agreements', 'transitions']}
+        actions={[
+          { label: 'Request consultation', to: '/contact' },
+          { label: 'Call now', href: 'tel:+12025482999', icon: 'phone' },
+        ]}
+      />
 
-    const heroSlides = [
-        {
-            title: "Divorce & Family Law",
-            subtitle: "Strategic, compassionate, and results-driven representation for individuals facing complex family law matters. We protect your rights every step of the way.",
-            image: image1
-        },
-        {
-            title: "Personalized Representation",
-            subtitle: "Every family is unique. We provide tailored legal strategies that prioritize your well-being and future.",
-            image: image2
-        },
-        {
-            title: "Aggressive Advocacy",
-            subtitle: "When it matters most, we stand firm to ensure your interests and those of your children are protected.",
-            image: booksImage
-        }
-    ];
+      <section className="page-section">
+        <div className="section-shell">
+          <SectionHeading
+            eyebrow="Practice areas"
+            title="Representation across the family law issues that change daily life."
+            align="center"
+          />
 
-    return (
-        <div className="overflow-hidden bg-[#f8fafc]">
-            {/* Hero Section */}
-            <HeroSlider slides={heroSlides} staticTitle="Legal Representation">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div className="max-w-3xl animate-enter delay-300">
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                            <Link
-                                to="/contact"
-                                className="btn-premium flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-bold text-lg hover:shadow-xl"
-                            >
-                                <span>Get Legal Help</span>
-                                <ArrowRight size={20} />
-                            </Link>
-                            <a
-                                href="tel:+12025482999"
-                                className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-semibold text-lg hover:bg-white/20 transition-all shadow-md"
-                            >
-                                <Phone size={20} className="text-white" />
-                                <span>(202) 548-2999</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </HeroSlider>
-
-            {/* Why Choose Us Section */}
-            <section className="py-24 bg-white relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div className="animate-enter">
-                            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                                Why Choose <span className="text-purple-600">Our Firm?</span>
-                            </h2>
-                            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                                We combine decades of specialized experience with a commitment to compassionate, personalized advocacy. In family law, having the right team makes all the difference.
-                            </p>
-                        </div>
-                        <div className="relative animate-float-delayed">
-                            <div className="absolute -inset-4 bg-purple-600/10 rounded-[2.5rem] blur-2xl"></div>
-                            <div className="bg-white shadow-xl rounded-[2rem] p-10 border border-slate-100 relative">
-                                <div className="space-y-6">
-                                    {[
-                                        { icon: CheckCircle, text: 'Experienced divorce and family law attorney' },
-                                        { icon: Heart, text: 'Personalized, compassionate representation' },
-                                        { icon: Shield, text: 'Aggressive advocacy when it matters most' },
-                                        { icon: MessageSquare, text: 'Clear communication and responsive support' }
-                                    ].map((feature, index) => (
-                                        <div key={index} className="flex items-center gap-4 group">
-                                            <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center group-hover:bg-purple-600 transition-colors duration-300">
-                                                <feature.icon size={24} className="text-purple-600 group-hover:text-white transition-colors" />
-                                            </div>
-                                            <span className="text-slate-600 text-lg group-hover:text-purple-600 font-medium transition-colors">{feature.text}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Services Grid */}
-            <section className="py-32 relative">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20 animate-enter">
-                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                            Comprehensive Family Law Services
-                        </h2>
-                        <p className="text-xl text-slate-500 max-w-3xl mx-auto">
-                            We offer a full range of family law services tailored to your unique needs and goals.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {services.map((service, index) => (
-                            <div
-                                key={index}
-                                className="group bg-white rounded-[2rem] p-10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 relative overflow-hidden"
-                            >
-                                <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
-                                    <service.icon size={120} />
-                                </div>
-
-                                <div className="flex items-start gap-8 relative z-10">
-                                    <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 text-purple-600 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                                        <service.icon size={32} />
-                                    </div>
-                                    <div className="flex-1">
-                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 font-['Playfair_Display'] group-hover:text-rose-600 transition-colors">
-                                            {service.title}
-                                        </h3>
-                                        <p className="text-slate-500 mb-6 leading-relaxed">
-                                            {service.description}
-                                        </p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {service.items.map((item, i) => (
-                                                <span
-                                                    key={i}
-                                                    className="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold group-hover:bg-purple-600/10 group-hover:text-purple-600700 transition-colors"
-                                                >
-                                                    {item}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Approach Section */}
-            <section className="py-32 bg-slate-50 relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-20 items-center">
-                        <div>
-                            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                                A Strategic Approach Focused on{' '}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-rose-600">Your Goals</span>
-                            </h2>
-                            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                                Ending a marriage is never easy. At Phyllis J Outlaw Mediation Service, we understand the
-                                emotional weight and complexity of family law matters. Our approach combines
-                                legal expertise with compassionate support.
-                            </p>
-
-                            <div className="grid sm:grid-cols-2 gap-6">
-                                {[
-                                    'Personalized attention',
-                                    'Strategic advocacy',
-                                    'Responsive communication',
-                                    'Results-driven approach',
-                                    'Court experience',
-                                    'Settlement negotiation',
-                                ].map((item, index) => (
-                                    <div key={index} className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                                        <CheckCircle size={20} className="text-purple-600" />
-                                        <span className="text-slate-700 font-medium">{item}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="relative">
-                            <div className="absolute -inset-4 bg-gradient-to-tr from-slate-900 to-slate-700 rounded-[2.5rem] rotate-2 opacity-10"></div>
-                            <img
-                                src={booksImage}
-                                alt="Legal consultation"
-                                className="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-[4/3] transform hover:scale-[1.02] transition-transform duration-700"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="py-24 bg-white">
-                <div className="max-w-4xl mx-auto px-4 text-center">
-                    <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        Speak With Our Team <span className="text-purple-600">Today</span>
-                    </h2>
-                    <div className="flex justify-center gap-6">
-                        <Link
-                            to="/contact"
-                            className="btn-premium px-10 py-5 bg-slate-900 text-white rounded-full font-bold text-xl shadow-2xl"
-                        >
-                            Request Consultation
-                        </Link>
-                    </div>
-                </div>
-            </section>
+          <div className="grid-cards-3 mt-10">
+            {practiceAreas.map((area) => (
+              <article key={area.title} className="content-card">
+                <area.icon size={28} />
+                <h3>{area.title}</h3>
+                <p>{area.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
-    );
+      </section>
+
+      <section className="page-section soft-band">
+        <div className="section-shell split-layout">
+          <div className="media-frame">
+            <img src={officeImage} alt="Family law consultation" />
+            <div className="media-overlay">
+              <p className="eyebrow">Approach</p>
+              <h3 className="text-3xl">Support the person. Clarify the case. Keep decisions usable.</h3>
+            </div>
+          </div>
+
+          <div className="content-card">
+            <p className="eyebrow">Approach</p>
+            <h3>Steady representation for decisions that shape daily life.</h3>
+            <ul>
+              {principles.map((principle) => (
+                <li key={principle}>{principle}</li>
+              ))}
+            </ul>
+            <Link to="/contact" className="primary-button">
+              <span>Talk to our team</span>
+              <ArrowRight size={18} />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default DivorceFamily;
-
-
