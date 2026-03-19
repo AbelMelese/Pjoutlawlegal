@@ -12,6 +12,8 @@ import {
     BookOpen,
     Tag
 } from 'lucide-react';
+import booksImage from '../assets/books image.jpg';
+import image1 from '../assets/image1.jpg';
 
 const BlogPost = () => {
     const { id } = useParams();
@@ -27,7 +29,7 @@ const BlogPost = () => {
             authorRole: 'Principal Mediator',
             date: 'January 28, 2026',
             readTime: '8 min read',
-            image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+            image: booksImage,
             content: `
                 <p class="lead">Mediation is a structured, interactive process where an impartial third party assists disputing parties in resolving conflict through the use of specialized communication and negotiation techniques.</p>
                 
@@ -92,7 +94,7 @@ const BlogPost = () => {
             authorRole: 'Principal Mediator',
             date: 'January 20, 2026',
             readTime: '6 min read',
-            image: 'https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+            image: image1,
             content: `
                 <p class="lead">Divorce is never easy, but it doesn't have to be a war. With the right approach, you can protect your children and maintain your dignity throughout the process.</p>
                 
@@ -127,7 +129,7 @@ const BlogPost = () => {
                         alt={post.title}
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/50 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
@@ -141,7 +143,7 @@ const BlogPost = () => {
                         </Link>
 
                         <div className="flex items-center gap-4 mb-6">
-                            <span className="px-4 py-1.5 bg-[#c4a052] text-white rounded-full text-sm font-bold">
+                            <span className="px-4 py-1.5 bg-purple-600 text-white rounded-full text-sm font-bold">
                                 {post.category}
                             </span>
                             <span className="text-white/60 text-sm flex items-center gap-1">
@@ -174,7 +176,7 @@ const BlogPost = () => {
 
                         <div className="flex items-center gap-3">
                             <span className="text-slate-400 text-sm hidden sm:block">Share:</span>
-                            <button className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-blue-100 hover:text-blue-600 transition-colors">
+                            <button className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-blue-100 hover:text-purple-600 transition-colors">
                                 <Facebook size={18} />
                             </button>
                             <button className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-sky-100 hover:text-sky-500 transition-colors">
@@ -188,7 +190,7 @@ const BlogPost = () => {
 
                     {/* Article Body */}
                     <article
-                        className="prose prose-lg prose-slate max-w-none prose-headings:font-['Playfair_Display'] prose-headings:text-slate-900 prose-a:text-[#a88c3d] prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-900 prose-li:marker:text-[#c4a052]"
+                        className="prose prose-lg prose-slate max-w-none prose-headings:font-['Playfair_Display'] prose-headings:text-slate-900 prose-a:text-rose-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-900 prose-li:marker:text-purple-600"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     />
 
@@ -217,7 +219,7 @@ const BlogPost = () => {
                         </p>
                         <Link
                             to="/contact"
-                            className="btn-glow inline-flex items-center gap-2 px-8 py-4 bg-[#c4a052] text-white rounded-full font-bold hover:bg-[#c4a052]"
+                            className="btn-glow inline-flex items-center gap-2 px-8 py-4 bg-purple-600 text-white rounded-full font-bold hover:bg-purple-600"
                         >
                             <span>Get Started</span>
                             <ArrowRight size={18} />
@@ -249,13 +251,13 @@ const BlogPost = () => {
                                     </div>
 
                                     <div className="p-6">
-                                        <span className="text-[#a88c3d] text-sm font-bold">{relatedPost.category}</span>
-                                        <h3 className="text-lg font-bold text-slate-900 font-['Playfair_Display'] mt-2 mb-3 group-hover:text-[#a88c3d] transition-colors line-clamp-2">
+                                        <span className="text-rose-600 text-sm font-bold">{relatedPost.category}</span>
+                                        <h3 className="text-lg font-bold text-slate-900 font-['Playfair_Display'] mt-2 mb-3 group-hover:text-rose-600 transition-colors line-clamp-2">
                                             {relatedPost.title}
                                         </h3>
                                         <Link
                                             to={`/blog/${relatedPost.id}`}
-                                            className="inline-flex items-center gap-1 text-slate-600 font-medium text-sm hover:text-[#a88c3d] transition-colors"
+                                            className="inline-flex items-center gap-1 text-slate-600 font-medium text-sm hover:text-rose-600 transition-colors"
                                         >
                                             Read More
                                             <ArrowRight size={14} />

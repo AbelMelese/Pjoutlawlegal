@@ -15,10 +15,11 @@ import {
     GraduationCap,
     Presentation
 } from 'lucide-react';
-import phyllisImage from '../assets/phyllis_outlaw.png';
-import seminarsTrainingImg from '../assets/seminars_training.jpg';
-import familyCoachingPhoto from '../assets/family_coaching_photo.jpg';
-import businessCoachingPhoto from '../assets/business_coaching_photo.jpg';
+import HeroSlider from '../components/HeroSlider';
+import seminarsTrainingImg from "../assets/use this image in seminars and training.jpg";
+import coachingPhoto from "../assets/use this image in coaching page.jpg";
+import image2 from "../assets/image 2.jpg";
+import booksImage from "../assets/books image.jpg";
 
 const Coaching = () => {
     const coachingServices = [
@@ -40,7 +41,7 @@ const Coaching = () => {
             bgColor: 'bg-purple-50',
             accent: 'text-purple-600',
             border: 'border-purple-100',
-            image: familyCoachingPhoto
+            image: coachingPhoto
         },
         {
             id: 'divorce',
@@ -78,11 +79,11 @@ const Coaching = () => {
                 'Reconnect business with purpose',
             ],
             note: 'We blend practical business insight with coaching.',
-            color: 'from-[#c4a052] to-[#a88c3d]',
-            bgColor: 'bg-[#c4a052]/10',
-            accent: 'text-[#a88c3d]',
-            border: 'border-[#c4a052]/30',
-            image: businessCoachingPhoto
+            color: 'from-purple-600 to-rose-600',
+            bgColor: 'bg-purple-600/10',
+            accent: 'text-rose-600',
+            border: 'border-purple-600/30',
+            image: null
         },
     ];
 
@@ -95,40 +96,41 @@ const Coaching = () => {
         { icon: Compass, title: 'Forward-Focused', description: 'Act on what is truly right for you.' },
     ];
 
+    const heroSlides = [
+        {
+            title: "Life, Family & Business Coaching",
+            subtitle: "Real-Life Guidance for Real-Life Transitions. Move forward with clarity, calm, and practical steps.",
+            image: coachingPhoto
+        },
+        {
+            title: "Seminars & Training",
+            subtitle: "Innovative solutions for professional development training needs. diversity, leadership, and conflict management.",
+            image: seminarsTrainingImg
+        },
+        {
+            title: "Unlock Your Potential",
+            subtitle: "Move beyond obstacles with a certified coach as your thinking partner.",
+            image: image2
+        }
+    ];
+
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <section className="relative py-20 md:py-32 bg-[#0f172a] overflow-hidden">
-                <div className="absolute inset-0">
-                    <div className="blob bg-purple-500/30 w-[600px] h-[600px] top-[-100px] right-[-100px] blur-3xl rounded-full"></div>
-                    <div className="blob bg-rose-500/30 w-[500px] h-[500px] bottom-[-100px] left-[-100px] blur-3xl rounded-full"></div>
-                </div>
-
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-enter">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-8 backdrop-blur-md border border-white/10">
-                        <MessageCircle size={18} className="text-[#c4a052]" />
-                        <span className="text-white font-medium text-sm tracking-wide uppercase">Personal & Professional Growth</span>
-                    </div>
-
-                    <h1 className="text-5xl md:text-7xl font-bold text-white font-['Playfair_Display'] mb-8 leading-tight">
-                        Life, Family & <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-rose-400">Business Coaching</span>
-                    </h1>
-
-                    <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12">
-                        Real-Life Guidance for Real-Life Transitions. Move forward with clarity, calm, and practical steps.
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link
-                            to="/contact"
-                            className="btn-glow px-8 py-4 bg-gradient-to-r from-purple-600 to-rose-600 text-white rounded-full font-bold text-lg shadow-xl"
-                        >
-                            Book a Session
-                        </Link>
+            <HeroSlider slides={heroSlides} staticTitle="Personal & Professional Growth">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div className="max-w-3xl animate-enter delay-300">
+                        <div className="flex flex-col sm:flex-row gap-4 pt-12">
+                            <Link
+                                to="/contact"
+                                className="btn-premium px-8 py-4 bg-slate-900 text-white rounded-full font-bold text-lg shadow-xl"
+                            >
+                                Book a Session
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </HeroSlider>
 
             {/* Services Grid */}
             <section className="py-16 md:py-24">
@@ -183,7 +185,7 @@ const Coaching = () => {
 
                                     <Link
                                         to="/contact"
-                                        className={`btn-glow inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r ${service.color} text-white rounded-full font-bold shadow-lg`}
+                                        className={`btn-premium inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r ${service.color} text-white rounded-full font-bold shadow-lg`}
                                     >
                                         <span>Start {service.title}</span>
                                         <ArrowRight size={18} />
@@ -222,11 +224,11 @@ const Coaching = () => {
             </section>
 
             {/* Differentiators */}
-            <section className="py-20 md:py-32 bg-slate-900 relative mt-16 md:mt-20">
+            <section className="py-20 md:py-32 bg-white relative mt-16 md:mt-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-20">
-                        <h2 className="text-4xl font-bold text-white font-['Playfair_Display'] mb-4">
-                            What Makes Our Coaching <span className="text-[#c4a052]">Different</span>
+                        <h2 className="text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
+                            What Makes Our Coaching <span className="text-purple-600">Different</span>
                         </h2>
                     </div>
 
@@ -234,13 +236,13 @@ const Coaching = () => {
                         {differentiators.map((item, index) => (
                             <div
                                 key={index}
-                                className="glass-dark p-8 rounded-2xl border border-white/5 hover:bg-white/5 transition-colors"
+                                className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 group"
                             >
-                                <item.icon size={32} className="text-[#c4a052] mb-6" />
-                                <h3 className="text-xl font-bold text-white mb-3 font-['Playfair_Display']">
+                                <item.icon size={32} className="text-purple-600 mb-6 group-hover:scale-110 transition-transform" />
+                                <h3 className="text-xl font-bold text-slate-900 mb-3 font-['Playfair_Display']">
                                     {item.title}
                                 </h3>
-                                <p className="text-slate-400 leading-relaxed">
+                                <p className="text-slate-600 leading-relaxed">
                                     {item.description}
                                 </p>
                             </div>
@@ -254,12 +256,12 @@ const Coaching = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 rounded-full mb-6">
-                                <GraduationCap size={18} className="text-[#c4a052]" />
-                                <span className="text-white font-medium text-sm tracking-wide uppercase">Professional Development</span>
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 rounded-full mb-6 border border-purple-200">
+                                <GraduationCap size={18} className="text-purple-600" />
+                                <span className="text-purple-600 font-bold text-sm tracking-wide uppercase">Professional Development</span>
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                                Seminars & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Training</span>
+                                Seminars & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-rose-600">Training</span>
                             </h2>
                             <p className="text-xl text-slate-600 italic mb-8">
                                 "Tired of viewing the same in-house training video? Need an innovative solution for your professional development training needs?"
@@ -270,7 +272,7 @@ const Coaching = () => {
 
                             <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 mb-8">
                                 <h4 className="font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
-                                    <Presentation className="text-[#c4a052]" />
+                                    <Presentation className="text-purple-600" />
                                     Training Topics Include:
                                 </h4>
                                 <div className="grid sm:grid-cols-2 gap-3">
@@ -285,7 +287,7 @@ const Coaching = () => {
                                         'Senior Executive Development'
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-center gap-2">
-                                            <div className="w-1.5 h-1.5 bg-[#c4a052] rounded-full"></div>
+                                            <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
                                             <span className="text-slate-700 text-sm font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -298,16 +300,16 @@ const Coaching = () => {
                         </div>
 
                         <div className="relative">
-                            <div className="absolute -inset-4 bg-[#c4a052]/20 rounded-[2.5rem] rotate-3 blur-md"></div>
-                            <div className="relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
+                            <div className="absolute -inset-4 bg-purple-600/10 rounded-[2.5rem] rotate-3 blur-md"></div>
+                            <div className="relative rounded-[2rem] overflow-hidden border border-slate-100 shadow-2xl h-[500px]">
                                 <img
                                     src={seminarsTrainingImg}
                                     alt="Professional Training Session"
-                                    className="w-full object-cover"
+                                    className="w-full h-full object-cover"
                                 />
-                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-8 pt-24">
-                                    <p className="text-white font-['Playfair_Display'] text-2xl font-bold">Professional Development</p>
-                                    <p className="text-[#c4a052] font-medium">Workshops & Training Sessions</p>
+                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white/80 to-transparent p-8 pt-24 text-slate-900">
+                                    <p className="font-['Playfair_Display'] text-2xl font-bold">Professional Development</p>
+                                    <p className="text-purple-600 font-bold">Workshops & Training Sessions</p>
                                 </div>
                             </div>
                         </div>
@@ -319,11 +321,11 @@ const Coaching = () => {
             <section className="py-16 md:py-24 bg-white">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        Your Next Chapter Begins With <br /><span className="text-[#c4a052]">One Conversation</span>
+                        Your Next Chapter Begins With <br /><span className="text-purple-600">One Conversation</span>
                     </h2>
                     <Link
                         to="/contact"
-                        className="btn-glow px-10 py-5 bg-slate-900 text-white rounded-full font-bold text-xl shadow-xl"
+                        className="btn-premium px-10 py-5 bg-slate-900 text-white rounded-full font-bold text-xl shadow-2xl"
                     >
                         Book a Coaching Session
                     </Link>

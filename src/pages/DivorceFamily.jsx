@@ -14,6 +14,10 @@ import {
     Shield,
     MessageSquare
 } from 'lucide-react';
+import HeroSlider from '../components/HeroSlider';
+import booksImage from '../assets/books image.jpg';
+import image1 from '../assets/image1.jpg';
+import image2 from '../assets/image 2.jpg';
 
 const DivorceFamily = () => {
     const services = [
@@ -67,57 +71,65 @@ const DivorceFamily = () => {
         },
     ];
 
+    const heroSlides = [
+        {
+            title: "Divorce & Family Law",
+            subtitle: "Strategic, compassionate, and results-driven representation for individuals facing complex family law matters. We protect your rights every step of the way.",
+            image: image1
+        },
+        {
+            title: "Personalized Representation",
+            subtitle: "Every family is unique. We provide tailored legal strategies that prioritize your well-being and future.",
+            image: image2
+        },
+        {
+            title: "Aggressive Advocacy",
+            subtitle: "When it matters most, we stand firm to ensure your interests and those of your children are protected.",
+            image: booksImage
+        }
+    ];
+
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <section className="relative py-32 bg-[#0f172a] overflow-hidden">
-                <div className="absolute inset-0">
-                    <div className="blob blob-gold w-[600px] h-[600px] top-[-100px] right-[-100px] opacity-20"></div>
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-                </div>
-
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div className="animate-enter">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-6 border border-white/10 backdrop-blur-md">
-                                <Scale size={18} className="text-[#c4a052]" />
-                                <span className="text-white font-medium text-sm tracking-wide uppercase">Legal Representation</span>
-                            </div>
-
-                            <h1 className="text-5xl md:text-7xl font-bold text-white font-['Playfair_Display'] mb-8 leading-tight">
-                                Divorce & <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Family Law</span>
-                            </h1>
-
-                            <p className="text-xl text-slate-400 mb-12 leading-relaxed">
-                                Strategic, compassionate, and results-driven representation for individuals
-                                facing complex family law matters. We protect your rights every step of the way.
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <Link
-                                    to="/contact"
-                                    className="btn-glow flex items-center justify-center gap-2 px-8 py-4 bg-[#c4a052] text-white rounded-full font-bold text-lg hover:bg-[#a88c3d]"
-                                >
-                                    <span>Get Legal Help</span>
-                                    <ArrowRight size={20} />
-                                </Link>
-                                <a
-                                    href="tel:+12025482999"
-                                    className="flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white rounded-full font-semibold text-lg hover:bg-white/5 transition-all"
-                                >
-                                    <Phone size={20} />
-                                    <span>(202) 548-2999</span>
-                                </a>
-                            </div>
+            <HeroSlider slides={heroSlides} staticTitle="Legal Representation">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div className="max-w-3xl animate-enter delay-300">
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                            <Link
+                                to="/contact"
+                                className="btn-premium flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-bold text-lg hover:shadow-xl"
+                            >
+                                <span>Get Legal Help</span>
+                                <ArrowRight size={20} />
+                            </Link>
+                            <a
+                                href="tel:+12025482999"
+                                className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-semibold text-lg hover:bg-white/20 transition-all shadow-md"
+                            >
+                                <Phone size={20} className="text-white" />
+                                <span>(202) 548-2999</span>
+                            </a>
                         </div>
+                    </div>
+                </div>
+            </HeroSlider>
 
-                        <div className="hidden lg:block relative animate-float-delayed">
-                            <div className="absolute -inset-4 bg-gradient-to-br from-[#c4a052]/30 to-blue-600/30 rounded-[2.5rem] blur-2xl"></div>
-                            <div className="glass-dark rounded-[2rem] p-10 border border-white/10 relative">
-                                <h3 className="text-3xl font-bold text-white font-['Playfair_Display'] mb-8">
-                                    Why Choose Us?
-                                </h3>
+            {/* Why Choose Us Section */}
+            <section className="py-24 bg-white relative overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <div className="animate-enter">
+                            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
+                                Why Choose <span className="text-purple-600">Our Firm?</span>
+                            </h2>
+                            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                                We combine decades of specialized experience with a commitment to compassionate, personalized advocacy. In family law, having the right team makes all the difference.
+                            </p>
+                        </div>
+                        <div className="relative animate-float-delayed">
+                            <div className="absolute -inset-4 bg-purple-600/10 rounded-[2.5rem] blur-2xl"></div>
+                            <div className="bg-white shadow-xl rounded-[2rem] p-10 border border-slate-100 relative">
                                 <div className="space-y-6">
                                     {[
                                         { icon: CheckCircle, text: 'Experienced divorce and family law attorney' },
@@ -126,10 +138,10 @@ const DivorceFamily = () => {
                                         { icon: MessageSquare, text: 'Clear communication and responsive support' }
                                     ].map((feature, index) => (
                                         <div key={index} className="flex items-center gap-4 group">
-                                            <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-[#c4a052] transition-colors duration-300">
-                                                <feature.icon size={24} className="text-[#c4a052] group-hover:text-white transition-colors" />
+                                            <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center group-hover:bg-purple-600 transition-colors duration-300">
+                                                <feature.icon size={24} className="text-purple-600 group-hover:text-white transition-colors" />
                                             </div>
-                                            <span className="text-slate-300 text-lg group-hover:text-white transition-colors">{feature.text}</span>
+                                            <span className="text-slate-600 text-lg group-hover:text-purple-600 font-medium transition-colors">{feature.text}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -162,11 +174,11 @@ const DivorceFamily = () => {
                                 </div>
 
                                 <div className="flex items-start gap-8 relative z-10">
-                                    <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 text-[#c4a052] shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                                    <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 text-purple-600 shadow-lg group-hover:rotate-6 transition-transform duration-300">
                                         <service.icon size={32} />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 font-['Playfair_Display'] group-hover:text-[#a88c3d] transition-colors">
+                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 font-['Playfair_Display'] group-hover:text-rose-600 transition-colors">
                                             {service.title}
                                         </h3>
                                         <p className="text-slate-500 mb-6 leading-relaxed">
@@ -176,7 +188,7 @@ const DivorceFamily = () => {
                                             {service.items.map((item, i) => (
                                                 <span
                                                     key={i}
-                                                    className="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold group-hover:bg-[#c4a052]/10 group-hover:text-[#c4a052]700 transition-colors"
+                                                    className="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold group-hover:bg-purple-600/10 group-hover:text-purple-600700 transition-colors"
                                                 >
                                                     {item}
                                                 </span>
@@ -197,7 +209,7 @@ const DivorceFamily = () => {
                         <div>
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
                                 A Strategic Approach Focused on{' '}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c4a052] to-[#a88c3d]">Your Goals</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-rose-600">Your Goals</span>
                             </h2>
                             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                                 Ending a marriage is never easy. At Phyllis J Outlaw Mediation Service, we understand the
@@ -215,7 +227,7 @@ const DivorceFamily = () => {
                                     'Settlement negotiation',
                                 ].map((item, index) => (
                                     <div key={index} className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                                        <CheckCircle size={20} className="text-[#c4a052]" />
+                                        <CheckCircle size={20} className="text-purple-600" />
                                         <span className="text-slate-700 font-medium">{item}</span>
                                     </div>
                                 ))}
@@ -225,7 +237,7 @@ const DivorceFamily = () => {
                         <div className="relative">
                             <div className="absolute -inset-4 bg-gradient-to-tr from-slate-900 to-slate-700 rounded-[2.5rem] rotate-2 opacity-10"></div>
                             <img
-                                src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                src={booksImage}
                                 alt="Legal consultation"
                                 className="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-[4/3] transform hover:scale-[1.02] transition-transform duration-700"
                             />
@@ -238,12 +250,12 @@ const DivorceFamily = () => {
             <section className="py-24 bg-white">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        Speak With Our Team <span className="text-[#c4a052]">Today</span>
+                        Speak With Our Team <span className="text-purple-600">Today</span>
                     </h2>
                     <div className="flex justify-center gap-6">
                         <Link
                             to="/contact"
-                            className="btn-glow px-10 py-5 bg-slate-900 text-white rounded-full font-bold text-xl shadow-xl"
+                            className="btn-premium px-10 py-5 bg-slate-900 text-white rounded-full font-bold text-xl shadow-2xl"
                         >
                             Request Consultation
                         </Link>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
-import logo from '../assets/logo.png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -35,17 +34,17 @@ const Navbar = () => {
     return (
         <>
             {/* Scroll Progress Bar */}
-            <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#c4a052] to-[#a88c3d] z-[100] transition-all duration-100" style={{ width: `${scrollProgress * 100}%` }}></div>
+            <div className="fixed top-0 left-0 h-1 bg-gradient-to-r from-purple-600 to-rose-600 z-[100] transition-all duration-100" style={{ width: `${scrollProgress * 100}%` }}></div>
 
             {/* Top Bar - Hidden on scroll for cleaner look */}
-            <div className={`bg-[#0f172a] text-white py-2 px-4 hidden md:block transition-all duration-300 ${isScrolled ? '-translate-y-full absolute opacity-0' : 'relative opacity-100'}`}>
-                <div className="max-w-7xl mx-auto flex justify-between items-center text-xs tracking-widest font-medium uppercase">
+            <div className={`bg-slate-50 text-slate-600 py-2 px-4 hidden md:block transition-all duration-300 border-b border-slate-100 ${isScrolled ? '-translate-y-full absolute opacity-0' : 'relative opacity-100'}`}>
+                <div className="max-w-7xl mx-auto flex justify-between items-center text-[10px] tracking-[0.2em] font-bold uppercase">
                     <div className="flex items-center gap-6">
                         <span className="flex items-center gap-2">
-                            <span className="text-[#c4a052]">Washington, DC</span> (202) 548-2999
+                            <span className="text-purple-600">Washington, DC</span> (202) 548-2999
                         </span>
                     </div>
-                    <div className="flex items-center gap-2 hover:text-[#c4a052] transition-colors cursor-pointer">
+                    <div className="flex items-center gap-2 hover:text-purple-600 transition-colors cursor-pointer">
                         <span>lawfirm@pjoutlawlegal.com</span>
                     </div>
                 </div>
@@ -54,30 +53,31 @@ const Navbar = () => {
             {/* Main Navigation */}
             <nav
                 className={`sticky top-0 z-50 transition-all duration-500 border-b border-transparent ${isScrolled
-                    ? 'glass-panel py-2 md:py-3 shadow-lg border-white/20'
+                    ? 'bg-white/80 backdrop-blur-md py-2 md:py-3 shadow-lg border-slate-100'
                     : 'bg-white py-3 md:py-5'
                     }`}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center">
                         {/* Logo */}
-                        <Link to="/" className="flex items-center gap-3 group relative">
-                            <img
-                                src={logo}
-                                alt="Phyllis J. Outlaw & Associates"
-                                className="h-12 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
-                            />
+                        <Link to="/" className="flex flex-col group relative">
+                            <span className="font-['Playfair_Display'] font-bold text-xl md:text-2xl text-slate-900 leading-none group-hover:text-purple-600 transition-colors">
+                                Phyllis J. Outlaw
+                            </span>
+                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">
+                                Mediation Service
+                            </span>
                         </Link>
 
                         {/* Desktop Navigation */}
-                        <div className="hidden xl:flex items-center gap-1 bg-slate-100/50 p-1 rounded-full backdrop-blur-sm">
+                        <div className="hidden xl:flex items-center gap-1 bg-slate-100/50 p-1 rounded-full border border-slate-200/50">
                             {navLinks.filter(link => link.path !== '/contact').map((link) => (
                                 <Link
                                     key={link.path}
                                     to={link.path}
-                                    className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden ${location.pathname === link.path
-                                        ? 'bg-white text-[#0f172a] shadow-md'
-                                        : 'text-slate-600 hover:text-[#0f172a] hover:bg-white/50'
+                                    className={`px-4 py-2.5 rounded-full text-sm font-bold transition-all duration-300 relative overflow-hidden ${location.pathname === link.path
+                                        ? 'bg-white text-purple-600 shadow-sm'
+                                        : 'text-slate-600 hover:text-purple-600 hover:bg-white/50'
                                         }`}
                                 >
                                     {link.name}
@@ -86,15 +86,15 @@ const Navbar = () => {
                         </div>
 
                         {/* Right Side Actions */}
-                        <div className="hidden md:flex items-center gap-3">
-                            <Link to="/contact" className="hidden xl:block font-medium text-slate-600 hover:text-[#a88c3d] transition-colors text-sm">
+                        <div className="hidden md:flex items-center gap-4">
+                            <Link to="/contact" className={`hidden xl:block font-bold transition-colors text-xs uppercase tracking-widest ${location.pathname === '/contact' ? 'text-purple-600' : 'text-slate-500 hover:text-purple-600'}`}>
                                 Contact
                             </Link>
                             <a
                                 href="tel:+12025482999"
-                                className="btn-glow flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white rounded-full font-bold text-sm shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                                className="btn-premium flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-full font-bold text-sm shadow-xl hover:shadow-purple-500/10 transition-all duration-300"
                             >
-                                <Phone size={16} className="text-[#c4a052]" />
+                                <Phone size={16} className="text-purple-400" />
                                 <span>Consultation</span>
                             </a>
                         </div>
@@ -111,44 +111,46 @@ const Navbar = () => {
 
                 {/* Mobile Menu Overlay */}
                 <div
-                    className={`fixed inset-0 bg-[#0f172a]/95 backdrop-blur-xl z-[100] transition-all duration-500 xl:hidden ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+                    className={`fixed inset-0 bg-white z-[100] transition-all duration-500 xl:hidden ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
                         }`}
                 >
-                    <div className="flex flex-col h-full p-8">
-                        <div className="flex justify-between items-center mb-12">
-                            <span className="text-white font-['Playfair_Display'] text-2xl font-bold">Menu</span>
+                    <div className="flex flex-col h-full">
+                        <div className="p-6 flex justify-between items-center border-b border-slate-100">
+                            <span className="text-slate-900 font-['Playfair_Display'] text-2xl font-bold">Menu</span>
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="p-2 bg-white/10 rounded-full text-white hover:bg-white/20 transition-colors"
+                                className="p-2 bg-slate-100 rounded-full text-slate-800 hover:bg-slate-200 transition-colors"
                             >
                                 <X size={24} />
                             </button>
                         </div>
 
-                        <div className="space-y-4 flex-grow overflow-y-auto">
-                            {navLinks.map((link, idx) => (
-                                <Link
-                                    key={link.path}
-                                    to={link.path}
-                                    onClick={() => setIsOpen(false)}
-                                    className="block text-3xl font-['Playfair_Display'] font-bold text-white/50 hover:text-white hover:translate-x-4 transition-all duration-300"
-                                    style={{ transitionDelay: `${idx * 50}ms` }}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
+                        <div className="flex-grow overflow-y-auto px-6 py-8">
+                            <div className="space-y-6">
+                                {navLinks.map((link, idx) => (
+                                    <Link
+                                        key={link.path}
+                                        to={link.path}
+                                        onClick={() => setIsOpen(false)}
+                                        className={`block text-3xl font-['Playfair_Display'] font-bold transition-all duration-300 ${location.pathname === link.path ? 'text-purple-600 translate-x-4' : 'text-slate-400 hover:text-slate-900 hover:translate-x-4'}`}
+                                        style={{ transitionDelay: `${idx * 50}ms` }}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
 
-                        <div className="mt-8 pt-8 border-t border-white/10">
+                        <div className="p-6 bg-slate-50 border-t border-slate-100">
                             <a
                                 href="tel:+12025482999"
-                                className="flex items-center justify-center gap-2 w-full py-4 bg-gradient-to-r from-[#c4a052] to-[#a88c3d] text-[#0f172a] rounded-xl font-bold text-lg"
+                                className="btn-premium flex items-center justify-center gap-3 w-full py-5 bg-slate-900 text-white rounded-2xl font-bold text-lg shadow-xl"
                             >
-                                <Phone size={20} />
-                                <span>(202) 548-2999</span>
+                                <Phone size={20} className="text-purple-400" />
+                                <span>Book a Consultation</span>
                             </a>
-                            <div className="mt-6 text-center text-white/40 text-sm uppercase tracking-widest">
-                                Phyllis J Outlaw Mediation Service
+                            <div className="mt-6 text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em]">
+                                Phyllis J. Outlaw & Associates
                             </div>
                         </div>
                     </div>
