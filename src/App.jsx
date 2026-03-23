@@ -9,6 +9,7 @@ import BusinessServices from './pages/BusinessServices';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import MeetAttorneys from './pages/MeetAttorneys';
 import ScrollToTop from './components/ScrollToTop';
 
 const AnimatedRoutes = () => {
@@ -24,6 +25,7 @@ const AnimatedRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
+        <Route path="/meet-attorneys" element={<MeetAttorneys />} />
       </Routes>
     </div>
   );

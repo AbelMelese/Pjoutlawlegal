@@ -6,7 +6,6 @@ import {
     Users,
     Target,
     ArrowRight,
-    Phone,
     CheckCircle,
     TrendingUp,
     Globe,
@@ -18,7 +17,8 @@ import {
     Stethoscope,
     Quote
 } from 'lucide-react';
-import HeroSlider from '../components/HeroSlider';
+import PageHero from '../components/PageHero';
+import { Link } from 'react-router-dom';
 import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image 2.jpg';
 import booksImage from '../assets/books image.jpg';
@@ -148,28 +148,13 @@ const BusinessServices = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <HeroSlider slides={heroSlides} staticTitle="Business Solutions">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div className="max-w-3xl animate-enter delay-300">
-                        <div className="flex flex-col sm:flex-row gap-4 pt-12">
-                            <a
-                                href="#advising"
-                                className="btn-premium flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-full font-bold text-lg hover:shadow-xl"
-                            >
-                                <Briefcase size={20} />
-                                <span>Business Advising</span>
-                            </a>
-                            <a
-                                href="#nonprofit"
-                                className="flex items-center justify-center gap-3 px-8 py-4 bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/30 shadow-md transition-all"
-                            >
-                                <Heart size={20} className="text-rose-300" />
-                                <span>Non-Profit Advisory</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </HeroSlider>
+            <PageHero
+                slides={heroSlides}
+                actions={[
+                    { label: 'Business Advising', href: '#advising' },
+                    { label: 'Non-Profit Advisory', href: '#nonprofit' },
+                ]}
+            />
 
             {/* Business Advising Section */}
             <section id="advising" className="py-20 md:py-32 bg-white relative">

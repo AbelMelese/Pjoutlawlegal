@@ -4,9 +4,7 @@ import {
     Heart,
     Briefcase,
     ArrowRight,
-    Phone,
     CheckCircle,
-    MessageCircle,
     Target,
     Compass,
     Lightbulb,
@@ -15,7 +13,7 @@ import {
     GraduationCap,
     Presentation
 } from 'lucide-react';
-import HeroSlider from '../components/HeroSlider';
+import PageHero from '../components/PageHero';
 import seminarsTrainingImg from "../assets/use this image in seminars and training.jpg";
 import coachingPhoto from "../assets/use this image in coaching page.jpg";
 import image2 from "../assets/image 2.jpg";
@@ -117,20 +115,12 @@ const Coaching = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <HeroSlider slides={heroSlides} staticTitle="Personal & Professional Growth">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div className="max-w-3xl animate-enter delay-300">
-                        <div className="flex flex-col sm:flex-row gap-4 pt-12">
-                            <Link
-                                to="/contact"
-                                className="btn-premium px-8 py-4 bg-slate-900 text-white rounded-full font-bold text-lg shadow-xl"
-                            >
-                                Book a Session
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </HeroSlider>
+            <PageHero
+                slides={heroSlides}
+                actions={[
+                    { label: 'Book a Session', to: '/contact' },
+                ]}
+            />
 
             {/* Services Grid */}
             <section className="py-16 md:py-24">

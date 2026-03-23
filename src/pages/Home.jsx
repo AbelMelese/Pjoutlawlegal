@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import {
     ArrowRight,
-    Phone,
     CheckCircle,
     Scale,
     Heart,
@@ -10,14 +9,12 @@ import {
     Shield,
     Target,
     Award,
-    ChevronRight,
-    ChevronLeft,
     Calendar,
     Tv,
     MapPin
 } from 'lucide-react';
-import HeroSlider from '../components/HeroSlider';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
+import PageHero from '../components/PageHero';
 import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image 2.jpg';
 import booksImage from '../assets/books image.jpg';
@@ -25,12 +22,14 @@ import pjoPortrait from "../assets/use this picture in PJO's resume.jpg";
 
 const Home = () => {
     const [activeTestimonial, setActiveTestimonial] = useState(0);
-    const [isVisible, setIsVisible] = useState(false);
-    const [currentSlide, setCurrentSlide] = useState(0);
 
-    useEffect(() => {
-        setIsVisible(true);
-    }, []);
+    const mediaOutlets = [
+        { name: "CNN's Burden of Proof", mark: 'CNN', tone: 'text-[#ff4a4a]' },
+        { name: "C-Span's Fox News", mark: 'C-SPAN', tone: 'text-[#142b8f]' },
+        { name: "BET's Business Report", mark: 'BET', tone: 'text-[#2f2f2f]' },
+        { name: "WHUT's Evening Exchange", mark: 'WHUT', tone: 'text-[#332f89]' },
+        { name: 'The Bottom Line hosted by former Congressman Kweisi Mfume', mark: 'BOTTOMLINE', tone: 'text-[#1e293b]' },
+    ];
 
     const services = [
         {
@@ -116,32 +115,15 @@ const Home = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <HeroSlider slides={heroSlides}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div className="max-w-3xl animate-enter delay-300">
-                        <div className="flex flex-col sm:flex-row gap-4 pt-12">
-                            <Link
-                                to="/contact"
-                                className="btn-premium flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-purple-600 text-white rounded-full font-bold text-base md:text-lg shadow-2xl hover:bg-purple-500"
-                            >
-                                <span>Book a Consultation</span>
-                                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                                    <ArrowRight size={16} />
-                                </div>
-                            </Link>
-                            <div className="flex items-center gap-4 px-4 py-2 md:px-6 md:py-4 bg-slate-900/60 backdrop-blur-md rounded-full border border-white/10">
-                                <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-purple-600 animate-pulse">
-                                    <Phone size={20} />
-                                </div>
-                                <div className="text-left text-white pr-4">
-                                    <p className="text-[10px] md:text-xs text-white/70 font-bold uppercase tracking-wider">Call Us Now</p>
-                                    <p className="font-bold text-base md:text-lg">(202) 548-2999</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </HeroSlider>
+            <PageHero
+                slides={heroSlides}
+                rotatingPrefix="Resolution for"
+                rotatingWords={['families', 'leaders', 'partners', 'workplaces']}
+                actions={[
+                    { label: 'Book a Consultation', to: '/contact' },
+                    { label: 'Call Us Now', href: 'tel:+12025482999', icon: 'phone' },
+                ]}
+            />
 
 
 
@@ -229,26 +211,40 @@ const Home = () => {
                         Phyllis J. Outlaw has appeared as a guest on radio, as well as local and national television shows.
                     </p>
                 </div>
-                <div className="relative overflow-hidden">
-                    <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
-                    <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
-                    <div className="flex animate-marquee whitespace-nowrap">
-                        {[...Array(2)].map((_, setIndex) => (
-                            <div key={setIndex} className="flex items-center gap-12 px-6">
-                                {[
-                                    "CNN's Burden of Proof",
-                                    "C-Span's Fox News",
-                                    "BET's Business Report",
-                                    "WHUT's Evening Exchange",
-                                    "The Bottom Line hosted by former Congressman Kweisi Mfume"
-                                ].map((station, i) => (
-                                    <div key={i} className="flex items-center gap-4 px-8 py-4 bg-slate-50 rounded-full border border-slate-200 backdrop-blur-sm hover:bg-slate-100 transition-colors duration-300 flex-shrink-0">
-                                        <Tv size={20} className="text-purple-600" />
-                                        <span className="text-slate-900 font-semibold text-lg whitespace-nowrap">{station}</span>
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="media-showcase">
+                        <div className="media-showcase__glow" />
+                        <div className="media-showcase__veil" />
+
+                        <div className="media-track-wrap">
+                            <div className="media-track">
+                                {[...Array(2)].map((_, loopIndex) => (
+                                    <div key={`top-${loopIndex}`} className="media-track__set">
+                                        {mediaOutlets.map((outlet) => (
+                                            <article key={`top-${loopIndex}-${outlet.name}`} className="media-logo-card">
+                                                <span className={`media-logo-mark ${outlet.tone}`}>{outlet.mark}</span>
+                                                <span className="media-logo-name">{outlet.name}</span>
+                                            </article>
+                                        ))}
                                     </div>
                                 ))}
                             </div>
-                        ))}
+                        </div>
+
+                        <div className="media-track-wrap media-track-wrap--lower">
+                            <div className="media-track media-track--reverse">
+                                {[...Array(2)].map((_, loopIndex) => (
+                                    <div key={`bottom-${loopIndex}`} className="media-track__set">
+                                        {[...mediaOutlets].reverse().map((outlet) => (
+                                            <article key={`bottom-${loopIndex}-${outlet.name}`} className="media-logo-card media-logo-card--soft">
+                                                <span className={`media-logo-mark ${outlet.tone}`}>{outlet.mark}</span>
+                                                <span className="media-logo-name">{outlet.name}</span>
+                                            </article>
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

@@ -9,12 +9,11 @@ import {
     Heart,
     MapPin,
     ArrowRight,
-    Phone,
     CheckCircle,
     Shield,
     MessageSquare
 } from 'lucide-react';
-import HeroSlider from '../components/HeroSlider';
+import PageHero from '../components/PageHero';
 import booksImage from '../assets/books image.jpg';
 import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image 2.jpg';
@@ -92,28 +91,13 @@ const DivorceFamily = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <HeroSlider slides={heroSlides} staticTitle="Legal Representation">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div className="max-w-3xl animate-enter delay-300">
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                            <Link
-                                to="/contact"
-                                className="btn-premium flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-bold text-lg hover:shadow-xl"
-                            >
-                                <span>Get Legal Help</span>
-                                <ArrowRight size={20} />
-                            </Link>
-                            <a
-                                href="tel:+12025482999"
-                                className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-semibold text-lg hover:bg-white/20 transition-all shadow-md"
-                            >
-                                <Phone size={20} className="text-white" />
-                                <span>(202) 548-2999</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </HeroSlider>
+            <PageHero
+                slides={heroSlides}
+                actions={[
+                    { label: 'Get Legal Help', to: '/contact' },
+                    { label: '(202) 548-2999', href: 'tel:+12025482999', icon: 'phone' },
+                ]}
+            />
 
             {/* Why Choose Us Section */}
             <section className="py-24 bg-white relative overflow-hidden">

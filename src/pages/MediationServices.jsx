@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
 import {
     Scale,
-    Heart,
     Users,
     Briefcase,
+    Heart,
     ArrowRight,
-    Phone,
     CheckCircle,
     Shield,
     Clock,
@@ -18,7 +17,7 @@ import {
     Gavel,
     DollarSign
 } from 'lucide-react';
-import HeroSlider from '../components/HeroSlider';
+import PageHero from '../components/PageHero';
 import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image 2.jpg';
 import booksImage from '../assets/books image.jpg';
@@ -179,28 +178,13 @@ const MediationServices = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <HeroSlider slides={heroSlides} staticTitle="Mediation Services">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div className="max-w-3xl animate-enter delay-300">
-                        <div className="flex flex-col sm:flex-row gap-4 pt-10">
-                            <Link
-                                to="/contact"
-                                className="btn-premium flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-bold text-lg hover:shadow-xl"
-                            >
-                                <span>Start Mediation Info</span>
-                                <ArrowRight size={20} />
-                            </Link>
-                            <a
-                                href="tel:+12025482999"
-                                className="flex items-center justify-center gap-2 px-8 py-4 bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-full font-semibold text-lg hover:bg-white/30 transition-all shadow-md"
-                            >
-                                <Phone size={20} className="text-white" />
-                                <span>(202) 548-2999</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </HeroSlider>
+            <PageHero
+                slides={heroSlides}
+                actions={[
+                    { label: 'Start Mediation Info', to: '/contact' },
+                    { label: '(202) 548-2999', href: 'tel:+12025482999', icon: 'phone' },
+                ]}
+            />
 
             {/* Services Overview */}
             <section className="py-24">

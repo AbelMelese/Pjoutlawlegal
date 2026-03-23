@@ -16,7 +16,7 @@ import {
     Shield
 } from 'lucide-react';
 import { useState } from 'react';
-import HeroSlider from '../components/HeroSlider';
+import PageHero from '../components/PageHero';
 import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image 2.jpg';
 import booksImage from '../assets/books image.jpg';
@@ -158,25 +158,20 @@ const Blog = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <HeroSlider slides={heroSlides} staticTitle="Insights & Resources">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div className="max-w-3xl animate-enter delay-300">
-                        {/* Search Bar */}
-                        <div className="max-w-xl pt-12">
-                            <div className="relative">
-                                <Search size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
-                                <input
-                                    type="text"
-                                    placeholder="Search articles..."
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="w-full pl-12 pr-4 py-4 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-purple-600 shadow-xl"
-                                />
-                            </div>
-                        </div>
+            <PageHero slides={heroSlides}>
+                <div className="max-w-xl pt-4">
+                    <div className="relative">
+                        <Search size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                        <input
+                            type="text"
+                            placeholder="Search articles..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="w-full pl-12 pr-4 py-4 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-purple-600 shadow-xl"
+                        />
                     </div>
                 </div>
-            </HeroSlider>
+            </PageHero>
 
             {/* Category Filter */}
             <section className="py-8 bg-white border-b border-slate-100 sticky top-16 z-40">

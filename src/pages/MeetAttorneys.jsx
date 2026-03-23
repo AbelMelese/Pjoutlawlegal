@@ -5,13 +5,11 @@ import {
     Scale,
     Briefcase,
     Building2,
-    Phone,
-    ArrowRight,
     Gavel,
     BadgeCheck,
     Users
 } from 'lucide-react';
-import HeroSlider from '../components/HeroSlider';
+import PageHero from '../components/PageHero';
 import attorneyPortrait from "../assets/use this picture in PJO's resume.jpg";
 import attorneysReading from "../assets/image 2.jpg";
 import image1 from "../assets/image1.jpg";
@@ -83,7 +81,7 @@ const MeetAttorneys = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <HeroSlider slides={heroSlides} staticTitle="Meet The Team" />
+            <PageHero slides={heroSlides} />
 
             {/* Profiles */}
             <section className="py-24">

@@ -1,13 +1,13 @@
+import { useState } from 'react';
 import {
     Phone,
     Mail,
     MapPin,
-    Upload,
     CheckCircle,
     Loader2,
     Send
 } from 'lucide-react';
-import HeroSlider from '../components/HeroSlider';
+import PageHero from '../components/PageHero';
 import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image 2.jpg';
 import booksImage from '../assets/books image.jpg';
@@ -64,7 +64,7 @@ const Contact = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <HeroSlider slides={heroSlides} staticTitle="Get In Touch" />
+            <PageHero slides={heroSlides} />
 
             <section className="py-24 relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
