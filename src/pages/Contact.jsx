@@ -55,8 +55,8 @@ const Contact = () => {
             image: image2
         },
         {
-            title: "Schedule a Consultation",
-            subtitle: "Our legal and mediation experts are ready to assist you with your transition.",
+            title: "Start the Conversation",
+            subtitle: "Our legal and mediation team is ready to help you move forward with clarity.",
             image: booksImage
         }
     ];
@@ -74,7 +74,7 @@ const Contact = () => {
                         <div className="space-y-10 order-2 lg:order-1">
                             <div>
                                 <h2 className="text-3xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
-                                    Book a Consultation.
+                                    Contact Our Office.
                                 </h2>
                                 <p className="text-lg text-slate-500 mb-8">
                                     Our office hours are Monday to Friday, 9 PM – 5 AM EST.

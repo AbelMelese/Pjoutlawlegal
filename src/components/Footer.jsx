@@ -81,7 +81,6 @@ const Footer = () => {
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold font-['Playfair_Display'] text-slate-900">Phyllis J. Outlaw & Associates</h3>
-                                <p className="text-sm text-slate-500">Mediation Service</p>
                             </div>
                         </div>
                         <div className="flex gap-3">

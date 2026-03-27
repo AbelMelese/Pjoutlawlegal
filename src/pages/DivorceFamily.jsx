@@ -196,7 +196,7 @@ const DivorceFamily = () => {
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-rose-600">Your Goals</span>
                             </h2>
                             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                                Ending a marriage is never easy. At Phyllis J Outlaw Mediation Service, we understand the
+                                Ending a marriage is never easy. At Phyllis J. Outlaw & Associates, we understand the
                                 emotional weight and complexity of family law matters. Our approach combines
                                 legal expertise with compassionate support.
                             </p>

@@ -39,8 +39,7 @@ const Navbar = () => {
       <nav className={`site-nav ${isScrolled ? 'is-scrolled' : ''}`}>
         <div className="section-shell nav-inner">
           <Link to="/" className="brand-lockup" aria-label="Phyllis J. Outlaw home">
-            <strong>Phyllis J. Outlaw</strong>
-            <span>Mediation Service</span>
+            <strong>Phyllis J. Outlaw &amp; Associates</strong>
           </Link>
 
           <div className="desktop-nav">
@@ -61,7 +60,7 @@ const Navbar = () => {
           <div className="nav-contact">
             <a href="tel:+12025482999" className="primary-button">
               <PhoneCall size={18} />
-              <span>Consultation</span>
+              <span>Call Us</span>
             </a>
           </div>
 
@@ -80,8 +79,7 @@ const Navbar = () => {
         <div className="mobile-drawer-panel">
           <div className="mobile-drawer-header">
             <div className="brand-lockup">
-              <strong>Menu</strong>
-              <span>Mediation Service</span>
+              <strong>Phyllis J. Outlaw &amp; Associates</strong>
             </div>
             <button
               type="button"

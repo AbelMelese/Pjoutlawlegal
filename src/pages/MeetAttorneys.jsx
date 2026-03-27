@@ -21,7 +21,7 @@ const MeetAttorneys = () => {
             role: 'Principal & Founding Member',
             image: attorneyPortrait,
             bio: [
-                'Phyllis J Outlaw, J.D., is the principal and founding member of Phyllis J Outlaw Mediation Service. With over 30 years of experience practicing law, she has now focused her career on alternative dispute resolution.',
+                'Phyllis J Outlaw, J.D., is the principal and founding member of Phyllis J. Outlaw & Associates. With over 30 years of experience practicing law, she has now focused her career on alternative dispute resolution.',
                 'She has served as a Magistrate, an Administrative Law Judge, the former Chairperson of the Attorney Grievance Commission, and a member of the Michigan Gaming Control Board. Additionally, she is a former president of Michigan Malpractice Mediators, Inc. and a court-approved mediator.',
                 'Her extensive background as a business owner, an advocate and a judicial officer provides her with a well-rounded perspective. As a neutral mediator, she does not represent either party but instead facilitates discussions to help couples reach fair, balanced agreements.',
             ],

@@ -6,6 +6,7 @@ const prefersReducedMotion = () =>
 
 const AnimatedWords = ({ words, className = '' }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const activeWord = words?.[activeIndex];
 
   useEffect(() => {
     if (!words?.length || prefersReducedMotion()) {
@@ -24,15 +25,10 @@ const AnimatedWords = ({ words, className = '' }) => {
   }
 
   return (
-    <span className={`word-stage ${className}`.trim()}>
-      {words.map((word, index) => (
-        <span
-          key={word}
-          className={`word-token ${index === activeIndex ? 'is-active' : ''}`}
-        >
-          {word}
-        </span>
-      ))}
+    <span className={`word-stage ${className}`.trim()} aria-live="polite">
+      <span key={activeWord} className="word-token is-active">
+        {activeWord}
+      </span>
     </span>
   );
 };

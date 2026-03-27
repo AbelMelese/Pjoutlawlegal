@@ -8,7 +8,6 @@ import {
     Briefcase,
     Shield,
     Target,
-    Award,
     Calendar,
     Tv,
     MapPin
@@ -19,17 +18,10 @@ import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image 2.jpg';
 import booksImage from '../assets/books image.jpg';
 import pjoPortrait from "../assets/use this picture in PJO's resume.jpg";
+import mediaLogosStrip from '../assets/media-logos-strip.png';
 
 const Home = () => {
     const [activeTestimonial, setActiveTestimonial] = useState(0);
-
-    const mediaOutlets = [
-        { name: "CNN's Burden of Proof", mark: 'CNN', tone: 'text-[#ff4a4a]' },
-        { name: "C-Span's Fox News", mark: 'C-SPAN', tone: 'text-[#142b8f]' },
-        { name: "BET's Business Report", mark: 'BET', tone: 'text-[#2f2f2f]' },
-        { name: "WHUT's Evening Exchange", mark: 'WHUT', tone: 'text-[#332f89]' },
-        { name: 'The Bottom Line hosted by former Congressman Kweisi Mfume', mark: 'BOTTOMLINE', tone: 'text-[#1e293b]' },
-    ];
 
     const services = [
         {
@@ -83,26 +75,26 @@ const Home = () => {
 
     const testimonials = [
         {
-            quote: "Phyllis helped me get through a very complicated divorce with dignity and direction. I couldn't have done it without her guidance and expertise.",
-            author: "Lisa R.",
-            role: "Divorce Mediation Client",
-            rating: 5,
+            quote: "I am very pleased and satisfied with the firm's work. They keep me fully informed both in person and with a written copy of all details. The attorneys have been competent, thorough and timely in their legal work.",
+            author: 'Terrance Howell',
+            role: 'Prince Georges County, MD',
         },
         {
-            quote: "We wouldn't feel comfortable trusting anyone else to represent our company in legal matters. Their professionalism is unmatched.",
-            author: "Helen M.",
-            role: "Business Advisory Client",
-            rating: 5,
+            quote: 'Phyllis J. Outlaw & Associates are highly skilled in their approach to personnel matters. The attorneys are very professional and courteous with their clients and treat them with the utmost respect.',
+            author: 'Quinsola N. McCray',
+            role: 'Washington, DC',
         },
         {
-            quote: "The coaching sessions transformed how our family communicates. We're closer now than we've been in years.",
-            author: "Michael T.",
-            role: "Family Coaching Client",
-            rating: 5,
+            quote: 'Phyllis J. Outlaw & Associates provides exceptional legal services and always represents our best interest. The attorneys are accessible and highly responsive to our requests.',
+            author: 'Dr. Mary Quinn',
+            role: 'Council of Women Ministers & Male Support Division, Inc., Washington, DC',
+        },
+        {
+            quote: 'Phyllis J. Outlaw and Associates\' managerial-employee training programs are highly effective and would be an asset to any organization.',
+            author: 'Ann Brown',
+            role: 'Mary Kay Cosmetics, Charlotte, North Carolina',
         },
     ];
-
-
 
     // Auto slide for Testimonials
     useEffect(() => {
@@ -120,7 +112,7 @@ const Home = () => {
                 rotatingPrefix="Resolution for"
                 rotatingWords={['families', 'leaders', 'partners', 'workplaces']}
                 actions={[
-                    { label: 'Book a Consultation', to: '/contact' },
+                    { label: 'Contact Us', to: '/contact' },
                     { label: 'Call Us Now', href: 'tel:+12025482999', icon: 'phone' },
                 ]}
             />
@@ -139,7 +131,7 @@ const Home = () => {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {services.map((service, index) => (
-                            <div key={index} className={`group relative bg-white rounded-[2rem] p-8 shadow-xl border border-slate-100 overflow-hidden card-hover-effect animate-enter delay-${(index % 4 + 1) * 100}`}>
+                            <div key={index} className="group relative bg-white rounded-[2rem] p-8 shadow-xl border border-slate-100 overflow-hidden card-hover-effect">
                                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.color} opacity-10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700`}></div>
 
                                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg mb-8 group-hover:rotate-6 transition-transform duration-300`}>
@@ -166,7 +158,7 @@ const Home = () => {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div className="space-y-8 animate-slide-right">
+                        <div className="space-y-8">
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600/10 rounded-full border border-purple-600/30">
                                 <MapPin size={16} className="text-rose-600" />
                                 <span className="text-rose-600 font-bold text-sm tracking-wide uppercase">Our Location</span>
@@ -179,9 +171,9 @@ const Home = () => {
                                 Phyllis J. Outlaw & Associates have provided legal services to residents and local businesses in Maryland and Washington, DC. Our offices are located in the commercial district which is known for its resurgence and emerging small businesses. Our offices are convenient to the financial and business districts of the city, public transportation, as well as to the federal and local courts located in the District of Columbia and Maryland.
                             </p>
                         </div>
-                        <div className="relative animate-slide-left delay-300">
-                            <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-rose-600 rounded-[2.5rem] rotate-2 opacity-20 blur-lg animate-pulse"></div>
-                            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 h-[300px] md:h-[400px] magnetic">
+                        <div className="relative">
+                            <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-rose-600 rounded-[2.5rem] rotate-2 opacity-20 blur-lg"></div>
+                            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 h-[300px] md:h-[400px]">
                                 <img
                                     src={booksImage}
                                     alt="Washington DC commercial district"
@@ -212,38 +204,16 @@ const Home = () => {
                     </p>
                 </div>
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="media-showcase">
-                        <div className="media-showcase__glow" />
-                        <div className="media-showcase__veil" />
-
-                        <div className="media-track-wrap">
-                            <div className="media-track">
-                                {[...Array(2)].map((_, loopIndex) => (
-                                    <div key={`top-${loopIndex}`} className="media-track__set">
-                                        {mediaOutlets.map((outlet) => (
-                                            <article key={`top-${loopIndex}-${outlet.name}`} className="media-logo-card">
-                                                <span className={`media-logo-mark ${outlet.tone}`}>{outlet.mark}</span>
-                                                <span className="media-logo-name">{outlet.name}</span>
-                                            </article>
-                                        ))}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="media-track-wrap media-track-wrap--lower">
-                            <div className="media-track media-track--reverse">
-                                {[...Array(2)].map((_, loopIndex) => (
-                                    <div key={`bottom-${loopIndex}`} className="media-track__set">
-                                        {[...mediaOutlets].reverse().map((outlet) => (
-                                            <article key={`bottom-${loopIndex}-${outlet.name}`} className="media-logo-card media-logo-card--soft">
-                                                <span className={`media-logo-mark ${outlet.tone}`}>{outlet.mark}</span>
-                                                <span className="media-logo-name">{outlet.name}</span>
-                                            </article>
-                                        ))}
-                                    </div>
-                                ))}
-                            </div>
+                    <div className="logo-marquee">
+                        <div className="logo-marquee__track">
+                            {[0, 1, 2].map((loopIndex) => (
+                                <div key={loopIndex} className="logo-marquee__item">
+                                    <img
+                                        src={mediaLogosStrip}
+                                        alt="Media appearance logos including CNN, C-SPAN, FOX News, WUSA 9, WYCB, WPFW, WHUT, JET, Ebony, Essence, and Bottomline"
+                                    />
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -268,9 +238,9 @@ const Home = () => {
 
                             <div className="space-y-8">
                                 {[
-                                    { title: "Book Consultation", desc: "Schedule your consultation.", icon: Calendar },
-                                    { title: "Get Clarity", desc: "We structure a plan tailored to your needs.", icon: Target },
-                                    { title: "Move Forward", desc: "Resolve conflict with confidence and peace.", icon: CheckCircle },
+                                    { title: 'Reach Out', desc: 'Call or contact our office to discuss your needs.', icon: Calendar },
+                                    { title: 'Get Clarity', desc: 'We structure a plan tailored to your needs.', icon: Target },
+                                    { title: 'Move Forward', desc: 'Resolve conflict with confidence and peace.', icon: CheckCircle },
                                 ].map((step, i) => (
                                     <div key={i} className="flex items-start gap-6 group">
                                         <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-purple-600 group-hover:bg-purple-600 group-hover:text-slate-900 transition-all duration-300 shadow-lg">
@@ -287,11 +257,10 @@ const Home = () => {
 
                         <div className="relative">
                             <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-rose-600 rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
-                            <div className="relative h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col justify-center items-center p-8 text-center relative group">
+                            <div className="relative h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col justify-center items-center p-8 text-center">
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
-                                <div className="absolute inset-0 bg-purple-500/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-                                <div className="w-24 h-24 rounded-full bg-white/5 flex items-center justify-center text-purple-600 mb-8 relative z-10 transition-transform duration-500 group-hover:scale-110">
+                                <div className="w-24 h-24 rounded-full bg-white/5 flex items-center justify-center text-purple-600 mb-8 relative z-10">
                                     <Shield size={48} />
                                 </div>
                                 <h3 className="text-3xl font-bold text-white font-['Playfair_Display'] mb-4 relative z-10">Trusted Guidance</h3>
@@ -299,7 +268,7 @@ const Home = () => {
                                     With over 30 years of experience, we provide a secure, confidential environment for you to resolve disputes and plan for the future.
                                 </p>
 
-                                <div className="absolute bottom-6 left-6 right-6 z-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="absolute bottom-6 left-6 right-6 z-10">
                                     <div className="glass-panel p-6 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md">
                                         <p className="text-white font-['Playfair_Display'] text-xl italic drop-shadow-md">"The clarity I gained after just one session was life-changing."</p>
                                     </div>
@@ -313,24 +282,18 @@ const Home = () => {
             {/* Testimonials */}
             <section className="py-20 md:py-32 bg-slate-50 relative">
                 <div className="max-w-5xl mx-auto px-4 text-center">
-                    <Award size={48} className="text-purple-600 mx-auto mb-8 animate-bounce" />
-                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-12 md:mb-16">Stories of Resolution</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-12 md:mb-16">Client Testimonials</h2>
 
-                    <div className="relative h-[300px]">
+                    <div className="relative min-h-[340px] md:min-h-[300px]">
                         {testimonials.map((t, i) => (
                             <div
                                 key={i}
-                                className={`absolute inset-0 transition-all duration-700 transform ${i === activeTestimonial ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95 pointer-events-none'}`}
+                                className={`absolute inset-0 transition-all duration-700 ${i === activeTestimonial ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
                             >
                                 <p className="text-2xl md:text-4xl font-['Playfair_Display'] text-slate-800 leading-tight mb-8">"{t.quote}"</p>
-                                <div className="flex items-center justify-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-600">
-                                        {t.author[0]}
-                                    </div>
-                                    <div className="text-left">
-                                        <p className="font-bold text-slate-900">{t.author}</p>
-                                        <p className="text-rose-600 text-sm font-semibold uppercase">{t.role}</p>
-                                    </div>
+                                <div className="space-y-2">
+                                    <p className="font-bold text-slate-900 text-lg">{t.author}</p>
+                                    <p className="text-rose-600 text-sm font-semibold uppercase tracking-[0.16em]">{t.role}</p>
                                 </div>
                             </div>
                         ))}
@@ -364,7 +327,7 @@ const Home = () => {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
                         <Link to="/contact" className="btn-glow px-10 py-5 bg-purple-600 text-white rounded-full font-bold text-xl shadow-lg hover:bg-rose-600 transition-colors">
-                            Book Consultation
+                            Contact Us
                         </Link>
                     </div>
                 </div>

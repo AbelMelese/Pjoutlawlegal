@@ -414,11 +414,12 @@ h6 {
 .brand-lockup {
   display: grid;
   gap: 0.2rem;
+  max-width: 19rem;
 }
 
 .brand-lockup strong {
-  font-size: 1.6rem;
-  line-height: 1;
+  font-size: 1.35rem;
+  line-height: 1.05;
 }
 
 .brand-lockup span {
@@ -798,26 +799,21 @@ h6 {
 }
 
 .word-stage {
-  position: relative;
   display: inline-flex;
   align-items: center;
-  min-width: 9ch;
-  min-height: 1.2em;
+  min-width: 10ch;
+  min-height: 1.3em;
+  overflow: hidden;
   color: #e9d5ff;
 }
 
 .word-token {
-  position: absolute;
-  inset: 0 auto auto 0;
-  opacity: 0;
-  transform: translateY(40%);
-  transition: opacity 220ms ease, transform 220ms ease;
+  display: inline-block;
   white-space: nowrap;
 }
 
 .word-token.is-active {
-  opacity: 1;
-  transform: translateY(0);
+  animation: word-rise 420ms ease;
 }
 
 .btn-glow:hover {
@@ -836,6 +832,43 @@ h6 {
   box-shadow: 0 24px 48px -18px rgba(15, 23, 42, 0.16);
 }
 
+.logo-marquee {
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1.75rem;
+  background: white;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+.logo-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.logo-marquee__item {
+  flex: 0 0 auto;
+  padding: 1.4rem 1.75rem;
+}
+
+.logo-marquee__item img {
+  width: min(78vw, 62rem);
+  max-width: none;
+  height: auto;
+}
+
+@keyframes word-rise {
+  from {
+    opacity: 0;
+    transform: translateY(35%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (min-width: 1024px) {
   .desktop-nav,
   .nav-contact {
@@ -848,6 +881,7 @@ h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .logo-marquee__track,
   .media-track,
   .media-track--reverse,
   .media-showcase__glow {

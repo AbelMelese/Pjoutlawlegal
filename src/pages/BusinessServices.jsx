@@ -31,7 +31,7 @@ const BusinessServices = () => {
     const businessAdvising = {
         title: 'Strategic Business Advising',
         subtitle: 'You Built Something Valuable—Let\'s Take It Further',
-        description: 'Running a business is a constant balancing act. At Phyllis J Outlaw Mediation Service, we provide strategic business advising that helps you align your goals, operations, and leadership without losing your focus or peace of mind.',
+        description: 'Running a business is a constant balancing act. At Phyllis J. Outlaw & Associates, we provide strategic business advising that helps you align your goals, operations, and leadership without losing your focus or peace of mind.',
         helpsWith: [
             'Vision and values alignment',
             'Strategic planning and leadership',
