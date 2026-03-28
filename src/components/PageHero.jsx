@@ -1,115 +1,87 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Phone } from 'lucide-react';
-import AnimatedWords from './AnimatedWords';
-
-const prefersReducedMotion = () =>
-  typeof window !== 'undefined' &&
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-const ActionLink = ({ action, primary }) => {
-  const className = primary ? 'primary-button' : 'secondary-button';
-
-  if (action.href) {
-    return (
-      <a href={action.href} className={className}>
-        {action.icon === 'phone' ? <Phone size={18} /> : null}
-        <span>{action.label}</span>
-      </a>
-    );
-  }
-
-  return (
-    <Link to={action.to} className={className}>
-      <span>{action.label}</span>
-      {primary ? <ArrowRight size={18} /> : null}
-    </Link>
-  );
-};
 
 const PageHero = ({
+  slides = [],
   eyebrow,
   title,
   description,
-  slides = [],
   actions = [],
-  rotatingPrefix,
-  rotatingWords = [],
-  children,
+  compact = false,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeSlide = slides[activeIndex] ?? {};
-  const resolvedTitle = title ?? activeSlide.title;
-  const resolvedDescription =
-    description ?? activeSlide.subtitle ?? activeSlide.description;
 
   useEffect(() => {
-    if (!slides.length || prefersReducedMotion()) {
+    if (slides.length < 2) {
       return undefined;
     }
 
     const interval = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % slides.length);
-    }, 5200);
+    }, 6000);
 
     return () => window.clearInterval(interval);
-  }, [slides]);
+  }, [slides.length]);
+
+  const resolvedTitle = title ?? activeSlide.title;
+  const resolvedDescription = description ?? activeSlide.subtitle ?? activeSlide.description;
 
   return (
-    <section className="hero-shell">
-      <div className="hero-background">
+    <section className={`page-hero ${compact ? 'page-hero--compact' : ''}`}>
+      <div className="page-hero__media">
         {slides.map((slide, index) => (
           <div
             key={`${slide.title ?? 'slide'}-${index}`}
-            className={`hero-slide ${index === activeIndex ? 'is-active' : ''}`}
+            className={`page-hero__slide ${index === activeIndex ? 'is-active' : ''}`}
           >
-            <img src={slide.image} alt={slide.title || title} />
+            <img src={slide.image} alt={slide.title ?? resolvedTitle} />
           </div>
         ))}
-        <div className="hero-overlay" />
+        <div className="page-hero__overlay" />
       </div>
 
-      <div className="section-shell hero-content">
-          <div className="hero-copy">
-          {eyebrow ? <p className="hero-eyebrow">{eyebrow}</p> : null}
-          {resolvedTitle ? <h1 className="hero-title">{resolvedTitle}</h1> : null}
-
-          {rotatingWords.length ? (
-            <p className="hero-rotating-line">
-              <span>{rotatingPrefix}</span>
-              <AnimatedWords words={rotatingWords} />
-            </p>
-          ) : null}
-
-          {resolvedDescription ? (
-            <p className="hero-description">{resolvedDescription}</p>
-          ) : null}
+      <div className="section-shell page-hero__content">
+        <div className="page-hero__copy">
+          {eyebrow ? <p className="page-hero__eyebrow">{eyebrow}</p> : null}
+          <h1>{resolvedTitle}</h1>
+          {resolvedDescription ? <p>{resolvedDescription}</p> : null}
 
           {actions.length ? (
             <div className="hero-actions">
-              {actions.map((action, index) => (
-                <ActionLink
-                  key={`${action.label}-${index}`}
-                  action={action}
-                  primary={index === 0}
-                />
-              ))}
+              {actions.map((action, index) =>
+                action.href ? (
+                  <a
+                    key={`${action.label}-${index}`}
+                    href={action.href}
+                    className={index === 0 ? 'primary-button' : 'secondary-button'}
+                  >
+                    {action.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={`${action.label}-${index}`}
+                    to={action.to}
+                    className={index === 0 ? 'primary-button' : 'secondary-button'}
+                  >
+                    {action.label}
+                  </Link>
+                ),
+              )}
             </div>
           ) : null}
-
-          {children}
         </div>
       </div>
 
-      {slides.length ? (
-        <div className="hero-dots section-shell">
+      {slides.length > 1 ? (
+        <div className="section-shell hero-dots">
           {slides.map((slide, index) => (
             <button
               key={`${slide.title ?? 'dot'}-${index}`}
               type="button"
-              className={`hero-dot ${index === activeIndex ? 'is-active' : ''}`}
-              onClick={() => setActiveIndex(index)}
+              className={index === activeIndex ? 'is-active' : ''}
               aria-label={`Show slide ${index + 1}`}
+              onClick={() => setActiveIndex(index)}
             />
           ))}
         </div>

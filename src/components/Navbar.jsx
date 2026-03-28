@@ -1,97 +1,83 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, PhoneCall, X } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Mediation Services', path: '/mediation-services' },
-  { name: 'Divorce & Family Law', path: '/divorce-family-law' },
+  { name: 'Legal Services', path: '/legal-services' },
   { name: 'Coaching', path: '/coaching' },
-  { name: 'Business Services', path: '/business-services' },
-  { name: 'Blog', path: '/blog' },
+  { name: 'About Phyllis J. Outlaw', path: '/about-phyllis-j-outlaw' },
+  { name: 'Testimonials', path: '/testimonials' },
   { name: 'Contact Us', path: '/contact' },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 18);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
-
   return (
-    <>
-      <nav className={`site-nav ${isScrolled ? 'is-scrolled' : ''}`}>
-        <div className="section-shell nav-inner">
-          <Link to="/" className="brand-lockup" aria-label="Phyllis J. Outlaw home">
+    <header className="site-header">
+      <div className="contact-ribbon">
+        <div className="section-shell contact-ribbon__inner">
+          <p>Phyllis J. Outlaw &amp; Associates</p>
+          <div className="contact-ribbon__meta">
+            <a href="tel:+12025482999">Washington, D.C. 202.548.2999</a>
+            <span>|</span>
+            <a href="mailto:lawfirm@pjoutlawlegal.com">lawfirm@pjoutlawlegal.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="section-shell brand-row">
+        <Link to="/" className="brand-block" aria-label="Phyllis J. Outlaw & Associates home">
+          <span className="brand-monogram">PJO</span>
+          <div>
             <strong>Phyllis J. Outlaw &amp; Associates</strong>
-          </Link>
+            <em>Legal, Mediation &amp; Coaching Services</em>
+          </div>
+        </Link>
 
-          <div className="desktop-nav">
-            {navLinks
-              .filter((link) => link.path !== '/contact')
-              .map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={location.pathname === link.path ? 'is-active' : ''}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
+        <div className="brand-actions">
+          <div className="brand-actions__callout">
+            <span>Contact Us Today</span>
+            <a href="tel:+12025482999">(202) 548-2999</a>
           </div>
 
-          <div className="nav-contact">
-            <a href="tel:+12025482999" className="primary-button">
-              <PhoneCall size={18} />
-              <span>Call Us</span>
-            </a>
-          </div>
+          <a href="tel:+12025482999" className="primary-button">
+            <PhoneCall size={18} />
+            <span>Call Our Office</span>
+          </a>
 
           <button
             type="button"
             className="mobile-menu-button"
-            onClick={() => setIsOpen(true)}
-            aria-label="Open navigation menu"
+            onClick={() => setIsOpen((current) => !current)}
+            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
-            <Menu size={22} />
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
+        </div>
+      </div>
+
+      <nav className="primary-nav">
+        <div className="section-shell primary-nav__inner">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={location.pathname === link.path ? 'is-active' : ''}
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
       </nav>
 
-      <div className={`mobile-drawer ${isOpen ? 'is-open' : ''}`}>
-        <div className="mobile-drawer-panel">
-          <div className="mobile-drawer-header">
-            <div className="brand-lockup">
-              <strong>Phyllis J. Outlaw &amp; Associates</strong>
-            </div>
-            <button
-              type="button"
-              className="mobile-menu-button"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close navigation menu"
-            >
-              <X size={22} />
-            </button>
-          </div>
-
-          <div className="mobile-drawer-links">
+      {isOpen ? (
+        <div className="mobile-nav-panel">
+          <div className="section-shell mobile-nav-panel__inner">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -103,14 +89,9 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-
-          <a href="tel:+12025482999" className="primary-button">
-            <PhoneCall size={18} />
-            <span>(202) 548-2999</span>
-          </a>
         </div>
-      </div>
-    </>
+      ) : null}
+    </header>
   );
 };
 
