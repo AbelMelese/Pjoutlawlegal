@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
-import image2 from '../assets/image 2.jpg';
-import image1 from '../assets/image1.jpg';
+import familyImage from '../assets/white-family-with-children.jpg';
 
 const mediationAreas = [
   {
@@ -35,12 +34,16 @@ const MediationServices = () => {
     <div>
       <PageHero
         compact
+        allowImageMotion={false}
         slides={[
           {
             title: 'The Path From Conflict to Resolution',
             subtitle:
               'Court-appointed mediation services for clients who need an experienced, knowledgeable, and balanced process.',
-            image: image2,
+            image: familyImage,
+            fit: 'contain',
+            position: 'center center',
+            background: '#dde3e6',
           },
         ]}
         eyebrow="Mediation Services"
@@ -54,7 +57,7 @@ const MediationServices = () => {
         <div className="section-shell">
           <div className="two-column">
             <div className="image-frame">
-              <img src={image1} alt="Mediation consultation" />
+              <img src={familyImage} alt="Family mediation support" style={{ objectPosition: 'center top' }} />
             </div>
 
             <div className="body-copy">

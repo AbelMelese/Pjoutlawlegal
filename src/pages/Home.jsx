@@ -1,35 +1,42 @@
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
-import image1 from '../assets/image1.jpg';
-import image2 from '../assets/image 2.jpg';
-import booksImage from '../assets/books image.jpg';
 import pjoPortrait from "../assets/use this picture in PJO's resume.jpg";
 import mediaLogosStrip from '../assets/media-logos-strip.png';
+import goldWomanScales from '../assets/gold-woman-scales.jpg';
+import officeShoot264 from '../assets/office-shoot-264.jpg';
+import officeShoot044 from '../assets/office-shoot-044.jpg';
+import officeShoot110 from '../assets/office-shoot-110.jpg';
+import dcStreetStock from '../assets/dc-street-stock.jpg';
 
 const heroSlides = [
   {
     title: 'Phyllis J. Outlaw & Associates',
     subtitle:
       'Maintains the highest standard of excellence on behalf of our clients.',
-    image: image1,
+    image: goldWomanScales,
+    fit: 'contain',
+    position: '72% center',
+    background: '#d6d1c6',
   },
   {
     title: 'A Court-Appointed Mediator',
     subtitle:
       'Who possesses knowledge, skills and expertise in mediation of disputes.',
-    image: image2,
+    image: officeShoot264,
+    position: 'center 28%',
   },
   {
     title: 'Our Legal Team Employs Innovative Methods',
     subtitle:
       'To help clients pursue a successful outcome for important legal matters.',
-    image: booksImage,
+    image: officeShoot044,
+    position: 'center 48%',
   },
   {
     title: 'Over Four Decades of Experience',
-    subtitle:
-      'In mediation, arbitration, and civil litigation.',
-    image: pjoPortrait,
+    subtitle: 'In mediation, arbitration, and civil litigation.',
+    image: officeShoot110,
+    position: 'center 26%',
   },
 ];
 
@@ -123,6 +130,31 @@ const Home = () => {
 
       <section className="page-section page-section--soft">
         <div className="section-shell">
+          <div className="two-column section-block">
+            <div className="image-frame image-frame--tall">
+              <img src={dcStreetStock} alt="Washington D.C. business district street" />
+            </div>
+
+            <div className="body-copy">
+              <p className="section-script" style={{ textAlign: 'left', marginBottom: '0.6rem' }}>
+                Washington, D.C. Offices
+              </p>
+              <p>
+                Phyllis J. Outlaw &amp; Associates has provided legal services to residents and local
+                businesses in Maryland and Washington, D.C. Our offices are located in the
+                commercial district which is known for its resurgence and emerging small
+                businesses.
+              </p>
+              <p>
+                Our offices are convenient to the financial and business districts of the city,
+                public transportation, as well as to the federal and local courts located in the
+                District of Columbia and Maryland.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ height: '2rem' }} />
+
           <h2 className="section-title">Core Areas of Service</h2>
           <div className="section-divider">✦</div>
 
@@ -158,11 +190,16 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="media-strip" style={{ marginTop: '1.5rem' }}>
-            <img
-              src={mediaLogosStrip}
-              alt="Media appearances including CNN, C-SPAN, FOX News, WUSA 9, WYCB Podcast, WPFW, WHUT, JET, Ebony, Essence, and Bottomline"
-            />
+          <div className="media-marquee" style={{ marginTop: '1.5rem' }}>
+            <div className="media-marquee__track">
+              {[0, 1].map((index) => (
+                <img
+                  key={index}
+                  src={mediaLogosStrip}
+                  alt="Media appearances including CNN, C-SPAN, FOX News, WUSA 9, WYCB Podcast, WPFW, WHUT, JET, Ebony, Essence, and Bottomline"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -31,12 +31,15 @@ const LegalServices = () => {
     <div>
       <PageHero
         compact
+        allowImageMotion={false}
         slides={[
           {
             title: 'Legal Services',
             subtitle:
               'Experienced legal support for government, business, nonprofit, and individual client matters.',
             image: booksImage,
+            fit: 'contain',
+            background: '#dde3e6',
           },
         ]}
         eyebrow="Legal Services"

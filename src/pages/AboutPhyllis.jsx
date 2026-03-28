@@ -14,12 +14,15 @@ const AboutPhyllis = () => {
     <div>
       <PageHero
         compact
+        allowImageMotion={false}
         slides={[
           {
             title: 'About Phyllis J. Outlaw',
             subtitle:
               'A long-established legal and mediation practice grounded in professionalism, preparation, and service.',
             image: portrait,
+            fit: 'contain',
+            background: '#dde3e6',
           },
         ]}
         eyebrow="About Phyllis J. Outlaw"

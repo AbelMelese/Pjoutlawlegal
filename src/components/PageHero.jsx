@@ -1,6 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+const slideVariants = [
+  'zoom-in',
+  'zoom-out',
+  'pan-left',
+  'pan-right',
+  'drift-up',
+  'drift-down',
+  'diagonal-left',
+  'diagonal-right',
+];
+
 const PageHero = ({
   slides = [],
   eyebrow,
@@ -8,6 +19,7 @@ const PageHero = ({
   description,
   actions = [],
   compact = false,
+  allowImageMotion = true,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeSlide = slides[activeIndex] ?? {};
@@ -30,14 +42,29 @@ const PageHero = ({
   return (
     <section className={`page-hero ${compact ? 'page-hero--compact' : ''}`}>
       <div className="page-hero__media">
-        {slides.map((slide, index) => (
-          <div
-            key={`${slide.title ?? 'slide'}-${index}`}
-            className={`page-hero__slide ${index === activeIndex ? 'is-active' : ''}`}
-          >
-            <img src={slide.image} alt={slide.title ?? resolvedTitle} />
-          </div>
-        ))}
+        {slides.map((slide, index) => {
+          const motionClass =
+            allowImageMotion && slide.animate !== false
+              ? `page-hero__slide--${slideVariants[index % slideVariants.length]}`
+              : 'page-hero__slide--static';
+
+          return (
+            <div
+              key={`${slide.title ?? 'slide'}-${index}`}
+              className={`page-hero__slide ${motionClass} ${index === activeIndex ? 'is-active' : ''}`}
+              style={{ backgroundColor: slide.background ?? 'transparent' }}
+            >
+              <img
+                src={slide.image}
+                alt={slide.title ?? resolvedTitle}
+                style={{
+                  objectPosition: slide.position ?? 'center center',
+                  objectFit: slide.fit ?? 'cover',
+                }}
+              />
+            </div>
+          );
+        })}
         <div className="page-hero__overlay" />
       </div>
 

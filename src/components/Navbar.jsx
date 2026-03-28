@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, PhoneCall, X } from 'lucide-react';
+import logo from '../assets/pjoa-logo-transparent.png';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -9,6 +10,7 @@ const navLinks = [
   { name: 'Coaching', path: '/coaching' },
   { name: 'About Phyllis J. Outlaw', path: '/about-phyllis-j-outlaw' },
   { name: 'Testimonials', path: '/testimonials' },
+  { name: 'Online Payment', path: '/online-payment' },
   { name: 'Contact Us', path: '/contact' },
 ];
 
@@ -31,7 +33,7 @@ const Navbar = () => {
 
       <div className="section-shell brand-row">
         <Link to="/" className="brand-block" aria-label="Phyllis J. Outlaw & Associates home">
-          <span className="brand-monogram">PJO</span>
+          <img className="brand-logo" src={logo} alt="Phyllis J. Outlaw & Associates logo" />
           <div>
             <strong>Phyllis J. Outlaw &amp; Associates</strong>
             <em>Legal, Mediation &amp; Coaching Services</em>

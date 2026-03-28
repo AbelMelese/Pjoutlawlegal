@@ -37,12 +37,15 @@ const Coaching = () => {
     <div>
       <PageHero
         compact
+        allowImageMotion={false}
         slides={[
           {
             title: 'Coaching',
             subtitle:
               'Family, divorce, business, and professional development guidance grounded in real-world experience.',
             image: coachingPhoto,
+            fit: 'contain',
+            background: '#dbe3e8',
           },
         ]}
         eyebrow="Coaching"

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logo from '../assets/pjoa-logo-transparent.png';
 
 const footerLinks = [
   { name: 'Home', path: '/' },
@@ -7,7 +8,27 @@ const footerLinks = [
   { name: 'Coaching', path: '/coaching' },
   { name: 'About Phyllis J. Outlaw', path: '/about-phyllis-j-outlaw' },
   { name: 'Testimonials', path: '/testimonials' },
+  { name: 'Online Payment', path: '/online-payment' },
   { name: 'Contact Us', path: '/contact' },
+];
+
+const socialLinks = [
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/CLRCommunityEmpowerment/',
+  },
+  {
+    name: 'YouTube',
+    href: 'https://www.youtube.com/channel/UCBD_unvoJ9pascMwOcYHpqg/videos',
+  },
+  {
+    name: 'X',
+    href: 'https://x.com/clrcommunity',
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/phyllis-j-outlaw-esq/',
+  },
 ];
 
 const Footer = () => {
@@ -15,7 +36,7 @@ const Footer = () => {
     <footer className="site-footer">
       <div className="section-shell footer-grid">
         <div>
-          <p className="footer-script">Phyllis J. Outlaw &amp; Associates</p>
+          <img className="footer-logo" src={logo} alt="Phyllis J. Outlaw & Associates logo" />
           <h2>Trusted legal and mediation guidance in Washington, D.C. and Maryland.</h2>
           <p>
             Our office serves individuals, families, businesses, and organizations with careful
@@ -46,6 +67,19 @@ const Footer = () => {
             {footerLinks.map((link) => (
               <li key={link.path}>
                 <Link to={link.path}>{link.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3>Connect</h3>
+          <ul className="footer-list">
+            {socialLinks.map((link) => (
+              <li key={link.name}>
+                <a href={link.href} target="_blank" rel="noreferrer">
+                  {link.name}
+                </a>
               </li>
             ))}
           </ul>

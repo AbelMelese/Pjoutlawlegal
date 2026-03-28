@@ -1,5 +1,5 @@
 import PageHero from '../components/PageHero';
-import image1 from '../assets/image1.jpg';
+import officeShot110 from '../assets/office-shoot-110.jpg';
 
 const testimonials = [
   {
@@ -33,12 +33,15 @@ const Testimonials = () => {
     <div>
       <PageHero
         compact
+        allowImageMotion={false}
         slides={[
           {
             title: 'Testimonials',
             subtitle:
               'Comments from clients and organizations served by Phyllis J. Outlaw & Associates.',
-            image: image1,
+            image: officeShot110,
+            fit: 'contain',
+            background: '#dde3e6',
           },
         ]}
         eyebrow="Testimonials"

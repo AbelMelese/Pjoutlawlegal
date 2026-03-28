@@ -31,12 +31,15 @@ const Contact = () => {
     <div>
       <PageHero
         compact
+        allowImageMotion={false}
         slides={[
           {
             title: 'Contact Us',
             subtitle:
               'Call or email our office to discuss mediation, legal services, coaching, or training.',
             image: booksImage,
+            fit: 'contain',
+            background: '#dde3e6',
           },
         ]}
         eyebrow="Contact Us"
