@@ -1,16 +1,15 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import MediationServices from './pages/MediationServices';
-import DivorceFamily from './pages/DivorceFamily';
 import Coaching from './pages/Coaching';
-import BusinessServices from './pages/BusinessServices';
 import Contact from './pages/Contact';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import MeetAttorneys from './pages/MeetAttorneys';
 import ScrollToTop from './components/ScrollToTop';
+import LegalServices from './pages/LegalServices';
+import AboutPhyllis from './pages/AboutPhyllis';
+import Testimonials from './pages/Testimonials';
+import OnlinePayment from './pages/OnlinePayment';
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -19,13 +18,17 @@ const AnimatedRoutes = () => {
       <Routes location={location}>
         <Route path="/" element={<Home />} />
         <Route path="/mediation-services" element={<MediationServices />} />
-        <Route path="/divorce-family-law" element={<DivorceFamily />} />
+        <Route path="/legal-services" element={<LegalServices />} />
         <Route path="/coaching" element={<Coaching />} />
-        <Route path="/business-services" element={<BusinessServices />} />
+        <Route path="/about-phyllis-j-outlaw" element={<AboutPhyllis />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/online-payment" element={<OnlinePayment />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogPost />} />
-        <Route path="/meet-attorneys" element={<MeetAttorneys />} />
+        <Route path="/divorce-family-law" element={<Navigate to="/legal-services" replace />} />
+        <Route path="/business-services" element={<Navigate to="/legal-services" replace />} />
+        <Route path="/blog" element={<Navigate to="/" replace />} />
+        <Route path="/blog/:id" element={<Navigate to="/" replace />} />
+        <Route path="/meet-attorneys" element={<Navigate to="/about-phyllis-j-outlaw" replace />} />
       </Routes>
     </div>
   );
