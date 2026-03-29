@@ -280,10 +280,10 @@ const BusinessServices = () => {
                                 </p>
                                 <div>
                                     <p className="text-purple-600 font-bold text-lg">Dr. Mary Quinn</p>
-                                    <p className="text-slate-500 text-sm">Council of Women Ministers & Male Support Division, Inc. Washington, DC</p>
+                                    <p className="text-slate-600 text-sm">Council of Women Ministers & Male Support Division, Inc. Washington, DC</p>
                                 </div>
                                 <div className="mt-8 pt-8 border-t border-slate-100">
-                                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Case Highlight</p>
+                                    <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Case Highlight</p>
                                     <p className="text-slate-600 italic">"{nonprofitAdvisory.highlight}"</p>
                                 </div>
                             </div>
@@ -361,7 +361,7 @@ const BusinessServices = () => {
                                 <h3 className="text-2xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">{practice.title}</h3>
                                 <p className="text-slate-600 mb-6">{practice.description}</p>
                                 <div className="pt-6 border-t border-slate-200">
-                                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Case Highlight</p>
+                                    <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Case Highlight</p>
                                     <p className="text-slate-700 italic">"{practice.highlight}"</p>
                                 </div>
                             </div>

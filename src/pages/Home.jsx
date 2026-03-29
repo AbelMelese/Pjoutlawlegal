@@ -9,13 +9,14 @@ import {
     Shield,
     Target,
     Calendar,
-    Tv,
     MapPin
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import PageHero from '../components/PageHero';
-import image1 from '../assets/image1.jpg';
-import image2 from '../assets/image 2.jpg';
+import goldWomanHoldingScales from '../assets/gold-woman-holding-scales.jpg';
+import pjoaOffice264 from '../assets/pjoa-office-264.jpg';
+import officeShoot044 from '../assets/office-shoot-044-client.jpg';
+import officeShoot110 from '../assets/office-shoot-110-client.jpg';
 import booksImage from '../assets/books image.jpg';
 import pjoPortrait from "../assets/use this picture in PJO's resume.jpg";
 import mediaLogosStrip from '../assets/media-logos-strip.png';
@@ -29,21 +30,21 @@ const Home = () => {
             title: 'Divorce Mediation',
             description: 'Navigate your divorce with dignity, clarity, and fair outcomes for both parties.',
             color: 'from-purple-500 to-purple-600',
-            link: '/divorce-family-law',
+            link: '/mediation-services',
         },
         {
             icon: Users,
             title: 'Family Mediation',
             description: 'Heal family rifts and rebuild relationships through guided communication.',
             color: 'from-rose-500 to-rose-600',
-            link: '/divorce-family-law',
+            link: '/mediation-services',
         },
         {
             icon: Briefcase,
             title: 'Business Mediation',
             description: 'Resolve workplace disputes without costly litigation or damaged relationships.',
             color: 'from-purple-600 to-rose-600',
-            link: '/business-services',
+            link: '/legal-services',
         },
         {
             icon: Heart,
@@ -57,21 +58,63 @@ const Home = () => {
     const heroSlides = [
         {
             title: "PHYLLIS J. OUTLAW & ASSOCIATES MAINTAINS THE HIGHEST STANDARD OF EXCELLENCE ON BEHALF OF OUR CLIENTS.",
-            image: image1
+            image: goldWomanHoldingScales,
+            background: '#d9d6cc',
+            transition: 'wipe-left',
+            eyebrowColor: '#214b63',
+            titleColor: '#13293d',
+            rotatingColor: 'rgba(19, 41, 61, 0.86)',
+            descriptionColor: 'rgba(19, 41, 61, 0.8)',
+            textShadow: '0 1px 3px rgba(248, 244, 239, 0.9), 0 2px 12px rgba(248, 244, 239, 0.7)',
+            secondaryColor: '#13293d',
+            secondaryBackground: 'rgba(255, 255, 255, 0.7)',
+            secondaryBorder: 'rgba(19, 41, 61, 0.18)',
         },
         {
             title: "A COURT-APPOINTED MEDIATOR WHO POSSESSES KNOWLEDGE, SKILLS AND EXPERTISE IN MEDIATION OF DISPUTES.",
-            image: image2
+            image: pjoaOffice264,
+            background: '#ece7df',
+            transition: 'split-open',
+            eyebrowColor: '#214b63',
+            titleColor: '#13293d',
+            rotatingColor: 'rgba(19, 41, 61, 0.86)',
+            descriptionColor: 'rgba(19, 41, 61, 0.8)',
+            textShadow: '0 1px 3px rgba(248, 244, 239, 0.9), 0 2px 12px rgba(248, 244, 239, 0.7)',
+            secondaryColor: '#13293d',
+            secondaryBackground: 'rgba(255, 255, 255, 0.7)',
+            secondaryBorder: 'rgba(19, 41, 61, 0.18)',
         },
         {
             title: "OUR LEGAL TEAM EMPLOYS INNOVATIVE METHODS TO ENSURE A SUCCESSFUL OUTCOME FOR YOUR LEGAL MATTERS.",
-            image: booksImage
+            image: officeShoot044,
+            background: '#efe4da',
+            transition: 'diagonal-rise',
+            titleSize: 'clamp(2rem, 4.2vw, 3.45rem)',
+            eyebrowColor: '#214b63',
+            titleColor: '#13293d',
+            rotatingColor: 'rgba(19, 41, 61, 0.86)',
+            descriptionColor: 'rgba(19, 41, 61, 0.8)',
+            textShadow: '0 1px 3px rgba(248, 244, 239, 0.9), 0 2px 12px rgba(248, 244, 239, 0.7)',
+            secondaryColor: '#13293d',
+            secondaryBackground: 'rgba(255, 255, 255, 0.7)',
+            secondaryBorder: 'rgba(19, 41, 61, 0.18)',
         },
         {
             title: "OUR FIRM POSSESSES OVER FOUR DECADES OF EXPERIENCE IN MEDIATION, ARBITRATION AND CIVIL LITIGATION.",
-            image: pjoPortrait
+            image: officeShoot110,
+            background: '#ebe5de',
+            transition: 'wipe-up',
+            eyebrowColor: '#214b63',
+            titleColor: '#13293d',
+            rotatingColor: 'rgba(19, 41, 61, 0.86)',
+            descriptionColor: 'rgba(19, 41, 61, 0.8)',
+            textShadow: '0 1px 3px rgba(248, 244, 239, 0.9), 0 2px 12px rgba(248, 244, 239, 0.7)',
+            secondaryColor: '#13293d',
+            secondaryBackground: 'rgba(255, 255, 255, 0.7)',
+            secondaryBorder: 'rgba(19, 41, 61, 0.18)',
         }
     ];
+
 
     const testimonials = [
         {
@@ -120,10 +163,10 @@ const Home = () => {
 
 
             {/* Services Grid with Hover Effects */}
-            <section className="py-20 md:py-32 relative">
+            <section className="py-14 md:py-20 relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12 md:mb-20">
-                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-4 md:mb-6">
+                    <div className="text-center mb-10 md:mb-14">
+                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
                             Mediation & Coaching<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-rose-600">Built Around You</span>
                         </h2>
@@ -131,15 +174,15 @@ const Home = () => {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {services.map((service, index) => (
-                            <div key={index} className="group relative bg-white rounded-[2rem] p-8 shadow-xl border border-slate-100 overflow-hidden card-hover-effect">
+                            <div key={index} className="group relative bg-white rounded-[2rem] p-6 shadow-xl border border-slate-100 overflow-hidden card-hover-effect">
                                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.color} opacity-10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700`}></div>
 
-                                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg mb-8 group-hover:rotate-6 transition-transform duration-300`}>
+                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg mb-6 group-hover:rotate-6 transition-transform duration-300`}>
                                     <service.icon size={32} />
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">{service.title}</h3>
-                                <p className="text-slate-500 leading-relaxed mb-8">{service.description}</p>
+                                <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3">{service.title}</h3>
+                                <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
 
                                 <Link to={service.link} className="flex items-center gap-2 text-slate-900 font-bold group-hover:text-rose-600 transition-colors">
                                     <span className="text-sm uppercase tracking-wider">Learn More</span>
@@ -154,34 +197,32 @@ const Home = () => {
             </section>
 
             {/* DC Office Location Section */}
-            <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+            <section className="py-14 md:py-18 bg-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div className="space-y-8">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="space-y-6">
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600/10 rounded-full border border-purple-600/30">
                                 <MapPin size={16} className="text-rose-600" />
                                 <span className="text-rose-600 font-bold text-sm tracking-wide uppercase">Our Location</span>
                             </div>
-                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] leading-tight">
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] leading-tight">
                                 Serving Maryland &<br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-rose-600">Washington, DC</span>
                             </h2>
-                            <p className="text-lg text-slate-600 leading-relaxed">
+                            <p className="text-base md:text-lg text-slate-600 leading-relaxed">
                                 Phyllis J. Outlaw & Associates have provided legal services to residents and local businesses in Maryland and Washington, DC. Our offices are located in the commercial district which is known for its resurgence and emerging small businesses. Our offices are convenient to the financial and business districts of the city, public transportation, as well as to the federal and local courts located in the District of Columbia and Maryland.
                             </p>
                         </div>
                         <div className="relative">
-                            <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-rose-600 rounded-[2.5rem] rotate-2 opacity-20 blur-lg"></div>
-                            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 h-[300px] md:h-[400px]">
+                            <div className="relative rounded-[2rem] overflow-hidden border border-slate-100 h-[260px] md:h-[340px]">
                                 <img
                                     src={booksImage}
                                     alt="Washington DC commercial district"
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                                 <div className="absolute bottom-6 left-6 right-6 z-10">
-                                    <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+                                    <div className="bg-white rounded-xl p-4">
                                         <p className="text-slate-900 font-bold font-['Playfair_Display'] text-lg">412 H Street, NE</p>
                                         <p className="text-slate-600 text-sm">Washington, DC 20002 · (202) 548-2999</p>
                                     </div>
@@ -192,27 +233,31 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* TV & Radio Appearances Marquee */}
-            <section className="py-12 md:py-16 bg-white relative overflow-hidden border-y border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 rounded-full border border-purple-200 mb-4">
-                        <Tv size={16} className="text-purple-600" />
-                        <span className="text-purple-600 font-bold text-sm tracking-wide uppercase">As Seen On</span>
+            {/* Media Appearances */}
+            <section className="page-section page-section--white">
+                <div className="section-shell">
+                    <div className="portrait-panel">
+                        <img src={pjoPortrait} alt="Phyllis J. Outlaw portrait" />
+                        <div className="body-copy">
+                            <p className="section-script" style={{ textAlign: 'left', marginBottom: '0.6rem' }}>
+                                Media Appearances
+                            </p>
+                            <p>
+                                Phyllis J. Outlaw has appeared as a guest on radio as well as local and national
+                                television programs. This section highlights those appearances in a more formal
+                                recognition presentation.
+                            </p>
+                        </div>
                     </div>
-                    <p className="text-slate-600 text-lg">
-                        Phyllis J. Outlaw has appeared as a guest on radio, as well as local and national television shows.
-                    </p>
-                </div>
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="logo-marquee">
-                        <div className="logo-marquee__track">
-                            {[0, 1, 2].map((loopIndex) => (
-                                <div key={loopIndex} className="logo-marquee__item">
-                                    <img
-                                        src={mediaLogosStrip}
-                                        alt="Media appearance logos including CNN, C-SPAN, FOX News, WUSA 9, WYCB, WPFW, WHUT, JET, Ebony, Essence, and Bottomline"
-                                    />
-                                </div>
+
+                    <div className="media-marquee" style={{ marginTop: '1.5rem' }}>
+                        <div className="media-marquee__track">
+                            {[0, 1].map((index) => (
+                                <img
+                                    key={index}
+                                    src={mediaLogosStrip}
+                                    alt="Media appearances including CNN, C-SPAN, FOX News, WUSA 9, WYCB Podcast, WPFW, WHUT, JET, Ebony, Essence, and Bottomline"
+                                />
                             ))}
                         </div>
                     </div>
@@ -220,35 +265,35 @@ const Home = () => {
             </section>
 
             {/* Process Section - Dark Mode */}
-            <section className="py-20 md:py-32 bg-[#0f172a] relative overflow-hidden">
+            <section className="py-14 md:py-20 bg-[#0f172a] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
                     <div className="blob blob-gold w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-20 items-center">
+                    <div className="grid lg:grid-cols-2 gap-14 items-center">
                         <div>
-                            <h2 className="text-4xl md:text-6xl font-bold text-white font-['Playfair_Display'] mb-8">
+                            <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-6">
                                 A Process That <br />
                                 <span className="text-purple-600">Works For You</span>
                             </h2>
-                            <p className="text-xl text-slate-400 mb-12 leading-relaxed">
+                            <p className="text-lg text-slate-300 mb-8 leading-relaxed">
                                 Whether you are navigating a divorce, resolving a family dispute, or facing conflict at work, our proven process is designed to create momentum.
                             </p>
 
-                            <div className="space-y-8">
+                            <div className="space-y-6">
                                 {[
                                     { title: 'Reach Out', desc: 'Call or contact our office to discuss your needs.', icon: Calendar },
                                     { title: 'Get Clarity', desc: 'We structure a plan tailored to your needs.', icon: Target },
                                     { title: 'Move Forward', desc: 'Resolve conflict with confidence and peace.', icon: CheckCircle },
                                 ].map((step, i) => (
                                     <div key={i} className="flex items-start gap-6 group">
-                                        <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-purple-600 group-hover:bg-purple-600 group-hover:text-slate-900 transition-all duration-300 shadow-lg">
+                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-purple-600 group-hover:bg-purple-600 group-hover:text-slate-900 transition-all duration-300 shadow-lg">
                                             <step.icon size={28} />
                                         </div>
                                         <div>
-                                            <h3 className="text-2xl font-bold text-white mb-2">{step.title}</h3>
-                                            <p className="text-slate-400 text-lg">{step.desc}</p>
+                                            <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
+                                            <p className="text-slate-300">{step.desc}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -257,20 +302,20 @@ const Home = () => {
 
                         <div className="relative">
                             <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-rose-600 rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
-                            <div className="relative h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col justify-center items-center p-8 text-center">
+                            <div className="relative h-[340px] md:h-[420px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col justify-center items-center p-7 text-center">
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
 
-                                <div className="w-24 h-24 rounded-full bg-white/5 flex items-center justify-center text-purple-600 mb-8 relative z-10">
+                                <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-purple-600 mb-6 relative z-10">
                                     <Shield size={48} />
                                 </div>
-                                <h3 className="text-3xl font-bold text-white font-['Playfair_Display'] mb-4 relative z-10">Trusted Guidance</h3>
-                                <p className="text-slate-400 text-lg relative z-10 leading-relaxed max-w-sm">
+                                <h3 className="text-2xl md:text-3xl font-bold text-white font-['Playfair_Display'] mb-4 relative z-10">Trusted Guidance</h3>
+                                <p className="text-slate-300 relative z-10 leading-relaxed max-w-sm">
                                     With over 30 years of experience, we provide a secure, confidential environment for you to resolve disputes and plan for the future.
                                 </p>
 
                                 <div className="absolute bottom-6 left-6 right-6 z-10">
                                     <div className="glass-panel p-6 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md">
-                                        <p className="text-white font-['Playfair_Display'] text-xl italic drop-shadow-md">"The clarity I gained after just one session was life-changing."</p>
+                                        <p className="text-white font-['Playfair_Display'] text-lg md:text-xl italic drop-shadow-md">"The clarity I gained after just one session was life-changing."</p>
                                     </div>
                                 </div>
                             </div>
@@ -280,17 +325,17 @@ const Home = () => {
             </section>
 
             {/* Testimonials */}
-            <section className="py-20 md:py-32 bg-slate-50 relative">
+            <section className="py-14 md:py-18 bg-slate-50 relative">
                 <div className="max-w-5xl mx-auto px-4 text-center">
-                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-12 md:mb-16">Client Testimonials</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-10 md:mb-12">Client Testimonials</h2>
 
-                    <div className="relative min-h-[340px] md:min-h-[300px]">
+                    <div className="relative min-h-[290px] md:min-h-[250px]">
                         {testimonials.map((t, i) => (
                             <div
                                 key={i}
                                 className={`absolute inset-0 transition-all duration-700 ${i === activeTestimonial ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
                             >
-                                <p className="text-2xl md:text-4xl font-['Playfair_Display'] text-slate-800 leading-tight mb-8">"{t.quote}"</p>
+                                <p className="text-xl md:text-3xl font-['Playfair_Display'] text-slate-800 leading-tight mb-6">"{t.quote}"</p>
                                 <div className="space-y-2">
                                     <p className="font-bold text-slate-900 text-lg">{t.author}</p>
                                     <p className="text-rose-600 text-sm font-semibold uppercase tracking-[0.16em]">{t.role}</p>
@@ -312,21 +357,21 @@ const Home = () => {
             </section>
 
             {/* CTA Parallax */}
-            <section className="relative py-20 md:py-32 flex items-center justify-center overflow-hidden">
+            <section className="relative py-14 md:py-18 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0 bg-[#0f172a]">
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#1e293b] to-[#0f172a] opacity-80"></div>
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
                 </div>
 
                 <div className="relative z-10 text-center max-w-4xl px-4">
-                    <h2 className="text-4xl md:text-7xl font-bold text-white font-['Playfair_Display'] mb-6 md:mb-8">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-5 md:mb-6">
                         Let's Start a <span className="text-purple-600">Conversation</span>
                     </h2>
-                    <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
+                    <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
                         You don't have to figure it out alone. We are here to help you move forward.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                        <Link to="/contact" className="btn-glow px-10 py-5 bg-purple-600 text-white rounded-full font-bold text-xl shadow-lg hover:bg-rose-600 transition-colors">
+                        <Link to="/contact" className="btn-glow px-8 py-4 bg-purple-600 text-white rounded-full font-bold text-lg shadow-lg hover:bg-rose-600 transition-colors">
                             Contact Us
                         </Link>
                     </div>

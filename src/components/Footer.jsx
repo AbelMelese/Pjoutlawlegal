@@ -158,7 +158,7 @@ const Footer = () => {
                   <Phone size={18} className="text-purple-600" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Phone</p>
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Phone</p>
                   <a href="tel:+12025482999" className="text-slate-700 hover:text-purple-600 transition-colors font-medium">
                     (202) 548-2999
                   </a>
@@ -169,7 +169,7 @@ const Footer = () => {
                   <Phone size={18} className="text-purple-600" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Fax</p>
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Fax</p>
                   <a href="tel:+12025488114" className="text-slate-700 hover:text-purple-600 transition-colors font-medium">
                     (202) 548-8114
                   </a>
@@ -180,7 +180,7 @@ const Footer = () => {
                   <Mail size={18} className="text-purple-600" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Email</p>
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Email</p>
                   <a href="mailto:lawfirm@pjoutlawlegal.com" className="text-slate-700 hover:text-purple-600 transition-colors font-medium break-all">
                     lawfirm@pjoutlawlegal.com
                   </a>
@@ -191,7 +191,7 @@ const Footer = () => {
                   <MapPin size={18} className="text-purple-600" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Office Location</p>
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Office Location</p>
                   <p className="text-slate-700 text-sm leading-relaxed font-medium">
                     412 H Street, NE
                     <br />
@@ -206,7 +206,7 @@ const Footer = () => {
 
       <div className="relative border-t border-slate-100 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-600">
             <p>Copyright © 2026, Phyllis J. Outlaw & Associates</p>
             <div className="flex items-center gap-6">
               <a href="#" className="hover:text-purple-600 transition-colors">Terms of Use</a>

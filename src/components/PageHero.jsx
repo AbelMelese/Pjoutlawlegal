@@ -35,13 +35,25 @@ const PageHero = ({
   actions = [],
   rotatingPrefix,
   rotatingWords = [],
+  textBackdrop = 'none',
   children,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState(-1);
   const activeSlide = slides[activeIndex] ?? {};
   const resolvedTitle = title ?? activeSlide.title;
   const resolvedDescription =
     description ?? activeSlide.subtitle ?? activeSlide.description;
+  const heroPalette = {
+    '--hero-eyebrow-color': activeSlide.eyebrowColor ?? '#214b63',
+    '--hero-title-color': activeSlide.titleColor ?? '#13293d',
+    '--hero-rotating-color': activeSlide.rotatingColor ?? 'rgba(19, 41, 61, 0.86)',
+    '--hero-description-color': activeSlide.descriptionColor ?? 'rgba(19, 41, 61, 0.8)',
+    '--hero-text-shadow': activeSlide.textShadow ?? '0 2px 10px rgba(255, 255, 255, 0.35)',
+    '--hero-secondary-color': activeSlide.secondaryColor ?? '#13293d',
+    '--hero-secondary-bg': activeSlide.secondaryBackground ?? 'rgba(255, 255, 255, 0.7)',
+    '--hero-secondary-border': activeSlide.secondaryBorder ?? 'rgba(19, 41, 61, 0.18)',
+  };
 
   useEffect(() => {
     if (!slides.length || prefersReducedMotion()) {
@@ -49,35 +61,66 @@ const PageHero = ({
     }
 
     const interval = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % slides.length);
-    }, 5200);
+      setActiveIndex((current) => {
+        setPreviousIndex(current);
+        return (current + 1) % slides.length;
+      });
+    }, 4500);
 
     return () => window.clearInterval(interval);
   }, [slides]);
 
   return (
-    <section className="hero-shell">
+    <section
+      className={`hero-shell ${textBackdrop === 'blur-left' ? 'hero-shell--text-backdrop' : ''}`}
+      style={{
+        ...heroPalette,
+      }}
+    >
       <div className="hero-background">
         {slides.map((slide, index) => (
           <div
             key={`${slide.title ?? 'slide'}-${index}`}
-            className={`hero-slide ${index === activeIndex ? 'is-active' : ''}`}
+            className={`hero-slide ${index === activeIndex ? 'is-active' : ''} ${index === previousIndex ? 'is-previous' : ''}`}
+            data-transition={slide.transition ?? 'wipe-left'}
+            style={slide.background ? { backgroundColor: slide.background } : undefined}
           >
-            <img src={slide.image} alt={slide.title || title} />
+            <img
+              src={slide.image}
+              alt={slide.title || title}
+              style={{
+                objectFit: slide.fit,
+                objectPosition: slide.position,
+                inset: slide.imageInset,
+              }}
+            />
           </div>
         ))}
         <div className="hero-overlay" />
       </div>
 
       <div className="section-shell hero-content">
-          <div className="hero-copy">
-          {eyebrow ? <p className="hero-eyebrow">{eyebrow}</p> : null}
-          {resolvedTitle ? <h1 className="hero-title">{resolvedTitle}</h1> : null}
+        <div className="hero-copy">
+          {eyebrow ? (
+            <p className="hero-eyebrow">
+              <span className="hero-inline-backdrop">{eyebrow}</span>
+            </p>
+          ) : null}
+          {resolvedTitle ? (
+            <h1
+              className="hero-title"
+              style={activeSlide.titleSize ? { fontSize: activeSlide.titleSize } : undefined}
+            >
+              <span className="hero-inline-backdrop">{resolvedTitle}</span>
+            </h1>
+          ) : null}
 
           {rotatingWords.length ? (
             <p className="hero-rotating-line">
-              <span>{rotatingPrefix}</span>
-              <AnimatedWords words={rotatingWords} />
+              <span className="hero-inline-backdrop hero-inline-backdrop--row">
+                <span>{rotatingPrefix}</span>
+                <AnimatedWords words={rotatingWords} />
+              </span>
             </p>
           ) : null}
 
@@ -108,7 +151,14 @@ const PageHero = ({
               key={`${slide.title ?? 'dot'}-${index}`}
               type="button"
               className={`hero-dot ${index === activeIndex ? 'is-active' : ''}`}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                if (index === activeIndex) {
+                  return;
+                }
+
+                setPreviousIndex(activeIndex);
+                setActiveIndex(index);
+              }}
               aria-label={`Show slide ${index + 1}`}
             />
           ))}

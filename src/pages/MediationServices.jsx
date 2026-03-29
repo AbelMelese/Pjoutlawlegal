@@ -18,7 +18,7 @@ import {
     DollarSign
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import image1 from '../assets/image1.jpg';
+import whiteFamilyWithChildren from '../assets/white-family-with-children-client.jpg';
 import image2 from '../assets/image 2.jpg';
 import booksImage from '../assets/books image.jpg';
 
@@ -160,8 +160,8 @@ const MediationServices = () => {
     const heroSlides = [
         {
             title: "THE PATH FROM CONFLICT TO RESOLUTION",
-            subtitle: "As a Court-Appointed Mediator in the District System, we guide individuals, families, and organizations through conflict resolution without the burden of litigation.",
-            image: image1
+            subtitle: "As a Court-Appointed Mediator, Phyllis J. Outlaw has conducted Mediation for Civil cases to include but not limited to Property issues and Family Law to include complex marital property involving complex business assets, custody and child support issues. Prepares Legal Separation, Property, Custody, Parenting Plans and Child Support Agreements",
+            image: whiteFamilyWithChildren,
         },
         {
             title: "Neutral Facilitation",
@@ -352,7 +352,7 @@ const MediationServices = () => {
                                             <h3 className="text-xl font-bold text-slate-900 mb-2 font-['Playfair_Display']">
                                                 {item.title}
                                             </h3>
-                                            <p className="text-slate-500 text-sm leading-relaxed">{item.description}</p>
+                                            <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
                                         </div>
                                     </div>
                                 ))}

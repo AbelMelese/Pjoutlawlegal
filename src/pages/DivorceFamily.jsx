@@ -142,7 +142,7 @@ const DivorceFamily = () => {
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
                             Comprehensive Family Law Services
                         </h2>
-                        <p className="text-xl text-slate-500 max-w-3xl mx-auto">
+                        <p className="text-xl text-slate-600 max-w-3xl mx-auto">
                             We offer a full range of family law services tailored to your unique needs and goals.
                         </p>
                     </div>
@@ -165,7 +165,7 @@ const DivorceFamily = () => {
                                         <h3 className="text-2xl font-bold text-slate-900 mb-4 font-['Playfair_Display'] group-hover:text-rose-600 transition-colors">
                                             {service.title}
                                         </h3>
-                                        <p className="text-slate-500 mb-6 leading-relaxed">
+                                        <p className="text-slate-600 mb-6 leading-relaxed">
                                             {service.description}
                                         </p>
                                         <div className="flex flex-wrap gap-2">
