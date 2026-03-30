@@ -6,6 +6,7 @@ import MediationServices from './pages/MediationServices';
 import Coaching from './pages/Coaching';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollReveal from './components/ScrollReveal';
 import LegalServices from './pages/LegalServices';
 import AboutPhyllis from './pages/AboutPhyllis';
 import Testimonials from './pages/Testimonials';
@@ -38,6 +39,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <ScrollReveal />
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">

@@ -46,33 +46,20 @@ const AboutPhyllis = () => {
 
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[0.9fr,1.1fr] gap-14 items-center">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-purple-600/10 rounded-[2rem] blur-xl"></div>
-              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100">
-                <img
-                  src={portrait}
-                  alt="Phyllis J. Outlaw"
-                  className="w-full h-[460px] object-cover object-top"
-                />
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                Professional Leadership
-              </h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                Phyllis J. Outlaw leads a practice focused on legal services, mediation, coaching,
-                and professional development. Her work reflects decades of experience handling
-                matters that call for both strong judgment and careful communication.
-              </p>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                Clients come to the firm for reliable counsel, respect for the seriousness of their
-                legal matters, and a professional process that stays focused on results rather than
-                unnecessary complication.
-              </p>
-            </div>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
+              Professional Leadership
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed mb-6">
+              Phyllis J. Outlaw leads a practice focused on legal services, mediation, coaching,
+              and professional development. Her work reflects decades of experience handling
+              matters that call for both strong judgment and careful communication.
+            </p>
+            <p className="text-lg text-slate-600 leading-relaxed">
+              Clients come to the firm for reliable counsel, respect for the seriousness of their
+              legal matters, and a professional process that stays focused on results rather than
+              unnecessary complication.
+            </p>
           </div>
         </div>
       </section>

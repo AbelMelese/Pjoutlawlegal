@@ -12,17 +12,30 @@ import {
     MapPin
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHero from '../components/PageHero';
 import goldWomanHoldingScales from '../assets/gold-woman-holding-scales.jpg';
 import pjoaOffice264 from '../assets/pjoa-office-264.jpg';
 import officeShoot044 from '../assets/office-shoot-044-client.jpg';
 import officeShoot110 from '../assets/office-shoot-110-client.jpg';
-import booksImage from '../assets/books image.jpg';
 import pjoPortrait from "../assets/use this picture in PJO's resume.jpg";
 import mediaLogosStrip from '../assets/media-logos-strip.png';
+import dcStreetImage from '../assets/dc-street.png';
 
 const Home = () => {
     const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+    // Scroll reveal refs for each section
+    const servicesHeaderRef = useScrollReveal();
+    const servicesGridRef = useScrollReveal({ staggerChildren: true, staggerDelay: 150 });
+    const locationTextRef = useScrollReveal();
+    const locationImageRef = useScrollReveal();
+    const mediaRef = useScrollReveal();
+    const processTextRef = useScrollReveal();
+    const processStepsRef = useScrollReveal({ staggerChildren: true, staggerDelay: 200 });
+    const processCardRef = useScrollReveal();
+    const testimonialsRef = useScrollReveal();
+    const ctaRef = useScrollReveal();
 
     const services = [
         {
@@ -165,16 +178,16 @@ const Home = () => {
             {/* Services Grid with Hover Effects */}
             <section className="py-14 md:py-20 relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-10 md:mb-14">
+                    <div ref={servicesHeaderRef} className="scroll-reveal text-center mb-10 md:mb-14">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
                             Mediation & Coaching<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-rose-600">Built Around You</span>
                         </h2>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div ref={servicesGridRef} className="scroll-reveal grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {services.map((service, index) => (
-                            <div key={index} className="group relative bg-white rounded-[2rem] p-6 shadow-xl border border-slate-100 overflow-hidden card-hover-effect">
+                            <div key={index} className="scroll-reveal-child group relative bg-white rounded-[2rem] p-6 shadow-xl border border-slate-100 overflow-hidden card-hover-effect">
                                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.color} opacity-10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700`}></div>
 
                                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg mb-6 group-hover:rotate-6 transition-transform duration-300`}>
@@ -201,7 +214,7 @@ const Home = () => {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
+                        <div ref={locationTextRef} className="scroll-reveal--left scroll-reveal space-y-6">
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600/10 rounded-full border border-purple-600/30">
                                 <MapPin size={16} className="text-rose-600" />
                                 <span className="text-rose-600 font-bold text-sm tracking-wide uppercase">Our Location</span>
@@ -214,17 +227,17 @@ const Home = () => {
                                 Phyllis J. Outlaw & Associates have provided legal services to residents and local businesses in Maryland and Washington, DC. Our offices are located in the commercial district which is known for its resurgence and emerging small businesses. Our offices are convenient to the financial and business districts of the city, public transportation, as well as to the federal and local courts located in the District of Columbia and Maryland.
                             </p>
                         </div>
-                        <div className="relative">
+                        <div ref={locationImageRef} className="scroll-reveal--right scroll-reveal relative">
                             <div className="relative rounded-[2rem] overflow-hidden border border-slate-100 h-[260px] md:h-[340px]">
                                 <img
-                                    src={booksImage}
+                                    src={dcStreetImage}
                                     alt="Washington DC commercial district"
                                     className="w-full h-full object-cover"
                                 />
                                 <div className="absolute bottom-6 left-6 right-6 z-10">
-                                    <div className="bg-white rounded-xl p-4">
-                                        <p className="text-slate-900 font-bold font-['Playfair_Display'] text-lg">412 H Street, NE</p>
-                                        <p className="text-slate-600 text-sm">Washington, DC 20002 · (202) 548-2999</p>
+                                    <div className="p-4 drop-shadow-lg text-center">
+                                        <p className="text-white font-bold font-['Playfair_Display'] text-2xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">412 H Street, NE</p>
+                                        <p className="text-slate-100 text-base font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mt-1">Washington, DC 20002</p>
                                     </div>
                                 </div>
                             </div>
@@ -234,7 +247,7 @@ const Home = () => {
             </section>
 
             {/* Media Appearances */}
-            <section className="page-section page-section--white">
+            <section ref={mediaRef} className="scroll-reveal page-section page-section--white">
                 <div className="section-shell">
                     <div className="portrait-panel">
                         <img src={pjoPortrait} alt="Phyllis J. Outlaw portrait" />
@@ -272,7 +285,7 @@ const Home = () => {
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-14 items-center">
-                        <div>
+                        <div ref={processTextRef} className="scroll-reveal">
                             <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-6">
                                 A Process That <br />
                                 <span className="text-purple-600">Works For You</span>
@@ -281,13 +294,13 @@ const Home = () => {
                                 Whether you are navigating a divorce, resolving a family dispute, or facing conflict at work, our proven process is designed to create momentum.
                             </p>
 
-                            <div className="space-y-6">
+                            <div ref={processStepsRef} className="scroll-reveal space-y-6">
                                 {[
                                     { title: 'Reach Out', desc: 'Call or contact our office to discuss your needs.', icon: Calendar },
                                     { title: 'Get Clarity', desc: 'We structure a plan tailored to your needs.', icon: Target },
                                     { title: 'Move Forward', desc: 'Resolve conflict with confidence and peace.', icon: CheckCircle },
                                 ].map((step, i) => (
-                                    <div key={i} className="flex items-start gap-6 group">
+                                    <div key={i} className="scroll-reveal-child flex items-start gap-6 group">
                                         <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-purple-600 group-hover:bg-purple-600 group-hover:text-slate-900 transition-all duration-300 shadow-lg">
                                             <step.icon size={28} />
                                         </div>
@@ -300,7 +313,7 @@ const Home = () => {
                             </div>
                         </div>
 
-                        <div className="relative">
+                        <div ref={processCardRef} className="scroll-reveal--scale scroll-reveal relative">
                             <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-rose-600 rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
                             <div className="relative h-[340px] md:h-[420px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col justify-center items-center p-7 text-center">
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
@@ -326,7 +339,7 @@ const Home = () => {
 
             {/* Testimonials */}
             <section className="py-14 md:py-18 bg-slate-50 relative">
-                <div className="max-w-5xl mx-auto px-4 text-center">
+                <div ref={testimonialsRef} className="scroll-reveal max-w-5xl mx-auto px-4 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-10 md:mb-12">Client Testimonials</h2>
 
                     <div className="relative min-h-[290px] md:min-h-[250px]">
@@ -363,7 +376,7 @@ const Home = () => {
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
                 </div>
 
-                <div className="relative z-10 text-center max-w-4xl px-4">
+                <div ref={ctaRef} className="scroll-reveal relative z-10 text-center max-w-4xl px-4">
                     <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-5 md:mb-6">
                         Let's Start a <span className="text-purple-600">Conversation</span>
                     </h2>
