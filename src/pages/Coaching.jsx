@@ -35,10 +35,10 @@ const Coaching = () => {
                 'Strengthen relationships',
             ],
             note: 'Unlike therapy, family coaching is forward-facing.',
-            color: 'from-purple-500 to-purple-600',
-            bgColor: 'bg-purple-50',
-            accent: 'text-purple-600',
-            border: 'border-purple-100',
+            color: 'from-[#4A8A8D] to-[#3D6B6E]',
+            bgColor: 'bg-[#e8f4f4]',
+            accent: 'text-[#3D6B6E]',
+            border: 'border-[#d1e9ea]',
             image: coachingPhoto
         },
         {
@@ -56,10 +56,10 @@ const Coaching = () => {
                 'Create post-divorce goals',
             ],
             note: 'Your coach becomes your thinking partner.',
-            color: 'from-rose-500 to-rose-600',
-            bgColor: 'bg-rose-50',
-            accent: 'text-rose-600',
-            border: 'border-rose-100',
+            color: 'from-[#B5344A] to-[#9B2335]',
+            bgColor: 'bg-[#fdf2f4]',
+            accent: 'text-[#9B2335]',
+            border: 'border-[#fce7ea]',
             image: null
         },
         {
@@ -77,10 +77,10 @@ const Coaching = () => {
                 'Reconnect business with purpose',
             ],
             note: 'We blend practical business insight with coaching.',
-            color: 'from-purple-600 to-rose-600',
-            bgColor: 'bg-purple-600/10',
-            accent: 'text-rose-600',
-            border: 'border-purple-600/30',
+            color: 'from-[#3D6B6E] to-[#9B2335]',
+            bgColor: 'bg-[#3D6B6E]/10',
+            accent: 'text-[#9B2335]',
+            border: 'border-[#3D6B6E]/30',
             image: null
         },
     ];
@@ -218,7 +218,7 @@ const Coaching = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-20">
                         <h2 className="text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
-                            What Makes Our Coaching <span className="text-purple-600">Different</span>
+                            What Makes Our Coaching <span className="text-[#3D6B6E]">Different</span>
                         </h2>
                     </div>
 
@@ -228,7 +228,7 @@ const Coaching = () => {
                                 key={index}
                                 className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 group"
                             >
-                                <item.icon size={32} className="text-purple-600 mb-6 group-hover:scale-110 transition-transform" />
+                                <item.icon size={32} className="text-[#3D6B6E] mb-6 group-hover:scale-110 transition-transform" />
                                 <h3 className="text-xl font-bold text-slate-900 mb-3 font-['Playfair_Display']">
                                     {item.title}
                                 </h3>
@@ -246,12 +246,12 @@ const Coaching = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 rounded-full mb-6 border border-purple-200">
-                                <GraduationCap size={18} className="text-purple-600" />
-                                <span className="text-purple-600 font-bold text-sm tracking-wide uppercase">Professional Development</span>
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#d1e9ea] rounded-full mb-6 border border-[#b3d9db]">
+                                <GraduationCap size={18} className="text-[#3D6B6E]" />
+                                <span className="text-[#3D6B6E] font-bold text-sm tracking-wide uppercase">Professional Development</span>
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                                Seminars & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-rose-600">Training</span>
+                                Seminars & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-[#9B2335]">Training</span>
                             </h2>
                             <p className="text-xl text-slate-600 italic mb-8">
                                 "Tired of viewing the same in-house training video? Need an innovative solution for your professional development training needs?"
@@ -262,7 +262,7 @@ const Coaching = () => {
 
                             <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 mb-8">
                                 <h4 className="font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
-                                    <Presentation className="text-purple-600" />
+                                    <Presentation className="text-[#3D6B6E]" />
                                     Training Topics Include:
                                 </h4>
                                 <div className="grid sm:grid-cols-2 gap-3">
@@ -277,7 +277,7 @@ const Coaching = () => {
                                         'Senior Executive Development'
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-center gap-2">
-                                            <div className="w-1.5 h-1.5 bg-purple-600 rounded-full"></div>
+                                            <div className="w-1.5 h-1.5 bg-[#3D6B6E] rounded-full"></div>
                                             <span className="text-slate-700 text-sm font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -290,7 +290,7 @@ const Coaching = () => {
                         </div>
 
                         <div className="relative">
-                            <div className="absolute -inset-4 bg-purple-600/10 rounded-[2.5rem] rotate-3 blur-md"></div>
+                            <div className="absolute -inset-4 bg-[#3D6B6E]/10 rounded-[2.5rem] rotate-3 blur-md"></div>
                             <div className="relative rounded-[2rem] overflow-hidden border border-slate-100 shadow-2xl h-[500px]">
                                 <img
                                     src={seminarsTrainingImg}
@@ -299,7 +299,7 @@ const Coaching = () => {
                                 />
                                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white/80 to-transparent p-8 pt-24 text-slate-900">
                                     <p className="font-['Playfair_Display'] text-2xl font-bold">Professional Development</p>
-                                    <p className="text-purple-600 font-bold">Workshops & Training Sessions</p>
+                                    <p className="text-[#3D6B6E] font-bold">Workshops & Training Sessions</p>
                                 </div>
                             </div>
                         </div>
@@ -311,7 +311,7 @@ const Coaching = () => {
             <section className="py-16 md:py-24 bg-white">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        Your Next Chapter Begins With <br /><span className="text-purple-600">One Conversation</span>
+                        Your Next Chapter Begins With <br /><span className="text-[#3D6B6E]">One Conversation</span>
                     </h2>
                     <Link
                         to="/contact"

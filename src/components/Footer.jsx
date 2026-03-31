@@ -15,7 +15,7 @@ const quickLinks = [
   { name: 'Mediation Services', path: '/mediation-services' },
   { name: 'Legal Services', path: '/legal-services' },
   { name: 'Coaching', path: '/coaching' },
-  { name: 'About Phyllis J. Outlaw', path: '/about-phyllis-j-outlaw' },
+  { name: 'About the Principal', path: '/about-phyllis-j-outlaw' },
   { name: 'Testimonials', path: '/testimonials' },
   { name: 'Online Payment', path: '/online-payment' },
   { name: 'Contact Us', path: '/contact' },
@@ -40,15 +40,15 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer className="relative bg-white text-slate-900 overflow-hidden border-t border-slate-100">
-      <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-rose-600/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-[#3D6B6E]/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#9B2335]/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
 
       <div className="relative border-b border-slate-100 bg-slate-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="text-center lg:text-left">
               <h2 className="text-2xl md:text-4xl font-bold font-['Playfair_Display'] mb-3">
-                Ready to Find Your <span className="text-purple-600">Resolution</span>?
+                Ready to Find Your <span className="text-[#3D6B6E]">Resolution</span>?
               </h2>
               <p className="text-slate-600 text-lg max-w-xl">
                 Schedule your consultation today and take the first step toward clarity.
@@ -93,7 +93,7 @@ const Footer = () => {
                   href={href}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 hover:bg-purple-600 hover:text-white transition-all duration-300 hover:-translate-y-1"
+                  className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 hover:bg-[#3D6B6E] hover:text-white transition-all duration-300 hover:-translate-y-1"
                 >
                   <Icon size={18} />
                 </a>
@@ -103,7 +103,7 @@ const Footer = () => {
 
           <div>
             <h4 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-purple-600"></span>
+              <span className="w-8 h-0.5 bg-[#3D6B6E]"></span>
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -111,7 +111,7 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-slate-600 hover:text-purple-600 transition-colors duration-300 flex items-center gap-2 group"
+                    className="text-slate-600 hover:text-[#3D6B6E] transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <ArrowRight
                       size={14}
@@ -126,7 +126,7 @@ const Footer = () => {
 
           <div>
             <h4 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-purple-600"></span>
+              <span className="w-8 h-0.5 bg-[#3D6B6E]"></span>
               Our Services
             </h4>
             <ul className="space-y-3">
@@ -134,7 +134,7 @@ const Footer = () => {
                 <li key={service}>
                   <Link
                     to="/mediation-services"
-                    className="text-slate-600 hover:text-purple-600 transition-colors duration-300 flex items-center gap-2 group"
+                    className="text-slate-600 hover:text-[#3D6B6E] transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <ArrowRight
                       size={14}
@@ -149,46 +149,46 @@ const Footer = () => {
 
           <div>
             <h4 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-purple-600"></span>
+              <span className="w-8 h-0.5 bg-[#3D6B6E]"></span>
               Contact Us
             </h4>
             <div className="space-y-5">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-white shadow-sm border border-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone size={18} className="text-purple-600" />
+                  <Phone size={18} className="text-[#3D6B6E]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Phone</p>
-                  <a href="tel:+12025482999" className="text-slate-700 hover:text-purple-600 transition-colors font-medium">
+                  <a href="tel:+12025482999" className="text-slate-700 hover:text-[#3D6B6E] transition-colors font-medium">
                     (202) 548-2999
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-white shadow-sm border border-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone size={18} className="text-purple-600" />
+                  <Phone size={18} className="text-[#3D6B6E]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Fax</p>
-                  <a href="tel:+12025488114" className="text-slate-700 hover:text-purple-600 transition-colors font-medium">
+                  <a href="tel:+12025488114" className="text-slate-700 hover:text-[#3D6B6E] transition-colors font-medium">
                     (202) 548-8114
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-white shadow-sm border border-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail size={18} className="text-purple-600" />
+                  <Mail size={18} className="text-[#3D6B6E]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Email</p>
-                  <a href="mailto:lawfirm@pjoutlawlegal.com" className="text-slate-700 hover:text-purple-600 transition-colors font-medium break-all">
+                  <a href="mailto:lawfirm@pjoutlawlegal.com" className="text-slate-700 hover:text-[#3D6B6E] transition-colors font-medium break-all">
                     lawfirm@pjoutlawlegal.com
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-white shadow-sm border border-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin size={18} className="text-purple-600" />
+                  <MapPin size={18} className="text-[#3D6B6E]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Office Location</p>
@@ -209,9 +209,9 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-600">
             <p>Copyright © 2026, Phyllis J. Outlaw & Associates</p>
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-purple-600 transition-colors">Terms of Use</a>
+              <a href="#" className="hover:text-[#3D6B6E] transition-colors">Terms of Use</a>
               <span>|</span>
-              <a href="#" className="hover:text-purple-600 transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-[#3D6B6E] transition-colors">Privacy Policy</a>
             </div>
           </div>
         </div>

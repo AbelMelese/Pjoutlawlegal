@@ -90,7 +90,7 @@ const MeetAttorneys = () => {
                         <div key={index} className={`flex flex-col gap-16 items-start ${index === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
                             {/* Photo Side */}
                             <div className="w-full lg:w-5/12 relative">
-                                <div className="absolute -inset-4 bg-gradient-to-tr from-purple-600/30 to-purple-500/30 rounded-[2.5rem] rotate-2 blur-xl"></div>
+                                <div className="absolute -inset-4 bg-gradient-to-tr from-[#3D6B6E]/30 to-[#4A8A8D]/30 rounded-[2.5rem] rotate-2 blur-xl"></div>
                                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
                                     <img src={person.image} alt={person.name} className="w-full object-cover aspect-[3/4] hover:scale-105 transition-transform duration-700" />
 
@@ -109,7 +109,7 @@ const MeetAttorneys = () => {
                                 <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-2">
                                     {person.name}
                                 </h2>
-                                <p className="text-xl text-rose-600 font-medium mb-8 font-serif italic">{person.role}</p>
+                                <p className="text-xl text-[#9B2335] font-medium mb-8 font-serif italic">{person.role}</p>
 
                                 <div className="space-y-6 text-lg text-slate-600 leading-relaxed mb-10">
                                     {person.bio.map((p, i) => <p key={i}>{p}</p>)}
@@ -117,7 +117,7 @@ const MeetAttorneys = () => {
 
                                 <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
                                     <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-                                        <BadgeCheck size={24} className="text-purple-600" />
+                                        <BadgeCheck size={24} className="text-[#3D6B6E]" />
                                         Credentials & Admissions
                                     </h3>
                                     <div className="grid sm:grid-cols-2 gap-4">
@@ -139,7 +139,7 @@ const MeetAttorneys = () => {
             <section className="py-24 bg-white border-t border-slate-100">
                 <div className="max-w-4xl mx-auto px-4 text-center">
                     <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        One Conversation Can Change <span className="text-purple-600">Everything</span>
+                        One Conversation Can Change <span className="text-[#3D6B6E]">Everything</span>
                     </h2>
                     <Link
                         to="/contact"

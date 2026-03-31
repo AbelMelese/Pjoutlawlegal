@@ -2,7 +2,6 @@ import { useState } from 'react';
 import {
     Phone,
     Mail,
-    MapPin,
     CheckCircle,
     Loader2,
     Send
@@ -84,10 +83,10 @@ const Contact = () => {
                                     {[
                                         { icon: Phone, title: 'Phone', value: '(202) 548-2999', href: 'tel:+12025482999', color: 'text-slate-900' },
                                         { icon: Phone, title: 'Fax', value: '(202) 548-8114', href: 'tel:+12025488114', color: 'text-slate-900' },
-                                        { icon: Mail, title: 'Email', value: 'lawfirm@pjoutlawlegal.com', href: 'mailto:lawfirm@pjoutlawlegal.com', color: 'text-rose-600' }
+                                        { icon: Mail, title: 'Email', value: 'lawfirm@pjoutlawlegal.com', href: 'mailto:lawfirm@pjoutlawlegal.com', color: 'text-[#9B2335]' }
                                     ].map((item, i) => (
                                         <a key={i} href={item.href} className="flex items-center gap-6 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all group">
-                                            <div className="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center group-hover:bg-purple-600 transition-colors">
+                                            <div className="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center group-hover:bg-[#3D6B6E] transition-colors">
                                                 <item.icon size={24} className="text-slate-400 group-hover:text-white transition-colors" />
                                             </div>
                                             <div>
@@ -99,28 +98,13 @@ const Contact = () => {
                                 </div>
                             </div>
 
-                            <div className="bg-white rounded-[2rem] p-8 text-slate-900 relative overflow-hidden border border-slate-100 shadow-xl">
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-rose-50/50 opacity-50"></div>
-                                <div className="relative z-10 flex gap-4 items-start">
-                                    <MapPin size={24} className="text-purple-600 mt-1 flex-shrink-0" />
-                                    <div>
-                                        <h4 className="font-bold text-lg mb-2">Office Location</h4>
-                                        <p className="text-slate-600 leading-relaxed font-medium">
-                                            412 H Street, NE<br />
-                                            Washington, DC 20002
-                                        </p>
-                                        <p className="text-slate-500 leading-relaxed mt-4 text-sm">
-                                            Our offices are located on Capitol Hill in the commercial district designated as an enterprise hub zone. We are conveniently located near the financial and business districts of the city, as well as to the federal and local courts in the District of Columbia and Maryland.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
 
                         {/* Contact Form */}
                         <div className="order-1 lg:order-2">
                             <div className="bg-white rounded-[2.5rem] p-10 shadow-2xl border border-slate-100 relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-[#3D6B6E]/10 rounded-full blur-3xl"></div>
 
 
 
@@ -130,7 +114,7 @@ const Contact = () => {
                                             <CheckCircle size={48} className="text-green-600" />
                                         </div>
                                         <h3 className="text-2xl font-bold text-slate-900 mb-2">Message Sent!</h3>
-                                        <button onClick={() => setSubmitted(false)} className="mt-8 text-rose-600 font-bold hover:underline">Send Another</button>
+                                        <button onClick={() => setSubmitted(false)} className="mt-8 text-[#9B2335] font-bold hover:underline">Send Another</button>
                                     </div>
                                 ) : (
                                     <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
@@ -138,25 +122,25 @@ const Contact = () => {
                                             <div className="space-y-2">
                                                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">First Name</label>
                                                 <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required
-                                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 focus:bg-white transition-all font-medium" />
+                                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3D6B6E] focus:bg-white transition-all font-medium" />
                                             </div>
                                             <div className="space-y-2">
                                                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Last Name</label>
                                                 <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required
-                                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 focus:bg-white transition-all font-medium" />
+                                                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3D6B6E] focus:bg-white transition-all font-medium" />
                                             </div>
                                         </div>
 
                                         <div className="space-y-2">
                                             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Email Address</label>
                                             <input type="email" name="email" value={formData.email} onChange={handleChange} required
-                                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 focus:bg-white transition-all font-medium" />
+                                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3D6B6E] focus:bg-white transition-all font-medium" />
                                         </div>
 
                                         <div className="space-y-2">
                                             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Message</label>
                                             <textarea name="message" rows={4} value={formData.message} onChange={handleChange} required
-                                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 focus:bg-white transition-all font-medium resize-none" ></textarea>
+                                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3D6B6E] focus:bg-white transition-all font-medium resize-none" ></textarea>
                                         </div>
 
                                         <div className="pt-4">
@@ -166,6 +150,37 @@ const Contact = () => {
                                         </div>
                                     </form>
                                 )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* DC Office Location Section */}
+            <section className="py-14 md:py-20 bg-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-[#3D6B6E]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="space-y-6">
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] leading-tight">
+                                Serving Maryland &<br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-[#9B2335]">Washington, DC</span>
+                            </h2>
+                            <p className="text-base md:text-lg text-slate-600 leading-relaxed">
+                                Phyllis J. Outlaw & Associates have provided legal services to residents and local businesses in Maryland and Washington, DC. Our offices are located in the commercial district which is known for it resurgence and emerging small businesses. Our offices are convenient to the financial and business districts of the city, public transportation, as well as to the federal and local courts located in the District of Columbia and Maryland. Our office is located at:
+                            </p>
+                            <div className="mt-2">
+                                <p className="text-lg font-bold text-slate-900 font-['Playfair_Display']">412 H Street, NE</p>
+                                <p className="text-lg font-medium text-slate-700">Washington, DC</p>
+                            </div>
+                        </div>
+                        <div className="relative">
+                            <div className="relative rounded-[2rem] overflow-hidden border border-slate-100 shadow-xl h-[260px] md:h-[340px]">
+                                <img
+                                    src="https://media.istockphoto.com/photos/aerial-view-of-washington-dc-xxxl-picture-id183367435?k=20&m=183367435&s=612x612&w=0&h=1poAuHDFu4WELeMGIwBHYbAMg294fNdQLsV3HKPbLdI="
+                                    alt="Aerial view of Washington DC skyline"
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
                         </div>
                     </div>

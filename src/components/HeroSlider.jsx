@@ -85,7 +85,7 @@ const HeroSlider = ({ slides, children }) => {
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`transition-all duration-300 rounded-full focus:outline-none ${index === currentSlide ? 'w-10 h-2 bg-purple-500 shadow-lg shadow-purple-500/50' : 'w-2 h-2 bg-white/40 hover:bg-white/70'}`}
+                        className={`transition-all duration-300 rounded-full focus:outline-none ${index === currentSlide ? 'w-10 h-2 bg-[#4A8A8D] shadow-lg shadow-[#4A8A8D]/50' : 'w-2 h-2 bg-white/40 hover:bg-white/70'}`}
                         aria-label={`Go to slide ${index + 1}`}
                     />
                 ))}

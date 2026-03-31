@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Award, Building2, Scale, Users } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import portrait from "../assets/use this picture in PJO's resume.jpg";
+import mediaLogosStrip from '../assets/media-logos-strip.png';
 
 const highlights = [
   {
@@ -36,7 +37,7 @@ const AboutPhyllis = () => {
       <PageHero
         slides={[
           {
-            title: 'About Phyllis J. Outlaw',
+            title: 'About the Principal',
             subtitle:
               'A long-established legal and mediation practice grounded in professionalism, preparation, and service.',
             image: portrait,
@@ -90,6 +91,35 @@ const AboutPhyllis = () => {
             >
               Read Client Testimonials
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Media Appearances */}
+      <section className="page-section page-section--white">
+        <div className="section-shell">
+          <div className="portrait-panel">
+            <img src={portrait} alt="Phyllis J. Outlaw portrait" />
+            <div className="body-copy">
+              <p className="section-script" style={{ textAlign: 'left', marginBottom: '0.6rem' }}>
+                Media Appearances
+              </p>
+              <p>
+                Attorney Phyllis J. Outlaw has appeared as a guest on national and local television as well as radio broadcasts
+              </p>
+            </div>
+          </div>
+
+          <div className="media-marquee" style={{ marginTop: '1.5rem' }}>
+            <div className="media-marquee__track">
+              {[0, 1].map((index) => (
+                <img
+                  key={index}
+                  src={mediaLogosStrip}
+                  alt="Media appearances including CNN, C-SPAN, FOX News, WUSA 9, WYCB Podcast, WPFW, WHUT, JET, Ebony, Essence, and Bottomline"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

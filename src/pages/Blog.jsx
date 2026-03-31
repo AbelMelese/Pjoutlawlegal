@@ -36,11 +36,11 @@ const Blog = () => {
     ];
 
     const categoryStyles = {
-        'Mediation': { icon: Scale, gradient: 'from-purple-600 to-rose-600' },
-        'Divorce': { icon: Heart, gradient: 'from-rose-500 to-rose-600' },
-        'Business': { icon: Briefcase, gradient: 'from-purple-500 to-purple-600' },
-        'Coaching': { icon: MessageCircle, gradient: 'from-purple-500 to-purple-600' },
-        'Family Law': { icon: Users, gradient: 'from-rose-500 to-rose-600' },
+        'Mediation': { icon: Scale, gradient: 'from-[#3D6B6E] to-[#9B2335]' },
+        'Divorce': { icon: Heart, gradient: 'from-[#B5344A] to-[#9B2335]' },
+        'Business': { icon: Briefcase, gradient: 'from-[#4A8A8D] to-[#3D6B6E]' },
+        'Coaching': { icon: MessageCircle, gradient: 'from-[#4A8A8D] to-[#3D6B6E]' },
+        'Family Law': { icon: Users, gradient: 'from-[#B5344A] to-[#9B2335]' },
         'Legal Tips': { icon: Shield, gradient: 'from-slate-600 to-slate-800' },
     };
 
@@ -167,7 +167,7 @@ const Blog = () => {
                             placeholder="Search articles..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-12 pr-4 py-4 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-purple-600 shadow-xl"
+                            className="w-full pl-12 pr-4 py-4 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#3D6B6E] shadow-xl"
                         />
                     </div>
                 </div>
@@ -198,13 +198,13 @@ const Blog = () => {
                 <section className="py-16 md:py-20">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center gap-2 mb-8">
-                            <TrendingUp size={20} className="text-purple-600" />
+                            <TrendingUp size={20} className="text-[#3D6B6E]" />
                             <span className="text-sm font-bold text-slate-900 uppercase tracking-wider">Featured Article</span>
                         </div>
 
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div className="relative group">
-                                <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-rose-600 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
+                                <div className="absolute -inset-4 bg-gradient-to-r from-[#3D6B6E] to-[#9B2335] rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
                                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
                                     {(() => {
                                         const style = categoryStyles[featuredPost.category];
@@ -228,7 +228,7 @@ const Blog = () => {
 
                             <div className="space-y-6">
                                 <div className="flex items-center gap-4">
-                                    <span className="px-4 py-1.5 bg-purple-600/20 text-rose-600 rounded-full text-sm font-bold">
+                                    <span className="px-4 py-1.5 bg-[#3D6B6E]/20 text-[#9B2335] rounded-full text-sm font-bold">
                                         {featuredPost.category}
                                     </span>
                                     <span className="text-slate-400 text-sm flex items-center gap-1">
@@ -327,7 +327,7 @@ const Blog = () => {
                                             </span>
                                         </div>
 
-                                        <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3 group-hover:text-rose-600 transition-colors line-clamp-2">
+                                        <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3 group-hover:text-[#9B2335] transition-colors line-clamp-2">
                                             {post.title}
                                         </h3>
 
@@ -345,7 +345,7 @@ const Blog = () => {
 
                                             <Link
                                                 to={`/blog/${post.id}`}
-                                                className="flex items-center gap-1 text-rose-600 font-bold text-sm group-hover:gap-2 transition-all"
+                                                className="flex items-center gap-1 text-[#9B2335] font-bold text-sm group-hover:gap-2 transition-all"
                                             >
                                                 Read More
                                                 <ArrowRight size={14} />
@@ -371,12 +371,12 @@ const Blog = () => {
             {/* Newsletter CTA */}
             <section className="py-20 bg-slate-100 relative overflow-hidden">
                 <div className="absolute inset-0">
-                    <div className="blob bg-purple-600/10 w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
+                    <div className="blob bg-[#3D6B6E]/10 w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
                 </div>
 
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
                     <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                        Stay <span className="text-purple-600">Informed</span>
+                        Stay <span className="text-[#3D6B6E]">Informed</span>
                     </h2>
                     <p className="text-xl text-slate-600 mb-10">
                         Subscribe to our newsletter for the latest insights on mediation, family law, and conflict resolution.
@@ -386,7 +386,7 @@ const Blog = () => {
                         <input
                             type="email"
                             placeholder="Enter your email"
-                            className="flex-1 px-6 py-4 rounded-full bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-600 shadow-sm"
+                            className="flex-1 px-6 py-4 rounded-full bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#3D6B6E] shadow-sm"
                         />
                         <button className="btn-premium px-8 py-4 bg-slate-900 text-white rounded-full font-bold shadow-xl">
                             Subscribe

@@ -8,8 +8,7 @@ import {
     Briefcase,
     Shield,
     Target,
-    Calendar,
-    MapPin
+    Calendar
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -18,9 +17,8 @@ import goldWomanHoldingScales from '../assets/gold-woman-holding-scales.jpg';
 import pjoaOffice264 from '../assets/pjoa-office-264.jpg';
 import officeShoot044 from '../assets/office-shoot-044-client.jpg';
 import officeShoot110 from '../assets/office-shoot-110-client.jpg';
-import pjoPortrait from "../assets/use this picture in PJO's resume.jpg";
-import mediaLogosStrip from '../assets/media-logos-strip.png';
-import dcStreetImage from '../assets/dc-street.png';
+
+
 
 const Home = () => {
     const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -28,9 +26,8 @@ const Home = () => {
     // Scroll reveal refs for each section
     const servicesHeaderRef = useScrollReveal();
     const servicesGridRef = useScrollReveal({ staggerChildren: true, staggerDelay: 150 });
-    const locationTextRef = useScrollReveal();
-    const locationImageRef = useScrollReveal();
-    const mediaRef = useScrollReveal();
+
+
     const processTextRef = useScrollReveal();
     const processStepsRef = useScrollReveal({ staggerChildren: true, staggerDelay: 200 });
     const processCardRef = useScrollReveal();
@@ -42,35 +39,35 @@ const Home = () => {
             icon: Scale,
             title: 'Divorce Mediation',
             description: 'Navigate your divorce with dignity, clarity, and fair outcomes for both parties.',
-            color: 'from-purple-500 to-purple-600',
+            color: 'from-[#4A8A8D] to-[#3D6B6E]',
             link: '/mediation-services',
         },
         {
             icon: Users,
             title: 'Family Mediation',
             description: 'Heal family rifts and rebuild relationships through guided communication.',
-            color: 'from-rose-500 to-rose-600',
+            color: 'from-[#B5344A] to-[#9B2335]',
             link: '/mediation-services',
         },
         {
             icon: Briefcase,
             title: 'Business Mediation',
             description: 'Resolve workplace disputes without costly litigation or damaged relationships.',
-            color: 'from-purple-600 to-rose-600',
+            color: 'from-[#3D6B6E] to-[#9B2335]',
             link: '/legal-services',
         },
         {
             icon: Heart,
             title: 'Coaching Services',
             description: 'Strategic guidance for families, divorcing couples, and business professionals.',
-            color: 'from-rose-500 to-rose-600',
+            color: 'from-[#B5344A] to-[#9B2335]',
             link: '/coaching',
         },
     ];
 
     const heroSlides = [
         {
-            title: "PHYLLIS J. OUTLAW & ASSOCIATES MAINTAINS THE HIGHEST STANDARD OF EXCELLENCE ON BEHALF OF OUR CLIENTS.",
+            title: "Phyllis J. Outlaw & Associates Maintains The Highest Standard Of Excellence On Behalf Of Our Clients.",
             image: goldWomanHoldingScales,
             background: '#d9d6cc',
             transition: 'wipe-left',
@@ -84,7 +81,7 @@ const Home = () => {
             secondaryBorder: 'rgba(19, 41, 61, 0.18)',
         },
         {
-            title: "A COURT-APPOINTED MEDIATOR WHO POSSESSES KNOWLEDGE, SKILLS AND EXPERTISE IN MEDIATION OF DISPUTES.",
+            title: "A Court-Appointed Mediator Who Possesses Knowledge, Skills And Expertise In Mediation Of Disputes.",
             image: pjoaOffice264,
             background: '#ece7df',
             transition: 'split-open',
@@ -98,11 +95,10 @@ const Home = () => {
             secondaryBorder: 'rgba(19, 41, 61, 0.18)',
         },
         {
-            title: "OUR LEGAL TEAM EMPLOYS INNOVATIVE METHODS TO ENSURE A SUCCESSFUL OUTCOME FOR YOUR LEGAL MATTERS.",
+            title: "Our Legal Team Employs Innovative Methods To Ensure A Successful Outcome For Your Legal Matters.",
             image: officeShoot044,
             background: '#efe4da',
             transition: 'diagonal-rise',
-            titleSize: 'clamp(2rem, 4.2vw, 3.45rem)',
             eyebrowColor: '#214b63',
             titleColor: '#13293d',
             rotatingColor: 'rgba(19, 41, 61, 0.86)',
@@ -113,7 +109,7 @@ const Home = () => {
             secondaryBorder: 'rgba(19, 41, 61, 0.18)',
         },
         {
-            title: "OUR FIRM POSSESSES OVER FOUR DECADES OF EXPERIENCE IN MEDIATION, ARBITRATION AND CIVIL LITIGATION.",
+            title: "Our Firm Possesses Over Four Decades Of Experience In Mediation, Arbitration And Civil Litigation.",
             image: officeShoot110,
             background: '#ebe5de',
             transition: 'wipe-up',
@@ -181,7 +177,7 @@ const Home = () => {
                     <div ref={servicesHeaderRef} className="scroll-reveal text-center mb-10 md:mb-14">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
                             Mediation & Coaching<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-rose-600">Built Around You</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-[#9B2335]">Built Around You</span>
                         </h2>
                     </div>
 
@@ -197,9 +193,9 @@ const Home = () => {
                                 <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3">{service.title}</h3>
                                 <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
 
-                                <Link to={service.link} className="flex items-center gap-2 text-slate-900 font-bold group-hover:text-rose-600 transition-colors">
+                                <Link to={service.link} className="flex items-center gap-2 text-slate-900 font-bold group-hover:text-[#9B2335] transition-colors">
                                     <span className="text-sm uppercase tracking-wider">Learn More</span>
-                                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-purple-600/20 transition-colors">
+                                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-[#3D6B6E]/20 transition-colors">
                                         <ArrowRight size={14} />
                                     </div>
                                 </Link>
@@ -209,76 +205,9 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* DC Office Location Section */}
-            <section className="py-14 md:py-18 bg-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <div ref={locationTextRef} className="scroll-reveal--left scroll-reveal space-y-6">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600/10 rounded-full border border-purple-600/30">
-                                <MapPin size={16} className="text-rose-600" />
-                                <span className="text-rose-600 font-bold text-sm tracking-wide uppercase">Our Location</span>
-                            </div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] leading-tight">
-                                Serving Maryland &<br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-rose-600">Washington, DC</span>
-                            </h2>
-                            <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-                                Phyllis J. Outlaw & Associates have provided legal services to residents and local businesses in Maryland and Washington, DC. Our offices are located in the commercial district which is known for its resurgence and emerging small businesses. Our offices are convenient to the financial and business districts of the city, public transportation, as well as to the federal and local courts located in the District of Columbia and Maryland.
-                            </p>
-                        </div>
-                        <div ref={locationImageRef} className="scroll-reveal--right scroll-reveal relative">
-                            <div className="relative rounded-[2rem] overflow-hidden border border-slate-100 h-[260px] md:h-[340px]">
-                                <img
-                                    src={dcStreetImage}
-                                    alt="Washington DC commercial district"
-                                    className="w-full h-full object-cover"
-                                />
-                                <div className="absolute bottom-6 left-6 right-6 z-10">
-                                    <div className="p-4 drop-shadow-lg text-center">
-                                        <p className="text-white font-bold font-['Playfair_Display'] text-2xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">412 H Street, NE</p>
-                                        <p className="text-slate-100 text-base font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] mt-1">Washington, DC 20002</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Media Appearances */}
-            <section ref={mediaRef} className="scroll-reveal page-section page-section--white">
-                <div className="section-shell">
-                    <div className="portrait-panel">
-                        <img src={pjoPortrait} alt="Phyllis J. Outlaw portrait" />
-                        <div className="body-copy">
-                            <p className="section-script" style={{ textAlign: 'left', marginBottom: '0.6rem' }}>
-                                Media Appearances
-                            </p>
-                            <p>
-                                Phyllis J. Outlaw has appeared as a guest on radio as well as local and national
-                                television programs. This section highlights those appearances in a more formal
-                                recognition presentation.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="media-marquee" style={{ marginTop: '1.5rem' }}>
-                        <div className="media-marquee__track">
-                            {[0, 1].map((index) => (
-                                <img
-                                    key={index}
-                                    src={mediaLogosStrip}
-                                    alt="Media appearances including CNN, C-SPAN, FOX News, WUSA 9, WYCB Podcast, WPFW, WHUT, JET, Ebony, Essence, and Bottomline"
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* Process Section - Dark Mode */}
-            <section className="py-14 md:py-20 bg-[#0f172a] relative overflow-hidden">
+            <section className="py-14 md:py-20 bg-[#4D1A28] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
                     <div className="blob blob-gold w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
                 </div>
@@ -288,7 +217,7 @@ const Home = () => {
                         <div ref={processTextRef} className="scroll-reveal">
                             <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-6">
                                 A Process That <br />
-                                <span className="text-purple-600">Works For You</span>
+                                <span className="text-[#3D6B6E]">Works For You</span>
                             </h2>
                             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
                                 Whether you are navigating a divorce, resolving a family dispute, or facing conflict at work, our proven process is designed to create momentum.
@@ -301,7 +230,7 @@ const Home = () => {
                                     { title: 'Move Forward', desc: 'Resolve conflict with confidence and peace.', icon: CheckCircle },
                                 ].map((step, i) => (
                                     <div key={i} className="scroll-reveal-child flex items-start gap-6 group">
-                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-purple-600 group-hover:bg-purple-600 group-hover:text-slate-900 transition-all duration-300 shadow-lg">
+                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#3D6B6E] group-hover:bg-[#3D6B6E] group-hover:text-slate-900 transition-all duration-300 shadow-lg">
                                             <step.icon size={28} />
                                         </div>
                                         <div>
@@ -314,11 +243,11 @@ const Home = () => {
                         </div>
 
                         <div ref={processCardRef} className="scroll-reveal--scale scroll-reveal relative">
-                            <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-rose-600 rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
+                            <div className="absolute -inset-4 bg-gradient-to-r from-[#3D6B6E] to-[#9B2335] rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
                             <div className="relative h-[340px] md:h-[420px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col justify-center items-center p-7 text-center">
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
 
-                                <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-purple-600 mb-6 relative z-10">
+                                <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-[#3D6B6E] mb-6 relative z-10">
                                     <Shield size={48} />
                                 </div>
                                 <h3 className="text-2xl md:text-3xl font-bold text-white font-['Playfair_Display'] mb-4 relative z-10">Trusted Guidance</h3>
@@ -351,7 +280,7 @@ const Home = () => {
                                 <p className="text-xl md:text-3xl font-['Playfair_Display'] text-slate-800 leading-tight mb-6">"{t.quote}"</p>
                                 <div className="space-y-2">
                                     <p className="font-bold text-slate-900 text-lg">{t.author}</p>
-                                    <p className="text-rose-600 text-sm font-semibold uppercase tracking-[0.16em]">{t.role}</p>
+                                    <p className="text-[#9B2335] text-sm font-semibold uppercase tracking-[0.16em]">{t.role}</p>
                                 </div>
                             </div>
                         ))}
@@ -362,7 +291,7 @@ const Home = () => {
                             <button
                                 key={i}
                                 onClick={() => setActiveTestimonial(i)}
-                                className={`transition-all duration-300 rounded-full ${i === activeTestimonial ? 'w-12 h-3 bg-purple-600' : 'w-3 h-3 bg-slate-300'}`}
+                                className={`transition-all duration-300 rounded-full ${i === activeTestimonial ? 'w-12 h-3 bg-[#3D6B6E]' : 'w-3 h-3 bg-slate-300'}`}
                             />
                         ))}
                     </div>
@@ -371,20 +300,20 @@ const Home = () => {
 
             {/* CTA Parallax */}
             <section className="relative py-14 md:py-18 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 z-0 bg-[#0f172a]">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#1e293b] to-[#0f172a] opacity-80"></div>
+                <div className="absolute inset-0 z-0 bg-[#4D1A28]">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#4D1A28] via-[#5E2A38] to-[#4D1A28] opacity-80"></div>
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
                 </div>
 
                 <div ref={ctaRef} className="scroll-reveal relative z-10 text-center max-w-4xl px-4">
                     <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-5 md:mb-6">
-                        Let's Start a <span className="text-purple-600">Conversation</span>
+                        Let's Start a <span className="text-[#3D6B6E]">Conversation</span>
                     </h2>
                     <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
                         You don't have to figure it out alone. We are here to help you move forward.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                        <Link to="/contact" className="btn-glow px-8 py-4 bg-purple-600 text-white rounded-full font-bold text-lg shadow-lg hover:bg-rose-600 transition-colors">
+                        <Link to="/contact" className="btn-glow px-8 py-4 bg-[#3D6B6E] text-white rounded-full font-bold text-lg shadow-lg hover:bg-[#9B2335] transition-colors">
                             Contact Us
                         </Link>
                     </div>

@@ -2,14 +2,14 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #0f172a;
-  --color-primary-light: #1e293b;
-  --color-gold: #8b5cf6;
-  --color-gold-light: #a78bfa;
-  --color-gold-dark: #f43f5e;
+  --color-primary: #4D1A28;
+  --color-primary-light: #5E2A38;
+  --color-gold: #3D6B6E;
+  --color-gold-light: #5A9B9E;
+  --color-gold-dark: #9B2335;
   --color-surface-glass: rgba(255, 255, 255, 0.7);
   --shadow-premium: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 0 20px -5px rgba(0, 0, 0, 0.05);
-  --shadow-gold: 0 20px 40px -10px rgba(139, 92, 246, 0.3);
+  --shadow-gold: 0 20px 40px -10px rgba(61, 107, 110, 0.3);
 }
 
 html {
@@ -19,7 +19,7 @@ html {
 body {
   font-family: 'Outfit', sans-serif;
   background-color: #f8fafc;
-  color: #1e293b;
+  color: #5E2A38;
   overflow-x: hidden;
 }
 
@@ -244,7 +244,7 @@ h6 {
 
 .btn-glow:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 15px 35px rgba(61, 107, 110, 0.4);
 }
 
 .btn-glow:hover::after {
@@ -265,7 +265,7 @@ h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #a78bfa, #f43f5e);
+  background: linear-gradient(135deg, #5A9B9E, #9B2335);
   z-index: -1;
   transition: opacity 0.4s ease-in-out;
   opacity: 0;
@@ -277,7 +277,7 @@ h6 {
 
 .btn-premium:hover {
   transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 20px 40px -10px rgba(244, 63, 94, 0.5);
+  box-shadow: 0 20px 40px -10px rgba(155, 35, 53, 0.5);
   color: white !important;
 }
 
@@ -291,7 +291,7 @@ h6 {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #8b5cf6 0%, #f43f5e 100%);
+  background: linear-gradient(135deg, #3D6B6E 0%, #9B2335 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -327,7 +327,7 @@ h6 {
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #8b5cf6, #f43f5e);
+  background: linear-gradient(90deg, #3D6B6E, #9B2335);
   z-index: 9999;
   width: 0%;
   transition: width 0.1s;
@@ -560,14 +560,14 @@ h6 {
 }
 
 .brand-actions__callout a {
-  color: #1e293b;
+  color: #5E2A38;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.45rem;
   font-weight: 700;
 }
 
 .primary-nav {
-  background: #ec4899;
+  background: #320A0A;
 }
 
 .primary-nav__inner {
@@ -593,7 +593,7 @@ h6 {
 }
 
 .mobile-nav-panel {
-  background: #ec4899;
+  background: #320A0A;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
@@ -624,9 +624,9 @@ h6 {
 }
 
 .primary-button {
-  background: linear-gradient(135deg, #8b5cf6, #f43f5e);
+  background: linear-gradient(135deg, #3D6B6E, #9B2335);
   color: white;
-  box-shadow: 0 18px 36px rgba(139, 92, 246, 0.28);
+  box-shadow: 0 18px 36px rgba(61, 107, 110, 0.28);
 }
 
 .site-header .primary-button {
@@ -721,7 +721,7 @@ h6 {
 .desktop-nav a.is-active,
 .desktop-nav a:hover {
   background: white;
-  color: #8b5cf6;
+  color: #3D6B6E;
 }
 
 .nav-contact {
@@ -747,7 +747,7 @@ h6 {
 .nav-contact-meta span:last-child {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #4D1A28;
 }
 
 .mobile-menu-button {
@@ -759,7 +759,7 @@ h6 {
   border: 1px solid rgba(148, 163, 184, 0.22);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.78);
-  color: #0f172a;
+  color: #4D1A28;
   transition: background-color 160ms ease, transform 160ms ease;
 }
 
@@ -816,8 +816,8 @@ h6 {
 }
 
 .mobile-drawer-links a.is-active {
-  background: rgba(139, 92, 246, 0.1);
-  color: #8b5cf6;
+  background: rgba(61, 107, 110, 0.1);
+  color: #3D6B6E;
 }
 
 .hero-shell {
@@ -960,8 +960,8 @@ h6 {
 }
 
 .hero-title {
-  font-size: clamp(2.35rem, 5vw, 4.2rem);
-  line-height: 0.98;
+  font-size: clamp(1.35rem, 2.8vw, 2.2rem);
+  line-height: 1.25;
   color: var(--hero-title-color);
   text-shadow: var(--hero-text-shadow);
 }
@@ -1082,8 +1082,8 @@ h6 {
   background:
     radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.3), transparent 28%),
     radial-gradient(circle at 82% 24%, rgba(255, 255, 255, 0.12), transparent 24%),
-    linear-gradient(135deg, #a855f7 0%, #8b5cf6 42%, #9b5de5 100%);
-  box-shadow: 0 28px 80px rgba(139, 92, 246, 0.24);
+    linear-gradient(135deg, #4A8A8D 0%, #3D6B6E 42%, #3D6B6E 100%);
+  box-shadow: 0 28px 80px rgba(61, 107, 110, 0.24);
 }
 
 .media-showcase__glow {
@@ -1124,12 +1124,12 @@ h6 {
 
 .media-track-wrap::before {
   left: 0;
-  background: linear-gradient(90deg, rgba(168, 85, 247, 0.9), transparent);
+  background: linear-gradient(90deg, rgba(61, 107, 110, 0.9), transparent);
 }
 
 .media-track-wrap::after {
   right: 0;
-  background: linear-gradient(270deg, rgba(155, 93, 229, 0.92), transparent);
+  background: linear-gradient(270deg, rgba(61, 107, 110, 0.92), transparent);
 }
 
 .media-track-wrap--lower {
@@ -1166,7 +1166,7 @@ h6 {
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 1.35rem;
   background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 14px 30px rgba(91, 33, 182, 0.14);
+  box-shadow: 0 14px 30px rgba(49, 86, 88, 0.14);
   transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
 }
 
@@ -1176,7 +1176,7 @@ h6 {
 
 .media-logo-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 36px rgba(91, 33, 182, 0.2);
+  box-shadow: 0 18px 36px rgba(49, 86, 88, 0.2);
 }
 
 .media-logo-mark {
@@ -1216,12 +1216,12 @@ h6 {
 
 .btn-glow:hover {
   transform: translateY(-2px);
-  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.28);
+  box-shadow: 0 15px 35px rgba(61, 107, 110, 0.28);
 }
 
 .btn-premium:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 18px 32px -10px rgba(244, 63, 94, 0.38);
+  box-shadow: 0 18px 32px -10px rgba(155, 35, 53, 0.38);
   color: white !important;
 }
 

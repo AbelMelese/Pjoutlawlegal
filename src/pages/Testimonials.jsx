@@ -60,7 +60,7 @@ const Testimonials = () => {
                   &ldquo;{item.quote}&rdquo;
                 </p>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">{item.author}</h3>
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-rose-600">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#9B2335]">
                   {item.role}
                 </p>
               </article>
