@@ -27,17 +27,6 @@ const Navbar = () => {
 
   return (
     <header className="site-header">
-      <div className="contact-ribbon">
-        <div className="section-shell contact-ribbon__inner">
-          <p>Legal, Mediation &amp; Coaching Services</p>
-          <div className="contact-ribbon__meta">
-            <a href="tel:+12025482999">Washington, D.C. 202.548.2999</a>
-            <span>|</span>
-            <a href="mailto:lawfirm@pjoutlawlegal.com">lawfirm@pjoutlawlegal.com</a>
-          </div>
-        </div>
-      </div>
-
       <div className="section-shell brand-row">
         <Link to="/" className="brand-block" aria-label="Phyllis J. Outlaw & Associates home">
           <img className="brand-logo" src={logo} alt="Phyllis J. Outlaw & Associates logo" />

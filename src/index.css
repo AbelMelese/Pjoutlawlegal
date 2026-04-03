@@ -515,8 +515,8 @@ h6 {
 }
 
 .brand-logo {
-  width: clamp(6.75rem, 10vw, 8.5rem);
-  min-width: 6.25rem;
+  width: clamp(8.1rem, 12vw, 10.2rem);
+  min-width: 7.5rem;
   height: auto;
   object-fit: contain;
 }
@@ -1230,6 +1230,32 @@ h6 {
   box-shadow: 0 24px 48px -18px rgba(15, 23, 42, 0.16);
 }
 
+.services-marquee {
+  overflow: hidden;
+  padding-block: 0.5rem;
+  mask-image: linear-gradient(to right,
+      transparent,
+      rgba(0, 0, 0, 1) 8%,
+      rgba(0, 0, 0, 1) 92%,
+      transparent);
+}
+
+.services-marquee__track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marquee 34s linear infinite;
+  will-change: transform;
+}
+
+.services-marquee:hover .services-marquee__track {
+  animation-play-state: paused;
+}
+
+.services-marquee__card {
+  flex: 0 0 min(21rem, calc(100vw - 3rem));
+}
+
 .logo-marquee {
   overflow: hidden;
   border: 1px solid rgba(226, 232, 240, 0.9);
@@ -1286,6 +1312,18 @@ h6 {
 }
 
 @media (max-width: 840px) {
+  .services-marquee {
+    mask-image: none;
+  }
+
+  .services-marquee__track {
+    gap: 1rem;
+    animation-duration: 28s;
+  }
+
+  .services-marquee__card {
+    flex-basis: min(18.5rem, calc(100vw - 2.5rem));
+  }
 
   .contact-ribbon,
   .primary-nav {
@@ -1311,8 +1349,8 @@ h6 {
 
 @media (max-width: 640px) {
   .brand-logo {
-    width: 6rem;
-    min-width: 5.75rem;
+    width: 7.2rem;
+    min-width: 6.9rem;
   }
 
   .hero-shell,
@@ -1455,3 +1493,4 @@ h6 {
     transform: none !important;
   }
 }
+

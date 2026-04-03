@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     quote:
-      "Phyllis J. Outlaw and Associates' managerial-employee training programs are highly effective and would be an asset to any organization.",
+      "Phyllis J. Outlaw & Associates' managerial-employee training programs are highly effective and would be an asset to any organization.",
     author: 'Ann Brown',
     role: 'Mary Kay Cosmetics, Charlotte, North Carolina',
   },

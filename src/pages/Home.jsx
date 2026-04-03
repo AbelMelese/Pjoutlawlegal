@@ -13,7 +13,7 @@ import {
 import { useEffect, useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHero from '../components/PageHero';
-import goldWomanHoldingScales from '../assets/gold-woman-holding-scales.jpg';
+import goldWomanHoldingScales from '../assets/012.jpg';
 import pjoaOffice264 from '../assets/pjoa-office-264.jpg';
 import officeShoot044 from '../assets/office-shoot-044-client.jpg';
 import officeShoot110 from '../assets/office-shoot-110-client.jpg';
@@ -64,11 +64,13 @@ const Home = () => {
             link: '/coaching',
         },
     ];
+    const marqueeServices = [...services, ...services];
 
     const heroSlides = [
         {
-            title: "Phyllis J. Outlaw & Associates Maintains The Highest Standard Of Excellence On Behalf Of Our Clients.",
+            title: "Phyllis J. Outlaw & Associates Maintains the Highest Standard of Excellence on Behalf of Our Clients.",
             image: goldWomanHoldingScales,
+            imageInset: '0 0 0 clamp(6.5rem, 15vw, 12rem)',
             background: '#d9d6cc',
             transition: 'wipe-left',
             eyebrowColor: '#214b63',
@@ -81,7 +83,7 @@ const Home = () => {
             secondaryBorder: 'rgba(19, 41, 61, 0.18)',
         },
         {
-            title: "A Court-Appointed Mediator Who Possesses Knowledge, Skills And Expertise In Mediation Of Disputes.",
+            title: "A Court-Appointed Mediator Who Possesses Knowledge, Skills and Expertise in Mediation of Disputes.",
             image: pjoaOffice264,
             background: '#ece7df',
             transition: 'split-open',
@@ -95,7 +97,7 @@ const Home = () => {
             secondaryBorder: 'rgba(19, 41, 61, 0.18)',
         },
         {
-            title: "Our Legal Team Employs Innovative Methods To Ensure A Successful Outcome For Your Legal Matters.",
+            title: "Our Legal Team Employs Innovative Methods to Ensure a Successful Outcome for Your Legal Matters.",
             image: officeShoot044,
             background: '#efe4da',
             transition: 'diagonal-rise',
@@ -109,7 +111,7 @@ const Home = () => {
             secondaryBorder: 'rgba(19, 41, 61, 0.18)',
         },
         {
-            title: "Our Firm Possesses Over Four Decades Of Experience In Mediation, Arbitration And Civil Litigation.",
+            title: "Our Firm Possesses Over Four Decades of Experience in Mediation, Arbitration and Civil Litigation.",
             image: officeShoot110,
             background: '#ebe5de',
             transition: 'wipe-up',
@@ -142,7 +144,7 @@ const Home = () => {
             role: 'Council of Women Ministers & Male Support Division, Inc., Washington, DC',
         },
         {
-            quote: 'Phyllis J. Outlaw and Associates\' managerial-employee training programs are highly effective and would be an asset to any organization.',
+            quote: 'Phyllis J. Outlaw & Associates\' managerial-employee training programs are highly effective and would be an asset to any organization.',
             author: 'Ann Brown',
             role: 'Mary Kay Cosmetics, Charlotte, North Carolina',
         },
@@ -161,8 +163,6 @@ const Home = () => {
             {/* Hero Section */}
             <PageHero
                 slides={heroSlides}
-                rotatingPrefix="Resolution for"
-                rotatingWords={['families', 'leaders', 'partners', 'workplaces']}
                 actions={[
                     { label: 'Contact Us', to: '/contact' },
                     { label: 'Call Us Now', href: 'tel:+12025482999', icon: 'phone' },
@@ -181,26 +181,31 @@ const Home = () => {
                         </h2>
                     </div>
 
-                    <div ref={servicesGridRef} className="scroll-reveal grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {services.map((service, index) => (
-                            <div key={index} className="scroll-reveal-child group relative bg-white rounded-[2rem] p-6 shadow-xl border border-slate-100 overflow-hidden card-hover-effect">
-                                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.color} opacity-10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700`}></div>
+                    <div ref={servicesGridRef} className="scroll-reveal services-marquee">
+                        <div className="services-marquee__track">
+                            {marqueeServices.map((service, index) => (
+                                <div
+                                    key={`${service.title}-${index}`}
+                                    className="scroll-reveal-child services-marquee__card group relative bg-white rounded-[2rem] p-6 shadow-xl border border-slate-100 overflow-hidden"
+                                >
+                                    <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.color} opacity-10 rounded-full blur-2xl`}></div>
 
-                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg mb-6 group-hover:rotate-6 transition-transform duration-300`}>
-                                    <service.icon size={32} />
-                                </div>
-
-                                <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3">{service.title}</h3>
-                                <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
-
-                                <Link to={service.link} className="flex items-center gap-2 text-slate-900 font-bold group-hover:text-[#9B2335] transition-colors">
-                                    <span className="text-sm uppercase tracking-wider">Learn More</span>
-                                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-[#3D6B6E]/20 transition-colors">
-                                        <ArrowRight size={14} />
+                                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg mb-6`}>
+                                        <service.icon size={32} />
                                     </div>
-                                </Link>
-                            </div>
-                        ))}
+
+                                    <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3">{service.title}</h3>
+                                    <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
+
+                                    <Link to={service.link} className="flex items-center gap-2 text-slate-900 font-bold transition-colors hover:text-[#9B2335]">
+                                        <span className="text-sm uppercase tracking-wider">Learn More</span>
+                                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition-colors hover:bg-[#3D6B6E]/20">
+                                            <ArrowRight size={14} />
+                                        </div>
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -244,10 +249,10 @@ const Home = () => {
 
                         <div ref={processCardRef} className="scroll-reveal--scale scroll-reveal relative">
                             <div className="absolute -inset-4 bg-gradient-to-r from-[#3D6B6E] to-[#9B2335] rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
-                            <div className="relative h-[340px] md:h-[420px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col justify-center items-center p-7 text-center">
+                            <div className="relative min-h-[340px] md:min-h-[420px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col items-center p-7 text-center">
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
 
-                                <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-[#3D6B6E] mb-6 relative z-10">
+                                <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-[#3D6B6E] mb-6 mt-6 relative z-10">
                                     <Shield size={48} />
                                 </div>
                                 <h3 className="text-2xl md:text-3xl font-bold text-white font-['Playfair_Display'] mb-4 relative z-10">Trusted Guidance</h3>
@@ -255,7 +260,7 @@ const Home = () => {
                                     With over 30 years of experience, we provide a secure, confidential environment for you to resolve disputes and plan for the future.
                                 </p>
 
-                                <div className="absolute bottom-6 left-6 right-6 z-10">
+                                <div className="relative z-10 mt-8 w-full md:mt-auto">
                                     <div className="glass-panel p-6 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md">
                                         <p className="text-white font-['Playfair_Display'] text-lg md:text-xl italic drop-shadow-md">"The clarity I gained after just one session was life-changing."</p>
                                     </div>
@@ -298,23 +303,18 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* CTA Parallax */}
-            <section className="relative py-14 md:py-18 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 z-0 bg-[#4D1A28]">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#4D1A28] via-[#5E2A38] to-[#4D1A28] opacity-80"></div>
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
-                </div>
-
-                <div ref={ctaRef} className="scroll-reveal relative z-10 text-center max-w-4xl px-4">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-5 md:mb-6">
-                        Let's Start a <span className="text-[#3D6B6E]">Conversation</span>
+            {/* CTA Section */}
+            <section className="py-24 bg-white">
+                <div ref={ctaRef} className="scroll-reveal max-w-4xl mx-auto px-4 text-center">
+                    <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
+                        Ready for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-[#9B2335]">Resolution?</span>
                     </h2>
-                    <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-                        You don't have to figure it out alone. We are here to help you move forward.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                        <Link to="/contact" className="btn-glow px-8 py-4 bg-[#3D6B6E] text-white rounded-full font-bold text-lg shadow-lg hover:bg-[#9B2335] transition-colors">
-                            Contact Us
+                    <div className="flex justify-center gap-6">
+                        <Link
+                            to="/contact"
+                            className="btn-premium px-10 py-4 bg-slate-900 text-white rounded-full font-bold text-lg shadow-2xl"
+                        >
+                            Get Started Today
                         </Link>
                     </div>
                 </div>

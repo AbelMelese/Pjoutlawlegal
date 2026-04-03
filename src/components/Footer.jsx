@@ -78,7 +78,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <h3 className="text-xl font-bold font-['Playfair_Display'] text-slate-900">
+              <h3 className="text-lg md:text-xl font-bold font-['Playfair_Display'] text-slate-900 whitespace-nowrap">
                 Phyllis J. Outlaw & Associates
               </h3>
               <p className="text-slate-600 mt-2">
@@ -191,7 +191,7 @@ const Footer = () => {
                   <MapPin size={18} className="text-[#3D6B6E]" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Office Location</p>
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Address</p>
                   <p className="text-slate-700 text-sm leading-relaxed font-medium">
                     412 H Street, NE
                     <br />
@@ -207,7 +207,7 @@ const Footer = () => {
       <div className="relative border-t border-slate-100 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-600">
-            <p>Copyright © 2026, Phyllis J. Outlaw & Associates</p>
+            <p className="whitespace-nowrap">Copyright © 2026, Phyllis J. Outlaw & Associates</p>
             <div className="flex items-center gap-6">
               <a href="#" className="hover:text-[#3D6B6E] transition-colors">Terms of Use</a>
               <span>|</span>
