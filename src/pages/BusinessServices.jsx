@@ -150,6 +150,7 @@ const BusinessServices = () => {
             {/* Hero Section */}
             <PageHero
                 slides={heroSlides}
+                noSlide
                 actions={[
                     { label: 'Business Advising', href: '#advising' },
                     { label: 'Non-Profit Advisory', href: '#nonprofit' },
@@ -327,13 +328,14 @@ const BusinessServices = () => {
                                     </div>
                                 </div>
                                 <div className="flex-1 w-full relative group">
-                                    <div className="absolute inset-0 bg-[#3D6B6E]/5 rounded-[2rem] transform rotate-3 transition-transform group-hover:rotate-0"></div>
+                                    <div className="absolute inset-0 bg-[#3D6B6E]/5 transform rotate-3 transition-transform group-hover:rotate-0"></div>
                                     {area.image ? (
-                                        <img
-                                            src={area.image}
-                                            alt={area.title}
-                                            className="relative w-full rounded-[2rem] shadow-xl border border-slate-100 object-cover aspect-[4/3]"
-                                        />
+                                        <div className="framed-photo-container aspect-[4/3] w-full relative z-10">
+                                            <img
+                                                src={area.image}
+                                                alt={area.title}
+                                            />
+                                        </div>
                                     ) : (
                                         <div className="relative w-full rounded-[2rem] shadow-xl border border-slate-100 aspect-[4/3] bg-gradient-to-br from-[#3D6B6E] to-blue-800 flex flex-col items-center justify-center gap-6 overflow-hidden">
                                             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>

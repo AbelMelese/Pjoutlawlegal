@@ -440,9 +440,27 @@ h6 {
 }
 
 .portrait-panel img {
+  border: 1px solid #1f2937;
+  padding: 0.8rem;
+  background-color: #fdfaf3;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  box-shadow: 0 0 0 1px #1f2937;
+}
+
+.framed-photo-container {
+  border: 1px solid #1f2937;
+  padding: 0.8rem;
+  background-color: #fdfaf3;
+  box-shadow: 0 0 0 1px #1f2937;
+}
+
+.framed-photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .media-marquee {
@@ -515,8 +533,8 @@ h6 {
 }
 
 .brand-logo {
-  width: clamp(8.1rem, 12vw, 10.2rem);
-  min-width: 7.5rem;
+  width: clamp(12rem, 16vw, 16.5rem);
+  min-width: 11rem;
   height: auto;
   object-fit: contain;
 }
@@ -567,7 +585,7 @@ h6 {
 }
 
 .primary-nav {
-  background: #320A0A;
+  background: #C5A03A;
 }
 
 .primary-nav__inner {
@@ -580,7 +598,7 @@ h6 {
 .primary-nav__inner a,
 .mobile-nav-panel__inner a {
   padding: 0.68rem 0.9rem;
-  color: white;
+  color: #111827;
   font-size: 0.84rem;
   font-weight: 700;
 }
@@ -589,12 +607,12 @@ h6 {
 .primary-nav__inner a:hover,
 .mobile-nav-panel__inner a.is-active,
 .mobile-nav-panel__inner a:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .mobile-nav-panel {
-  background: #320A0A;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  background: #C5A03A;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .mobile-nav-panel__inner {
@@ -822,7 +840,7 @@ h6 {
 
 .hero-shell {
   position: relative;
-  min-height: min(42rem, 78svh);
+  min-height: min(22rem, 40svh);
   overflow: clip;
   color: white;
   background: #e8e1d8;
@@ -924,10 +942,10 @@ h6 {
   position: relative;
   z-index: 3;
   display: grid;
-  align-items: end;
-  min-height: min(42rem, 78svh);
-  padding-top: 4rem;
-  padding-bottom: 2.5rem;
+  align-items: center;
+  min-height: min(22rem, 40svh);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .hero-copy {
@@ -997,7 +1015,7 @@ h6 {
   z-index: 3;
   display: flex;
   gap: 0.5rem;
-  padding-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
 }
 
 .hero-dot {
@@ -1349,18 +1367,18 @@ h6 {
 
 @media (max-width: 640px) {
   .brand-logo {
-    width: 7.2rem;
-    min-width: 6.9rem;
+    width: 10.5rem;
+    min-width: 9.5rem;
   }
 
   .hero-shell,
   .hero-content {
-    min-height: min(34rem, 68svh);
+    min-height: min(18rem, 36svh);
   }
 
   .hero-content {
-    padding-top: 2.4rem;
-    padding-bottom: 1.75rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1rem;
   }
 
   .hero-copy {

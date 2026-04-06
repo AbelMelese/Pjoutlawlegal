@@ -30,7 +30,7 @@ const Contact = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <PageHero slides={heroSlides} />
+            <PageHero slides={heroSlides} noSlide />
 
             <section className="py-24 relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,11 +107,10 @@ const Contact = () => {
                             </div>
                         </div>
                         <div className="relative">
-                            <div className="relative rounded-[2rem] overflow-hidden border border-slate-100 shadow-xl h-[260px] md:h-[340px]">
+                            <div className="framed-photo-container h-[260px] md:h-[340px]">
                                 <img
                                     src="https://media.istockphoto.com/photos/aerial-view-of-washington-dc-xxxl-picture-id183367435?k=20&m=183367435&s=612x612&w=0&h=1poAuHDFu4WELeMGIwBHYbAMg294fNdQLsV3HKPbLdI="
                                     alt="Aerial view of Washington DC skyline"
-                                    className="w-full h-full object-cover"
                                 />
                             </div>
                         </div>

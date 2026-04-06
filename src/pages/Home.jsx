@@ -303,22 +303,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-24 bg-white">
-                <div ref={ctaRef} className="scroll-reveal max-w-4xl mx-auto px-4 text-center">
-                    <h2 className="text-4xl md:text-6xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        Ready for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-[#9B2335]">Resolution?</span>
-                    </h2>
-                    <div className="flex justify-center gap-6">
-                        <Link
-                            to="/contact"
-                            className="btn-premium px-10 py-4 bg-slate-900 text-white rounded-full font-bold text-lg shadow-2xl"
-                        >
-                            Get Started Today
-                        </Link>
-                    </div>
-                </div>
-            </section>
+
         </div>
     );
 };

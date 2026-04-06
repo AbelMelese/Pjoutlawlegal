@@ -81,7 +81,7 @@ const MeetAttorneys = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <PageHero slides={heroSlides} />
+            <PageHero slides={heroSlides} noSlide />
 
             {/* Profiles */}
             <section className="py-24">
@@ -90,13 +90,13 @@ const MeetAttorneys = () => {
                         <div key={index} className={`flex flex-col gap-16 items-start ${index === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
                             {/* Photo Side */}
                             <div className="w-full lg:w-5/12 relative">
-                                <div className="absolute -inset-4 bg-gradient-to-tr from-[#3D6B6E]/30 to-[#4A8A8D]/30 rounded-[2.5rem] rotate-2 blur-xl"></div>
-                                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
-                                    <img src={person.image} alt={person.name} className="w-full object-cover aspect-[3/4] hover:scale-105 transition-transform duration-700" />
+                                <div className="absolute -inset-4 bg-gradient-to-tr from-[#3D6B6E]/30 to-[#4A8A8D]/30 blur-xl"></div>
+                                <div className="framed-photo-container aspect-[3/4]">
+                                    <img src={person.image} alt={person.name} />
 
                                     {/* Experience Badge */}
                                     {index === 0 && (
-                                        <div className="absolute top-8 right-8 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg animate-float">
+                                        <div className="absolute top-8 right-8 bg-white/90 backdrop-blur-md p-4 shadow-lg animate-float border border-slate-200">
                                             <p className="text-3xl font-bold text-slate-900 leading-none">30+</p>
                                             <p className="text-xs uppercase tracking-wide text-slate-500 mt-1">Years Exp.</p>
                                         </div>

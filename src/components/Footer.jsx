@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   ArrowRight,
   Facebook,
@@ -16,7 +16,6 @@ const quickLinks = [
   { name: 'Legal Services', path: '/legal-services' },
   { name: 'Coaching', path: '/coaching' },
   { name: 'About the Principal', path: '/about-phyllis-j-outlaw' },
-  { name: 'Testimonials', path: '/testimonials' },
   { name: 'Online Payment', path: '/online-payment' },
   { name: 'Contact Us', path: '/contact' },
 ];
@@ -37,12 +36,18 @@ const socialLinks = [
   { Icon: Linkedin, href: 'https://www.linkedin.com/in/phyllis-j-outlaw-esq/' },
 ];
 
+const ctaPages = ['/', '/mediation-services'];
+
 const Footer = () => {
+  const location = useLocation();
+  const showCta = ctaPages.includes(location.pathname);
+
   return (
     <footer className="relative bg-white text-slate-900 overflow-hidden border-t border-slate-100">
       <div className="absolute top-0 left-0 w-96 h-96 bg-[#3D6B6E]/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#9B2335]/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
 
+      {showCta && (
       <div className="relative border-b border-slate-100 bg-slate-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -73,6 +78,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      )}
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">

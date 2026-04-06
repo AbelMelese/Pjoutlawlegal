@@ -158,7 +158,7 @@ const Blog = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <PageHero slides={heroSlides}>
+            <PageHero slides={heroSlides} noSlide>
                 <div className="max-w-xl pt-4">
                     <div className="relative">
                         <Search size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />

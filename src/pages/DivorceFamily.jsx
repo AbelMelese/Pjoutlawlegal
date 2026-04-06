@@ -93,6 +93,7 @@ const DivorceFamily = () => {
             {/* Hero Section */}
             <PageHero
                 slides={heroSlides}
+                noSlide
                 actions={[
                     { label: 'Get Legal Help', to: '/contact' },
                     { label: '(202) 548-2999', href: 'tel:+12025482999', icon: 'phone' },
@@ -219,12 +220,13 @@ const DivorceFamily = () => {
                         </div>
 
                         <div className="relative">
-                            <div className="absolute -inset-4 bg-gradient-to-tr from-slate-900 to-slate-700 rounded-[2.5rem] rotate-2 opacity-10"></div>
-                            <img
-                                src={booksImage}
-                                alt="Legal consultation"
-                                className="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-[4/3] transform hover:scale-[1.02] transition-transform duration-700"
-                            />
+                            <div className="absolute -inset-4 bg-gradient-to-tr from-slate-900 to-slate-700 blur-xl opacity-10"></div>
+                            <div className="framed-photo-container w-full aspect-[4/3]">
+                                <img
+                                    src={booksImage}
+                                    alt="Legal consultation"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

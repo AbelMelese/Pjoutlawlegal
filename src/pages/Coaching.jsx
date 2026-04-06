@@ -117,6 +117,7 @@ const Coaching = () => {
             {/* Hero Section */}
             <PageHero
                 slides={heroSlides}
+                noSlide
                 actions={[
                     { label: 'Book a Session', to: '/contact' },
                 ]}
@@ -182,15 +183,17 @@ const Coaching = () => {
                                     </Link>
                                 </div>
 
-                                <div className="flex-1 w-full">
-                                    <div className={`relative bg-gradient-to-br ${service.color} rounded-[3rem] p-1 shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700`}>
-                                        <div className="rounded-[2.8rem] overflow-hidden">
+                                <div className="flex-1 w-full relative">
+                                    <div className={`absolute -inset-3 bg-gradient-to-br ${service.color} opacity-20 blur-lg rotate-2 hover:rotate-0 transition-transform duration-700`}></div>
+                                    <div className="relative z-10 w-full">
+                                        
                                             {service.image ? (
-                                                <img
-                                                    src={service.image}
-                                                    alt={service.title}
-                                                    className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700"
-                                                />
+                                                <div className="framed-photo-container h-[400px] w-full">
+                                                    <img
+                                                        src={service.image}
+                                                        alt={service.title}
+                                                    />
+                                                </div>
                                             ) : (
                                                 <div className={`w-full h-[400px] bg-gradient-to-br ${service.color} flex flex-col items-center justify-center gap-6 group`}>
                                                     <div className="w-32 h-32 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform duration-500">
@@ -206,7 +209,6 @@ const Coaching = () => {
                                             )}
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         ))}
                     </div>
@@ -290,14 +292,13 @@ const Coaching = () => {
                         </div>
 
                         <div className="relative">
-                            <div className="absolute -inset-4 bg-[#3D6B6E]/10 rounded-[2.5rem] rotate-3 blur-md"></div>
-                            <div className="relative rounded-[2rem] overflow-hidden border border-slate-100 shadow-2xl h-[500px]">
+                            <div className="absolute -inset-4 bg-[#3D6B6E]/10 blur-md"></div>
+                            <div className="framed-photo-container h-[500px] w-full relative z-10 group">
                                 <img
                                     src={seminarsTrainingImg}
                                     alt="Professional Training Session"
-                                    className="w-full h-full object-cover"
                                 />
-                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white/80 to-transparent p-8 pt-24 text-slate-900">
+                                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-6 border border-slate-200">
                                     <p className="font-['Playfair_Display'] text-2xl font-bold">Professional Development</p>
                                     <p className="text-[#3D6B6E] font-bold">Workshops & Training Sessions</p>
                                 </div>

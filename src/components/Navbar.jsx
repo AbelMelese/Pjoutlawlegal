@@ -9,7 +9,6 @@ const navLinks = [
   { name: 'Legal Services', path: '/legal-services' },
   { name: 'Coaching', path: '/coaching' },
   { name: 'About the Principal', path: '/about-phyllis-j-outlaw' },
-  { name: 'Testimonials', path: '/testimonials' },
   { name: 'Online Payment', path: '/online-payment' },
   { name: 'Contact Us', path: '/contact' },
 ];

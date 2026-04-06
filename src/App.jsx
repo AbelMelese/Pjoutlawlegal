@@ -9,7 +9,6 @@ import ScrollToTop from './components/ScrollToTop';
 import ScrollReveal from './components/ScrollReveal';
 import LegalServices from './pages/LegalServices';
 import AboutPhyllis from './pages/AboutPhyllis';
-import Testimonials from './pages/Testimonials';
 import OnlinePayment from './pages/OnlinePayment';
 
 const AnimatedRoutes = () => {
@@ -22,7 +21,6 @@ const AnimatedRoutes = () => {
         <Route path="/legal-services" element={<LegalServices />} />
         <Route path="/coaching" element={<Coaching />} />
         <Route path="/about-phyllis-j-outlaw" element={<AboutPhyllis />} />
-        <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/online-payment" element={<OnlinePayment />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/divorce-family-law" element={<Navigate to="/legal-services" replace />} />

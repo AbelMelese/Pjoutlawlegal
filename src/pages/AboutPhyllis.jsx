@@ -84,14 +84,6 @@ const AboutPhyllis = () => {
             ))}
           </div>
 
-          <div className="text-center mt-14">
-            <Link
-              to="/testimonials"
-              className="btn-premium inline-flex items-center justify-center px-10 py-4 bg-slate-900 text-white rounded-full font-bold text-lg shadow-xl"
-            >
-              Read Client Testimonials
-            </Link>
-          </div>
         </div>
       </section>
 

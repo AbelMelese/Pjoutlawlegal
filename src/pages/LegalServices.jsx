@@ -65,12 +65,11 @@ const LegalServices = () => {
             </div>
 
             <div className="relative">
-              <div className="absolute -inset-4 bg-slate-900/10 rounded-[2rem] rotate-2 blur-xl"></div>
-              <div className="relative rounded-[2rem] overflow-hidden border border-slate-200 shadow-2xl">
+              <div className="absolute -inset-4 bg-slate-900/10 blur-xl"></div>
+              <div className="framed-photo-container h-[420px]">
                 <img
                   src={officeImage}
                   alt="Legal consultation at the firm"
-                  className="w-full h-[420px] object-cover"
                 />
               </div>
             </div>

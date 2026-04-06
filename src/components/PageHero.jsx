@@ -36,6 +36,7 @@ const PageHero = ({
   rotatingPrefix,
   rotatingWords = [],
   textBackdrop = 'none',
+  noSlide = false,
   children,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -56,7 +57,7 @@ const PageHero = ({
   };
 
   useEffect(() => {
-    if (!slides.length || prefersReducedMotion()) {
+    if (!slides.length || noSlide || prefersReducedMotion()) {
       return undefined;
     }
 
@@ -68,7 +69,7 @@ const PageHero = ({
     }, 4500);
 
     return () => window.clearInterval(interval);
-  }, [slides]);
+  }, [slides, noSlide]);
 
   return (
     <section
@@ -144,7 +145,7 @@ const PageHero = ({
         </div>
       </div>
 
-      {slides.length ? (
+      {slides.length && !noSlide ? (
         <div className="hero-dots section-shell">
           {slides.map((slide, index) => (
             <button
