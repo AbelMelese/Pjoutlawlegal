@@ -3,9 +3,9 @@ import {
     ArrowRight,
     CheckCircle,
     Scale,
-    Heart,
     Users,
     Briefcase,
+    Gavel,
     Shield,
     Target,
     Calendar
@@ -36,32 +36,32 @@ const Home = () => {
 
     const services = [
         {
-            icon: Scale,
-            title: 'Divorce Mediation',
-            description: 'Navigate your divorce with dignity, clarity, and fair outcomes for both parties.',
+            icon: Users,
+            title: 'Family & Divorce Mediation',
+            description: 'We assist spouses and families in navigating separation, divorce, and post-divorce matters. Our process focuses on cooperation and long-term stability, especially where children are involved.',
             color: 'from-[#4A8A8D] to-[#3D6B6E]',
             link: '/mediation-services',
         },
         {
-            icon: Users,
-            title: 'Family Mediation',
-            description: 'Heal family rifts and rebuild relationships through guided communication.',
-            color: 'from-[#B5344A] to-[#9B2335]',
+            icon: Briefcase,
+            title: 'Business & Commercial Mediation',
+            description: 'Disputes between business partners, employers and employees, vendors, or clients can disrupt operations and damage relationships. Mediation provides a practical pathway to resolution while preserving professionalism.',
+            color: 'from-[#3D6B6E] to-[#9B2335]',
             link: '/mediation-services',
         },
         {
-            icon: Briefcase,
-            title: 'Business Mediation',
-            description: 'Resolve workplace disputes without costly litigation or damaged relationships.',
-            color: 'from-[#3D6B6E] to-[#9B2335]',
-            link: '/legal-services',
+            icon: Gavel,
+            title: 'Court-Referred Mediation',
+            description: 'We accept court-referred cases and provide mediation services aligned with legal standards and judicial expectations. Our legal background ensures agreements are practical, enforceable, and well-documented.',
+            color: 'from-[#4A8A8D] to-[#3D6B6E]',
+            link: '/mediation-services',
         },
         {
-            icon: Heart,
-            title: 'Coaching Services',
-            description: 'Strategic guidance for families, divorcing couples, and business professionals.',
+            icon: Scale,
+            title: 'Child Custody & Parenting Mediation',
+            description: 'We help parents create balanced, workable parenting agreements that prioritize the well-being of children while respecting each parentâ€™s rights and responsibilities.',
             color: 'from-[#B5344A] to-[#9B2335]',
-            link: '/coaching',
+            link: '/mediation-services',
         },
     ];
     const marqueeServices = [...services, ...services];
@@ -163,10 +163,6 @@ const Home = () => {
             {/* Hero Section */}
             <PageHero
                 slides={heroSlides}
-                actions={[
-                    { label: 'Contact Us', to: '/contact' },
-                    { label: 'Call Us Now', href: 'tel:+12025482999', icon: 'phone' },
-                ]}
             />
 
 
@@ -176,7 +172,7 @@ const Home = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div ref={servicesHeaderRef} className="scroll-reveal text-center mb-10 md:mb-14">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
-                            Mediation & Coaching<br />
+                            Mediation<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-[#9B2335]">Built Around You</span>
                         </h2>
                     </div>
@@ -207,6 +203,17 @@ const Home = () => {
                             ))}
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section className="pb-14 md:pb-20">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
+                        Coaching Services
+                    </h2>
+                    <p className="text-lg text-slate-700 leading-relaxed">
+                        Our coaching services assist individuals, couples, families and businesses in setting goals, improving skills, and achieving results through customized support and actionable steps.
+                    </p>
                 </div>
             </section>
 

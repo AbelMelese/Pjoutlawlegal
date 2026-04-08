@@ -844,6 +844,8 @@ h6 {
   overflow: clip;
   color: white;
   background: #e8e1d8;
+  --hero-copy-offset: clamp(4rem, 7vw, 6.5rem);
+  --hero-copy-offset-mobile: 1.25rem;
   --hero-eyebrow-color: #111827;
   --hero-title-color: #111827;
   --hero-rotating-color: #111827;
@@ -870,7 +872,7 @@ h6 {
   content: '';
   position: absolute;
   inset: 0 auto 0 0;
-  width: min(48%, 42rem);
+  width: min(43%, 38rem);
   display: block;
   background: rgba(248, 244, 239, 0.92);
   backdrop-filter: blur(12px);
@@ -952,7 +954,7 @@ h6 {
   display: grid;
   gap: 0.95rem;
   max-width: 35rem;
-  padding: 0;
+  padding: 0 0 0 var(--hero-copy-offset);
   position: relative;
   z-index: 4;
 }
@@ -1015,6 +1017,7 @@ h6 {
   z-index: 3;
   display: flex;
   gap: 0.5rem;
+  padding-left: var(--hero-copy-offset);
   padding-bottom: 0.6rem;
 }
 
@@ -1383,11 +1386,15 @@ h6 {
 
   .hero-copy {
     max-width: 100%;
-    padding: 0;
+    padding: 0 0 0 var(--hero-copy-offset-mobile);
   }
 
   .hero-actions {
     gap: 0.65rem;
+  }
+
+  .hero-dots {
+    padding-left: var(--hero-copy-offset-mobile);
   }
 
   .hero-background::before {

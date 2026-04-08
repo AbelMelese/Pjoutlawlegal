@@ -18,7 +18,7 @@ import {
     DollarSign
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import whiteFamilyWithChildren from '../assets/white-family-with-children-client.jpg';
+import pjoaOffice264 from '../assets/pjoa-office-264.jpg';
 import image2 from '../assets/image 2.jpg';
 import booksImage from '../assets/books image.jpg';
 
@@ -159,9 +159,9 @@ const MediationServices = () => {
 
     const heroSlides = [
         {
-            title: "THE PATH FROM CONFLICT TO RESOLUTION",
+            title: "The Path from Conflict to Resolution",
             subtitle: "As a Court-Appointed Mediator, Phyllis J. Outlaw has conducted Mediation for Civil cases to include but not limited to Property issues and Family Law to include complex marital property involving complex business assets, custody and child support issues. Prepares Legal Separation, Property, Custody, Parenting Plans and Child Support Agreements",
-            image: whiteFamilyWithChildren,
+            image: pjoaOffice264,
         },
         {
             title: "Neutral Facilitation",
@@ -182,7 +182,7 @@ const MediationServices = () => {
                 slides={heroSlides}
                 noSlide
                 actions={[
-                    { label: 'Start Mediation Info', to: '/contact' },
+                    { label: 'Schedule Your Consultation Today', to: '/contact' },
                     { label: '(202) 548-2999', href: 'tel:+12025482999', icon: 'phone' },
                 ]}
             />
@@ -226,7 +226,7 @@ const MediationServices = () => {
                                         to="/contact"
                                         className="inline-flex items-center gap-2 text-[#9B2335] font-bold hover:gap-4 transition-all duration-300 group"
                                     >
-                                        <span>Start Your Mediation</span>
+                                        <span>Schedule Your Consultation Today</span>
                                         <ArrowRight size={18} />
                                     </Link>
                                 </div>

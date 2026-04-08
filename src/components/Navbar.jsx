@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, PhoneCall, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import logo from '../assets/pjoa-logo-transparent.png';
 
 const navLinks = [
@@ -36,11 +36,6 @@ const Navbar = () => {
             <span>Contact Us Today</span>
             <a href="tel:+12025482999">(202) 548-2999</a>
           </div>
-
-          <a href="tel:+12025482999" className="primary-button">
-            <PhoneCall size={18} />
-            <span>Call Our Office</span>
-          </a>
 
           <button
             type="button"
