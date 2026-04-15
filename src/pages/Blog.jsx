@@ -259,7 +259,7 @@ const Blog = () => {
 
                                 <Link
                                     to={`/blog/${featuredPost.id}`}
-                                    className="btn-glow inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-bold text-lg hover:bg-slate-800 shadow-xl"
+                                    className="btn-premium inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#3D6B6E] to-[#9B2335] text-white rounded-full font-bold text-lg shadow-xl"
                                 >
                                     <span>Read Article</span>
                                     <ArrowRight size={18} />
@@ -388,7 +388,7 @@ const Blog = () => {
                             placeholder="Enter your email"
                             className="flex-1 px-6 py-4 rounded-full bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#3D6B6E] shadow-sm"
                         />
-                        <button className="btn-premium px-8 py-4 bg-slate-900 text-white rounded-full font-bold shadow-xl">
+                        <button className="btn-premium px-8 py-4 bg-gradient-to-r from-[#3D6B6E] to-[#9B2335] text-white rounded-full font-bold shadow-xl">
                             Subscribe
                         </button>
                     </div>

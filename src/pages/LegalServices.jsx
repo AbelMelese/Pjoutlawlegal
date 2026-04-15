@@ -105,7 +105,7 @@ const LegalServices = () => {
           <div className="text-center mt-14">
             <Link
               to="/contact"
-              className="btn-premium inline-flex items-center justify-center px-10 py-4 bg-slate-900 text-white rounded-full font-bold text-lg shadow-xl"
+              className="btn-premium inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#3D6B6E] to-[#9B2335] text-white rounded-full font-bold text-lg shadow-xl"
             >
               Contact Our Office
             </Link>

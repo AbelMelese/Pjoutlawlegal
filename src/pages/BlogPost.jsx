@@ -210,16 +210,17 @@ const BlogPost = () => {
                     </div>
 
                     {/* CTA */}
-                    <div className="mt-12 p-8 md:p-12 bg-slate-900 rounded-[2rem] text-center">
-                        <h3 className="text-2xl md:text-3xl font-bold text-white font-['Playfair_Display'] mb-4">
+                    <div className="mt-12 p-8 md:p-12 bg-gradient-to-br from-[#3D6B6E] to-[#9B2335] rounded-[2rem] text-center relative overflow-hidden">
+                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white font-['Playfair_Display'] mb-4 relative z-10">
                             Ready to Resolve Your Dispute?
                         </h3>
-                        <p className="text-slate-400 mb-8">
+                        <p className="text-white/70 mb-8 relative z-10">
                             Schedule a consultation with our experienced mediators today.
                         </p>
                         <Link
                             to="/contact"
-                            className="btn-glow inline-flex items-center gap-2 px-8 py-4 bg-[#3D6B6E] text-white rounded-full font-bold hover:bg-[#3D6B6E]"
+                            className="btn-premium inline-flex items-center gap-2 px-8 py-4 bg-white text-[#3D6B6E] rounded-full font-bold hover:shadow-2xl relative z-10"
                         >
                             <span>Get Started</span>
                             <ArrowRight size={18} />

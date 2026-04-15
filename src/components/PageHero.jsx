@@ -8,12 +8,14 @@ const prefersReducedMotion = () =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const ActionLink = ({ action, primary }) => {
-  const className = primary ? 'primary-button' : 'secondary-button';
+  // Phone actions always use the gradient primary style
+  const isPhone = action.icon === 'phone';
+  const className = (primary || isPhone) ? 'primary-button' : 'secondary-button';
 
   if (action.href) {
     return (
       <a href={action.href} className={className}>
-        {action.icon === 'phone' ? <Phone size={18} /> : null}
+        {isPhone ? <Phone size={18} /> : null}
         <span>{action.label}</span>
       </a>
     );

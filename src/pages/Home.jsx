@@ -172,8 +172,8 @@ const Home = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div ref={servicesHeaderRef} className="scroll-reveal text-center mb-10 md:mb-14">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
-                            Mediation<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-[#9B2335]">Built Around You</span>
+                            Mediation Services Focused on<br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-[#9B2335]">Delivering Effective Outcomes</span>
                         </h2>
                     </div>
 

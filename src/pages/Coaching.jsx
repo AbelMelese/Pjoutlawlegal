@@ -309,14 +309,16 @@ const Coaching = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-16 md:py-24 bg-white">
-                <div className="max-w-4xl mx-auto px-4 text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                        Your Next Chapter Begins With <br /><span className="text-[#3D6B6E]">One Conversation</span>
+            <section className="py-16 md:py-24 bg-gradient-to-br from-[#3D6B6E] to-[#9B2335] relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+                <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-8">
+                        Your Next Chapter Begins With <br /><span className="text-white/80">One Conversation</span>
                     </h2>
                     <Link
                         to="/contact"
-                        className="btn-premium px-10 py-5 bg-slate-900 text-white rounded-full font-bold text-xl shadow-2xl"
+                        className="btn-premium px-10 py-5 bg-white text-[#3D6B6E] rounded-full font-bold text-xl shadow-2xl"
                     >
                         Book a Coaching Session
                     </Link>
