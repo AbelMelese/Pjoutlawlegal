@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHero from '../components/PageHero';
 import goldWomanHoldingScales from '../assets/012.jpg';
+import page1Img from '../assets/Page_ 1 update.jpg';
 import pjoaOffice264 from '../assets/pjoa-office-264.jpg';
 import officeShoot044 from '../assets/office-shoot-044-client.jpg';
 import officeShoot110 from '../assets/office-shoot-110-client.jpg';
@@ -161,9 +162,13 @@ const Home = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <PageHero
-                slides={heroSlides}
-            />
+            <div className="hero-shell w-full relative">
+                <img
+                    src={page1Img}
+                    alt="Phyllis J. Outlaw & Associates"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+            </div>
 
 
 

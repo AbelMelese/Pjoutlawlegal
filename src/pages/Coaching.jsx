@@ -18,6 +18,7 @@ import seminarsTrainingImg from "../assets/use this image in seminars and traini
 import coachingPhoto from "../assets/use this image in coaching page.jpg";
 import image2 from "../assets/image 2.jpg";
 import booksImage from "../assets/books image.jpg";
+import page4Img from "../assets/Page_ 4 update.jpg";
 
 const Coaching = () => {
     const coachingServices = [
@@ -94,34 +95,18 @@ const Coaching = () => {
         { icon: Compass, title: 'Forward-Focused', description: 'Act on what is truly right for you.' },
     ];
 
-    const heroSlides = [
-        {
-            title: "Life, Family & Business Coaching",
-            subtitle: "Real-Life Guidance for Real-Life Transitions. Move forward with clarity, calm, and practical steps.",
-            image: coachingPhoto
-        },
-        {
-            title: "Seminars & Training",
-            subtitle: "Innovative solutions for professional development training needs. diversity, leadership, and conflict management.",
-            image: seminarsTrainingImg
-        },
-        {
-            title: "Unlock Your Potential",
-            subtitle: "Move beyond obstacles with a certified coach as your thinking partner.",
-            image: image2
-        }
-    ];
+    const heroSlides = [];
 
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <PageHero
-                slides={heroSlides}
-                noSlide
-                actions={[
-                    { label: 'Book a Session', to: '/contact' },
-                ]}
-            />
+            <div className="hero-shell w-full relative">
+                <img
+                    src={page4Img}
+                    alt="Coaching Services"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+            </div>
 
             {/* Services Grid */}
             <section className="py-16 md:py-24">

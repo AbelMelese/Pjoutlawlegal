@@ -3,6 +3,7 @@ import { Award, Building2, Scale, Users } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import portrait from "../assets/use this picture in PJO's resume.jpg";
 import mediaLogosStrip from '../assets/media-logos-strip.png';
+import aboutThePrincipalImg from '../assets/about the principal.jpg';
 
 const highlights = [
   {
@@ -34,16 +35,13 @@ const highlights = [
 const AboutPhyllis = () => {
   return (
     <div className="overflow-hidden bg-[#f8fafc]">
-      <PageHero
-        slides={[
-          {
-            title: 'About the Principal',
-            subtitle:
-              'A long-established legal and mediation practice grounded in professionalism, preparation, and service.',
-            image: portrait,
-          },
-        ]}
-      />
+      <div className="hero-shell w-full relative">
+        <img
+          src={aboutThePrincipalImg}
+          alt="About the Principal"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+      </div>
 
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

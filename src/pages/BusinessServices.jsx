@@ -162,7 +162,7 @@ const BusinessServices = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-20 items-center mb-20 animate-enter">
                         <div>
-                            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
+                            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-4 xl:whitespace-nowrap">
                                 {businessAdvising.title}
                             </h2>
                             <p className="text-2xl text-[#9B2335] font-['Playfair_Display'] italic mb-6">
@@ -244,7 +244,7 @@ const BusinessServices = () => {
                                 <span className="font-bold text-slate-700 text-sm tracking-wide uppercase">Mission-Driven Support</span>
                             </div>
 
-                            <h2 className="text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
+                            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-4 xl:whitespace-nowrap">
                                 {nonprofitAdvisory.title}
                             </h2>
                             <p className="text-xl text-[#9B2335] font-medium mb-8">
@@ -313,7 +313,7 @@ const BusinessServices = () => {
                                         <area.icon size={18} className="text-[#3D6B6E]" />
                                         <span className="text-blue-900 font-bold text-sm tracking-wide uppercase">{area.title}</span>
                                     </div>
-                                    <h3 className="text-4xl font-bold text-slate-900 font-['Playfair_Display']">
+                                    <h3 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 font-['Playfair_Display']">
                                         {area.subtitle || area.title}
                                     </h3>
                                     <p className="text-lg text-slate-600 leading-relaxed">

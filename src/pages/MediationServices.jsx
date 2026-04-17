@@ -20,6 +20,7 @@ import {
 import PageHero from '../components/PageHero';
 import pjoaOffice264 from '../assets/pjoa-office-264.jpg';
 import image2 from '../assets/image 2.jpg';
+import page2Img from '../assets/Page_ 2 update.jpg';
 import booksImage from '../assets/books image.jpg';
 
 
@@ -157,35 +158,18 @@ const MediationServices = () => {
         }
     ];
 
-    const heroSlides = [
-        {
-            title: "The Path from Conflict to Resolution",
-            subtitle: "As a Court-Appointed Mediator, Phyllis J. Outlaw has conducted Mediation for Civil cases to include but not limited to Property issues and Family Law to include complex marital property involving complex business assets, custody and child support issues. Prepares Legal Separation, Property, Custody, Parenting Plans and Child Support Agreements",
-            image: pjoaOffice264,
-        },
-        {
-            title: "Neutral Facilitation",
-            subtitle: "We maintain neutrality, creating an environment that promotes open engagement and focuses on problem-solving rather than taking sides.",
-            image: image2
-        },
-        {
-            title: "Confidential Process",
-            subtitle: "A secure and private environment for open dialogue, where all information shared remains strictly confidential.",
-            image: booksImage
-        }
-    ];
+    const heroSlides = [];
 
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <PageHero
-                slides={heroSlides}
-                noSlide
-                actions={[
-                    { label: 'Schedule Your Consultation Today', to: '/contact' },
-                    { label: '(202) 548-2999', href: 'tel:+12025482999', icon: 'phone' },
-                ]}
-            />
+            <div className="hero-shell w-full relative">
+                <img
+                    src={page2Img}
+                    alt="Mediation and Arbitration Services"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+            </div>
 
             {/* Services Overview */}
             <section className="py-24">
@@ -205,7 +189,7 @@ const MediationServices = () => {
                                         <span className="font-semibold text-slate-700 text-sm tracking-wide uppercase">{service.subtitle}</span>
                                     </div>
 
-                                    <h3 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display']">
+                                    <h3 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 font-['Playfair_Display'] xl:whitespace-nowrap">
                                         {service.title}
                                     </h3>
 

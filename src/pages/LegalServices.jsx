@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Building2, Landmark, Scale, Stethoscope } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import booksImage from '../assets/books image.jpg';
+import page3Img from '../assets/Page_ 3 update.jpg';
 import officeImage from '../assets/image1.jpg';
 
 const practiceAreas = [
@@ -34,16 +35,13 @@ const practiceAreas = [
 const LegalServices = () => {
   return (
     <div className="overflow-hidden bg-[#f8fafc]">
-      <PageHero
-        slides={[
-          {
-            title: 'Legal Services',
-            subtitle:
-              'Experienced legal support for government, business, nonprofit, and individual client matters.',
-            image: booksImage,
-          },
-        ]}
-      />
+      <div className="hero-shell w-full relative">
+        <img
+          src={page3Img}
+          alt="Legal Services"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+      </div>
 
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
