@@ -193,9 +193,9 @@ const Home = () => {
 
 
             {/* Process Section - Dark Mode */}
-            <section className="py-14 md:py-20 bg-[#4D1A28] relative overflow-hidden">
+            <section className="py-14 md:py-20 bg-[#1E3A5F] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-                    <div className="blob blob-gold w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
+                    <div className="blob bg-[#5B2C6F] w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 rounded-full blur-3xl"></div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -203,7 +203,7 @@ const Home = () => {
                         <div ref={processTextRef} className="scroll-reveal">
                             <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-6">
                                 A Process That <br />
-                                <span className="text-[#1E3A5F]">Works For You</span>
+                                <span className="text-[#C5A03A]">Works For You</span>
                             </h2>
                             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
                                 Whether you are navigating a divorce, resolving a family dispute, or facing conflict at work, our proven process is designed to create momentum.
@@ -216,7 +216,7 @@ const Home = () => {
                                     { title: 'Move Forward', desc: 'Resolve conflict with confidence and peace.', icon: CheckCircle },
                                 ].map((step, i) => (
                                     <div key={i} className="scroll-reveal-child flex items-start gap-6 group">
-                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#1E3A5F] group-hover:bg-[#1E3A5F] group-hover:text-slate-900 transition-all duration-300 shadow-lg">
+                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#C5A03A] group-hover:bg-[#C5A03A] group-hover:text-[#1E3A5F] transition-all duration-300 shadow-lg">
                                             <step.icon size={28} />
                                         </div>
                                         <div>
@@ -229,11 +229,11 @@ const Home = () => {
                         </div>
 
                         <div ref={processCardRef} className="scroll-reveal--scale scroll-reveal relative">
-                            <div className="absolute -inset-4 bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
-                            <div className="relative min-h-[340px] md:min-h-[420px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col items-center p-7 text-center">
+                            <div className="absolute -inset-4 bg-gradient-to-r from-[#C5A03A] to-[#5B2C6F] rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
+                            <div className="relative min-h-[340px] md:min-h-[420px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-[#2A4F7A] to-[#5B2C6F] flex flex-col items-center p-7 text-center">
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
 
-                                <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-[#1E3A5F] mb-6 mt-6 relative z-10">
+                                <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center text-[#C5A03A] mb-6 mt-6 relative z-10 shadow-lg">
                                     <Shield size={48} />
                                 </div>
                                 <h3 className="text-2xl md:text-3xl font-bold text-white font-['Playfair_Display'] mb-4 relative z-10">Trusted Guidance</h3>
