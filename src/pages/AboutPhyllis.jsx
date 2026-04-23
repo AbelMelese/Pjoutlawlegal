@@ -3,7 +3,7 @@ import { Award, Building2, Scale, Users } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import portrait from "../assets/use this picture in PJO's resume.jpg";
 import mediaLogosStrip from '../assets/media-logos-strip.png';
-import aboutThePrincipalHero from '../assets/About the Principal.png';
+import aboutThePrincipalHero from '../assets/about the principal.png';
 
 const highlights = [
   {
