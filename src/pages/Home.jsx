@@ -10,19 +10,20 @@ import {
     Target,
     Calendar
 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHero from '../components/PageHero';
-import goldWomanHoldingScales from '../assets/012.jpg';
-import page1Img from '../assets/Page_ 1 update.jpg';
-import pjoaOffice264 from '../assets/pjoa-office-264.jpg';
-import officeShoot044 from '../assets/office-shoot-044-client.jpg';
-import officeShoot110 from '../assets/office-shoot-110-client.jpg';
+import designSlide1 from '../assets/design_  slide1.png';
+import designSlide2 from '../assets/design_  slide2.png';
+import designSlide3 from '../assets/design_  slide3.png';
+import designSlide4 from '../assets/design_  slide4.png';
 
 
 
 const Home = () => {
     const [activeTestimonial, setActiveTestimonial] = useState(0);
+    const [heroSlideIndex, setHeroSlideIndex] = useState(0);
+    const heroSlideImages = [designSlide1, designSlide2, designSlide3, designSlide4];
 
     // Scroll reveal refs for each section
     const servicesHeaderRef = useScrollReveal();
@@ -40,92 +41,34 @@ const Home = () => {
             icon: Users,
             title: 'Family & Divorce Mediation',
             description: 'We assist spouses and families in navigating separation, divorce, and post-divorce matters. Our process focuses on cooperation and long-term stability, especially where children are involved.',
-            color: 'from-[#4A8A8D] to-[#3D6B6E]',
+            color: 'from-[#2A4F7A] to-[#1E3A5F]',
             link: '/mediation-services',
         },
         {
             icon: Briefcase,
             title: 'Business & Commercial Mediation',
             description: 'Disputes between business partners, employers and employees, vendors, or clients can disrupt operations and damage relationships. Mediation provides a practical pathway to resolution while preserving professionalism.',
-            color: 'from-[#3D6B6E] to-[#9B2335]',
+            color: 'from-[#1E3A5F] to-[#5B2C6F]',
             link: '/mediation-services',
         },
         {
             icon: Gavel,
             title: 'Court-Referred Mediation',
             description: 'We accept court-referred cases and provide mediation services aligned with legal standards and judicial expectations. Our legal background ensures agreements are practical, enforceable, and well-documented.',
-            color: 'from-[#4A8A8D] to-[#3D6B6E]',
+            color: 'from-[#2A4F7A] to-[#1E3A5F]',
             link: '/mediation-services',
         },
         {
             icon: Scale,
             title: 'Child Custody & Parenting Mediation',
             description: 'We help parents create balanced, workable parenting agreements that prioritize the well-being of children while respecting each parentâ€™s rights and responsibilities.',
-            color: 'from-[#B5344A] to-[#9B2335]',
+            color: 'from-[#5B2C6F] to-[#5B2C6F]',
             link: '/mediation-services',
         },
     ];
     const marqueeServices = [...services, ...services];
 
-    const heroSlides = [
-        {
-            title: "Phyllis J. Outlaw & Associates Maintains the Highest Standard of Excellence on Behalf of Our Clients.",
-            image: goldWomanHoldingScales,
-            imageInset: '0 0 0 clamp(6.5rem, 15vw, 12rem)',
-            background: '#d9d6cc',
-            transition: 'wipe-left',
-            eyebrowColor: '#214b63',
-            titleColor: '#13293d',
-            rotatingColor: 'rgba(19, 41, 61, 0.86)',
-            descriptionColor: 'rgba(19, 41, 61, 0.8)',
-            textShadow: '0 1px 3px rgba(248, 244, 239, 0.9), 0 2px 12px rgba(248, 244, 239, 0.7)',
-            secondaryColor: '#13293d',
-            secondaryBackground: 'rgba(255, 255, 255, 0.7)',
-            secondaryBorder: 'rgba(19, 41, 61, 0.18)',
-        },
-        {
-            title: "A Court-Appointed Mediator Who Possesses Knowledge, Skills and Expertise in Mediation of Disputes.",
-            image: pjoaOffice264,
-            background: '#ece7df',
-            transition: 'split-open',
-            eyebrowColor: '#214b63',
-            titleColor: '#13293d',
-            rotatingColor: 'rgba(19, 41, 61, 0.86)',
-            descriptionColor: 'rgba(19, 41, 61, 0.8)',
-            textShadow: '0 1px 3px rgba(248, 244, 239, 0.9), 0 2px 12px rgba(248, 244, 239, 0.7)',
-            secondaryColor: '#13293d',
-            secondaryBackground: 'rgba(255, 255, 255, 0.7)',
-            secondaryBorder: 'rgba(19, 41, 61, 0.18)',
-        },
-        {
-            title: "Our Legal Team Employs Innovative Methods to Ensure a Successful Outcome for Your Legal Matters.",
-            image: officeShoot044,
-            background: '#efe4da',
-            transition: 'diagonal-rise',
-            eyebrowColor: '#214b63',
-            titleColor: '#13293d',
-            rotatingColor: 'rgba(19, 41, 61, 0.86)',
-            descriptionColor: 'rgba(19, 41, 61, 0.8)',
-            textShadow: '0 1px 3px rgba(248, 244, 239, 0.9), 0 2px 12px rgba(248, 244, 239, 0.7)',
-            secondaryColor: '#13293d',
-            secondaryBackground: 'rgba(255, 255, 255, 0.7)',
-            secondaryBorder: 'rgba(19, 41, 61, 0.18)',
-        },
-        {
-            title: "Our Firm Possesses Over Four Decades of Experience in Mediation, Arbitration and Civil Litigation.",
-            image: officeShoot110,
-            background: '#ebe5de',
-            transition: 'wipe-up',
-            eyebrowColor: '#214b63',
-            titleColor: '#13293d',
-            rotatingColor: 'rgba(19, 41, 61, 0.86)',
-            descriptionColor: 'rgba(19, 41, 61, 0.8)',
-            textShadow: '0 1px 3px rgba(248, 244, 239, 0.9), 0 2px 12px rgba(248, 244, 239, 0.7)',
-            secondaryColor: '#13293d',
-            secondaryBackground: 'rgba(255, 255, 255, 0.7)',
-            secondaryBorder: 'rgba(19, 41, 61, 0.18)',
-        }
-    ];
+
 
 
     const testimonials = [
@@ -151,6 +94,14 @@ const Home = () => {
         },
     ];
 
+    // Auto slide for Hero images
+    useEffect(() => {
+        const heroInterval = setInterval(() => {
+            setHeroSlideIndex((prev) => (prev + 1) % heroSlideImages.length);
+        }, 4000);
+        return () => clearInterval(heroInterval);
+    }, [heroSlideImages.length]);
+
     // Auto slide for Testimonials
     useEffect(() => {
         const interval = setInterval(() => {
@@ -161,13 +112,31 @@ const Home = () => {
 
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
-            {/* Hero Section */}
-            <div className="hero-shell w-full relative">
-                <img
-                    src={page1Img}
-                    alt="Phyllis J. Outlaw & Associates"
-                    className="absolute inset-0 w-full h-full object-cover object-center"
-                />
+            {/* Hero Slider Section */}
+            <div className="hero-slider w-full relative overflow-hidden">
+                {heroSlideImages.map((slide, index) => (
+                    <img
+                        key={index}
+                        src={slide}
+                        alt={`Phyllis J. Outlaw & Associates – Slide ${index + 1}`}
+                        className={`hero-slider__slide ${
+                            index === heroSlideIndex ? 'hero-slider__slide--active' : ''
+                        }`}
+                    />
+                ))}
+                {/* Slider Dots */}
+                <div className="hero-slider__dots">
+                    {heroSlideImages.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setHeroSlideIndex(index)}
+                            className={`hero-slider__dot ${
+                                index === heroSlideIndex ? 'hero-slider__dot--active' : ''
+                            }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
             </div>
 
 
@@ -178,7 +147,7 @@ const Home = () => {
                     <div ref={servicesHeaderRef} className="scroll-reveal text-center mb-10 md:mb-14">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
                             Mediation Services Focused on<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-[#9B2335]">Delivering Effective Outcomes</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Delivering Effective Outcomes</span>
                         </h2>
                     </div>
 
@@ -198,9 +167,9 @@ const Home = () => {
                                     <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3">{service.title}</h3>
                                     <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
 
-                                    <Link to={service.link} className="flex items-center gap-2 text-slate-900 font-bold transition-colors hover:text-[#9B2335]">
+                                    <Link to={service.link} className="flex items-center gap-2 text-slate-900 font-bold transition-colors hover:text-[#5B2C6F]">
                                         <span className="text-sm uppercase tracking-wider">Learn More</span>
-                                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition-colors hover:bg-[#3D6B6E]/20">
+                                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition-colors hover:bg-[#1E3A5F]/20">
                                             <ArrowRight size={14} />
                                         </div>
                                     </Link>
@@ -234,7 +203,7 @@ const Home = () => {
                         <div ref={processTextRef} className="scroll-reveal">
                             <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-6">
                                 A Process That <br />
-                                <span className="text-[#3D6B6E]">Works For You</span>
+                                <span className="text-[#1E3A5F]">Works For You</span>
                             </h2>
                             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
                                 Whether you are navigating a divorce, resolving a family dispute, or facing conflict at work, our proven process is designed to create momentum.
@@ -247,7 +216,7 @@ const Home = () => {
                                     { title: 'Move Forward', desc: 'Resolve conflict with confidence and peace.', icon: CheckCircle },
                                 ].map((step, i) => (
                                     <div key={i} className="scroll-reveal-child flex items-start gap-6 group">
-                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#3D6B6E] group-hover:bg-[#3D6B6E] group-hover:text-slate-900 transition-all duration-300 shadow-lg">
+                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#1E3A5F] group-hover:bg-[#1E3A5F] group-hover:text-slate-900 transition-all duration-300 shadow-lg">
                                             <step.icon size={28} />
                                         </div>
                                         <div>
@@ -260,11 +229,11 @@ const Home = () => {
                         </div>
 
                         <div ref={processCardRef} className="scroll-reveal--scale scroll-reveal relative">
-                            <div className="absolute -inset-4 bg-gradient-to-r from-[#3D6B6E] to-[#9B2335] rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
+                            <div className="absolute -inset-4 bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
                             <div className="relative min-h-[340px] md:min-h-[420px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col items-center p-7 text-center">
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
 
-                                <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-[#3D6B6E] mb-6 mt-6 relative z-10">
+                                <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-[#1E3A5F] mb-6 mt-6 relative z-10">
                                     <Shield size={48} />
                                 </div>
                                 <h3 className="text-2xl md:text-3xl font-bold text-white font-['Playfair_Display'] mb-4 relative z-10">Trusted Guidance</h3>
@@ -297,7 +266,7 @@ const Home = () => {
                                 <p className="text-xl md:text-3xl font-['Playfair_Display'] text-slate-800 leading-tight mb-6">"{t.quote}"</p>
                                 <div className="space-y-2">
                                     <p className="font-bold text-slate-900 text-lg">{t.author}</p>
-                                    <p className="text-[#9B2335] text-sm font-semibold uppercase tracking-[0.16em]">{t.role}</p>
+                                    <p className="text-[#5B2C6F] text-sm font-semibold uppercase tracking-[0.16em]">{t.role}</p>
                                 </div>
                             </div>
                         ))}
@@ -308,7 +277,7 @@ const Home = () => {
                             <button
                                 key={i}
                                 onClick={() => setActiveTestimonial(i)}
-                                className={`transition-all duration-300 rounded-full ${i === activeTestimonial ? 'w-12 h-3 bg-[#3D6B6E]' : 'w-3 h-3 bg-slate-300'}`}
+                                className={`transition-all duration-300 rounded-full ${i === activeTestimonial ? 'w-12 h-3 bg-[#1E3A5F]' : 'w-3 h-3 bg-slate-300'}`}
                             />
                         ))}
                     </div>

@@ -36,11 +36,11 @@ const Blog = () => {
     ];
 
     const categoryStyles = {
-        'Mediation': { icon: Scale, gradient: 'from-[#3D6B6E] to-[#9B2335]' },
-        'Divorce': { icon: Heart, gradient: 'from-[#B5344A] to-[#9B2335]' },
-        'Business': { icon: Briefcase, gradient: 'from-[#4A8A8D] to-[#3D6B6E]' },
-        'Coaching': { icon: MessageCircle, gradient: 'from-[#4A8A8D] to-[#3D6B6E]' },
-        'Family Law': { icon: Users, gradient: 'from-[#B5344A] to-[#9B2335]' },
+        'Mediation': { icon: Scale, gradient: 'from-[#1E3A5F] to-[#5B2C6F]' },
+        'Divorce': { icon: Heart, gradient: 'from-[#5B2C6F] to-[#5B2C6F]' },
+        'Business': { icon: Briefcase, gradient: 'from-[#2A4F7A] to-[#1E3A5F]' },
+        'Coaching': { icon: MessageCircle, gradient: 'from-[#2A4F7A] to-[#1E3A5F]' },
+        'Family Law': { icon: Users, gradient: 'from-[#5B2C6F] to-[#5B2C6F]' },
         'Legal Tips': { icon: Shield, gradient: 'from-slate-600 to-slate-800' },
     };
 
@@ -167,7 +167,7 @@ const Blog = () => {
                             placeholder="Search articles..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-12 pr-4 py-4 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#3D6B6E] shadow-xl"
+                            className="w-full pl-12 pr-4 py-4 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#1E3A5F] shadow-xl"
                         />
                     </div>
                 </div>
@@ -198,13 +198,13 @@ const Blog = () => {
                 <section className="py-16 md:py-20">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center gap-2 mb-8">
-                            <TrendingUp size={20} className="text-[#3D6B6E]" />
+                            <TrendingUp size={20} className="text-[#1E3A5F]" />
                             <span className="text-sm font-bold text-slate-900 uppercase tracking-wider">Featured Article</span>
                         </div>
 
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div className="relative group">
-                                <div className="absolute -inset-4 bg-gradient-to-r from-[#3D6B6E] to-[#9B2335] rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
+                                <div className="absolute -inset-4 bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-30 transition-opacity"></div>
                                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
                                     {(() => {
                                         const style = categoryStyles[featuredPost.category];
@@ -228,7 +228,7 @@ const Blog = () => {
 
                             <div className="space-y-6">
                                 <div className="flex items-center gap-4">
-                                    <span className="px-4 py-1.5 bg-[#3D6B6E]/20 text-[#9B2335] rounded-full text-sm font-bold">
+                                    <span className="px-4 py-1.5 bg-[#1E3A5F]/20 text-[#5B2C6F] rounded-full text-sm font-bold">
                                         {featuredPost.category}
                                     </span>
                                     <span className="text-slate-400 text-sm flex items-center gap-1">
@@ -259,7 +259,7 @@ const Blog = () => {
 
                                 <Link
                                     to={`/blog/${featuredPost.id}`}
-                                    className="btn-premium inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#3D6B6E] to-[#9B2335] text-white rounded-full font-bold text-lg shadow-xl"
+                                    className="btn-premium inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] text-white rounded-full font-bold text-lg shadow-xl"
                                 >
                                     <span>Read Article</span>
                                     <ArrowRight size={18} />
@@ -327,7 +327,7 @@ const Blog = () => {
                                             </span>
                                         </div>
 
-                                        <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3 group-hover:text-[#9B2335] transition-colors line-clamp-2">
+                                        <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3 group-hover:text-[#5B2C6F] transition-colors line-clamp-2">
                                             {post.title}
                                         </h3>
 
@@ -345,7 +345,7 @@ const Blog = () => {
 
                                             <Link
                                                 to={`/blog/${post.id}`}
-                                                className="flex items-center gap-1 text-[#9B2335] font-bold text-sm group-hover:gap-2 transition-all"
+                                                className="flex items-center gap-1 text-[#5B2C6F] font-bold text-sm group-hover:gap-2 transition-all"
                                             >
                                                 Read More
                                                 <ArrowRight size={14} />
@@ -371,12 +371,12 @@ const Blog = () => {
             {/* Newsletter CTA */}
             <section className="py-20 bg-slate-100 relative overflow-hidden">
                 <div className="absolute inset-0">
-                    <div className="blob bg-[#3D6B6E]/10 w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
+                    <div className="blob bg-[#1E3A5F]/10 w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
                 </div>
 
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
                     <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                        Stay <span className="text-[#3D6B6E]">Informed</span>
+                        Stay <span className="text-[#1E3A5F]">Informed</span>
                     </h2>
                     <p className="text-xl text-slate-600 mb-10">
                         Subscribe to our newsletter for the latest insights on mediation, family law, and conflict resolution.
@@ -386,9 +386,9 @@ const Blog = () => {
                         <input
                             type="email"
                             placeholder="Enter your email"
-                            className="flex-1 px-6 py-4 rounded-full bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#3D6B6E] shadow-sm"
+                            className="flex-1 px-6 py-4 rounded-full bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1E3A5F] shadow-sm"
                         />
-                        <button className="btn-premium px-8 py-4 bg-gradient-to-r from-[#3D6B6E] to-[#9B2335] text-white rounded-full font-bold shadow-xl">
+                        <button className="btn-premium px-8 py-4 bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] text-white rounded-full font-bold shadow-xl">
                             Subscribe
                         </button>
                     </div>

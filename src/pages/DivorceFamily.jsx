@@ -106,14 +106,14 @@ const DivorceFamily = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="animate-enter">
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                                Why Choose <span className="text-[#3D6B6E]">Our Firm?</span>
+                                Why Choose <span className="text-[#1E3A5F]">Our Firm?</span>
                             </h2>
                             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                                 We combine decades of specialized experience with a commitment to compassionate, personalized advocacy. In family law, having the right team makes all the difference.
                             </p>
                         </div>
                         <div className="relative animate-float-delayed">
-                            <div className="absolute -inset-4 bg-[#3D6B6E]/10 rounded-[2.5rem] blur-2xl"></div>
+                            <div className="absolute -inset-4 bg-[#1E3A5F]/10 rounded-[2.5rem] blur-2xl"></div>
                             <div className="bg-white shadow-xl rounded-[2rem] p-10 border border-slate-100 relative">
                                 <div className="space-y-6">
                                     {[
@@ -123,10 +123,10 @@ const DivorceFamily = () => {
                                         { icon: MessageSquare, text: 'Clear communication and responsive support' }
                                     ].map((feature, index) => (
                                         <div key={index} className="flex items-center gap-4 group">
-                                            <div className="w-12 h-12 bg-[#e8f4f4] rounded-xl flex items-center justify-center group-hover:bg-[#3D6B6E] transition-colors duration-300">
-                                                <feature.icon size={24} className="text-[#3D6B6E] group-hover:text-white transition-colors" />
+                                            <div className="w-12 h-12 bg-[#e8f4f4] rounded-xl flex items-center justify-center group-hover:bg-[#1E3A5F] transition-colors duration-300">
+                                                <feature.icon size={24} className="text-[#1E3A5F] group-hover:text-white transition-colors" />
                                             </div>
-                                            <span className="text-slate-600 text-lg group-hover:text-[#3D6B6E] font-medium transition-colors">{feature.text}</span>
+                                            <span className="text-slate-600 text-lg group-hover:text-[#1E3A5F] font-medium transition-colors">{feature.text}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -159,11 +159,11 @@ const DivorceFamily = () => {
                                 </div>
 
                                 <div className="flex items-start gap-8 relative z-10">
-                                    <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 text-[#3D6B6E] shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                                    <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 text-[#1E3A5F] shadow-lg group-hover:rotate-6 transition-transform duration-300">
                                         <service.icon size={32} />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 font-['Playfair_Display'] group-hover:text-[#9B2335] transition-colors">
+                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 font-['Playfair_Display'] group-hover:text-[#5B2C6F] transition-colors">
                                             {service.title}
                                         </h3>
                                         <p className="text-slate-600 mb-6 leading-relaxed">
@@ -173,7 +173,7 @@ const DivorceFamily = () => {
                                             {service.items.map((item, i) => (
                                                 <span
                                                     key={i}
-                                                    className="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold group-hover:bg-[#3D6B6E]/10 group-hover:text-[#3D6B6E]700 transition-colors"
+                                                    className="px-4 py-1.5 bg-slate-100 text-slate-600 rounded-full text-sm font-semibold group-hover:bg-[#1E3A5F]/10 group-hover:text-[#1E3A5F]700 transition-colors"
                                                 >
                                                     {item}
                                                 </span>
@@ -194,7 +194,7 @@ const DivorceFamily = () => {
                         <div>
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
                                 A Strategic Approach Focused on{' '}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-[#9B2335]">Your Goals</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Your Goals</span>
                             </h2>
                             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                                 Ending a marriage is never easy. At Phyllis J. Outlaw & Associates, we understand the
@@ -212,7 +212,7 @@ const DivorceFamily = () => {
                                     'Settlement negotiation',
                                 ].map((item, index) => (
                                     <div key={index} className="flex items-center gap-3 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                                        <CheckCircle size={20} className="text-[#3D6B6E]" />
+                                        <CheckCircle size={20} className="text-[#1E3A5F]" />
                                         <span className="text-slate-700 font-medium">{item}</span>
                                     </div>
                                 ))}
@@ -233,7 +233,7 @@ const DivorceFamily = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-24 bg-gradient-to-br from-[#3D6B6E] to-[#9B2335] relative overflow-hidden">
+            <section className="py-24 bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
                 <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
@@ -243,7 +243,7 @@ const DivorceFamily = () => {
                     <div className="flex justify-center gap-6">
                         <Link
                             to="/contact"
-                            className="btn-premium px-10 py-5 bg-white text-[#3D6B6E] rounded-full font-bold text-xl shadow-2xl"
+                            className="btn-premium px-10 py-5 bg-white text-[#1E3A5F] rounded-full font-bold text-xl shadow-2xl"
                         >
                             Request Consultation
                         </Link>

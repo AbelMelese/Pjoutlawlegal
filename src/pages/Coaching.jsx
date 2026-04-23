@@ -18,7 +18,7 @@ import seminarsTrainingImg from "../assets/use this image in seminars and traini
 import coachingPhoto from "../assets/use this image in coaching page.jpg";
 import image2 from "../assets/image 2.jpg";
 import booksImage from "../assets/books image.jpg";
-import page4Img from "../assets/Page_ 4 update.jpg";
+import coachingHero from '../assets/Coaching.png';
 
 const Coaching = () => {
     const coachingServices = [
@@ -36,9 +36,9 @@ const Coaching = () => {
                 'Strengthen relationships',
             ],
             note: 'Unlike therapy, family coaching is forward-facing.',
-            color: 'from-[#4A8A8D] to-[#3D6B6E]',
+            color: 'from-[#2A4F7A] to-[#1E3A5F]',
             bgColor: 'bg-[#e8f4f4]',
-            accent: 'text-[#3D6B6E]',
+            accent: 'text-[#1E3A5F]',
             border: 'border-[#d1e9ea]',
             image: coachingPhoto
         },
@@ -57,9 +57,9 @@ const Coaching = () => {
                 'Create post-divorce goals',
             ],
             note: 'Your coach becomes your thinking partner.',
-            color: 'from-[#B5344A] to-[#9B2335]',
+            color: 'from-[#5B2C6F] to-[#5B2C6F]',
             bgColor: 'bg-[#fdf2f4]',
-            accent: 'text-[#9B2335]',
+            accent: 'text-[#5B2C6F]',
             border: 'border-[#fce7ea]',
             image: null
         },
@@ -78,10 +78,10 @@ const Coaching = () => {
                 'Reconnect business with purpose',
             ],
             note: 'We blend practical business insight with coaching.',
-            color: 'from-[#3D6B6E] to-[#9B2335]',
-            bgColor: 'bg-[#3D6B6E]/10',
-            accent: 'text-[#9B2335]',
-            border: 'border-[#3D6B6E]/30',
+            color: 'from-[#1E3A5F] to-[#5B2C6F]',
+            bgColor: 'bg-[#1E3A5F]/10',
+            accent: 'text-[#5B2C6F]',
+            border: 'border-[#1E3A5F]/30',
             image: null
         },
     ];
@@ -100,11 +100,11 @@ const Coaching = () => {
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
-            <div className="hero-shell w-full relative">
+            <div className="w-full">
                 <img
-                    src={page4Img}
+                    src={coachingHero}
                     alt="Coaching Services"
-                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    className="w-full h-auto block"
                 />
             </div>
 
@@ -205,7 +205,7 @@ const Coaching = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-20">
                         <h2 className="text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
-                            What Makes Our Coaching <span className="text-[#3D6B6E]">Different</span>
+                            What Makes Our Coaching <span className="text-[#1E3A5F]">Different</span>
                         </h2>
                     </div>
 
@@ -215,7 +215,7 @@ const Coaching = () => {
                                 key={index}
                                 className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 group"
                             >
-                                <item.icon size={32} className="text-[#3D6B6E] mb-6 group-hover:scale-110 transition-transform" />
+                                <item.icon size={32} className="text-[#1E3A5F] mb-6 group-hover:scale-110 transition-transform" />
                                 <h3 className="text-xl font-bold text-slate-900 mb-3 font-['Playfair_Display']">
                                     {item.title}
                                 </h3>
@@ -234,11 +234,11 @@ const Coaching = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#d1e9ea] rounded-full mb-6 border border-[#b3d9db]">
-                                <GraduationCap size={18} className="text-[#3D6B6E]" />
-                                <span className="text-[#3D6B6E] font-bold text-sm tracking-wide uppercase">Professional Development</span>
+                                <GraduationCap size={18} className="text-[#1E3A5F]" />
+                                <span className="text-[#1E3A5F] font-bold text-sm tracking-wide uppercase">Professional Development</span>
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                                Seminars & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-[#9B2335]">Training</span>
+                                Seminars & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Training</span>
                             </h2>
                             <p className="text-xl text-slate-600 italic mb-8">
                                 "Tired of viewing the same in-house training video? Need an innovative solution for your professional development training needs?"
@@ -249,7 +249,7 @@ const Coaching = () => {
 
                             <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 mb-8">
                                 <h4 className="font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
-                                    <Presentation className="text-[#3D6B6E]" />
+                                    <Presentation className="text-[#1E3A5F]" />
                                     Training Topics Include:
                                 </h4>
                                 <div className="grid sm:grid-cols-2 gap-3">
@@ -264,7 +264,7 @@ const Coaching = () => {
                                         'Senior Executive Development'
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-center gap-2">
-                                            <div className="w-1.5 h-1.5 bg-[#3D6B6E] rounded-full"></div>
+                                            <div className="w-1.5 h-1.5 bg-[#1E3A5F] rounded-full"></div>
                                             <span className="text-slate-700 text-sm font-medium">{item}</span>
                                         </div>
                                     ))}
@@ -277,7 +277,7 @@ const Coaching = () => {
                         </div>
 
                         <div className="relative">
-                            <div className="absolute -inset-4 bg-[#3D6B6E]/10 blur-md"></div>
+                            <div className="absolute -inset-4 bg-[#1E3A5F]/10 blur-md"></div>
                             <div className="framed-photo-container h-[500px] w-full relative z-10 group">
                                 <img
                                     src={seminarsTrainingImg}
@@ -285,7 +285,7 @@ const Coaching = () => {
                                 />
                                 <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-6 border border-slate-200">
                                     <p className="font-['Playfair_Display'] text-2xl font-bold">Professional Development</p>
-                                    <p className="text-[#3D6B6E] font-bold">Workshops & Training Sessions</p>
+                                    <p className="text-[#1E3A5F] font-bold">Workshops & Training Sessions</p>
                                 </div>
                             </div>
                         </div>
@@ -294,7 +294,7 @@ const Coaching = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-16 md:py-24 bg-gradient-to-br from-[#3D6B6E] to-[#9B2335] relative overflow-hidden">
+            <section className="py-16 md:py-24 bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
                 <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
@@ -303,7 +303,7 @@ const Coaching = () => {
                     </h2>
                     <Link
                         to="/contact"
-                        className="btn-premium px-10 py-5 bg-white text-[#3D6B6E] rounded-full font-bold text-xl shadow-2xl"
+                        className="btn-premium px-10 py-5 bg-white text-[#1E3A5F] rounded-full font-bold text-xl shadow-2xl"
                     >
                         Book a Coaching Session
                     </Link>

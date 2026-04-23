@@ -143,7 +143,7 @@ const BlogPost = () => {
                         </Link>
 
                         <div className="flex items-center gap-4 mb-6">
-                            <span className="px-4 py-1.5 bg-[#3D6B6E] text-white rounded-full text-sm font-bold">
+                            <span className="px-4 py-1.5 bg-[#1E3A5F] text-white rounded-full text-sm font-bold">
                                 {post.category}
                             </span>
                             <span className="text-white/60 text-sm flex items-center gap-1">
@@ -176,7 +176,7 @@ const BlogPost = () => {
 
                         <div className="flex items-center gap-3">
                             <span className="text-slate-400 text-sm hidden sm:block">Share:</span>
-                            <button className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-blue-100 hover:text-[#3D6B6E] transition-colors">
+                            <button className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-blue-100 hover:text-[#1E3A5F] transition-colors">
                                 <Facebook size={18} />
                             </button>
                             <button className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-sky-100 hover:text-sky-500 transition-colors">
@@ -190,7 +190,7 @@ const BlogPost = () => {
 
                     {/* Article Body */}
                     <article
-                        className="prose prose-lg prose-slate max-w-none prose-headings:font-['Playfair_Display'] prose-headings:text-slate-900 prose-a:text-[#9B2335] prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-900 prose-li:marker:text-[#3D6B6E]"
+                        className="prose prose-lg prose-slate max-w-none prose-headings:font-['Playfair_Display'] prose-headings:text-slate-900 prose-a:text-[#5B2C6F] prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-900 prose-li:marker:text-[#1E3A5F]"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     />
 
@@ -210,7 +210,7 @@ const BlogPost = () => {
                     </div>
 
                     {/* CTA */}
-                    <div className="mt-12 p-8 md:p-12 bg-gradient-to-br from-[#3D6B6E] to-[#9B2335] rounded-[2rem] text-center relative overflow-hidden">
+                    <div className="mt-12 p-8 md:p-12 bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] rounded-[2rem] text-center relative overflow-hidden">
                         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
                         <h3 className="text-2xl md:text-3xl font-bold text-white font-['Playfair_Display'] mb-4 relative z-10">
                             Ready to Resolve Your Dispute?
@@ -220,7 +220,7 @@ const BlogPost = () => {
                         </p>
                         <Link
                             to="/contact"
-                            className="btn-premium inline-flex items-center gap-2 px-8 py-4 bg-white text-[#3D6B6E] rounded-full font-bold hover:shadow-2xl relative z-10"
+                            className="btn-premium inline-flex items-center gap-2 px-8 py-4 bg-white text-[#1E3A5F] rounded-full font-bold hover:shadow-2xl relative z-10"
                         >
                             <span>Get Started</span>
                             <ArrowRight size={18} />
@@ -252,13 +252,13 @@ const BlogPost = () => {
                                     </div>
 
                                     <div className="p-6">
-                                        <span className="text-[#9B2335] text-sm font-bold">{relatedPost.category}</span>
-                                        <h3 className="text-lg font-bold text-slate-900 font-['Playfair_Display'] mt-2 mb-3 group-hover:text-[#9B2335] transition-colors line-clamp-2">
+                                        <span className="text-[#5B2C6F] text-sm font-bold">{relatedPost.category}</span>
+                                        <h3 className="text-lg font-bold text-slate-900 font-['Playfair_Display'] mt-2 mb-3 group-hover:text-[#5B2C6F] transition-colors line-clamp-2">
                                             {relatedPost.title}
                                         </h3>
                                         <Link
                                             to={`/blog/${relatedPost.id}`}
-                                            className="inline-flex items-center gap-1 text-slate-600 font-medium text-sm hover:text-[#9B2335] transition-colors"
+                                            className="inline-flex items-center gap-1 text-slate-600 font-medium text-sm hover:text-[#5B2C6F] transition-colors"
                                         >
                                             Read More
                                             <ArrowRight size={14} />

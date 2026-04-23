@@ -45,7 +45,7 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden">
       {showCta && (
-      <div className="relative border-b border-white/10 bg-gradient-to-br from-[#3D6B6E] to-[#9B2335] overflow-hidden">
+      <div className="relative border-b border-white/10 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1E3A5F 0%, #C5A03A 50%, #5B2C6F 100%)' }}>
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 relative z-10">
@@ -61,7 +61,7 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="tel:+12025482999"
-                className="btn-premium flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#3D6B6E] rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="btn-premium flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#1E3A5F] rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <Phone size={20} />
                 <span>(202) 548-2999</span>
@@ -79,7 +79,7 @@ const Footer = () => {
       </div>
       )}
 
-      <div className="relative bg-gradient-to-br from-[#3D6B6E]/95 to-[#9B2335]/95 overflow-hidden">
+      <div className="relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #1E3A5F 0%, #2A1F4E 40%, #5B2C6F 100%)' }}>
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
@@ -110,7 +110,7 @@ const Footer = () => {
 
           <div>
             <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-white/40"></span>
+              <span className="w-8 h-0.5 bg-[#C5A03A]"></span>
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -133,7 +133,7 @@ const Footer = () => {
 
           <div>
             <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-white/40"></span>
+              <span className="w-8 h-0.5 bg-[#C5A03A]"></span>
               Our Services
             </h4>
             <ul className="space-y-3">
@@ -156,7 +156,7 @@ const Footer = () => {
 
           <div>
             <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-white/40"></span>
+              <span className="w-8 h-0.5 bg-[#C5A03A]"></span>
               Contact Us
             </h4>
             <div className="space-y-5">
@@ -199,10 +199,8 @@ const Footer = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Address</p>
-                  <p className="text-white/90 text-sm leading-relaxed font-medium">
-                    412 H Street, NE
-                    <br />
-                    Washington, DC 20002
+                  <p className="text-white/90 text-[0.8rem] xl:text-sm tracking-tight whitespace-nowrap font-medium">
+                    412 H Street, NE, Washington, DC 20002
                   </p>
                 </div>
               </div>
@@ -212,9 +210,9 @@ const Footer = () => {
       </div>
       </div>
 
-      <div className="relative bg-[#2A4A4C]">
+      <div className="relative bg-[#C5A03A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/60">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#1E3A5F]">
             <p className="whitespace-nowrap">Copyright © 2026, Phyllis J. Outlaw & Associates</p>
             <div className="flex items-center gap-6">
               <a href="#" className="hover:text-white transition-colors">Terms of Use</a>

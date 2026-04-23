@@ -90,7 +90,7 @@ const MeetAttorneys = () => {
                         <div key={index} className={`flex flex-col gap-16 items-start ${index === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
                             {/* Photo Side */}
                             <div className="w-full lg:w-5/12 relative">
-                                <div className="absolute -inset-4 bg-gradient-to-tr from-[#3D6B6E]/30 to-[#4A8A8D]/30 blur-xl"></div>
+                                <div className="absolute -inset-4 bg-gradient-to-tr from-[#1E3A5F]/30 to-[#2A4F7A]/30 blur-xl"></div>
                                 <div className="framed-photo-container aspect-[3/4]">
                                     <img src={person.image} alt={person.name} />
 
@@ -109,7 +109,7 @@ const MeetAttorneys = () => {
                                 <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-2">
                                     {person.name}
                                 </h2>
-                                <p className="text-xl text-[#9B2335] font-medium mb-8 font-serif italic">{person.role}</p>
+                                <p className="text-xl text-[#5B2C6F] font-medium mb-8 font-serif italic">{person.role}</p>
 
                                 <div className="space-y-6 text-lg text-slate-600 leading-relaxed mb-10">
                                     {person.bio.map((p, i) => <p key={i}>{p}</p>)}
@@ -117,7 +117,7 @@ const MeetAttorneys = () => {
 
                                 <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
                                     <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-                                        <BadgeCheck size={24} className="text-[#3D6B6E]" />
+                                        <BadgeCheck size={24} className="text-[#1E3A5F]" />
                                         Credentials & Admissions
                                     </h3>
                                     <div className="grid sm:grid-cols-2 gap-4">
@@ -136,7 +136,7 @@ const MeetAttorneys = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-24 bg-gradient-to-br from-[#3D6B6E] to-[#9B2335] relative overflow-hidden">
+            <section className="py-24 bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
                 <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
@@ -145,7 +145,7 @@ const MeetAttorneys = () => {
                     </h2>
                     <Link
                         to="/contact"
-                        className="btn-premium px-10 py-5 bg-white text-[#3D6B6E] rounded-full font-bold text-xl shadow-2xl"
+                        className="btn-premium px-10 py-5 bg-white text-[#1E3A5F] rounded-full font-bold text-xl shadow-2xl"
                     >
                         Speak With Our Team
                     </Link>

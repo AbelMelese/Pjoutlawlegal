@@ -165,7 +165,7 @@ const BusinessServices = () => {
                             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-4 xl:whitespace-nowrap">
                                 {businessAdvising.title}
                             </h2>
-                            <p className="text-2xl text-[#9B2335] font-['Playfair_Display'] italic mb-6">
+                            <p className="text-2xl text-[#5B2C6F] font-['Playfair_Display'] italic mb-6">
                                 "{businessAdvising.subtitle}"
                             </p>
                             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
@@ -175,7 +175,7 @@ const BusinessServices = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 {businessAdvising.helpsWith.slice(0, 6).map((item, i) => (
                                     <div key={i} className="flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 bg-[#3D6B6E] rounded-full"></div>
+                                        <div className="w-1.5 h-1.5 bg-[#1E3A5F] rounded-full"></div>
                                         <span className="text-slate-700 text-sm font-medium">{item}</span>
                                     </div>
                                 ))}
@@ -183,24 +183,24 @@ const BusinessServices = () => {
                         </div>
 
                          <div className="relative">
-                            <div className="absolute -inset-4 bg-[#3D6B6E]/5 rounded-[2.5rem] -rotate-2"></div>
+                            <div className="absolute -inset-4 bg-[#1E3A5F]/5 rounded-[2.5rem] -rotate-2"></div>
                             <div className="relative bg-white rounded-[2rem] p-12 overflow-hidden shadow-2xl border border-slate-100">
                                 <div className="absolute inset-0 bg-gradient-to-br from-[#e8f4f4] to-[#fdf2f4] opacity-50"></div>
                                 <div className="grid grid-cols-2 gap-4 relative z-10">
                                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-slate-900 hover:shadow-md transition-shadow">
-                                        <TrendingUp size={32} className="text-[#3D6B6E] mb-4" />
+                                        <TrendingUp size={32} className="text-[#1E3A5F] mb-4" />
                                         <h4 className="font-bold text-lg">Growth Strategy</h4>
                                     </div>
                                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-slate-900 mt-8 hover:shadow-md transition-shadow">
-                                        <Users size={32} className="text-[#3D6B6E] mb-4" />
+                                        <Users size={32} className="text-[#1E3A5F] mb-4" />
                                         <h4 className="font-bold text-lg">Team Alignment</h4>
                                     </div>
                                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-slate-900 hover:shadow-md transition-shadow">
-                                        <Target size={32} className="text-[#9B2335] mb-4" />
+                                        <Target size={32} className="text-[#5B2C6F] mb-4" />
                                         <h4 className="font-bold text-lg">Clear Vision</h4>
                                     </div>
                                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-slate-900 mt-8 hover:shadow-md transition-shadow">
-                                        <Globe size={32} className="text-[#3D6B6E] mb-4" />
+                                        <Globe size={32} className="text-[#1E3A5F] mb-4" />
                                         <h4 className="font-bold text-lg">Sustainability</h4>
                                     </div>
                                 </div>
@@ -233,21 +233,21 @@ const BusinessServices = () => {
             {/* Non-Profit Advisory Section */}
             <section id="nonprofit" className="py-20 md:py-32 bg-slate-50 relative overflow-hidden">
                 <div className="absolute inset-0">
-                    <div className="blob bg-[#B5344A]/10 w-[600px] h-[600px] bottom-0 left-0 rounded-full blur-3xl"></div>
+                    <div className="blob bg-[#5B2C6F]/10 w-[600px] h-[600px] bottom-0 left-0 rounded-full blur-3xl"></div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <div className="lg:order-2">
                             <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#fce7ea] rounded-full mb-6 border border-rose-200">
-                                <Heart size={18} className="text-[#9B2335]" />
+                                <Heart size={18} className="text-[#5B2C6F]" />
                                 <span className="font-bold text-slate-700 text-sm tracking-wide uppercase">Mission-Driven Support</span>
                             </div>
 
                             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-4 xl:whitespace-nowrap">
                                 {nonprofitAdvisory.title}
                             </h2>
-                            <p className="text-xl text-[#9B2335] font-medium mb-8">
+                            <p className="text-xl text-[#5B2C6F] font-medium mb-8">
                                 {nonprofitAdvisory.subtitle}
                             </p>
                             <p className="text-lg text-slate-600 mb-10 leading-relaxed">
@@ -257,7 +257,7 @@ const BusinessServices = () => {
                             <div className="grid sm:grid-cols-2 gap-4 mb-10">
                                 {nonprofitAdvisory.services.map((s, i) => (
                                     <div key={i} className="flex items-center gap-3">
-                                        <CheckCircle size={18} className="text-[#B5344A]" />
+                                        <CheckCircle size={18} className="text-[#5B2C6F]" />
                                         <span className="text-slate-700 text-sm font-medium">{s}</span>
                                     </div>
                                 ))}
@@ -265,7 +265,7 @@ const BusinessServices = () => {
 
                             <Link
                                 to="/contact"
-                                className="btn-premium inline-flex items-center gap-2 px-8 py-4 bg-[#9B2335] text-white rounded-full font-bold hover:bg-[#B5344A] shadow-xl shadow-[#9B2335]/20"
+                                className="btn-premium inline-flex items-center gap-2 px-8 py-4 bg-[#5B2C6F] text-white rounded-full font-bold hover:bg-[#5B2C6F] shadow-xl shadow-[#5B2C6F]/20"
                             >
                                 <span>Get Nonprofit Support</span>
                                 <ArrowRight size={18} />
@@ -273,14 +273,14 @@ const BusinessServices = () => {
                         </div>
 
                         <div className="lg:order-1 relative">
-                            <div className="absolute -inset-4 bg-[#B5344A]/10 rounded-[2.5rem] rotate-3 blur-md"></div>
+                            <div className="absolute -inset-4 bg-[#5B2C6F]/10 rounded-[2.5rem] rotate-3 blur-md"></div>
                             <div className="relative bg-white rounded-[2rem] p-10 border border-slate-100 shadow-2xl flex flex-col justify-center h-full">
-                                <Quote size={48} className="text-[#3D6B6E] mb-6" />
+                                <Quote size={48} className="text-[#1E3A5F] mb-6" />
                                 <p className="text-2xl md:text-3xl font-['Playfair_Display'] text-slate-900 leading-relaxed mb-8 italic">
                                     “Phyllis J. Outlaw & Associates provides exceptional legal services and always represents our best interest. The attorneys are accessible and highly responsive to our requests.”
                                 </p>
                                 <div>
-                                    <p className="text-[#3D6B6E] font-bold text-lg">Dr. Mary Quinn</p>
+                                    <p className="text-[#1E3A5F] font-bold text-lg">Dr. Mary Quinn</p>
                                     <p className="text-slate-600 text-sm">Council of Women Ministers & Male Support Division, Inc. Washington, DC</p>
                                 </div>
                                 <div className="mt-8 pt-8 border-t border-slate-100">
@@ -298,7 +298,7 @@ const BusinessServices = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-20">
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                            Practice Areas & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D6B6E] to-blue-800">Case Highlights</span>
+                            Practice Areas & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-blue-800">Case Highlights</span>
                         </h2>
                         <p className="text-lg text-slate-600 max-w-3xl mx-auto">
                             Decades of experience across diverse legal disciplines.
@@ -310,7 +310,7 @@ const BusinessServices = () => {
                             <div key={index} className={`flex flex-col gap-12 items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                                 <div className="flex-1 space-y-6">
                                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full border border-blue-100">
-                                        <area.icon size={18} className="text-[#3D6B6E]" />
+                                        <area.icon size={18} className="text-[#1E3A5F]" />
                                         <span className="text-blue-900 font-bold text-sm tracking-wide uppercase">{area.title}</span>
                                     </div>
                                     <h3 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 font-['Playfair_Display']">
@@ -321,14 +321,14 @@ const BusinessServices = () => {
                                     </p>
                                     <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
                                         <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
-                                            <CheckCircle size={18} className="text-[#3D6B6E]" />
+                                            <CheckCircle size={18} className="text-[#1E3A5F]" />
                                             Case Highlight
                                         </h4>
                                         <p className="text-slate-600 italic">"{area.highlight}"</p>
                                     </div>
                                 </div>
                                 <div className="flex-1 w-full relative group">
-                                    <div className="absolute inset-0 bg-[#3D6B6E]/5 transform rotate-3 transition-transform group-hover:rotate-0"></div>
+                                    <div className="absolute inset-0 bg-[#1E3A5F]/5 transform rotate-3 transition-transform group-hover:rotate-0"></div>
                                     {area.image ? (
                                         <div className="framed-photo-container aspect-[4/3] w-full relative z-10">
                                             <img
@@ -337,7 +337,7 @@ const BusinessServices = () => {
                                             />
                                         </div>
                                     ) : (
-                                        <div className="relative w-full rounded-[2rem] shadow-xl border border-slate-100 aspect-[4/3] bg-gradient-to-br from-[#3D6B6E] to-blue-800 flex flex-col items-center justify-center gap-6 overflow-hidden">
+                                        <div className="relative w-full rounded-[2rem] shadow-xl border border-slate-100 aspect-[4/3] bg-gradient-to-br from-[#1E3A5F] to-blue-800 flex flex-col items-center justify-center gap-6 overflow-hidden">
                                             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
                                             <div className="w-28 h-28 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform duration-500">
                                                 <area.icon size={56} className="text-white drop-shadow-lg" />
@@ -359,7 +359,7 @@ const BusinessServices = () => {
                     <div className="grid md:grid-cols-2 gap-8 mt-24">
                         {additionalPractices.map((practice, index) => (
                             <div key={index} className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-lg transition-shadow">
-                                <practice.icon size={32} className="text-[#3D6B6E] mb-6" />
+                                <practice.icon size={32} className="text-[#1E3A5F] mb-6" />
                                 <h3 className="text-2xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">{practice.title}</h3>
                                 <p className="text-slate-600 mb-6">{practice.description}</p>
                                 <div className="pt-6 border-t border-slate-200">
@@ -374,7 +374,7 @@ const BusinessServices = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-24 bg-gradient-to-br from-[#3D6B6E] to-[#9B2335] relative overflow-hidden">
+            <section className="py-24 bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
                 <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
@@ -383,7 +383,7 @@ const BusinessServices = () => {
                     </h2>
                     <Link
                         to="/contact"
-                        className="btn-premium px-10 py-5 bg-white text-[#3D6B6E] rounded-full font-bold text-xl shadow-2xl"
+                        className="btn-premium px-10 py-5 bg-white text-[#1E3A5F] rounded-full font-bold text-xl shadow-2xl"
                     >
                         Start the Conversation
                     </Link>

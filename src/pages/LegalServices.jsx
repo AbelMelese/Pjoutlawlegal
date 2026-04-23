@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Building2, Landmark, Scale, Stethoscope } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import booksImage from '../assets/books image.jpg';
-import page3Img from '../assets/Page_ 3 update.jpg';
+import legalServicesHero from '../assets/Legal Services.png';
 import officeImage from '../assets/image1.jpg';
 
 const practiceAreas = [
@@ -35,11 +35,11 @@ const practiceAreas = [
 const LegalServices = () => {
   return (
     <div className="overflow-hidden bg-[#f8fafc]">
-      <div className="hero-shell w-full relative">
+      <div className="w-full">
         <img
-          src={page3Img}
+          src={legalServicesHero}
           alt="Legal Services"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="w-full h-auto block"
         />
       </div>
 
@@ -103,7 +103,7 @@ const LegalServices = () => {
           <div className="text-center mt-14">
             <Link
               to="/contact"
-              className="btn-premium inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#3D6B6E] to-[#9B2335] text-white rounded-full font-bold text-lg shadow-xl"
+              className="btn-premium inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] text-white rounded-full font-bold text-lg shadow-xl"
             >
               Contact Our Office
             </Link>

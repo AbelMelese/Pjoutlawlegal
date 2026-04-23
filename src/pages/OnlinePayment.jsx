@@ -1,19 +1,15 @@
-import PageHero from '../components/PageHero';
-import booksImage from '../assets/books image.jpg';
+import onlinePaymentHero from '../assets/Online Payment.png';
 
 const OnlinePayment = () => {
   return (
     <div className="overflow-hidden bg-[#f8fafc]">
-      <PageHero
-        slides={[
-          {
-            title: 'Online Payment',
-            subtitle:
-              'For payment arrangements, please contact our office directly so we can provide the current instructions for your matter.',
-            image: booksImage,
-          },
-        ]}
-      />
+      <div className="w-full">
+        <img
+          src={onlinePaymentHero}
+          alt="Online Payment"
+          className="w-full h-auto block"
+        />
+      </div>
 
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
