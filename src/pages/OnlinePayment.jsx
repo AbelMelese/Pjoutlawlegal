@@ -58,7 +58,7 @@ const OnlinePayment = () => {
 
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-2">
-                      Invoice or Reference Number
+                      Description
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -69,7 +69,7 @@ const OnlinePayment = () => {
                         value={invoiceNumber}
                         onChange={(e) => setInvoiceNumber(e.target.value)}
                         className="block w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#1E3A5F] focus:border-[#1E3A5F] outline-none transition-colors"
-                        placeholder="INV-12345"
+                        placeholder="Payment for services"
                         required
                       />
                     </div>

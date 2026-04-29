@@ -70,7 +70,7 @@ const Footer = () => {
                 to="/contact"
                 className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white rounded-full font-semibold text-lg hover:bg-white/20 transition-all duration-300 hover:-translate-y-1"
               >
-                <span style={{ backgroundColor: '#3a4381', padding: '0.4rem 0.8rem', borderRadius: '9999px' }}>Contact Us</span>
+                <span>Contact Us</span>
                 <ArrowRight size={20} />
               </Link>
             </div>
@@ -124,7 +124,7 @@ const Footer = () => {
                       size={14}
                       className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
                     />
-                    <span style={link.name === 'Contact Us' ? { backgroundColor: '#3a4381', padding: '0.2rem 0.6rem', borderRadius: '9999px', color: 'white' } : undefined}>{link.name}</span>
+                    <span>{link.name}</span>
                   </Link>
                 </li>
               ))}
@@ -157,7 +157,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
               <span className="w-8 h-0.5 bg-[#C5A03A]"></span>
-              <span style={{ backgroundColor: '#3a4381', padding: '0.3rem 0.8rem', borderRadius: '9999px' }}>Contact Us</span>
+              <span>Contact Us</span>
             </h4>
             <div className="space-y-5">
               <div className="flex items-start gap-4">

@@ -161,7 +161,6 @@ const MediationServices = () => {
                     src={mediationPageHero}
                     alt="Mediation Services"
                     className="w-full h-auto block"
-                    style={{ clipPath: 'inset(0 0 12% 0)' }}
                 />
             </div>
 
