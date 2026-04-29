@@ -156,7 +156,7 @@ const MediationServices = () => {
 
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
-            <div className="w-full" style={{ marginBottom: '-12%' }}>
+            <div className="w-full">
                 <img
                     src={mediationPageHero}
                     alt="Mediation Services"
