@@ -17,10 +17,7 @@ import {
     Gavel,
     DollarSign
 } from 'lucide-react';
-import PageHero from '../components/PageHero';
-import pjoaOffice264 from '../assets/pjoa-office-264.jpg';
-import image2 from '../assets/image 2.jpg';
-import booksImage from '../assets/books image.jpg';
+import mediationPageHero from '../assets/Mediation page.png';
 
 
 
@@ -157,34 +154,16 @@ const MediationServices = () => {
         }
     ];
 
-    const heroSlides = [
-        {
-            title: "The Path from Conflict to Resolution",
-            subtitle: "As a Court-Appointed Mediator, Phyllis J. Outlaw has conducted Mediation for Civil cases to include but not limited to Property issues and Family Law to include complex marital property involving complex business assets, custody and child support issues. Prepares Legal Separation, Property, Custody, Parenting Plans and Child Support Agreements",
-            image: pjoaOffice264,
-        },
-        {
-            title: "Neutral Facilitation",
-            subtitle: "We maintain neutrality, creating an environment that promotes open engagement and focuses on problem-solving rather than taking sides.",
-            image: image2
-        },
-        {
-            title: "Confidential Process",
-            subtitle: "A secure and private environment for open dialogue, where all information shared remains strictly confidential.",
-            image: booksImage
-        }
-    ];
-
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
-            {/* Hero Section */}
-            <PageHero
-                slides={heroSlides}
-                noSlide
-                actions={[
-                    { label: '(202) 548-2999', href: 'tel:+12025482999', icon: 'phone' },
-                ]}
-            />
+            <div className="w-full" style={{ marginBottom: '-12%' }}>
+                <img
+                    src={mediationPageHero}
+                    alt="Mediation Services"
+                    className="w-full h-auto block"
+                    style={{ clipPath: 'inset(0 0 12% 0)' }}
+                />
+            </div>
 
             {/* Services Overview */}
             <section className="py-24">
