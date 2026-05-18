@@ -7,6 +7,7 @@ const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Mediation Services', path: '/mediation-services' },
   { name: 'Legal Services', path: '/legal-services' },
+  { name: 'Practice Areas', path: '/practice-areas' },
   { name: 'Coaching', path: '/coaching' },
   { name: 'About the Principal', path: '/about-phyllis-j-outlaw' },
   { name: 'Online Payment', path: '/online-payment' },

@@ -10,6 +10,7 @@ import ScrollReveal from './components/ScrollReveal';
 import LegalServices from './pages/LegalServices';
 import AboutPhyllis from './pages/AboutPhyllis';
 import OnlinePayment from './pages/OnlinePayment';
+import PracticeAreas from './pages/PracticeAreas';
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -22,6 +23,7 @@ const AnimatedRoutes = () => {
         <Route path="/coaching" element={<Coaching />} />
         <Route path="/about-phyllis-j-outlaw" element={<AboutPhyllis />} />
         <Route path="/online-payment" element={<OnlinePayment />} />
+        <Route path="/practice-areas" element={<PracticeAreas />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/divorce-family-law" element={<Navigate to="/legal-services" replace />} />
         <Route path="/business-services" element={<Navigate to="/legal-services" replace />} />
