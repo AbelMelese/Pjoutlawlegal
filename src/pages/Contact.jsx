@@ -39,7 +39,7 @@ const Contact = () => {
                                         </div>
                                         <div className="min-w-0">
                                             <p className="text-sm font-bold text-white/60 uppercase tracking-wider mb-1">Office Hours</p>
-                                            <p className="text-[0.85rem] sm:text-base md:text-[0.85rem] lg:text-[0.95rem] xl:text-lg font-bold text-white whitespace-nowrap tracking-tight">Monday to Friday, 9 PM - 5 AM EST</p>
+                                            <p className="text-[0.85rem] sm:text-base md:text-[0.85rem] lg:text-[0.95rem] xl:text-lg font-bold text-white whitespace-nowrap tracking-tight">Monday to Friday, 9:00 AM- 5:00 pm EST</p>
                                         </div>
                                     </div>
 
@@ -87,7 +87,7 @@ const Contact = () => {
                             </p>
                             <div className="mt-2">
                                 <p className="text-lg font-bold text-slate-900 font-['Playfair_Display']">412 H Street, NE</p>
-                                <p className="text-lg font-medium text-slate-700">Washington, DC</p>
+                                <p className="text-lg font-medium text-slate-700">Washington, DC 20002</p>
                             </div>
                         </div>
                         <div className="relative">

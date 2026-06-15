@@ -126,7 +126,7 @@ const PracticeAreas = () => {
                 slides={heroSlides}
                 noSlide
                 actions={[
-                    { label: 'Schedule a Free Consultation', to: '/contact' },
+                    { label: 'Schedule a Consultation', to: '/contact' },
                     { label: '(202) 548-2999', href: 'tel:+12025482999', icon: 'phone' },
                 ]}
             />
@@ -159,7 +159,7 @@ const PracticeAreas = () => {
                                 to="/contact"
                                 className="btn-premium inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] text-white rounded-full font-bold shadow-xl shadow-[#1E3A5F]/20"
                             >
-                                <span>Schedule a Free Consultation</span>
+                                <span>Schedule a Consultation</span>
                                 <ArrowRight size={18} />
                             </Link>
                         </div>
@@ -270,14 +270,7 @@ const PracticeAreas = () => {
                                             <p className="text-white/90 text-xl font-['Playfair_Display'] font-bold tracking-wide relative z-10 text-center px-6">
                                                 {area.title}
                                             </p>
-                                            <div className="absolute bottom-6 right-6 p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/50">
-                                                <div className="flex items-center gap-2">
-                                                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                                                    <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">
-                                                        Accepting Cases
-                                                    </span>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -336,7 +329,7 @@ const PracticeAreas = () => {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
                     <h2 className="text-4xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-6">
-                        Schedule a Free{' '}
+                        Schedule a{' '}
                         <span className="text-white/80">Consultation</span>
                     </h2>
                     <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
