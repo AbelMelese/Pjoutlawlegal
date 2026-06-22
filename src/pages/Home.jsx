@@ -17,6 +17,7 @@ import designSlide1 from '../assets/design_  slide1.png';
 import designSlide2 from '../assets/design_  slide2.png';
 import designSlide3 from '../assets/design_  slide3.png';
 import designSlide4 from '../assets/design_  slide4.png';
+import fleurDeLis from '../assets/fleur-de-lis.png';
 
 
 
@@ -161,7 +162,7 @@ const Home = () => {
                                     <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.color} opacity-10 rounded-full blur-2xl`}></div>
 
                                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg mb-6`}>
-                                        <service.icon size={32} />
+                                        <img src={fleurDeLis} alt={service.title} className="w-8 h-8 object-contain" />
                                     </div>
 
                                     <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3">{service.title}</h3>
