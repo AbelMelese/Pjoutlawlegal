@@ -5,10 +5,12 @@ import {
     Scale,
     Users,
     Briefcase,
-    Gavel,
     Shield,
     Target,
-    Calendar
+    Calendar,
+    Building2,
+    UserCheck,
+    HeartHandshake
 } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -39,32 +41,32 @@ const Home = () => {
 
     const services = [
         {
-            icon: Users,
-            title: 'Family & Divorce Mediation',
-            description: 'We assist spouses and families in navigating separation, divorce, and post-divorce matters. Our process focuses on cooperation and long-term stability, especially where children are involved.',
-            color: 'from-[#2A4F7A] to-[#1E3A5F]',
-            link: '/mediation-services',
-        },
-        {
-            icon: Briefcase,
-            title: 'Business & Commercial Mediation',
-            description: 'Disputes between business partners, employers and employees, vendors, or clients can disrupt operations and damage relationships. Mediation provides a practical pathway to resolution while preserving professionalism.',
-            color: 'from-[#1E3A5F] to-[#5B2C6F]',
-            link: '/mediation-services',
-        },
-        {
-            icon: Gavel,
-            title: 'Court-Referred Mediation',
-            description: 'We accept court-referred cases and provide mediation services aligned with legal standards and judicial expectations. Our legal background ensures agreements are practical, enforceable, and well-documented.',
-            color: 'from-[#2A4F7A] to-[#1E3A5F]',
-            link: '/mediation-services',
-        },
-        {
             icon: Scale,
-            title: 'Child Custody & Parenting Mediation',
-            description: 'We help parents create balanced, workable parenting agreements that prioritize the well-being of children while respecting each parentâ€™s rights and responsibilities.',
-            color: 'from-[#5B2C6F] to-[#5B2C6F]',
+            title: 'Mediation Services',
+            description: 'Whether you are going through a divorce, addressing a family dispute, or managing workplace conflict, our proven process helps you reach effective results.',
+            color: 'from-[#2A4F7A] to-[#1E3A5F]',
             link: '/mediation-services',
+        },
+        {
+            icon: Building2,
+            title: 'Corporate Services',
+            description: 'Phyllis J. Outlaw & Associates provides legal services to businesses, nonprofit organizations, and individuals seeking experienced counsel. We handle each matter with careful preparation, clear communication, and a strong focus on our clients\' long-term interests.',
+            color: 'from-[#1E3A5F] to-[#5B2C6F]',
+            link: '/legal-services',
+        },
+        {
+            icon: UserCheck,
+            title: 'Individual Client Services',
+            description: 'Phyllis J. Outlaw & Associates possess extensive trial experience in federal and local courts and have represented clients before agencies in Washington, D.C., and Maryland. Our firm has substantial knowledge and skills in litigation, arbitration, and mediation involving family law matters, including divorce, marital property, child custody, visitation, and child support, as well as personal injury, medical malpractice, probate, consumer law, real estate, labor law, equal employment opportunity law, and discrimination law.',
+            color: 'from-[#2A4F7A] to-[#1E3A5F]',
+            link: '/practice-areas',
+        },
+        {
+            icon: HeartHandshake,
+            title: 'Coaching Services',
+            description: 'Our coaching services help individuals, couples, families, and businesses set goals, strengthen skills, and achieve results through personalized support and practical action steps.',
+            color: 'from-[#5B2C6F] to-[#5B2C6F]',
+            link: '/coaching',
         },
     ];
     const marqueeServices = [...services, ...services];
@@ -74,24 +76,19 @@ const Home = () => {
 
     const testimonials = [
         {
-            quote: "I am very pleased and satisfied with the firm's work. They keep me fully informed both in person and with a written copy of all details. The attorneys have been competent, thorough and timely in their legal work.",
+            quote: "I am very pleased and satisfied with the firm's work. They kept me fully informed both in person and with a written copy of all details. The attorneys have been competent, thorough and timely in their legal work.",
             author: 'Terrance Howell',
             role: 'Prince Georges County, MD',
         },
         {
-            quote: 'Phyllis J. Outlaw & Associates are highly skilled in their approach to personnel matters. The attorneys are very professional and courteous with their clients and treat them with the utmost respect.',
-            author: 'Quinsola N. McCray',
+            quote: 'From the beginning, Attorney Outlaw was very upfront with me about my case, and she directed me how to proceed with my case. Throughout the process, Atty. Outlaw and her staff kept me informed of what to expect. I appreciated her professionalism in handling my case. I would highly recommend Phyllis J. Outlaw & Associates to anyone who needs legal representation. Thank you for handling my case.',
+            author: 'Sheryl Garrison',
+            role: 'Newnan, GA',
+        },
+        {
+            quote: 'Phyllis J. Outlaw & Associates represented me after I was injured in a car accident. Attorney Outlaw and her staff were professional and kept me informed throughout my case. I highly recommend Phyllis J. Outlaw & Associates to anyone in need of legal services.',
+            author: 'Emma Dorsey',
             role: 'Washington, DC',
-        },
-        {
-            quote: 'Phyllis J. Outlaw & Associates provides exceptional legal services and always represents our best interest. The attorneys are accessible and highly responsive to our requests.',
-            author: 'Dr. Mary Quinn',
-            role: 'Council of Women Ministers & Male Support Division, Inc., Washington, DC',
-        },
-        {
-            quote: 'Phyllis J. Outlaw & Associates\' managerial-employee training programs are highly effective and would be an asset to any organization.',
-            author: 'Ann Brown',
-            role: 'Mary Kay Cosmetics, Charlotte, North Carolina',
         },
     ];
 
@@ -147,8 +144,8 @@ const Home = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div ref={servicesHeaderRef} className="scroll-reveal text-center mb-10 md:mb-14">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
-                            Mediation Services Focused on<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Delivering Effective Outcomes</span>
+                            Phyllis J. Outlaw &amp; Associates<br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Our Services</span>
                         </h2>
                     </div>
 
@@ -181,16 +178,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="pb-14 md:pb-20">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                        Coaching Services
-                    </h2>
-                    <p className="text-lg text-slate-700 leading-relaxed">
-                        Our coaching services assist individuals, couples, families and businesses in setting goals, improving skills, and achieving results through customized support and actionable steps.
-                    </p>
-                </div>
-            </section>
+
 
 
             {/* Process Section - Dark Mode */}
@@ -258,13 +246,13 @@ const Home = () => {
                 <div ref={testimonialsRef} className="scroll-reveal max-w-5xl mx-auto px-4 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-10 md:mb-12">Client Testimonials</h2>
 
-                    <div className="relative min-h-[290px] md:min-h-[250px]">
+                    <div className="relative min-h-[420px] sm:min-h-[380px] md:min-h-[340px] lg:min-h-[300px]">
                         {testimonials.map((t, i) => (
                             <div
                                 key={i}
                                 className={`absolute inset-0 transition-all duration-700 ${i === activeTestimonial ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
                             >
-                                <p className="text-xl md:text-3xl font-['Playfair_Display'] text-slate-800 leading-tight mb-6">"{t.quote}"</p>
+                                <p className="text-lg md:text-2xl lg:text-3xl font-['Playfair_Display'] text-slate-800 leading-snug mb-6">"{t.quote}"</p>
                                 <div className="space-y-2">
                                     <p className="font-bold text-slate-900 text-lg">{t.author}</p>
                                     <p className="text-[#5B2C6F] text-sm font-semibold uppercase tracking-[0.16em]">{t.role}</p>
