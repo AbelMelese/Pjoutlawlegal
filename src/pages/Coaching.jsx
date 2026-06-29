@@ -11,7 +11,9 @@ import {
     Shield,
     Video,
     GraduationCap,
-    Presentation
+    Presentation,
+    Quote,
+    Star
 } from 'lucide-react';
 import PageHero from '../components/PageHero';
 import seminarsTrainingImg from "../assets/use this image in seminars and training.jpg";
@@ -27,7 +29,7 @@ const Coaching = () => {
             icon: Users,
             title: 'Family Coaching',
             subtitle: 'Strengthen Relationships. Rebuild Trust.',
-            description: 'Families are complex. Even when love is strong, misunderstandings, boundaries, and life changes can create deep rifts. Our Family Coaching service is designed to help you reconnect.',
+            description: 'Families are complex. Even when love is strong, misunderstandings and life changes can create deep rifts. Our Family Coaching Services are designed to help you reconnect.',
             benefits: [
                 'Improve parent-child communication',
                 'Address co-parenting challenges',
@@ -47,12 +49,12 @@ const Coaching = () => {
             icon: Heart,
             title: 'Divorce Coaching',
             subtitle: 'Clarity & Confidence During Transition',
-            description: 'Divorce can be overwhelming. As certified divorce coaches, we help you stay grounded, clear-headed, and empowered through each stage of your journey.',
+            description: 'Divorce can be overwhelming. Phyllis J. Outlaw & Associates helps you stay grounded, clearheaded, and empowered through each stage of your journey.',
             benefits: [
                 'Understand the divorce process',
-                'Prepare for mediation',
+                'Prepare for negotiating settlement agreements',
                 'Navigate high-stress conversations',
-                'Manage emotions like anger & grief',
+                'Tips on how to handle anger and grief',
                 'Focus on your well-being',
                 'Create post-divorce goals',
             ],
@@ -68,14 +70,16 @@ const Coaching = () => {
             icon: Briefcase,
             title: 'Business Coaching',
             subtitle: 'Unlock Clarity & Strategy',
-            description: 'Behind every successful business is a person managing uncertainty. Our business coaching focuses on helping entrepreneurs align values with vision.',
+            description: 'Phyllis J. Outlaw & Associates provides results-focused coaching for business owners, executives, professionals, managers, and employees. With decades of experience in legal and training services, our facilitator helps clients strengthen leadership, address organizational challenges, and work toward long-term goals through plans tailored to each business\'s needs.',
             benefits: [
                 'Define business goals and vision',
                 'Navigate team dynamics',
                 'Set boundaries',
-                'Improve leadership presence',
-                'Handle transitions with clarity',
-                'Reconnect business with purpose',
+                'Improve leadership skills',
+                'Handle transitions effectively',
+                'Develop a plan that supports your business purpose',
+                'Strengthen organizational management',
+                'Set career goals',
             ],
             note: 'We blend practical business insight with coaching.',
             color: 'from-[#1E3A5F] to-[#5B2C6F]',
@@ -97,8 +101,21 @@ const Coaching = () => {
 
     const heroSlides = [];
 
+    const testimonials = [
+        {
+            quote: 'Phyllis J. Outlaw & Associates exceeded my expectations. They helped me clarify my vision, prioritize my work, and develop a strong long-term business strategy. I gained healthier ways to manage workplace pressure and a better work-life balance. Their support was the missing piece I needed to move into my next stage of growth.',
+            name: 'Bonita Witherspoon',
+            location: 'Washington, DC',
+        },
+        {
+            quote: 'A true partner in our success. Phyllis J. Outlaw & Associates business coaching services have delivered lasting value through strategic direction, accountability, and practical solutions that work.',
+            name: 'Dr. Wayne Moore',
+            location: 'Prince Georges County, MD',
+        },
+    ];
+
     return (
-        <div className="overflow-hidden bg-[#f8fafc]">
+        <div className="overflow-hidden bg-slate-50">
             {/* Hero Section */}
             <div className="w-full">
                 <img
@@ -107,6 +124,15 @@ const Coaching = () => {
                     className="w-full h-auto block"
                 />
             </div>
+
+            {/* Intro Section */}
+            <section className="py-16 md:py-20 bg-white">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
+                        Phyllis J. Outlaw & Associates Coaching Services offer practical, innovative support for individuals, couples, families, professionals, executives, managers, and businesses. Whether clients are facing divorce, family conflict, career growth, or workplace challenges, we provide customized guidance and actionable strategies to help them set goals, build skills, and achieve meaningful results.
+                    </p>
+                </div>
+            </section>
 
             {/* Services Grid */}
             <section className="py-16 md:py-24">
@@ -148,7 +174,7 @@ const Coaching = () => {
                                     </p>
 
                                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                                        <h4 className={`text-lg font-bold ${service.accent} mb-4`}>{service.title} Helps You:</h4>
+                                        <h4 className={`text-lg font-bold ${service.accent} mb-4`}>The Benefits of {service.title}:</h4>
                                         <div className="grid gap-3">
                                             {service.benefits.map((b, i) => (
                                                 <div key={i} className="flex items-start gap-3">
@@ -293,6 +319,49 @@ const Coaching = () => {
                 </div>
             </section>
 
+            {/* Client Testimonials */}
+            <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-64 h-64 bg-[#1E3A5F]/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#5B2C6F]/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
+                            Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Testimonials</span>
+                        </h2>
+                        <div className="flex justify-center gap-1 mt-4">
+                            {[...Array(5)].map((_, i) => (
+                                <Star key={i} size={20} className="text-amber-400 fill-amber-400" />
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {testimonials.map((t, i) => (
+                            <div
+                                key={i}
+                                className="bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 relative group"
+                            >
+                                <div className="absolute top-6 right-8 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                                    <Quote size={36} className="text-[#1E3A5F]" />
+                                </div>
+                                <p className="text-slate-600 leading-relaxed text-lg italic mb-8 relative z-10">
+                                    "{t.quote}"
+                                </p>
+                                <div className="flex items-center gap-4 relative z-10">
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] flex items-center justify-center text-white font-bold text-lg font-['Playfair_Display']">
+                                        {t.name.charAt(0)}
+                                    </div>
+                                    <div>
+                                        <p className="font-bold text-slate-900 font-['Playfair_Display']">{t.name}</p>
+                                        <p className="text-slate-500 text-sm">{t.location}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* CTA Section */}
             <section className="py-16 md:py-24 bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
@@ -303,7 +372,7 @@ const Coaching = () => {
                     </h2>
                     <Link
                         to="/contact"
-                        className="btn-premium px-10 py-5 bg-white text-[#1E3A5F] rounded-full font-bold text-xl shadow-2xl"
+                        className="inline-block px-10 py-5 bg-white text-[#1E3A5F] rounded-full font-bold text-xl shadow-2xl transition-all duration-400 hover:bg-[#1E3A5F] hover:text-white hover:-translate-y-1 hover:shadow-[0_20px_40px_-10px_rgba(30,58,95,0.5)]"
                     >
                         Book a Coaching Session
                     </Link>
