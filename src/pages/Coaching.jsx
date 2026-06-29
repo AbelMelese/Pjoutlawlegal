@@ -20,6 +20,7 @@ import seminarsTrainingImg from "../assets/use this image in seminars and traini
 import coachingPhoto from "../assets/use this image in coaching page.jpg";
 import image2 from "../assets/image 2.jpg";
 import booksImage from "../assets/books image.jpg";
+import fleurDeLis from '../assets/fleur-de-lis.png';
 import coachingHero from '../assets/Coaching.png';
 
 const Coaching = () => {
@@ -91,12 +92,12 @@ const Coaching = () => {
     ];
 
     const differentiators = [
-        { icon: Target, title: 'Tailored', description: 'Built around your unique situation, goals, and strengths.' },
-        { icon: Heart, title: 'Compassionate', description: 'Growth comes from support, not pressure.' },
-        { icon: Shield, title: 'Confidential', description: 'Your personal and professional challenges stay private.' },
-        { icon: Video, title: 'Flexible', description: 'Sessions are virtual and accessible from anywhere.' },
-        { icon: Lightbulb, title: 'Real', description: 'Grounded human guidance that works.' },
-        { icon: Compass, title: 'Forward-Focused', description: 'Act on what is truly right for you.' },
+        { icon: Target, title: 'Tailored', description: 'Built around your unique situation, goals, and strengths.', color: 'from-[#2A4F7A] to-[#1E3A5F]' },
+        { icon: Heart, title: 'Compassionate', description: 'Growth comes from support, not pressure.', color: 'from-[#5B2C6F] to-[#3E1A4D]' },
+        { icon: Shield, title: 'Confidential', description: 'Your personal and professional challenges stay private.', color: 'from-[#1E3A5F] to-[#5B2C6F]' },
+        { icon: Video, title: 'Flexible', description: 'Sessions are virtual and accessible from anywhere.', color: 'from-[#5B2C6F] to-[#5B2C6F]' },
+        { icon: Lightbulb, title: 'Real', description: 'Grounded human guidance that works.', color: 'from-[#2A4F7A] to-[#5B2C6F]' },
+        { icon: Compass, title: 'Forward-Focused', description: 'Act on what is truly right for you.', color: 'from-[#1E3A5F] to-[#2A4F7A]' },
     ];
 
     const heroSlides = [];
@@ -146,7 +147,7 @@ const Coaching = () => {
                             >
                                 <div className={`absolute top-0 w-full h-2 bg-gradient-to-r ${service.color}`}></div>
                                 <div className={`w-20 h-20 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500 text-white`}>
-                                    <service.icon size={32} />
+                                    <img src={fleurDeLis} alt={service.title} className="w-10 h-10 object-contain" />
                                 </div>
                                 <h3 className="text-2xl font-bold text-slate-900 mb-3 font-['Playfair_Display']">
                                     {service.title}
@@ -208,7 +209,7 @@ const Coaching = () => {
                                             ) : (
                                                 <div className={`w-full h-[400px] bg-gradient-to-br ${service.color} flex flex-col items-center justify-center gap-6 group`}>
                                                     <div className="w-32 h-32 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform duration-500">
-                                                        <service.icon size={64} className="text-white drop-shadow-lg" />
+                                                        <img src={fleurDeLis} alt={service.title} className="w-16 h-16 object-contain drop-shadow-lg" />
                                                     </div>
                                                     <p className="text-white/80 text-xl font-['Playfair_Display'] font-bold tracking-wide">{service.title}</p>
                                                     <div className="flex gap-2">
@@ -241,7 +242,9 @@ const Coaching = () => {
                                 key={index}
                                 className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 group"
                             >
-                                <item.icon size={32} className="text-[#1E3A5F] mb-6 group-hover:scale-110 transition-transform" />
+                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                                    <img src={fleurDeLis} alt={item.title} className="w-8 h-8 object-contain" />
+                                </div>
                                 <h3 className="text-xl font-bold text-slate-900 mb-3 font-['Playfair_Display']">
                                     {item.title}
                                 </h3>
@@ -260,7 +263,7 @@ const Coaching = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#d1e9ea] rounded-full mb-6 border border-[#b3d9db]">
-                                <GraduationCap size={18} className="text-[#1E3A5F]" />
+                                <img src={fleurDeLis} alt="Professional Development" className="w-5 h-5 object-contain" />
                                 <span className="text-[#1E3A5F] font-bold text-sm tracking-wide uppercase">Professional Development</span>
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
@@ -275,7 +278,7 @@ const Coaching = () => {
 
                             <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 mb-8">
                                 <h4 className="font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
-                                    <Presentation className="text-[#1E3A5F]" />
+                                    <img src={fleurDeLis} alt="Training Topics" className="w-5 h-5 object-contain" />
                                     Training Topics Include:
                                 </h4>
                                 <div className="grid sm:grid-cols-2 gap-3">
