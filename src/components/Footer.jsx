@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   ArrowRight,
   Facebook,
@@ -36,49 +36,9 @@ const socialLinks = [
   { Icon: Linkedin, href: 'https://www.linkedin.com/in/phyllis-j-outlaw-esq/' },
 ];
 
-const ctaPages = ['/', '/mediation-services'];
-
 const Footer = () => {
-  const location = useLocation();
-  const showCta = ctaPages.includes(location.pathname);
-
   return (
     <footer className="relative overflow-hidden">
-      {showCta && (
-      <div className="relative border-b border-white/10 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1E3A5F 0%, #C5A03A 50%, #5B2C6F 100%)' }}>
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="text-center lg:text-left">
-              <h2 className="text-2xl md:text-4xl font-bold font-['Playfair_Display'] mb-3 text-white">
-                Ready to Find Your <span className="text-white/80">Resolution</span>?
-              </h2>
-              <p className="text-white/70 text-lg max-w-xl">
-                Schedule your consultation today and take the first step toward clarity.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="tel:+12025482999"
-                className="btn-premium flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#1E3A5F] rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              >
-                <Phone size={20} />
-                <span>(202) 548-2999</span>
-              </a>
-              <Link
-                to="/contact"
-                className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white rounded-full font-semibold text-lg hover:bg-white/20 transition-all duration-300 hover:-translate-y-1"
-              >
-                <span>Contact Us</span>
-                <ArrowRight size={20} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      )}
-
       <div className="relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #1E3A5F 0%, #2A1F4E 40%, #5B2C6F 100%)' }}>
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 relative z-10">

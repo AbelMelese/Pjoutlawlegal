@@ -129,7 +129,7 @@ const Coaching = () => {
             {/* Intro Section */}
             <section className="py-16 md:py-20 bg-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
+                    <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-semibold">
                         Phyllis J. Outlaw & Associates Coaching Services offer practical, innovative support for individuals, couples, families, professionals, executives, managers, and businesses. Whether clients are facing divorce, family conflict, career growth, or workplace challenges, we provide customized guidance and actionable strategies to help them set goals, build skills, and achieve meaningful results.
                     </p>
                 </div>

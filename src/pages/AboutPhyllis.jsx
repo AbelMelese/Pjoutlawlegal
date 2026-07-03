@@ -74,10 +74,12 @@ const AboutPhyllis = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Portrait on the left */}
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-[#1E3A5F]/30 to-[#2A4F7A]/30 blur-xl"></div>
-              <div className="framed-photo-container relative">
-                <img src={portrait} alt="Phyllis J. Outlaw portrait" />
+            <div className="flex justify-center md:justify-start">
+              <div className="relative max-w-[50%]">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-[#1E3A5F]/30 to-[#2A4F7A]/30 blur-xl"></div>
+                <div className="framed-photo-container relative">
+                  <img src={portrait} alt="Phyllis J. Outlaw portrait" />
+                </div>
               </div>
             </div>
 

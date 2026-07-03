@@ -1,13 +1,7 @@
 import { Link } from 'react-router-dom';
 import {
     ArrowRight,
-    CheckCircle,
     Scale,
-    Users,
-    Briefcase,
-    Shield,
-    Target,
-    Calendar,
     Building2,
     UserCheck,
     HeartHandshake
@@ -33,9 +27,7 @@ const Home = () => {
     const servicesGridRef = useScrollReveal({ staggerChildren: true, staggerDelay: 150 });
 
 
-    const processTextRef = useScrollReveal();
-    const processStepsRef = useScrollReveal({ staggerChildren: true, staggerDelay: 200 });
-    const processCardRef = useScrollReveal();
+
     const testimonialsRef = useScrollReveal();
     const ctaRef = useScrollReveal();
 
@@ -143,10 +135,29 @@ const Home = () => {
             <section className="py-14 md:py-20 relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div ref={servicesHeaderRef} className="scroll-reveal text-center mb-10 md:mb-14">
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
-                            Phyllis J. Outlaw &amp; Associates<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Our Services</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
+                            Phyllis J. Outlaw &amp; Associates
                         </h2>
+                        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6">
+                            {[
+                                { icon: Scale, label: 'Mediation Services' },
+                                { icon: Building2, label: 'Corporate Services' },
+                                { icon: UserCheck, label: 'Individual Client Services' },
+                                { icon: HeartHandshake, label: 'Coaching Services' },
+                            ].map((item, idx) => (
+                                <div key={idx} className="flex items-center gap-2">
+                                    {idx > 0 && (
+                                        <span className="hidden sm:inline-block w-[3px] h-[3px] rounded-full bg-[#C5A03A] mr-2 md:mr-4" />
+                                    )}
+                                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] flex items-center justify-center text-white shadow-md">
+                                        <item.icon size={16} />
+                                    </div>
+                                    <span className="text-base md:text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] font-['Playfair_Display']">
+                                        {item.label}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     <div ref={servicesGridRef} className="scroll-reveal services-marquee">
@@ -181,81 +192,34 @@ const Home = () => {
 
 
 
-            {/* Process Section - Dark Mode */}
+            {/* Client Testimonials - Dark Mode */}
             <section className="py-14 md:py-20 bg-[#1E3A5F] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
                     <div className="blob bg-[#5B2C6F] w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 rounded-full blur-3xl"></div>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-14 items-center">
-                        <div ref={processTextRef} className="scroll-reveal">
-                            <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-6">
-                                A Process That <br />
-                                <span className="text-[#C5A03A]">Works For You</span>
-                            </h2>
-                            <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-                                Whether you are navigating a divorce, resolving a family dispute, or facing conflict at work, our proven process is designed to create momentum.
-                            </p>
+                <div ref={testimonialsRef} className="scroll-reveal max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-4">
+                        Client <span className="text-[#C5A03A]">Testimonials</span>
+                    </h2>
+                    <div className="w-20 h-[3px] bg-gradient-to-r from-[#C5A03A] to-[#5B2C6F] mx-auto mb-10 md:mb-14 rounded-full"></div>
 
-                            <div ref={processStepsRef} className="scroll-reveal space-y-6">
-                                {[
-                                    { title: 'Reach Out', desc: 'Call or contact our office to discuss your needs.', icon: Calendar },
-                                    { title: 'Get Clarity', desc: 'We structure a plan tailored to your needs.', icon: Target },
-                                    { title: 'Move Forward', desc: 'Resolve conflict with confidence and peace.', icon: CheckCircle },
-                                ].map((step, i) => (
-                                    <div key={i} className="scroll-reveal-child flex items-start gap-6 group">
-                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#C5A03A] group-hover:bg-[#C5A03A] group-hover:text-[#1E3A5F] transition-all duration-300 shadow-lg">
-                                            <step.icon size={28} />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                                            <p className="text-slate-300">{step.desc}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div ref={processCardRef} className="scroll-reveal--scale scroll-reveal relative">
-                            <div className="absolute -inset-4 bg-gradient-to-r from-[#C5A03A] to-[#5B2C6F] rounded-[2.5rem] rotate-3 opacity-30 blur-lg"></div>
-                            <div className="relative min-h-[340px] md:min-h-[420px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/10 bg-gradient-to-br from-[#2A4F7A] to-[#5B2C6F] flex flex-col items-center p-7 text-center">
-                                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
-
-                                <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center text-[#C5A03A] mb-6 mt-6 relative z-10 shadow-lg">
-                                    <Shield size={48} />
-                                </div>
-                                <h3 className="text-2xl md:text-3xl font-bold text-white font-['Playfair_Display'] mb-4 relative z-10">Trusted Guidance</h3>
-                                <p className="text-slate-300 relative z-10 leading-relaxed max-w-sm">
-                                    With over 30 years of experience, we provide a secure, confidential environment for you to resolve disputes and plan for the future.
-                                </p>
-
-                                <div className="relative z-10 mt-8 w-full md:mt-auto">
-                                    <div className="glass-panel p-6 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md">
-                                        <p className="text-white font-['Playfair_Display'] text-lg md:text-xl italic drop-shadow-md">"The clarity I gained after just one session was life-changing."</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Testimonials */}
-            <section className="py-14 md:py-18 bg-slate-50 relative">
-                <div ref={testimonialsRef} className="scroll-reveal max-w-5xl mx-auto px-4 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-10 md:mb-12">Client Testimonials</h2>
-
-                    <div className="relative min-h-[420px] sm:min-h-[380px] md:min-h-[340px] lg:min-h-[300px]">
+                    <div className="relative min-h-[560px] sm:min-h-[500px] md:min-h-[460px] lg:min-h-[420px]">
                         {testimonials.map((t, i) => (
                             <div
                                 key={i}
-                                className={`absolute inset-0 transition-all duration-700 ${i === activeTestimonial ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+                                className={`absolute inset-0 transition-all duration-700 flex flex-col items-center justify-center ${i === activeTestimonial ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
                             >
-                                <p className="text-lg md:text-2xl lg:text-3xl font-['Playfair_Display'] text-slate-800 leading-snug mb-6">"{t.quote}"</p>
-                                <div className="space-y-2">
-                                    <p className="font-bold text-slate-900 text-lg">{t.author}</p>
-                                    <p className="text-[#5B2C6F] text-sm font-semibold uppercase tracking-[0.16em]">{t.role}</p>
+                                <div className="relative rounded-[2rem] p-8 md:p-10 border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl max-w-3xl mx-auto">
+                                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-[#C5A03A] to-[#5B2C6F] flex items-center justify-center shadow-lg">
+                                        <span className="text-white text-xl font-bold font-['Playfair_Display']">&ldquo;</span>
+                                    </div>
+                                    <p className="text-lg md:text-2xl font-['Playfair_Display'] text-white leading-relaxed mb-6 italic">
+                                        "{t.quote}"
+                                    </p>
+                                    <div className="w-12 h-[2px] bg-[#C5A03A] mx-auto mb-4 rounded-full"></div>
+                                    <p className="font-bold text-white text-lg">{t.author}</p>
+                                    <p className="text-[#C5A03A] text-sm font-semibold uppercase tracking-[0.16em] mt-1">{t.role}</p>
                                 </div>
                             </div>
                         ))}
@@ -266,7 +230,7 @@ const Home = () => {
                             <button
                                 key={i}
                                 onClick={() => setActiveTestimonial(i)}
-                                className={`transition-all duration-300 rounded-full ${i === activeTestimonial ? 'w-12 h-3 bg-[#1E3A5F]' : 'w-3 h-3 bg-slate-300'}`}
+                                className={`transition-all duration-300 rounded-full ${i === activeTestimonial ? 'w-12 h-3 bg-[#C5A03A]' : 'w-3 h-3 bg-white/30'}`}
                             />
                         ))}
                     </div>
