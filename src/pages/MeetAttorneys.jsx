@@ -1,14 +1,5 @@
 import { Link } from 'react-router-dom';
-import {
-    GraduationCap,
-    Award,
-    Scale,
-    Briefcase,
-    Building2,
-    Gavel,
-    BadgeCheck,
-    Users
-} from 'lucide-react';
+import FleurDeLisIcon from '../components/FleurDeLisIcon';
 import PageHero from '../components/PageHero';
 import attorneyPortrait from "../assets/use this picture in PJO's resume.jpg";
 import attorneysReading from "../assets/image 2.jpg";
@@ -17,20 +8,20 @@ import image1 from "../assets/image1.jpg";
 const MeetAttorneys = () => {
     const attorneys = [
         {
-            name: 'Phyllis J Outlaw, J.D.',
-            role: 'Principal & Founding Member',
+            name: 'Esq. Phyllis J. Outlaw',
+            role: 'Principal and Founder',
             image: attorneyPortrait,
             bio: [
-                'Phyllis J Outlaw, J.D., is the principal and founding member of Phyllis J. Outlaw & Associates. With over 30 years of experience practicing law, she has now focused her career on alternative dispute resolution.',
+                'Esq. Phyllis J. Outlaw is the principal and founder of Phyllis J. Outlaw & Associates. With over 30 years of experience practicing law, she has now focused her career on alternative dispute resolution.',
                 'She has served as a Magistrate, an Administrative Law Judge, the former Chairperson of the Attorney Grievance Commission, and a member of the Michigan Gaming Control Board. Additionally, she is a former president of Michigan Malpractice Mediators, Inc. and a court-approved mediator.',
                 'Her extensive background as a business owner, an advocate and a judicial officer provides her with a well-rounded perspective. As a neutral mediator, she does not represent either party but instead facilitates discussions to help couples reach fair, balanced agreements.',
             ],
             credentials: [
-                { icon: Scale, text: 'Court Approved Mediator' },
-                { icon: Gavel, text: 'Former Administrative Law Judge' },
-                { icon: Building2, text: 'Member State Bar of Michigan' },
-                { icon: Users, text: 'Member OCBA' },
-                { icon: Award, text: 'Michigan State Bar Foundation Fellow' },
+                { text: 'Court Approved Mediator' },
+                { text: 'Former Administrative Law Judge' },
+                { text: 'Member State Bar of Michigan' },
+                { text: 'Member OCBA' },
+                { text: 'Michigan State Bar Foundation Fellow' },
             ],
             education: [
                 'Juris Doctor Degree',
@@ -47,10 +38,10 @@ const MeetAttorneys = () => {
                 'Mr. Smith resolves issues such as pre-litigation workplace disputes and has experience at every stage of the employment lifecycle, from hiring to termination. His years advising business entities has given him the ability to mediate business issues with clarity of purpose for all parties.',
             ],
             credentials: [
-                { icon: Building2, text: 'Member New York State Bar' },
-                { icon: Building2, text: 'Member California State Bar' },
-                { icon: Building2, text: 'Member Michigan State Bar' },
-                { icon: Building2, text: 'Member Maryland State Bar' },
+                { text: 'Member New York State Bar' },
+                { text: 'Member California State Bar' },
+                { text: 'Member Michigan State Bar' },
+                { text: 'Member Maryland State Bar' },
             ],
             education: [
                 'University of Michigan Law School, J.D.',
@@ -63,7 +54,7 @@ const MeetAttorneys = () => {
     const heroSlides = [
         {
             title: "Experienced Attorneys & Mediators",
-            subtitle: "Led by Phyllis J Outlaw and Asa Smith, our team combines over 30 years of legal, judicial, and mediation experience to bring you peace of mind.",
+            subtitle: "Led by Esq. Phyllis J. Outlaw and Asa Smith, our team combines over 30 years of legal, judicial, and mediation experience to bring you peace of mind.",
             image: attorneyPortrait
         },
         {
@@ -117,7 +108,7 @@ const MeetAttorneys = () => {
 
                                 <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
                                     <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-                                        <BadgeCheck size={24} className="text-[#1E3A5F]" />
+                                        <FleurDeLisIcon size="xs" />
                                         Credentials & Admissions
                                     </h3>
                                     <div className="grid sm:grid-cols-2 gap-4">

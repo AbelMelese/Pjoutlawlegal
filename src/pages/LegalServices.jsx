@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Building2, Landmark, Scale, Stethoscope } from 'lucide-react';
+import FleurDeLisIcon from '../components/FleurDeLisIcon';
 import PageHero from '../components/PageHero';
 import booksImage from '../assets/books image.jpg';
 import legalServicesHero from '../assets/Legal Services.png';
@@ -7,25 +7,21 @@ import officeImage from '../assets/image1.jpg';
 
 const practiceAreas = [
   {
-    icon: Scale,
     title: 'Employment and Labor Law',
     description:
       'Representation in workplace and public-sector matters including discharge, unemployment compensation, discrimination, and retirement-related disputes.',
   },
   {
-    icon: Landmark,
     title: 'Property Tax Liens',
     description:
       'Experienced guidance in commercial and residential tax lien matters requiring careful procedural and strategic handling.',
   },
   {
-    icon: Building2,
     title: 'Corporate Governance and Real Estate',
     description:
       'Counsel for business entities, nonprofit organizations, property transactions, financing, leasing, and related operational legal issues.',
   },
   {
-    icon: Stethoscope,
     title: 'Construction, Administrative, and Injury Matters',
     description:
       'Support in construction disputes, administrative law proceedings, and selected personal injury matters where disciplined case analysis is essential.',
@@ -89,9 +85,7 @@ const LegalServices = () => {
                 key={area.title}
                 className="bg-white rounded-[2rem] p-8 shadow-lg border border-slate-100"
               >
-                <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white flex items-center justify-center mb-6">
-                  <area.icon size={26} />
-                </div>
+                <FleurDeLisIcon size="lg" className="mb-6" />
                 <h3 className="text-2xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
                   {area.title}
                 </h3>

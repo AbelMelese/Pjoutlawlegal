@@ -1,18 +1,9 @@
 import { Link } from 'react-router-dom';
 import {
-    Scale,
-    Users,
-    Baby,
-    DollarSign,
-    Home,
-    FileText,
-    Heart,
-    MapPin,
     ArrowRight,
-    CheckCircle,
-    Shield,
-    MessageSquare
+    CheckCircle
 } from 'lucide-react';
+import FleurDeLisIcon from '../components/FleurDeLisIcon';
 import PageHero from '../components/PageHero';
 import booksImage from '../assets/books image.jpg';
 import image1 from '../assets/image1.jpg';
@@ -21,49 +12,41 @@ import image2 from '../assets/image 2.jpg';
 const DivorceFamily = () => {
     const services = [
         {
-            icon: Scale,
             title: 'Divorce, Legal Separation & Annulment',
             description: 'Skilled representation in contested and uncontested divorces. We help clients pursue the most suitable legal option for their circumstances.',
             items: ['Contested divorce', 'Uncontested divorce', 'Legal separation', 'Annulment eligibility'],
         },
         {
-            icon: Baby,
             title: 'Child Custody & Parenting Time',
             description: 'Your children come first. We help parents create clear, enforceable custody arrangements that support their child\'s best interests.',
             items: ['Legal and physical custody', 'Parenting schedules', 'Custody litigation', 'Order modifications'],
         },
         {
-            icon: DollarSign,
             title: 'Child Support',
             description: 'We help parents understand their rights and obligations ensuring calculations are accurate and comply with state guidelines.',
             items: ['New support orders', 'Modifications', 'Enforcement', 'Calculation accuracy'],
         },
         {
-            icon: Heart,
             title: 'Alimony & Spousal Support',
             description: 'Financial stability after divorce is a major concern. We advocate for fair spousal support arrangements.',
             items: ['Temporary support', 'Rehabilitative support', 'Long-term alimony', 'Modifications'],
         },
         {
-            icon: MapPin,
             title: 'Change of Domicile',
             description: 'If you wish to move out of state with your child, or want to prevent a relocation, we can help protect your parental rights.',
             items: ['Relocation petitions', 'Objections to relocation', 'Negotiated agreements', 'Contested moves'],
         },
         {
-            icon: Users,
             title: 'Paternity',
             description: 'Establishing paternity is essential for securing custody, support, and parental rights. We support both mothers and fathers.',
             items: ['Paternity testing', 'Custody for unmarried', 'Child support orders', 'Parentage acknowledgment'],
         },
         {
-            icon: FileText,
             title: 'Prenuptial Agreements',
             description: 'Planning ahead protects your assets and minimizes future conflict. We draft, review, and negotiate agreements.',
             items: ['Prenuptial agreements', 'Postnuptial agreements', 'Asset protection', 'Financial planning'],
         },
         {
-            icon: Home,
             title: 'Post-Judgment Modifications',
             description: 'Life changes and your court orders may need to change with it. We help clients pursue or defend modifications.',
             items: ['Custody modifications', 'Support modifications', 'Relocation orders', 'Parenting time changes'],
@@ -117,18 +100,16 @@ const DivorceFamily = () => {
                             <div className="bg-white shadow-xl rounded-[2rem] p-10 border border-slate-100 relative">
                                 <div className="space-y-6">
                                     {[
-                                        { icon: CheckCircle, text: 'Experienced divorce and family law attorney' },
-                                        { icon: Heart, text: 'Personalized, compassionate representation' },
-                                        { icon: Shield, text: 'Aggressive advocacy when it matters most' },
-                                        { icon: MessageSquare, text: 'Clear communication and responsive support' }
-                                    ].map((feature, index) => (
-                                        <div key={index} className="flex items-center gap-4 group">
-                                            <div className="w-12 h-12 bg-[#e8f4f4] rounded-xl flex items-center justify-center group-hover:bg-[#1E3A5F] transition-colors duration-300">
-                                                <feature.icon size={24} className="text-[#1E3A5F] group-hover:text-white transition-colors" />
-                                            </div>
-                                            <span className="text-slate-600 text-lg group-hover:text-[#1E3A5F] font-medium transition-colors">{feature.text}</span>
-                                        </div>
-                                    ))}
+                                         { text: 'Experienced divorce and family law attorney' },
+                                         { text: 'Personalized, compassionate representation' },
+                                         { text: 'Aggressive advocacy when it matters most' },
+                                         { text: 'Clear communication and responsive support' }
+                                     ].map((feature, index) => (
+                                         <div key={index} className="flex items-center gap-4 group">
+                                             <FleurDeLisIcon size="md" className="group-hover:scale-110 transition-transform duration-300" />
+                                             <span className="text-slate-600 text-lg group-hover:text-[#1E3A5F] font-medium transition-colors">{feature.text}</span>
+                                         </div>
+                                     ))}
                                 </div>
                             </div>
                         </div>
@@ -155,13 +136,11 @@ const DivorceFamily = () => {
                                 className="group bg-white rounded-[2rem] p-10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 relative overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
-                                    <service.icon size={120} />
+                                    <FleurDeLisIcon size="raw-xl" />
                                 </div>
 
                                 <div className="flex items-start gap-8 relative z-10">
-                                    <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center flex-shrink-0 text-[#1E3A5F] shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                                        <service.icon size={32} />
-                                    </div>
+                                    <FleurDeLisIcon size="xl" className="group-hover:rotate-6 transition-transform duration-300" />
                                     <div className="flex-1">
                                         <h3 className="text-2xl font-bold text-slate-900 mb-4 font-['Playfair_Display'] group-hover:text-[#5B2C6F] transition-colors">
                                             {service.title}

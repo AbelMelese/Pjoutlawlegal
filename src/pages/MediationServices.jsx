@@ -1,22 +1,9 @@
 import { Link } from 'react-router-dom';
 import {
-    Scale,
-    Users,
-    Briefcase,
-    Heart,
     ArrowRight,
-    CheckCircle,
-    Shield,
-    Clock,
-    MessageSquare,
-    FileText,
-    PhoneCall,
-    Calendar,
-    Video,
-    FileCheck,
-    Gavel,
-    DollarSign
+    CheckCircle
 } from 'lucide-react';
+import FleurDeLisIcon from '../components/FleurDeLisIcon';
 import mediationPageHero from '../assets/Mediation page.png';
 
 
@@ -26,7 +13,6 @@ const MediationServices = () => {
     const services = [
         {
             id: 'family',
-            icon: Users,
             title: 'Family & Divorce Mediation',
             subtitle: 'Navigating separation with cooperation',
             description: 'We assist spouses and families in navigating separation, divorce, and post-divorce matters. Our process focuses on cooperation and long-term stability, especially where children are involved.',
@@ -42,7 +28,6 @@ const MediationServices = () => {
         },
         {
             id: 'business',
-            icon: Briefcase,
             title: 'Business & Commercial Mediation',
             subtitle: 'Preserving professional relationships',
             description: 'Disputes between business partners, employers and employees, vendors, or clients can disrupt operations and damage relationships. Mediation provides a practical pathway to resolution while preserving professionalism.',
@@ -59,7 +44,6 @@ const MediationServices = () => {
 
         {
             id: 'court',
-            icon: Gavel,
             title: 'Court-Referred Mediation',
             subtitle: 'Aligned with legal standards',
             description: 'We accept court-referred cases and provide mediation services aligned with legal standards and judicial expectations. Our legal background ensures agreements are practical, enforceable, and well-documented.',
@@ -75,7 +59,6 @@ const MediationServices = () => {
         },
         {
             id: 'custody',
-            icon: Heart,
             title: 'Child Custody & Parenting Mediation',
             subtitle: 'Prioritizing child well-being',
             description: 'We help parents create balanced, workable parenting agreements that prioritize the well-being of children while respecting each parent’s rights and responsibilities.',
@@ -95,22 +78,18 @@ const MediationServices = () => {
 
     const whyChoose = [
         {
-            icon: Shield,
             title: 'Confidential Process',
             description: 'A private and neutral environment for open dialogue.',
         },
         {
-            icon: Clock,
             title: 'Faster Resolution',
             description: 'Significantly quicker than traditional litigation and court proceedings.',
         },
         {
-            icon: DollarSign,
             title: 'Cost-Effective',
             description: 'A more affordable alternative to expensive court battles.',
         },
         {
-            icon: CheckCircle,
             title: 'Control & Privacy',
             description: 'Parties maintain control over outcomes while preserving relationships.',
         },
@@ -120,37 +99,30 @@ const MediationServices = () => {
         {
             title: 'Initial Consultation',
             description: 'Discuss your issues with the Mediator to determine whether mediation is the best option for you and to determine your goals.',
-            icon: MessageSquare
         },
         {
             title: 'Agreement & Documentation',
             description: 'Once you enter into a mediation agreement with our firm, you will submit all necessary documents/information for review by the Mediator.',
-            icon: FileText
         },
         {
             title: 'Contacting All Parties',
             description: 'All parties will be contacted to confirm their interest in mediating the issues that need resolution.',
-            icon: PhoneCall
         },
         {
             title: 'Scheduling Sessions',
             description: 'Once all affected parties agree to mediate the matter, Virtual (Remote) Mediation Sessions will be scheduled at the convenience of all parties.',
-            icon: Calendar
         },
         {
             title: 'Video Conference',
             description: 'A Video conference will be held with the goal of facilitating a resolution to the challenges facing the parties where all information shared will remain confidential.',
-            icon: Video
         },
         {
             title: 'Neutral Facilitation',
             description: 'The Mediator will remain neutral with the goal of creating an environment that promotes open engagement with a focus on problem solving.',
-            icon: Scale
         },
         {
             title: 'Resolution Agreement',
             description: 'A Written Summary or Draft Agreement will be prepared by the Mediator that will contain any terms that the parties agree upon that you have the option of having it reviewed by an attorney.',
-            icon: FileCheck
         }
     ];
 
@@ -178,7 +150,7 @@ const MediationServices = () => {
                                 {/* Content Side */}
                                 <div className="flex-1 space-y-8 animate-enter" style={{ animationDelay: '200ms' }}>
                                     <div className={`inline-flex items-center gap-3 px-4 py-2 ${service.bgColor} rounded-full border border-slate-100`}>
-                                        <service.icon size={20} className={`text-${service.color.split('-')[1]}-500`} />
+                                        <FleurDeLisIcon size="xs" />
                                         <span className="font-semibold text-slate-700 text-sm tracking-wide uppercase">{service.subtitle}</span>
                                     </div>
 
@@ -214,7 +186,7 @@ const MediationServices = () => {
                                         <div className={`absolute -inset-4 bg-gradient-to-br ${service.color.replace('from', 'from-').replace('to', 'to-')} opacity-30 rounded-[2.5rem] blur-2xl group-hover:opacity-50 transition-opacity duration-500`}></div>
                                         <div className={`relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 flex items-center justify-center h-[400px] bg-gradient-to-br ${service.color}`}>
                                             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
-                                            <service.icon size={160} className="text-white opacity-20 transform group-hover:scale-110 transition-transform duration-700" />
+                                            <FleurDeLisIcon size="raw-lg" className="opacity-20 transform group-hover:scale-110 transition-transform duration-700" />
                                             <div className="absolute bottom-6 right-6 p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/50">
                                                 <div className="flex items-center gap-2">
                                                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
@@ -265,7 +237,7 @@ const MediationServices = () => {
                                     <div className="relative z-10 flex-shrink-0">
                                         <div className="w-16 h-16 rounded-full bg-white border-4 border-[#1E3A5F]/20 shadow-xl flex items-center justify-center relative group">
                                             <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                            <step.icon className="w-7 h-7 text-[#1E3A5F] relative z-10 group-hover:text-white transition-colors duration-300" />
+                                            <FleurDeLisIcon size="xs" className="w-7 h-7 text-[#1E3A5F] relative z-10 group-hover:scale-110 transition-transform duration-300" />
                                             <div className="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white z-20">
                                                 {index + 1}
                                             </div>
@@ -301,7 +273,7 @@ const MediationServices = () => {
                         <div className="order-2 lg:order-1 relative group">
                             <div className="absolute -inset-4 bg-[#1E3A5F]/10 rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
                             <div className="relative rounded-[2rem] overflow-hidden border border-slate-200 shadow-2xl h-[500px] bg-white flex items-center justify-center">
-                                <Shield size={160} className="text-[#1E3A5F] opacity-10 transform group-hover:scale-110 transition-transform duration-700" />
+                                <FleurDeLisIcon size="raw-lg" className="opacity-10 transform group-hover:scale-110 transition-transform duration-700" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent opacity-80"></div>
                             </div>
                         </div>
@@ -323,9 +295,7 @@ const MediationServices = () => {
                                         key={index}
                                         className="bg-white rounded-xl p-6 hover:-translate-y-1 shadow-sm border border-slate-100 transition-transform duration-300 group flex items-start gap-5"
                                     >
-                                        <div className="w-12 h-12 bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                                            <item.icon size={24} className="text-white" />
-                                        </div>
+                                        <FleurDeLisIcon size="md" className="group-hover:scale-110 transition-transform" />
                                         <div>
                                             <h3 className="text-xl font-bold text-slate-900 mb-2 font-['Playfair_Display']">
                                                 {item.title}

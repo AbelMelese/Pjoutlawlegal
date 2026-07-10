@@ -21,12 +21,9 @@ const quickLinks = [
 ];
 
 const services = [
-  'Mediation Services',
-  'Legal Services',
-  'Coaching',
-  'Professional Development',
-  'Court-Appointed Mediation',
-  'Consultation Services',
+  { name: 'Mediation Services', path: '/mediation-services' },
+  { name: 'Legal Services', path: '/legal-services' },
+  { name: 'Coaching', path: '/coaching' },
 ];
 
 const socialLinks = [
@@ -98,16 +95,16 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               {services.map((service) => (
-                <li key={service}>
+                <li key={service.name}>
                   <Link
-                    to="/mediation-services"
+                    to={service.path}
                     className="text-white/70 hover:text-white transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <ArrowRight
                       size={14}
                       className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
                     />
-                    <span>{service}</span>
+                    <span>{service.name}</span>
                   </Link>
                 </li>
               ))}

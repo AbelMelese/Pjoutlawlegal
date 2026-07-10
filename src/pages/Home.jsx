@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom';
 import {
-    ArrowRight,
-    Scale,
-    Building2,
-    UserCheck,
-    HeartHandshake
+    ArrowRight
 } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -13,8 +9,7 @@ import designSlide1 from '../assets/design_  slide1.png';
 import designSlide2 from '../assets/design_  slide2.png';
 import designSlide3 from '../assets/design_  slide3.png';
 import designSlide4 from '../assets/design_  slide4.png';
-import fleurDeLis from '../assets/fleur-de-lis.png';
-
+import FleurDeLisIcon from '../components/FleurDeLisIcon';
 
 
 const Home = () => {
@@ -33,28 +28,24 @@ const Home = () => {
 
     const services = [
         {
-            icon: Scale,
             title: 'Mediation Services',
             description: 'Whether you are going through a divorce, addressing a family dispute, or managing workplace conflict, our proven process helps you reach effective results.',
             color: 'from-[#2A4F7A] to-[#1E3A5F]',
             link: '/mediation-services',
         },
         {
-            icon: Building2,
             title: 'Corporate Services',
             description: 'Phyllis J. Outlaw & Associates provides legal services to businesses, nonprofit organizations, and individuals seeking experienced counsel. We handle each matter with careful preparation, clear communication, and a strong focus on our clients\' long-term interests.',
             color: 'from-[#1E3A5F] to-[#5B2C6F]',
             link: '/legal-services',
         },
         {
-            icon: UserCheck,
             title: 'Individual Client Services',
             description: 'Phyllis J. Outlaw & Associates possess extensive trial experience in federal and local courts and have represented clients before agencies in Washington, D.C., and Maryland. Our firm has substantial knowledge and skills in litigation, arbitration, and mediation involving family law matters, including divorce, marital property, child custody, visitation, and child support, as well as personal injury, medical malpractice, probate, consumer law, real estate, labor law, equal employment opportunity law, and discrimination law.',
             color: 'from-[#2A4F7A] to-[#1E3A5F]',
             link: '/practice-areas',
         },
         {
-            icon: HeartHandshake,
             title: 'Coaching Services',
             description: 'Our coaching services help individuals, couples, families, and businesses set goals, strengthen skills, and achieve results through personalized support and practical action steps.',
             color: 'from-[#5B2C6F] to-[#5B2C6F]',
@@ -138,26 +129,26 @@ const Home = () => {
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
                             Phyllis J. Outlaw &amp; Associates
                         </h2>
-                        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6">
-                            {[
-                                { icon: Scale, label: 'Mediation Services' },
-                                { icon: Building2, label: 'Corporate Services' },
-                                { icon: UserCheck, label: 'Individual Client Services' },
-                                { icon: HeartHandshake, label: 'Coaching Services' },
-                            ].map((item, idx) => (
-                                <div key={idx} className="flex items-center gap-2">
-                                    {idx > 0 && (
-                                        <span className="hidden sm:inline-block w-[3px] h-[3px] rounded-full bg-[#C5A03A] mr-2 md:mr-4" />
-                                    )}
-                                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] flex items-center justify-center text-white shadow-md">
-                                        <item.icon size={16} />
+                            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+                                {[
+                                    { label: 'Mediation Services' },
+                                    { label: 'Corporate Services' },
+                                    { label: 'Individual Client Services' },
+                                    { label: 'Coaching Services' },
+                                ].map((item) => (
+                                    <div
+                                        key={item.label}
+                                        className="flex min-h-16 items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 shadow-sm"
+                                    >
+                                        <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] text-white shadow-md">
+                                            <FleurDeLisIcon size="sm" variant="transparent" />
+                                        </div>
+                                        <span className="text-center text-base font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] font-['Playfair_Display']">
+                                            {item.label}
+                                        </span>
                                     </div>
-                                    <span className="text-base md:text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] font-['Playfair_Display']">
-                                        {item.label}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
                     </div>
 
                     <div ref={servicesGridRef} className="scroll-reveal services-marquee">
@@ -169,9 +160,7 @@ const Home = () => {
                                 >
                                     <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.color} opacity-10 rounded-full blur-2xl`}></div>
 
-                                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg mb-6`}>
-                                        <img src={fleurDeLis} alt={service.title} className="w-8 h-8 object-contain" />
-                                    </div>
+                                    <FleurDeLisIcon size="lg" variant="transparent" className={`bg-gradient-to-br ${service.color} shadow-lg mb-6`} />
 
                                     <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3">{service.title}</h3>
                                     <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>

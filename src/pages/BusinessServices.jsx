@@ -1,22 +1,9 @@
 import {
-    Briefcase,
-    Building2,
-    Heart,
-    FileText,
-    Users,
-    Target,
     ArrowRight,
     CheckCircle,
-    TrendingUp,
-    Globe,
-    Scale,
-    Gavel,
-    HardHat,
-    ScrollText,
-    Landmark,
-    Stethoscope,
     Quote
 } from 'lucide-react';
+import FleurDeLisIcon from '../components/FleurDeLisIcon';
 import PageHero from '../components/PageHero';
 import { Link } from 'react-router-dom';
 import image1 from '../assets/image1.jpg';
@@ -188,19 +175,19 @@ const BusinessServices = () => {
                                 <div className="absolute inset-0 bg-gradient-to-br from-[#e8f4f4] to-[#fdf2f4] opacity-50"></div>
                                 <div className="grid grid-cols-2 gap-4 relative z-10">
                                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-slate-900 hover:shadow-md transition-shadow">
-                                        <TrendingUp size={32} className="text-[#1E3A5F] mb-4" />
+                                        <FleurDeLisIcon size="md" className="mb-4" />
                                         <h4 className="font-bold text-lg">Growth Strategy</h4>
                                     </div>
                                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-slate-900 mt-8 hover:shadow-md transition-shadow">
-                                        <Users size={32} className="text-[#1E3A5F] mb-4" />
+                                        <FleurDeLisIcon size="md" className="mb-4" />
                                         <h4 className="font-bold text-lg">Team Alignment</h4>
                                     </div>
                                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-slate-900 hover:shadow-md transition-shadow">
-                                        <Target size={32} className="text-[#5B2C6F] mb-4" />
+                                        <FleurDeLisIcon size="md" className="mb-4" />
                                         <h4 className="font-bold text-lg">Clear Vision</h4>
                                     </div>
                                     <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-slate-900 mt-8 hover:shadow-md transition-shadow">
-                                        <Globe size={32} className="text-[#1E3A5F] mb-4" />
+                                        <FleurDeLisIcon size="md" className="mb-4" />
                                         <h4 className="font-bold text-lg">Sustainability</h4>
                                     </div>
                                 </div>
@@ -240,7 +227,7 @@ const BusinessServices = () => {
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <div className="lg:order-2">
                             <div className="inline-flex items-center gap-3 px-4 py-2 bg-[#fce7ea] rounded-full mb-6 border border-rose-200">
-                                <Heart size={18} className="text-[#5B2C6F]" />
+                                <FleurDeLisIcon size="xs" />
                                 <span className="font-bold text-slate-700 text-sm tracking-wide uppercase">Mission-Driven Support</span>
                             </div>
 
@@ -310,7 +297,7 @@ const BusinessServices = () => {
                             <div key={index} className={`flex flex-col gap-12 items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                                 <div className="flex-1 space-y-6">
                                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full border border-blue-100">
-                                        <area.icon size={18} className="text-[#1E3A5F]" />
+                                        <FleurDeLisIcon size="xs" />
                                         <span className="text-blue-900 font-bold text-sm tracking-wide uppercase">{area.title}</span>
                                     </div>
                                     <h3 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 font-['Playfair_Display']">
@@ -339,9 +326,7 @@ const BusinessServices = () => {
                                     ) : (
                                         <div className="relative w-full rounded-[2rem] shadow-xl border border-slate-100 aspect-[4/3] bg-gradient-to-br from-[#1E3A5F] to-blue-800 flex flex-col items-center justify-center gap-6 overflow-hidden">
                                             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
-                                            <div className="w-28 h-28 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform duration-500">
-                                                <area.icon size={56} className="text-white drop-shadow-lg" />
-                                            </div>
+                                            <FleurDeLisIcon size="3xl" variant="white-glass" className="group-hover:scale-110 transition-transform duration-500" />
                                             <p className="text-white/90 text-xl font-['Playfair_Display'] font-bold tracking-wide relative z-10">{area.title}</p>
                                             <div className="flex gap-2">
                                                 {[...Array(3)].map((_, i) => (
@@ -359,7 +344,7 @@ const BusinessServices = () => {
                     <div className="grid md:grid-cols-2 gap-8 mt-24">
                         {additionalPractices.map((practice, index) => (
                             <div key={index} className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-lg transition-shadow">
-                                <practice.icon size={32} className="text-[#1E3A5F] mb-6" />
+                                <FleurDeLisIcon size="lg" className="mb-6" />
                                 <h3 className="text-2xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">{practice.title}</h3>
                                 <p className="text-slate-600 mb-6">{practice.description}</p>
                                 <div className="pt-6 border-t border-slate-200">

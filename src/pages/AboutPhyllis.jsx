@@ -1,11 +1,10 @@
-import { Scale, Gavel, Shield, BookOpen, Building2, PenTool, GraduationCap, Award } from 'lucide-react';
+import FleurDeLisIcon from '../components/FleurDeLisIcon';
 import portrait from "../assets/use this picture in PJO's resume.jpg";
 import mediaLogosStrip from '../assets/media-logos-strip.png';
 import aboutThePrincipalHero from '../assets/about the principal.png';
 
 const highlights = [
   {
-    icon: Scale,
     title: 'Admitted to Practice',
     items: [
       'United States Supreme Court',
@@ -16,7 +15,6 @@ const highlights = [
     ],
   },
   {
-    icon: Building2,
     title: 'Bar Association Membership',
     items: [
       'Maryland Bar Association',
@@ -24,7 +22,6 @@ const highlights = [
     ],
   },
   {
-    icon: Award,
     title: 'Certificates',
     items: [
       'Mediator Certificate',
@@ -33,7 +30,6 @@ const highlights = [
     ],
   },
   {
-    icon: GraduationCap,
     title: 'Education',
     items: [
       'Juris. Doctorate Degree, Howard University School of Law',
@@ -41,7 +37,6 @@ const highlights = [
     ],
   },
   {
-    icon: BookOpen,
     title: 'Featured in',
     items: [
       'Ebony Magazine',
@@ -49,7 +44,6 @@ const highlights = [
     ],
   },
   {
-    icon: PenTool,
     title: 'Article Writer',
     items: [
       'The National Bar Association Magazine',
@@ -72,10 +66,10 @@ const AboutPhyllis = () => {
       {/* Portrait + Bio Section */}
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 lg:w-[948px] lg:grid-cols-[300px_600px] gap-12 items-center lg:mx-auto">
             {/* Portrait on the left */}
-            <div className="flex justify-center md:justify-end">
-              <div className="relative max-w-[50%]">
+            <div className="flex justify-center lg:justify-start">
+              <div className="relative max-w-[50%] lg:max-w-none lg:w-full">
                 <div className="absolute -inset-4 bg-gradient-to-tr from-[#1E3A5F]/30 to-[#2A4F7A]/30 blur-xl"></div>
                 <div className="framed-photo-container relative">
                   <img src={portrait} alt="Phyllis J. Outlaw portrait" />
@@ -86,10 +80,10 @@ const AboutPhyllis = () => {
             {/* Text on the right */}
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-2">
-                Phyllis J. Outlaw, J.D.
+                Esq. Phyllis J. Outlaw
               </h2>
               <p className="text-xl text-[#5B2C6F] font-medium mb-8 font-serif italic">
-                Principal &amp; Founding Member
+                Principal and Founder
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
                 Attorney Phyllis J. Outlaw has been in private practice in the State of Maryland and the District of Columbia. Attorney Outlaw is an experienced and seasoned litigator who has represented clients in highly complex civil cases. She has extensive litigation before local and federal courts as well as administrative agencies. Attorney Outlaw possesses knowledge, skills and expertise in litigation, arbitration and mediation of disputes relating to Family Law to include divorce, marital property, child custody, visitation, child support; Personal Injury; Medical Malpractice; Probate; Consumer Law; Real Estate; Labor Law; Equal Employment Opportunity Law; and Discrimination Law.
@@ -108,9 +102,7 @@ const AboutPhyllis = () => {
                 key={item.title}
                 className="bg-white rounded-[2rem] p-8 shadow-lg border border-slate-100"
               >
-                <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white flex items-center justify-center mb-6">
-                  <item.icon size={26} />
-                </div>
+                <FleurDeLisIcon size="lg" className="mb-6" />
                 <h3 className="text-2xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
                   {item.title}
                 </h3>

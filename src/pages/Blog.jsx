@@ -6,15 +6,9 @@ import {
     User,
     Tag,
     Search,
-    BookOpen,
-    TrendingUp,
-    Scale,
-    Heart,
-    Briefcase,
-    MessageCircle,
-    Users,
-    Shield
+    BookOpen
 } from 'lucide-react';
+import FleurDeLisIcon from '../components/FleurDeLisIcon';
 import { useState } from 'react';
 import PageHero from '../components/PageHero';
 import image1 from '../assets/image1.jpg';
@@ -36,12 +30,12 @@ const Blog = () => {
     ];
 
     const categoryStyles = {
-        'Mediation': { icon: Scale, gradient: 'from-[#1E3A5F] to-[#5B2C6F]' },
-        'Divorce': { icon: Heart, gradient: 'from-[#5B2C6F] to-[#5B2C6F]' },
-        'Business': { icon: Briefcase, gradient: 'from-[#2A4F7A] to-[#1E3A5F]' },
-        'Coaching': { icon: MessageCircle, gradient: 'from-[#2A4F7A] to-[#1E3A5F]' },
-        'Family Law': { icon: Users, gradient: 'from-[#5B2C6F] to-[#5B2C6F]' },
-        'Legal Tips': { icon: Shield, gradient: 'from-slate-600 to-slate-800' },
+        'Mediation': { gradient: 'from-[#1E3A5F] to-[#5B2C6F]' },
+        'Divorce': { gradient: 'from-[#5B2C6F] to-[#5B2C6F]' },
+        'Business': { gradient: 'from-[#2A4F7A] to-[#1E3A5F]' },
+        'Coaching': { gradient: 'from-[#2A4F7A] to-[#1E3A5F]' },
+        'Family Law': { gradient: 'from-[#5B2C6F] to-[#5B2C6F]' },
+        'Legal Tips': { gradient: 'from-slate-600 to-slate-800' },
     };
 
     const blogPosts = [
@@ -198,7 +192,7 @@ const Blog = () => {
                 <section className="py-16 md:py-20">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center gap-2 mb-8">
-                            <TrendingUp size={20} className="text-[#1E3A5F]" />
+                            <FleurDeLisIcon size="xs" />
                             <span className="text-sm font-bold text-slate-900 uppercase tracking-wider">Featured Article</span>
                         </div>
 
@@ -208,12 +202,9 @@ const Blog = () => {
                                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
                                     {(() => {
                                         const style = categoryStyles[featuredPost.category];
-                                        const Icon = style?.icon || BookOpen;
                                         return (
                                             <div className={`w-full h-[400px] bg-gradient-to-br ${style?.gradient || 'from-slate-600 to-slate-800'} flex flex-col items-center justify-center gap-6`}>
-                                                <div className="w-28 h-28 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform duration-500">
-                                                    <Icon size={56} className="text-white drop-shadow-lg" />
-                                                </div>
+                                                <FleurDeLisIcon size="3xl" variant="white-glass" className="group-hover:scale-110 transition-transform duration-500" />
                                                 <p className="text-white/80 text-lg font-['Playfair_Display'] font-bold tracking-wide">{featuredPost.category}</p>
                                                 <div className="flex gap-2">
                                                     {[...Array(3)].map((_, i) => (
@@ -298,12 +289,9 @@ const Blog = () => {
                                     <div className="relative h-56 overflow-hidden">
                                         {(() => {
                                             const style = categoryStyles[post.category];
-                                            const Icon = style?.icon || BookOpen;
                                             return (
                                                 <div className={`w-full h-full bg-gradient-to-br ${style?.gradient || 'from-slate-600 to-slate-800'} flex flex-col items-center justify-center gap-4 group-hover:scale-105 transition-transform duration-700`}>
-                                                    <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl">
-                                                        <Icon size={40} className="text-white drop-shadow-lg" />
-                                                    </div>
+                                                    <FleurDeLisIcon size="2xl" variant="white-glass" />
                                                     <p className="text-white/70 text-sm font-bold tracking-wider uppercase">{post.category}</p>
                                                 </div>
                                             );

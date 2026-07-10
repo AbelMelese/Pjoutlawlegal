@@ -23,6 +23,12 @@ body {
   overflow-x: hidden;
 }
 
+/* Keep long-form page copy aligned cleanly on both sides. */
+main p.leading-relaxed:not([class*='text-white']) {
+  text-align: justify;
+  text-align-last: left;
+}
+
 h1,
 h2,
 h3,

@@ -128,7 +128,7 @@ const Coaching = () => {
 
             {/* Intro Section */}
             <section className="py-16 md:py-20 bg-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-semibold">
                         Phyllis J. Outlaw & Associates Coaching Services offer practical, innovative support for individuals, couples, families, professionals, executives, managers, and businesses. Whether clients are facing divorce, family conflict, career growth, or workplace challenges, we provide customized guidance and actionable strategies to help them set goals, build skills, and achieve meaningful results.
                     </p>
@@ -142,7 +142,7 @@ const Coaching = () => {
                         {coachingServices.map((service) => (
                             <a
                                 key={service.id}
-                                href={`#${service.id}`}
+                                href={`#${service.id}-details`}
                                 className="group bg-white rounded-[2rem] p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 flex flex-col items-center text-center relative overflow-hidden"
                             >
                                 <div className={`absolute top-0 w-full h-2 bg-gradient-to-r ${service.color}`}></div>
@@ -165,9 +165,9 @@ const Coaching = () => {
                     {/* Detailed Sections */}
                     <div className="space-y-32">
                         {coachingServices.map((service, index) => (
-                            <div key={service.id} id={service.id} className={`flex flex-col gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
+                            <div key={service.id} className={`flex flex-col gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
                                 <div className="flex-1 space-y-8">
-                                    <h2 className="text-4xl font-bold text-slate-900 font-['Playfair_Display']">
+                                    <h2 id={`${service.id}-details`} className="scroll-mt-36 text-4xl font-bold text-slate-900 font-['Playfair_Display']">
                                         {service.subtitle}
                                     </h2>
                                     <p className="text-lg text-slate-600 leading-relaxed">
