@@ -12,62 +12,50 @@ import mediationPageHero from '../assets/Mediation page.png';
 const MediationServices = () => {
     const services = [
         {
-            id: 'family',
-            title: 'Family & Divorce Mediation',
-            subtitle: 'Navigating separation with cooperation',
-            description: 'We assist spouses and families in navigating separation, divorce, and post-divorce matters. Our process focuses on cooperation and long-term stability, especially where children are involved.',
-            benefits: [
-                'Divorce settlement negotiations',
-                'Child custody and parenting plans',
-                'Child support arrangements',
-                'Spousal support agreements',
-                'Property and asset division',
-            ],
+            id: 'court',
+            title: 'Court-Ordered Mediation',
+            subtitle: 'Aligned with court standards',
+            description: 'As a court-appointed mediator, Phyllis J. Outlaw has successfully mediated numerous Maryland Circuit Court cases, ensuring compliance with court standards. The resulting settlement agreements are legally enforceable and aligned with judicial expectations.',
+            benefits: [],
             color: 'from-[#2A4F7A] to-[#1E3A5F]',
             bgColor: 'bg-blue-50/50',
         },
         {
-            id: 'business',
-            title: 'Business & Commercial Mediation',
-            subtitle: 'Preserving professional relationships',
-            description: 'Disputes between business partners, employers and employees, vendors, or clients can disrupt operations and damage relationships. Mediation provides a practical pathway to resolution while preserving professionalism.',
+            id: 'family',
+            title: 'Divorce and Family Mediation',
+            subtitle: 'Cooperation for long-term stability',
+            description: 'Helps spouses and families navigate separation, divorce, and post-divorce matters through a cooperative process focused on long-term stability, especially when children are involved. Divorce settlement agreements can address:',
             benefits: [
-                'Partnership disputes',
-                'Contract disagreements',
-                'Workplace conflicts',
-                'Employer–employee disputes',
-                'Vendor and service disputes',
+                'Spousal Alimony Support',
+                'Property and asset division/distribution',
             ],
             color: 'from-[#1E3A5F] to-[#5B2C6F]',
             bgColor: 'bg-[#e8f4f4]/50',
         },
 
         {
-            id: 'court',
-            title: 'Court-Referred Mediation',
-            subtitle: 'Aligned with legal standards',
-            description: 'We accept court-referred cases and provide mediation services aligned with legal standards and judicial expectations. Our legal background ensures agreements are practical, enforceable, and well-documented.',
+            id: 'custody',
+            title: 'Child Custody and Visitation Mediation',
+            subtitle: 'Balanced agreements for families',
+            description: 'Assists parents in creating balanced, practical parenting agreements that prioritize their children’s best interests while respecting each parent’s rights and responsibilities.',
             benefits: [
-                'Legal standards alignment',
-                'Judicial expectations',
-                'Practical agreements',
-                'Enforceable outcomes',
-                'Well-documented results',
+                'Child Custody and Parenting Plans',
+                'Child Support agreements',
             ],
             color: 'from-[#2A4F7A] to-[#1E3A5F]',
             bgColor: 'bg-[#e8f4f4]/50',
         },
         {
-            id: 'custody',
-            title: 'Child Custody & Parenting Mediation',
-            subtitle: 'Prioritizing child well-being',
-            description: 'We help parents create balanced, workable parenting agreements that prioritize the well-being of children while respecting each parent’s rights and responsibilities.',
+            id: 'business',
+            title: 'Business Dispute Mediation',
+            subtitle: 'Practical resolution for organizations',
+            description: 'Disputes involving business partners, employers, employees, vendors, or clients can disrupt operations and strain relationships. Mediation offers a practical way to resolve conflicts while helping companies avoid significant legal costs.',
             benefits: [
-                'Balanced agreements',
-                'Workable parenting plans',
-                'Child well-being priority',
-                'Respect parental rights',
-                'Clear responsibilities',
+                'Partnership Disputes',
+                'Contract Disputes',
+                'Workplace conflicts',
+                'Employer–Employee Disputes',
+                'Vendor Service Disputes',
             ],
             color: 'from-[#5B2C6F] to-[#5B2C6F]',
             bgColor: 'bg-[#fdf2f4]/50',
@@ -78,52 +66,71 @@ const MediationServices = () => {
 
     const whyChoose = [
         {
-            title: 'Confidential Process',
-            description: 'A private and neutral environment for open dialogue.',
+            title: 'Open Dialogue',
+            description: 'Encourages open, productive dialogue.',
+        },
+        {
+            title: 'Confidentiality',
+            description: 'Maintains confidentiality by keeping mediation discussions private.',
         },
         {
             title: 'Faster Resolution',
-            description: 'Significantly quicker than traditional litigation and court proceedings.',
+            description: 'Resolves disputes more quickly and helps avoid court litigation.',
         },
         {
             title: 'Cost-Effective',
-            description: 'A more affordable alternative to expensive court battles.',
+            description: 'Offers a cost-effective alternative to expensive court battles.',
         },
         {
-            title: 'Control & Privacy',
-            description: 'Parties maintain control over outcomes while preserving relationships.',
+            title: 'Party Control',
+            description: 'Allows parties to retain control over the outcome.',
+        },
+        {
+            title: 'Virtual Sessions',
+            description: 'Provides virtual sessions accessible from anywhere in the world.',
         },
     ];
 
     const steps = [
         {
             title: 'Initial Consultation',
-            description: 'Discuss your issues with the Mediator to determine whether mediation is the best option for you and to determine your goals.',
+            description: 'Discuss your concerns with the mediator to determine whether mediation is the right option and to clarify your goals.',
         },
         {
-            title: 'Agreement & Documentation',
-            description: 'Once you enter into a mediation agreement with our firm, you will submit all necessary documents/information for review by the Mediator.',
+            title: 'Agreement and Documentation',
+            description: 'After signing a mediation agreement with our firm and paying the mediation fee, you will submit the necessary documents and information for the mediator’s review.',
         },
         {
-            title: 'Contacting All Parties',
-            description: 'All parties will be contacted to confirm their interest in mediating the issues that need resolution.',
+            title: 'Contact Parties',
+            description: 'All parties are contacted to confirm their willingness to mediate the issues that need resolution.',
         },
         {
-            title: 'Scheduling Sessions',
-            description: 'Once all affected parties agree to mediate the matter, Virtual (Remote) Mediation Sessions will be scheduled at the convenience of all parties.',
+            title: 'Mediation Scheduling',
+            description: 'Once all affected parties agree to proceed, virtual mediation sessions are scheduled at times convenient for everyone.',
         },
         {
-            title: 'Video Conference',
-            description: 'A Video conference will be held with the goal of facilitating a resolution to the challenges facing the parties where all information shared will remain confidential.',
+            title: 'Virtual Conference',
+            description: 'A confidential video conference is held to help the parties work toward resolving their challenges.',
         },
         {
             title: 'Neutral Facilitation',
-            description: 'The Mediator will remain neutral with the goal of creating an environment that promotes open engagement with a focus on problem solving.',
+            description: 'The mediator remains neutral while encouraging open discussion and guiding the parties toward practical dispute resolution.',
         },
         {
             title: 'Resolution Agreement',
-            description: 'A Written Summary or Draft Agreement will be prepared by the Mediator that will contain any terms that the parties agree upon that you have the option of having it reviewed by an attorney.',
+            description: 'The mediator prepares a written summary or draft agreement outlining the terms accepted by the parties. The agreement may be reviewed by an attorney before signing.',
         }
+    ];
+
+    const reviews = [
+        {
+            quote: '“Ms. Outlaw is a phenomenal mediator. She took extremely tense moments and somehow made them comfortable, productive, and even humorous. She has a remarkable ability to relate to people, help them see logic, and encourage fairness without making anyone feel unheard. I am beyond grateful for her. I went from the very real possibility of not seeing my 6-year-old son during the school year except every other weekend—only four days per month—to receiving TOTAL equal parenting time. 🙌🏿😂🤎 If it were not for Ms. Outlaw, I truly believe my relationship with my son would have ultimately been impaired….4 days per month would’ve been a tragedy. And honestly, I received so much more than that but for the sake of time I’ll just say I felt heard, respected, and understood throughout the process. Ms. Outlaw is a GODSEND, and it is my absolute pleasure to write this review.”',
+            attribution: 'Wayne, Montgomery County, MD',
+        },
+        {
+            quote: '“Thank you again for the opportunity to observe your thoughtful and skillful approach to mediation. It was truly a valuable experience, and I learned so much from watching your approach, especially the way you connected with and listened to both parties.”',
+            attribution: 'Michelle Jones, Mediator, Maryland',
+        },
     ];
 
     return (
@@ -135,6 +142,14 @@ const MediationServices = () => {
                     className="w-full h-auto block"
                 />
             </div>
+
+            <section className="bg-white py-16 md:py-20">
+                <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+                    <h1 className="font-['Playfair_Display'] text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
+                        Mediation Services Designed to Deliver Meaningful Results
+                    </h1>
+                </div>
+            </section>
 
             {/* Services Overview */}
             <section className="py-24">
@@ -162,14 +177,16 @@ const MediationServices = () => {
                                         {service.description}
                                     </p>
 
-                                    <div className="grid sm:grid-cols-2 gap-4">
-                                        {service.benefits.map((benefit, i) => (
-                                            <div key={i} className="flex items-start gap-3">
-                                                <CheckCircle size={20} className="text-[#1E3A5F] flex-shrink-0 mt-1" />
-                                                <span className="text-slate-600 font-medium">{benefit}</span>
-                                            </div>
-                                        ))}
-                                    </div>
+                                    {service.benefits.length > 0 && (
+                                        <div className="grid sm:grid-cols-2 gap-4">
+                                            {service.benefits.map((benefit, i) => (
+                                                <div key={i} className="flex items-start gap-3">
+                                                    <CheckCircle size={20} className="text-[#1E3A5F] flex-shrink-0 mt-1" />
+                                                    <span className="text-slate-600 font-medium">{benefit}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
 
                                     <Link
                                         to="/contact"
@@ -212,13 +229,13 @@ const MediationServices = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-20">
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#1E3A5F]/10 rounded-full mb-6 border border-[#1E3A5F]/30">
-                            <span className="text-[#5B2C6F] font-bold text-sm tracking-wide uppercase">The Process</span>
+                            <span className="text-[#5B2C6F] font-bold text-sm tracking-wide uppercase">How Mediation Works</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                            Seven Steps to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Resolution</span>
+                            A Seven-Step Path to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Resolution</span>
                         </h2>
                         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                            Our structured approach ensures a clear path forward, keeping you informed and empowered at every stage.
+                            Mediation provides a constructive path for parties to find common ground outside the courtroom. Our structured process offers clear guidance and keeps you informed at every stage.
                         </p>
                     </div>
 
@@ -283,10 +300,10 @@ const MediationServices = () => {
                                 <span className="text-[#1E3A5F] font-bold text-sm tracking-wide uppercase">Benefits</span>
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                                Why Mediation <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Works</span>
+                                Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Mediation</span>
                             </h2>
                             <p className="text-slate-600 text-lg mb-12">
-                                Mediation offers a constructive path forward, allowing all parties to find common ground without the adversity of a courtroom.
+                                Mediation provides a constructive path for parties to find common ground outside the courtroom.
                             </p>
 
                             <div className="grid gap-6">
@@ -306,6 +323,35 @@ const MediationServices = () => {
                                 ))}
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Mediation Reviews */}
+            <section className="bg-white py-20 md:py-24">
+                <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                    <div className="mb-12 text-center">
+                        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#1E3A5F]/20 bg-[#1E3A5F]/5 px-4 py-2">
+                            <FleurDeLisIcon size="xs" />
+                            <span className="text-sm font-bold uppercase tracking-wide text-[#1E3A5F]">Client Experiences</span>
+                        </div>
+                        <h2 className="font-['Playfair_Display'] text-4xl font-bold text-slate-900 md:text-5xl">
+                            Mediation <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Reviews</span>
+                        </h2>
+                    </div>
+
+                    <div className="mx-auto max-w-5xl space-y-8">
+                        {reviews.map((review) => (
+                            <figure key={review.attribution} className="rounded-[2rem] border border-slate-100 bg-slate-50 p-8 shadow-sm md:p-10">
+                                <FleurDeLisIcon size="md" className="mb-6" />
+                                <blockquote className="font-['Playfair_Display'] text-lg italic leading-relaxed text-slate-700 md:text-xl">
+                                    {review.quote}
+                                </blockquote>
+                                <figcaption className="mt-6 border-t border-slate-200 pt-5 text-sm font-bold uppercase tracking-wide text-[#1E3A5F]">
+                                    {review.attribution}
+                                </figcaption>
+                            </figure>
+                        ))}
                     </div>
                 </div>
             </section>
