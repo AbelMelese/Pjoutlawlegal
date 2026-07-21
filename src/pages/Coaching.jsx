@@ -22,6 +22,8 @@ import image2 from "../assets/image 2.jpg";
 import booksImage from "../assets/books image.jpg";
 import fleurDeLis from '../assets/fleur-de-lis.png';
 import coachingHero from '../assets/Coaching.png';
+import divorceCoachingImg from '../assets/divorce coaching.jpg';
+import businessCoachingImg from '../assets/business coaching.jpg';
 
 const Coaching = () => {
     const coachingServices = [
@@ -49,7 +51,7 @@ const Coaching = () => {
             id: 'divorce',
             icon: Heart,
             title: 'Divorce Coaching',
-            subtitle: 'Clarity & Confidence During Transition',
+            subtitle: 'Navigate What is Next With Confidence',
             description: 'Divorce can be overwhelming. Phyllis J. Outlaw & Associates helps you stay grounded, clearheaded, and empowered through each stage of your journey.',
             benefits: [
                 'Understand the divorce process',
@@ -64,7 +66,7 @@ const Coaching = () => {
             bgColor: 'bg-[#fdf2f4]',
             accent: 'text-[#5B2C6F]',
             border: 'border-[#fce7ea]',
-            image: null
+            image: divorceCoachingImg
         },
         {
             id: 'business',
@@ -87,7 +89,7 @@ const Coaching = () => {
             bgColor: 'bg-[#1E3A5F]/10',
             accent: 'text-[#5B2C6F]',
             border: 'border-[#1E3A5F]/30',
-            image: null
+            image: businessCoachingImg
         },
     ];
 
@@ -198,29 +200,15 @@ const Coaching = () => {
                                 <div className="flex-1 w-full relative">
                                     <div className={`absolute -inset-3 bg-gradient-to-br ${service.color} opacity-20 blur-lg rotate-2 hover:rotate-0 transition-transform duration-700`}></div>
                                     <div className="relative z-10 w-full">
-                                        
-                                            {service.image ? (
-                                                <div className="framed-photo-container h-[400px] w-full">
-                                                    <img
-                                                        src={service.image}
-                                                        alt={service.title}
-                                                    />
-                                                </div>
-                                            ) : (
-                                                <div className={`w-full h-[400px] bg-gradient-to-br ${service.color} flex flex-col items-center justify-center gap-6 group`}>
-                                                    <div className="w-32 h-32 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform duration-500">
-                                                        <img src={fleurDeLis} alt={service.title} className="w-16 h-16 object-contain drop-shadow-lg" />
-                                                    </div>
-                                                    <p className="text-white/80 text-xl font-['Playfair_Display'] font-bold tracking-wide">{service.title}</p>
-                                                    <div className="flex gap-2">
-                                                        {[...Array(3)].map((_, i) => (
-                                                            <div key={i} className="w-2 h-2 rounded-full bg-white/40"></div>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            )}
+                                        <div className="w-full overflow-hidden rounded-lg">
+                                            <img
+                                                src={service.image}
+                                                alt={service.title}
+                                                className="w-full h-auto block"
+                                            />
                                         </div>
                                     </div>
+                                </div>
                             </div>
                         ))}
                     </div>

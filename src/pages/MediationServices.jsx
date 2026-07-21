@@ -5,6 +5,9 @@ import {
 } from 'lucide-react';
 import FleurDeLisIcon from '../components/FleurDeLisIcon';
 import mediationPageHero from '../assets/Mediation page.png';
+import divorceMediationImg from '../assets/divorce mediation.jpg';
+import childMediationImg from '../assets/child mediation.png';
+import businessMediationImg from '../assets/business mediation.jpg';
 
 
 
@@ -19,6 +22,7 @@ const MediationServices = () => {
             benefits: [],
             color: 'from-[#2A4F7A] to-[#1E3A5F]',
             bgColor: 'bg-blue-50/50',
+            image: null,
         },
         {
             id: 'family',
@@ -31,6 +35,7 @@ const MediationServices = () => {
             ],
             color: 'from-[#1E3A5F] to-[#5B2C6F]',
             bgColor: 'bg-[#e8f4f4]/50',
+            image: divorceMediationImg,
         },
 
         {
@@ -44,6 +49,8 @@ const MediationServices = () => {
             ],
             color: 'from-[#2A4F7A] to-[#1E3A5F]',
             bgColor: 'bg-[#e8f4f4]/50',
+            image: childMediationImg,
+            fixedHeight: true,
         },
         {
             id: 'business',
@@ -59,6 +66,7 @@ const MediationServices = () => {
             ],
             color: 'from-[#5B2C6F] to-[#5B2C6F]',
             bgColor: 'bg-[#fdf2f4]/50',
+            image: businessMediationImg,
         },
     ];
 
@@ -201,16 +209,32 @@ const MediationServices = () => {
                                 <div className="flex-1 w-full">
                                     <div className="relative group">
                                         <div className={`absolute -inset-4 bg-gradient-to-br ${service.color.replace('from', 'from-').replace('to', 'to-')} opacity-30 rounded-[2.5rem] blur-2xl group-hover:opacity-50 transition-opacity duration-500`}></div>
-                                        <div className={`relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 flex items-center justify-center h-[400px] bg-gradient-to-br ${service.color}`}>
-                                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
-                                            <FleurDeLisIcon size="raw-lg" className="opacity-20 transform group-hover:scale-110 transition-transform duration-700" />
-                                            <div className="absolute bottom-6 right-6 p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/50">
-                                                <div className="flex items-center gap-2">
-                                                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                                                    <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Available Now</span>
+                                        {service.image ? (
+                                            <div className={`relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100${service.fixedHeight ? ' h-[400px]' : ''}`}>
+                                                <img
+                                                    src={service.image}
+                                                    alt={service.title}
+                                                    className={service.fixedHeight ? "w-full h-full object-cover object-center" : "w-full h-auto block"}
+                                                />
+                                                <div className="absolute bottom-6 right-6 p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/50">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                                                        <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Available Now</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        ) : (
+                                            <div className={`relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 flex items-center justify-center h-[400px] bg-gradient-to-br ${service.color}`}>
+                                                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+                                                <FleurDeLisIcon size="raw-lg" className="opacity-20 transform group-hover:scale-110 transition-transform duration-700" />
+                                                <div className="absolute bottom-6 right-6 p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/50">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                                                        <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Available Now</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
