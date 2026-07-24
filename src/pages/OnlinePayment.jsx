@@ -72,7 +72,7 @@ const OnlinePayment = () => {
 
   // Render/re-render PayPal buttons when form becomes valid or values change
   useEffect(() => {
-    if (!paypalReady || !isFormValid || paymentStatus === 'success') return;
+    if (!paypalReady || !isFormValid) return;
     if (!paypalContainerRef.current) return;
 
     // Clear previous buttons
@@ -176,7 +176,7 @@ const OnlinePayment = () => {
         paypalButtonsRef.current = null;
       }
     };
-  }, [paypalReady, isFormValid, amount, description, clientName, paymentStatus]);
+  }, [paypalReady, isFormValid, amount, description, clientName]);
 
   /** Reset for another payment. */
   const resetForm = () => {
