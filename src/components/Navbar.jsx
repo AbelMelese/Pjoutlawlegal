@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, PhoneCall, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import logo from '../assets/pjoa-logo-transparent.png';
 
 const navLinks = [
@@ -8,8 +8,7 @@ const navLinks = [
   { name: 'Mediation Services', path: '/mediation-services' },
   { name: 'Legal Services', path: '/legal-services' },
   { name: 'Coaching', path: '/coaching' },
-  { name: 'About Phyllis J. Outlaw', path: '/about-phyllis-j-outlaw' },
-  { name: 'Testimonials', path: '/testimonials' },
+  { name: 'About the Principal', path: '/about-phyllis-j-outlaw' },
   { name: 'Online Payment', path: '/online-payment' },
   { name: 'Contact Us', path: '/contact' },
 ];
@@ -18,26 +17,18 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   return (
     <header className="site-header">
-      <div className="contact-ribbon">
-        <div className="section-shell contact-ribbon__inner">
-          <p>Phyllis J. Outlaw &amp; Associates</p>
-          <div className="contact-ribbon__meta">
-            <a href="tel:+12025482999">Washington, D.C. 202.548.2999</a>
-            <span>|</span>
-            <a href="mailto:lawfirm@pjoutlawlegal.com">lawfirm@pjoutlawlegal.com</a>
-          </div>
-        </div>
-      </div>
-
       <div className="section-shell brand-row">
         <Link to="/" className="brand-block" aria-label="Phyllis J. Outlaw & Associates home">
           <img className="brand-logo" src={logo} alt="Phyllis J. Outlaw & Associates logo" />
-          <div>
-            <strong>Phyllis J. Outlaw &amp; Associates</strong>
-            <em>Legal, Mediation &amp; Coaching Services</em>
-          </div>
         </Link>
 
         <div className="brand-actions">
@@ -45,11 +36,6 @@ const Navbar = () => {
             <span>Contact Us Today</span>
             <a href="tel:+12025482999">(202) 548-2999</a>
           </div>
-
-          <a href="tel:+12025482999" className="primary-button">
-            <PhoneCall size={18} />
-            <span>Call Our Office</span>
-          </a>
 
           <button
             type="button"

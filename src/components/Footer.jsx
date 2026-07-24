@@ -1,94 +1,182 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/pjoa-logo-transparent.png';
+import {
+  ArrowRight,
+  Facebook,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+  Youtube,
+} from 'lucide-react';
 
-const footerLinks = [
+const quickLinks = [
   { name: 'Home', path: '/' },
   { name: 'Mediation Services', path: '/mediation-services' },
   { name: 'Legal Services', path: '/legal-services' },
   { name: 'Coaching', path: '/coaching' },
-  { name: 'About Phyllis J. Outlaw', path: '/about-phyllis-j-outlaw' },
-  { name: 'Testimonials', path: '/testimonials' },
+  { name: 'About the Principal', path: '/about-phyllis-j-outlaw' },
   { name: 'Online Payment', path: '/online-payment' },
   { name: 'Contact Us', path: '/contact' },
 ];
 
+const services = [
+  { name: 'Mediation Services', path: '/mediation-services' },
+  { name: 'Legal Services', path: '/legal-services' },
+  { name: 'Coaching', path: '/coaching' },
+];
+
 const socialLinks = [
-  {
-    name: 'Facebook',
-    href: 'https://www.facebook.com/CLRCommunityEmpowerment/',
-  },
-  {
-    name: 'YouTube',
-    href: 'https://www.youtube.com/channel/UCBD_unvoJ9pascMwOcYHpqg/videos',
-  },
-  {
-    name: 'X',
-    href: 'https://x.com/clrcommunity',
-  },
-  {
-    name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/phyllis-j-outlaw-esq/',
-  },
+  { Icon: Facebook, href: 'https://www.facebook.com/CLRCommunityEmpowerment/' },
+  { Icon: Youtube, href: 'https://www.youtube.com/channel/UCBD_unvoJ9pascMwOcYHpqg/videos' },
+  { Icon: Twitter, href: 'https://x.com/clrcommunity' },
+  { Icon: Linkedin, href: 'https://www.linkedin.com/in/phyllis-j-outlaw-esq/' },
 ];
 
 const Footer = () => {
   return (
-    <footer className="site-footer">
-      <div className="section-shell footer-grid">
-        <div>
-          <img className="footer-logo" src={logo} alt="Phyllis J. Outlaw & Associates logo" />
-          <h2>Trusted legal and mediation guidance in Washington, D.C. and Maryland.</h2>
-          <p>
-            Our office serves individuals, families, businesses, and organizations with careful
-            counsel, practical strategy, and respected mediation experience.
-          </p>
-        </div>
-
-        <div>
-          <h3>Office Information</h3>
-          <ul className="footer-list">
-            <li>412 H Street, NE</li>
-            <li>Washington, DC 20002</li>
-            <li>
-              <a href="tel:+12025482999">(202) 548-2999</a>
-            </li>
-            <li>
-              <a href="tel:+12025488114">(202) 548-8114</a>
-            </li>
-            <li>
-              <a href="mailto:lawfirm@pjoutlawlegal.com">lawfirm@pjoutlawlegal.com</a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Website</h3>
-          <ul className="footer-list">
-            {footerLinks.map((link) => (
-              <li key={link.path}>
-                <Link to={link.path}>{link.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3>Connect</h3>
-          <ul className="footer-list">
-            {socialLinks.map((link) => (
-              <li key={link.name}>
-                <a href={link.href} target="_blank" rel="noreferrer">
-                  {link.name}
+    <footer className="relative overflow-hidden">
+      <div className="relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #1E3A5F 0%, #2A1F4E 40%, #5B2C6F 100%)' }}>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          <div className="lg:col-span-1">
+            <div className="mb-6">
+              <h3 className="text-lg md:text-xl font-bold font-['Playfair_Display'] text-white whitespace-nowrap">
+                Phyllis J. Outlaw & Associates
+              </h3>
+              <p className="text-white/70 mt-2">
+                Legal, mediation, and coaching services grounded in preparation and professional
+                service.
+              </p>
+            </div>
+            <div className="flex gap-3">
+              {socialLinks.map(({ Icon, href }, index) => (
+                <a
+                  key={index}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white/60 hover:bg-white/20 hover:text-white transition-all duration-300 hover:-translate-y-1"
+                >
+                  <Icon size={18} />
                 </a>
-              </li>
-            ))}
-          </ul>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-[#C5A03A]"></span>
+              Quick Links
+            </h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="text-white/70 hover:text-white transition-colors duration-300 flex items-center gap-2 group"
+                  >
+                    <ArrowRight
+                      size={14}
+                      className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                    />
+                    <span>{link.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-[#C5A03A]"></span>
+              Our Services
+            </h4>
+            <ul className="space-y-3">
+              {services.map((service) => (
+                <li key={service.name}>
+                  <Link
+                    to={service.path}
+                    className="text-white/70 hover:text-white transition-colors duration-300 flex items-center gap-2 group"
+                  >
+                    <ArrowRight
+                      size={14}
+                      className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                    />
+                    <span>{service.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-[#C5A03A]"></span>
+              <span>Contact Us</span>
+            </h4>
+            <div className="space-y-5">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-white/10 border border-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone size={18} className="text-white/80" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Phone</p>
+                  <a href="tel:+12025482999" className="text-white/90 hover:text-white transition-colors font-medium">
+                    (202) 548-2999
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-white/10 border border-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone size={18} className="text-white/80" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Fax</p>
+                  <a href="tel:+12025488114" className="text-white/90 hover:text-white transition-colors font-medium">
+                    (202) 548-8114
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-white/10 border border-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Mail size={18} className="text-white/80" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Email</p>
+                  <a href="mailto:lawfirm@pjoutlawlegal.com" className="text-white/90 hover:text-white transition-colors font-medium break-all">
+                    lawfirm@pjoutlawlegal.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-white/10 border border-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MapPin size={18} className="text-white/80" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Address</p>
+                  <p className="text-white/90 text-[0.8rem] xl:text-sm tracking-tight whitespace-nowrap font-medium">
+                    412 H Street, NE, Washington, DC 20002
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      </div>
 
-      <div className="site-footer__bottom">
-        <div className="section-shell">
-          <p>Copyright © 2026, Phyllis J. Outlaw &amp; Associates</p>
+      <div className="relative bg-[#C5A03A]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#1E3A5F]">
+            <p className="whitespace-nowrap">Copyright © 2026, Phyllis J. Outlaw & Associates</p>
+            <div className="flex items-center gap-6">
+              <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
+              <span>|</span>
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

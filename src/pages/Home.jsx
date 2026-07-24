@@ -1,236 +1,235 @@
 import { Link } from 'react-router-dom';
+import {
+    ArrowRight
+} from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHero from '../components/PageHero';
-import pjoPortrait from "../assets/use this picture in PJO's resume.jpg";
-import mediaLogosStrip from '../assets/media-logos-strip.png';
-import goldWomanScales from '../assets/gold-woman-scales.jpg';
-import officeShoot264 from '../assets/office-shoot-264.jpg';
-import officeShoot044 from '../assets/office-shoot-044.jpg';
-import officeShoot110 from '../assets/office-shoot-110.jpg';
-import dcStreetStock from '../assets/dc-street-stock.jpg';
+import designSlide1 from '../assets/design_  slide1.png';
+import designSlide2 from '../assets/design_  slide2.png';
+import designSlide3 from '../assets/design_  slide3.png';
+import designSlide4 from '../assets/design_  slide4.png';
+import FleurDeLisIcon from '../components/FleurDeLisIcon';
 
-const heroSlides = [
-  {
-    title: 'Phyllis J. Outlaw & Associates',
-    subtitle:
-      'Maintains the highest standard of excellence on behalf of our clients.',
-    image: goldWomanScales,
-    fit: 'contain',
-    position: '72% center',
-    background: '#d6d1c6',
-  },
-  {
-    title: 'A Court-Appointed Mediator',
-    subtitle:
-      'Who possesses knowledge, skills and expertise in mediation of disputes.',
-    image: officeShoot264,
-    position: 'center 28%',
-  },
-  {
-    title: 'Our Legal Team Employs Innovative Methods',
-    subtitle:
-      'To help clients pursue a successful outcome for important legal matters.',
-    image: officeShoot044,
-    position: 'center 48%',
-  },
-  {
-    title: 'Over Four Decades of Experience',
-    subtitle: 'In mediation, arbitration, and civil litigation.',
-    image: officeShoot110,
-    position: 'center 26%',
-  },
-];
-
-const previewTestimonials = [
-  {
-    quote:
-      "I am very pleased and satisfied with the firm's work. They keep me fully informed and are competent, thorough and timely.",
-    author: 'Terrance Howell',
-    role: 'Prince Georges County, Maryland',
-  },
-  {
-    quote:
-      'Phyllis J. Outlaw & Associates are highly skilled in their approach to personnel matters and treat clients with respect.',
-    author: 'Quinsola N. McCray',
-    role: 'Washington, D.C.',
-  },
-];
-
-const homeServices = [
-  {
-    title: 'Mediation Services',
-    body:
-      'Court-appointed mediation support for civil, property, family, custody, parenting, and child support matters.',
-    link: '/mediation-services',
-  },
-  {
-    title: 'Legal Services',
-    body:
-      'Experienced counsel for government, business, nonprofit, and individual legal matters with careful case analysis.',
-    link: '/legal-services',
-  },
-  {
-    title: 'Coaching',
-    body:
-      'Guidance for families, divorcing clients, business leaders, seminars, and professional development programs.',
-    link: '/coaching',
-  },
-];
 
 const Home = () => {
-  return (
-    <div>
-      <PageHero
-        slides={heroSlides}
-        eyebrow="Washington, D.C. Legal and Mediation Practice"
-        actions={[
-          { label: 'Contact Us', to: '/contact' },
-          { label: 'Learn About Services', to: '/mediation-services' },
-        ]}
-      />
+    const [activeTestimonial, setActiveTestimonial] = useState(0);
+    const [heroSlideIndex, setHeroSlideIndex] = useState(0);
+    const heroSlideImages = [designSlide1, designSlide2, designSlide3, designSlide4];
 
-      <section className="page-section page-section--white">
-        <div className="section-shell">
-          <p className="section-script">Welcome</p>
-          <h2 className="section-title">Experienced Guidance for Individuals, Families, and Organizations</h2>
-          <div className="section-divider">✦</div>
-          <p className="intro-quote">
-            Dedicated counsel, respected mediation experience, and a clear commitment to helping
-            clients move difficult matters toward resolution.
-          </p>
+    // Scroll reveal refs for each section
+    const servicesHeaderRef = useScrollReveal();
+    const servicesGridRef = useScrollReveal({ staggerChildren: true, staggerDelay: 150 });
 
-          <div className="two-column body-copy">
-            <div>
-              <p>
-                Phyllis J. Outlaw &amp; Associates has provided legal services to residents and local
-                businesses in Maryland and Washington, D.C. Our offices are located in the commercial
-                district and remain convenient to the city&apos;s business corridor, public
-                transportation, and both federal and local courts.
-              </p>
-              <p>
-                The firm&apos;s work spans mediation, civil matters, coaching, seminars, and
-                strategic legal services for clients who need experienced representation with a
-                disciplined, professional approach.
-              </p>
-            </div>
 
-            <div>
-              <p>
-                The practice emphasizes professionalism, preparation, and direct service to clients
-                who need practical help navigating difficult legal and mediation matters.
-              </p>
-              <p>
-                Whether the matter involves mediation, civil issues, coaching, or organizational
-                guidance, the focus remains the same: careful attention, sound judgment, and
-                respect for the client&apos;s goals.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="page-section page-section--soft">
-        <div className="section-shell">
-          <div className="two-column section-block">
-            <div className="image-frame image-frame--tall">
-              <img src={dcStreetStock} alt="Washington D.C. business district street" />
-            </div>
+    const testimonialsRef = useScrollReveal();
+    const ctaRef = useScrollReveal();
 
-            <div className="body-copy">
-              <p className="section-script" style={{ textAlign: 'left', marginBottom: '0.6rem' }}>
-                Washington, D.C. Offices
-              </p>
-              <p>
-                Phyllis J. Outlaw &amp; Associates has provided legal services to residents and local
-                businesses in Maryland and Washington, D.C. Our offices are located in the
-                commercial district which is known for its resurgence and emerging small
-                businesses.
-              </p>
-              <p>
-                Our offices are convenient to the financial and business districts of the city,
-                public transportation, as well as to the federal and local courts located in the
-                District of Columbia and Maryland.
-              </p>
-            </div>
-          </div>
+    const services = [
+        {
+            title: 'Mediation Services',
+            description: 'Whether you are going through a divorce, addressing a family dispute, or managing workplace conflict, our proven process helps you reach effective results.',
+            color: 'from-[#2A4F7A] to-[#1E3A5F]',
+            link: '/mediation-services',
+        },
+        {
+            title: 'Corporate Services',
+            description: 'Phyllis J. Outlaw & Associates provides legal services to businesses, nonprofit organizations, and individuals seeking experienced counsel. We handle each matter with careful preparation, clear communication, and a strong focus on our clients\' long-term interests.',
+            color: 'from-[#1E3A5F] to-[#5B2C6F]',
+            link: '/legal-services',
+        },
+        {
+            title: 'Individual Client Services',
+            description: 'Phyllis J. Outlaw & Associates possess extensive trial experience in federal and local courts and have represented clients before agencies in Washington, D.C., and Maryland. Our firm has substantial knowledge and skills in litigation, arbitration, and mediation involving family law matters, including divorce, marital property, child custody, visitation, and child support, as well as personal injury, medical malpractice, probate, consumer law, real estate, labor law, equal employment opportunity law, and discrimination law.',
+            color: 'from-[#2A4F7A] to-[#1E3A5F]',
+            link: '/practice-areas',
+        },
+        {
+            title: 'Coaching Services',
+            description: 'Our coaching services help individuals, couples, families, and businesses set goals, strengthen skills, and achieve results through personalized support and practical action steps.',
+            color: 'from-[#5B2C6F] to-[#5B2C6F]',
+            link: '/coaching',
+        },
+    ];
+    const marqueeServices = [...services, ...services];
 
-          <div style={{ height: '2rem' }} />
 
-          <h2 className="section-title">Core Areas of Service</h2>
-          <div className="section-divider">✦</div>
 
-          <div className="feature-grid">
-            {homeServices.map((service) => (
-              <article key={service.title} className="feature-card">
-                <h3>{service.title}</h3>
-                <p>{service.body}</p>
-                <div style={{ marginTop: '1rem' }}>
-                  <Link className="primary-button" to={service.link}>
-                    Learn More
-                  </Link>
+
+    const testimonials = [
+        {
+            quote: "I am very pleased and satisfied with the firm's work. They kept me fully informed both in person and with a written copy of all details. The attorneys have been competent, thorough and timely in their legal work.",
+            author: 'Terrance Howell',
+            role: 'Prince Georges County, MD',
+        },
+        {
+            quote: 'From the beginning, Attorney Outlaw was very upfront with me about my case, and she directed me how to proceed with my case. Throughout the process, Atty. Outlaw and her staff kept me informed of what to expect. I appreciated her professionalism in handling my case. I would highly recommend Phyllis J. Outlaw & Associates to anyone who needs legal representation. Thank you for handling my case.',
+            author: 'Sheryl Garrison',
+            role: 'Newnan, GA',
+        },
+        {
+            quote: 'Phyllis J. Outlaw & Associates represented me after I was injured in a car accident. Attorney Outlaw and her staff were professional and kept me informed throughout my case. I highly recommend Phyllis J. Outlaw & Associates to anyone in need of legal services.',
+            author: 'Emma Dorsey',
+            role: 'Washington, DC',
+        },
+    ];
+
+    // Auto slide for Hero images
+    useEffect(() => {
+        const heroInterval = setInterval(() => {
+            setHeroSlideIndex((prev) => (prev + 1) % heroSlideImages.length);
+        }, 4000);
+        return () => clearInterval(heroInterval);
+    }, [heroSlideImages.length]);
+
+    // Auto slide for Testimonials
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [testimonials.length]);
+
+    return (
+        <div className="overflow-hidden bg-[#f8fafc]">
+            {/* Hero Slider Section */}
+            <div className="hero-slider w-full relative overflow-hidden">
+                {heroSlideImages.map((slide, index) => (
+                    <img
+                        key={index}
+                        src={slide}
+                        alt={`Phyllis J. Outlaw & Associates – Slide ${index + 1}`}
+                        className={`hero-slider__slide ${
+                            index === heroSlideIndex ? 'hero-slider__slide--active' : ''
+                        }`}
+                    />
+                ))}
+                {/* Slider Dots */}
+                <div className="hero-slider__dots">
+                    {heroSlideImages.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setHeroSlideIndex(index)}
+                            className={`hero-slider__dot ${
+                                index === heroSlideIndex ? 'hero-slider__dot--active' : ''
+                            }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
                 </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="page-section page-section--white">
-        <div className="section-shell">
-          <div className="portrait-panel">
-            <img src={pjoPortrait} alt="Phyllis J. Outlaw portrait" />
-            <div className="body-copy">
-              <p className="section-script" style={{ textAlign: 'left', marginBottom: '0.6rem' }}>
-                Media Appearances
-              </p>
-              <p>
-                Phyllis J. Outlaw has appeared as a guest on radio as well as local and national
-                television programs. This section highlights those appearances in a more formal
-                recognition presentation.
-              </p>
             </div>
-          </div>
 
-          <div className="media-marquee" style={{ marginTop: '1.5rem' }}>
-            <div className="media-marquee__track">
-              {[0, 1].map((index) => (
-                <img
-                  key={index}
-                  src={mediaLogosStrip}
-                  alt="Media appearances including CNN, C-SPAN, FOX News, WUSA 9, WYCB Podcast, WPFW, WHUT, JET, Ebony, Essence, and Bottomline"
-                />
-              ))}
-            </div>
-          </div>
+
+
+            {/* Services Grid with Hover Effects */}
+            <section className="py-14 md:py-20 relative">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div ref={servicesHeaderRef} className="scroll-reveal text-center mb-10 md:mb-14">
+                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
+                            Phyllis J. Outlaw &amp; Associates
+                        </h2>
+                            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+                                {[
+                                    { label: 'Mediation Services' },
+                                    { label: 'Corporate Services' },
+                                    { label: 'Individual Client Services' },
+                                    { label: 'Coaching Services' },
+                                ].map((item) => (
+                                    <div
+                                        key={item.label}
+                                        className="flex min-h-16 items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 shadow-sm"
+                                    >
+                                        <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] text-white shadow-md">
+                                            <FleurDeLisIcon size="sm" variant="transparent" />
+                                        </div>
+                                        <span className="text-center text-base font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] font-['Playfair_Display']">
+                                            {item.label}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                    </div>
+
+                    <div ref={servicesGridRef} className="scroll-reveal services-marquee">
+                        <div className="services-marquee__track">
+                            {marqueeServices.map((service, index) => (
+                                <div
+                                    key={`${service.title}-${index}`}
+                                    className="scroll-reveal-child services-marquee__card group relative bg-white rounded-[2rem] p-6 shadow-xl border border-slate-100 overflow-hidden"
+                                >
+                                    <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.color} opacity-10 rounded-full blur-2xl`}></div>
+
+                                    <FleurDeLisIcon size="lg" variant="transparent" className={`bg-gradient-to-br ${service.color} shadow-lg mb-6`} />
+
+                                    <h3 className="text-xl font-bold text-slate-900 font-['Playfair_Display'] mb-3">{service.title}</h3>
+                                    <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
+
+                                    <Link to={service.link} className="flex items-center gap-2 text-slate-900 font-bold transition-colors hover:text-[#5B2C6F]">
+                                        <span className="text-sm uppercase tracking-wider">Learn More</span>
+                                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition-colors hover:bg-[#1E3A5F]/20">
+                                            <ArrowRight size={14} />
+                                        </div>
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            {/* Client Testimonials - Dark Mode */}
+            <section className="py-14 md:py-20 bg-[#1E3A5F] relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                    <div className="blob bg-[#5B2C6F] w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 rounded-full blur-3xl"></div>
+                </div>
+
+                <div ref={testimonialsRef} className="scroll-reveal max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-4">
+                        Client <span className="text-[#C5A03A]">Testimonials</span>
+                    </h2>
+                    <div className="w-20 h-[3px] bg-gradient-to-r from-[#C5A03A] to-[#5B2C6F] mx-auto mb-10 md:mb-14 rounded-full"></div>
+
+                    <div className="relative min-h-[560px] sm:min-h-[500px] md:min-h-[460px] lg:min-h-[420px]">
+                        {testimonials.map((t, i) => (
+                            <div
+                                key={i}
+                                className={`absolute inset-0 transition-all duration-700 flex flex-col items-center justify-center ${i === activeTestimonial ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+                            >
+                                <div className="relative rounded-[2rem] p-8 md:p-10 border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl max-w-3xl mx-auto">
+                                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-[#C5A03A] to-[#5B2C6F] flex items-center justify-center shadow-lg">
+                                        <span className="text-white text-xl font-bold font-['Playfair_Display']">&ldquo;</span>
+                                    </div>
+                                    <p className="text-lg md:text-2xl font-['Playfair_Display'] text-white leading-relaxed mb-6 italic">
+                                        "{t.quote}"
+                                    </p>
+                                    <div className="w-12 h-[2px] bg-[#C5A03A] mx-auto mb-4 rounded-full"></div>
+                                    <p className="font-bold text-white text-lg">{t.author}</p>
+                                    <p className="text-[#C5A03A] text-sm font-semibold uppercase tracking-[0.16em] mt-1">{t.role}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="flex justify-center gap-3 mt-8">
+                        {testimonials.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setActiveTestimonial(i)}
+                                className={`transition-all duration-300 rounded-full ${i === activeTestimonial ? 'w-12 h-3 bg-[#C5A03A]' : 'w-3 h-3 bg-white/30'}`}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+
         </div>
-      </section>
-
-      <section className="page-section page-section--soft">
-        <div className="section-shell">
-          <p className="section-script">Testimonials</p>
-          <h2 className="section-title">What Clients Have Said</h2>
-          <div className="section-divider">✦</div>
-
-          <div className="testimonial-grid">
-            {previewTestimonials.map((item) => (
-              <article key={item.author} className="testimonial-card panel">
-                <p className="body-copy" style={{ marginBottom: '1rem' }}>
-                  &ldquo;{item.quote}&rdquo;
-                </p>
-                <h3 style={{ marginBottom: '0.15rem' }}>{item.author}</h3>
-                <p>{item.role}</p>
-              </article>
-            ))}
-          </div>
-
-          <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-            <Link className="primary-button" to="/testimonials">
-              View Additional Testimonials
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+    );
 };
 
 export default Home;
+

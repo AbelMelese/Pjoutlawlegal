@@ -1,103 +1,378 @@
 import { Link } from 'react-router-dom';
+import {
+    Users,
+    Heart,
+    Briefcase,
+    ArrowRight,
+    CheckCircle,
+    Target,
+    Compass,
+    Lightbulb,
+    Shield,
+    Video,
+    GraduationCap,
+    Presentation,
+    Quote,
+    Star
+} from 'lucide-react';
 import PageHero from '../components/PageHero';
-import coachingPhoto from '../assets/use this image in coaching page.jpg';
-import trainingPhoto from '../assets/use this image in seminars and training.jpg';
-
-const coachingAreas = [
-  {
-    title: 'Family Coaching',
-    body:
-      'Support for family communication, boundaries, transitions, and co-parenting conversations that need structure and guidance.',
-  },
-  {
-    title: 'Divorce Coaching',
-    body:
-      'Practical assistance for clients preparing for mediation, managing difficult conversations, and organizing next steps with clarity.',
-  },
-  {
-    title: 'Business Coaching',
-    body:
-      'Guidance for leadership, workplace communication, team alignment, and professional transitions that affect performance and decision making.',
-  },
-];
-
-const trainingTopics = [
-  'Diversity awareness',
-  'EEO and sexual harassment',
-  'Customer service training',
-  'Leadership and management coaching',
-  'Conflict management',
-  'Effective communication',
-  'Problem-solving and decision-making',
-  'Senior executive development',
-];
+import seminarsTrainingImg from "../assets/use this image in seminars and training.jpg";
+import coachingPhoto from "../assets/use this image in coaching page.jpg";
+import image2 from "../assets/image 2.jpg";
+import booksImage from "../assets/books image.jpg";
+import fleurDeLis from '../assets/fleur-de-lis.png';
+import coachingHero from '../assets/Coaching.png';
+import divorceCoachingImg from '../assets/divorce coaching.jpg';
+import businessCoachingImg from '../assets/business coaching.jpg';
 
 const Coaching = () => {
-  return (
-    <div>
-      <PageHero
-        compact
-        allowImageMotion={false}
-        slides={[
-          {
-            title: 'Coaching',
-            subtitle:
-              'Family, divorce, business, and professional development guidance grounded in real-world experience.',
-            image: coachingPhoto,
-            fit: 'contain',
-            background: '#dbe3e8',
-          },
-        ]}
-        eyebrow="Coaching"
-        actions={[{ label: 'Contact Our Office', to: '/contact' }]}
-      />
+    const coachingServices = [
+        {
+            id: 'family',
+            icon: Users,
+            title: 'Family Coaching',
+            subtitle: 'Strengthen Relationships. Rebuild Trust.',
+            description: 'Families are complex. Even when love is strong, misunderstandings and life changes can create deep rifts. Our Family Coaching Services are designed to help you reconnect.',
+            benefits: [
+                'Improve parent-child communication',
+                'Address co-parenting challenges',
+                'Set healthy family boundaries',
+                'Reduce generational tensions',
+                'Strengthen relationships',
+            ],
+            note: 'Unlike therapy, family coaching is forward-facing.',
+            color: 'from-[#2A4F7A] to-[#1E3A5F]',
+            bgColor: 'bg-[#e8f4f4]',
+            accent: 'text-[#1E3A5F]',
+            border: 'border-[#d1e9ea]',
+            image: coachingPhoto
+        },
+        {
+            id: 'divorce',
+            icon: Heart,
+            title: 'Divorce Coaching',
+            subtitle: 'Navigate What is Next With Confidence',
+            description: 'Divorce can be overwhelming. Phyllis J. Outlaw & Associates helps you stay grounded, clearheaded, and empowered through each stage of your journey.',
+            benefits: [
+                'Understand the divorce process',
+                'Prepare for negotiating settlement agreements',
+                'Navigate high-stress conversations',
+                'Tips on how to handle anger and grief',
+                'Focus on your well-being',
+                'Create post-divorce goals',
+            ],
+            note: 'Your coach becomes your thinking partner.',
+            color: 'from-[#5B2C6F] to-[#5B2C6F]',
+            bgColor: 'bg-[#fdf2f4]',
+            accent: 'text-[#5B2C6F]',
+            border: 'border-[#fce7ea]',
+            image: divorceCoachingImg
+        },
+        {
+            id: 'business',
+            icon: Briefcase,
+            title: 'Business Coaching',
+            subtitle: 'Unlock Clarity & Strategy',
+            description: 'Phyllis J. Outlaw & Associates provides results-focused coaching for business owners, executives, professionals, managers, and employees. With decades of experience in legal and training services, our facilitator helps clients strengthen leadership, address organizational challenges, and work toward long-term goals through plans tailored to each business\'s needs.',
+            benefits: [
+                'Define business goals and vision',
+                'Navigate team dynamics',
+                'Set boundaries',
+                'Improve leadership skills',
+                'Handle transitions effectively',
+                'Develop a plan that supports your business purpose',
+                'Strengthen organizational management',
+                'Set career goals',
+            ],
+            note: 'We blend practical business insight with coaching.',
+            color: 'from-[#1E3A5F] to-[#5B2C6F]',
+            bgColor: 'bg-[#1E3A5F]/10',
+            accent: 'text-[#5B2C6F]',
+            border: 'border-[#1E3A5F]/30',
+            image: businessCoachingImg
+        },
+    ];
 
-      <section className="page-section page-section--white">
-        <div className="section-shell">
-          <div className="card-grid">
-            {coachingAreas.map((area) => (
-              <article key={area.title} className="info-card">
-                <h3>{area.title}</h3>
-                <p>{area.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+    const differentiators = [
+        { icon: Target, title: 'Tailored', description: 'Built around your unique situation, goals, and strengths.', color: 'from-[#2A4F7A] to-[#1E3A5F]' },
+        { icon: Heart, title: 'Compassionate', description: 'Growth comes from support, not pressure.', color: 'from-[#5B2C6F] to-[#3E1A4D]' },
+        { icon: Shield, title: 'Confidential', description: 'Your personal and professional challenges stay private.', color: 'from-[#1E3A5F] to-[#5B2C6F]' },
+        { icon: Video, title: 'Flexible', description: 'Sessions are virtual and accessible from anywhere.', color: 'from-[#5B2C6F] to-[#5B2C6F]' },
+        { icon: Lightbulb, title: 'Real', description: 'Grounded human guidance that works.', color: 'from-[#2A4F7A] to-[#5B2C6F]' },
+        { icon: Compass, title: 'Forward-Focused', description: 'Act on what is truly right for you.', color: 'from-[#1E3A5F] to-[#2A4F7A]' },
+    ];
 
-      <section className="page-section page-section--soft">
-        <div className="section-shell">
-          <div className="two-column">
-            <div className="image-frame">
-              <img src={trainingPhoto} alt="Seminars and training session" />
+    const heroSlides = [];
+
+    const testimonials = [
+        {
+            quote: 'Phyllis J. Outlaw & Associates exceeded my expectations. They helped me clarify my vision, prioritize my work, and develop a strong long-term business strategy. I gained healthier ways to manage workplace pressure and a better work-life balance. Their support was the missing piece I needed to move into my next stage of growth.',
+            name: 'Bonita Witherspoon',
+            location: 'Washington, DC',
+        },
+        {
+            quote: 'A true partner in our success. Phyllis J. Outlaw & Associates business coaching services have delivered lasting value through strategic direction, accountability, and practical solutions that work.',
+            name: 'Dr. Wayne Moore',
+            location: 'Prince Georges County, MD',
+        },
+    ];
+
+    return (
+        <div className="overflow-hidden bg-slate-50">
+            {/* Hero Section */}
+            <div className="w-full">
+                <img
+                    src={coachingHero}
+                    alt="Coaching Services"
+                    className="w-full h-auto block"
+                />
             </div>
 
-            <div className="body-copy">
-              <p className="section-script" style={{ textAlign: 'left', marginBottom: '0.6rem' }}>
-                Seminars and Training
-              </p>
-              <p>
-                The firm also provides seminars and professional development programs for
-                organizations seeking practical, effective training delivered with legal and
-                workplace experience in mind.
-              </p>
-              <ul className="list-clean">
-                {trainingTopics.map((topic) => (
-                  <li key={topic}>{topic}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+            {/* Intro Section */}
+            <section className="py-16 md:py-20 bg-white">
+                <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-semibold">
+                        Phyllis J. Outlaw & Associates Coaching Services offer practical, innovative support for individuals, couples, families, professionals, executives, managers, and businesses. Whether clients are facing divorce, family conflict, career growth, or workplace challenges, we provide customized guidance and actionable strategies to help them set goals, build skills, and achieve meaningful results.
+                    </p>
+                </div>
+            </section>
 
-          <div style={{ marginTop: '1.75rem', textAlign: 'center' }}>
-            <Link className="primary-button" to="/contact">
-              Inquire About Coaching or Training
-            </Link>
-          </div>
+            {/* Services Grid */}
+            <section className="py-16 md:py-24">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid md:grid-cols-3 gap-8 mb-24">
+                        {coachingServices.map((service) => (
+                            <a
+                                key={service.id}
+                                href={`#${service.id}-details`}
+                                className="group bg-white rounded-[2rem] p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 flex flex-col items-center text-center relative overflow-hidden"
+                            >
+                                <div className={`absolute top-0 w-full h-2 bg-gradient-to-r ${service.color}`}></div>
+                                <div className={`w-20 h-20 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500 text-white`}>
+                                    <img src={fleurDeLis} alt={service.title} className="w-10 h-10 object-contain" />
+                                </div>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-3 font-['Playfair_Display']">
+                                    {service.title}
+                                </h3>
+                                <p className="text-slate-600 mb-6">
+                                    {service.subtitle}
+                                </p>
+                                <span className={`inline-flex items-center gap-2 ${service.accent} font-bold mt-auto group-hover:gap-3 transition-all`}>
+                                    Learn More <ArrowRight size={18} />
+                                </span>
+                            </a>
+                        ))}
+                    </div>
+
+                    {/* Detailed Sections */}
+                    <div className="space-y-32">
+                        {coachingServices.map((service, index) => (
+                            <div key={service.id} className={`flex flex-col gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
+                                <div className="flex-1 space-y-8">
+                                    <h2 id={`${service.id}-details`} className="scroll-mt-36 text-4xl font-bold text-slate-900 font-['Playfair_Display']">
+                                        {service.subtitle}
+                                    </h2>
+                                    <p className="text-lg text-slate-600 leading-relaxed">
+                                        {service.description}
+                                    </p>
+
+                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                                        <h4 className={`text-lg font-bold ${service.accent} mb-4`}>The Benefits of {service.title}:</h4>
+                                        <div className="grid gap-3">
+                                            {service.benefits.map((b, i) => (
+                                                <div key={i} className="flex items-start gap-3">
+                                                    <CheckCircle size={18} className={`flex-shrink-0 mt-1 ${service.accent}`} />
+                                                    <span className="text-slate-600 text-sm font-medium">{b}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <Link
+                                        to="/contact"
+                                        className={`btn-premium inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r ${service.color} text-white rounded-full font-bold shadow-lg`}
+                                    >
+                                        <span>Start {service.title}</span>
+                                        <ArrowRight size={18} />
+                                    </Link>
+                                </div>
+
+                                <div className="flex-1 w-full relative">
+                                    <div className={`absolute -inset-3 bg-gradient-to-br ${service.color} opacity-20 blur-lg rotate-2 hover:rotate-0 transition-transform duration-700`}></div>
+                                    <div className="relative z-10 w-full">
+                                        <div className="w-full overflow-hidden rounded-lg">
+                                            <img
+                                                src={service.image}
+                                                alt={service.title}
+                                                className="w-full h-auto block"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Differentiators */}
+            <section className="py-20 md:py-32 bg-white relative mt-16 md:mt-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="text-center mb-20">
+                        <h2 className="text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
+                            What Makes Our Coaching <span className="text-[#1E3A5F]">Different</span>
+                        </h2>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {differentiators.map((item, index) => (
+                            <div
+                                key={index}
+                                className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 group"
+                            >
+                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                                    <img src={fleurDeLis} alt={item.title} className="w-8 h-8 object-contain" />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-3 font-['Playfair_Display']">
+                                    {item.title}
+                                </h3>
+                                <p className="text-slate-600 leading-relaxed">
+                                    {item.description}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Seminars & Training Section */}
+            <section className="py-16 md:py-24 bg-slate-50 overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#d1e9ea] rounded-full mb-6 border border-[#b3d9db]">
+                                <img src={fleurDeLis} alt="Professional Development" className="w-5 h-5 object-contain" />
+                                <span className="text-[#1E3A5F] font-bold text-sm tracking-wide uppercase">Professional Development</span>
+                            </div>
+                            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
+                                Seminars & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Training</span>
+                            </h2>
+                            <p className="text-xl text-slate-600 italic mb-8">
+                                "Tired of viewing the same in-house training video? Need an innovative solution for your professional development training needs?"
+                            </p>
+                            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                                Phyllis J. Outlaw & Associates offers effective workplace training programs for both the government and private sector. Having provided legal and training services for the past 30 years, our facilitators are equipped to bring value-added results to you and your organization.
+                            </p>
+
+                            <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 mb-8">
+                                <h4 className="font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
+                                    <img src={fleurDeLis} alt="Training Topics" className="w-5 h-5 object-contain" />
+                                    Training Topics Include:
+                                </h4>
+                                <div className="grid sm:grid-cols-2 gap-3">
+                                    {[
+                                        'Diversity Awareness',
+                                        'EEO/Sexual Harassment',
+                                        'Customer Service Training',
+                                        'Leadership & Coaching',
+                                        'Conflict Management',
+                                        'Effective Communication',
+                                        'Problem-Solving',
+                                        'Senior Executive Development'
+                                    ].map((item, i) => (
+                                        <div key={i} className="flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 bg-[#1E3A5F] rounded-full"></div>
+                                            <span className="text-slate-700 text-sm font-medium">{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <p className="text-slate-600 font-medium">
+                                Our training is designed to deliver innovative approaches to issues effecting individuals and businesses! Private seminars are also available tailored to meet your needs.
+                            </p>
+                        </div>
+
+                        <div className="relative">
+                            <div className="absolute -inset-4 bg-[#1E3A5F]/10 blur-md"></div>
+                            <div className="framed-photo-container h-[500px] w-full relative z-10 group">
+                                <img
+                                    src={seminarsTrainingImg}
+                                    alt="Professional Training Session"
+                                />
+                                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-6 border border-slate-200">
+                                    <p className="font-['Playfair_Display'] text-2xl font-bold">Professional Development</p>
+                                    <p className="text-[#1E3A5F] font-bold">Workshops & Training Sessions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Client Testimonials */}
+            <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-64 h-64 bg-[#1E3A5F]/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#5B2C6F]/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
+                            Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Testimonials</span>
+                        </h2>
+                        <div className="flex justify-center gap-1 mt-4">
+                            {[...Array(5)].map((_, i) => (
+                                <Star key={i} size={20} className="text-amber-400 fill-amber-400" />
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {testimonials.map((t, i) => (
+                            <div
+                                key={i}
+                                className="bg-gradient-to-br from-slate-50 to-white p-8 md:p-10 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 relative group"
+                            >
+                                <div className="absolute top-6 right-8 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                                    <Quote size={36} className="text-[#1E3A5F]" />
+                                </div>
+                                <p className="text-slate-600 leading-relaxed text-lg italic mb-8 relative z-10">
+                                    "{t.quote}"
+                                </p>
+                                <div className="flex items-center gap-4 relative z-10">
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] flex items-center justify-center text-white font-bold text-lg font-['Playfair_Display']">
+                                        {t.name.charAt(0)}
+                                    </div>
+                                    <div>
+                                        <p className="font-bold text-slate-900 font-['Playfair_Display']">{t.name}</p>
+                                        <p className="text-slate-500 text-sm">{t.location}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="py-16 md:py-24 bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+                <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-8">
+                        Your Next Chapter Begins With <br /><span className="text-white/80">One Conversation</span>
+                    </h2>
+                    <Link
+                        to="/contact"
+                        className="inline-block px-10 py-5 bg-white text-[#1E3A5F] rounded-full font-bold text-xl shadow-2xl transition-all duration-400 hover:bg-[#1E3A5F] hover:text-white hover:-translate-y-1 hover:shadow-[0_20px_40px_-10px_rgba(30,58,95,0.5)]"
+                    >
+                        Book a Coaching Session
+                    </Link>
+                </div>
+            </section>
         </div>
-      </section>
-    </div>
-  );
+    );
 };
 
 export default Coaching;
+
+

@@ -1,108 +1,104 @@
 import { Link } from 'react-router-dom';
+import FleurDeLisIcon from '../components/FleurDeLisIcon';
 import PageHero from '../components/PageHero';
 import booksImage from '../assets/books image.jpg';
-import image1 from '../assets/image1.jpg';
+import legalServicesHero from '../assets/Legal Services.png';
+import officeImage from '../assets/image1.jpg';
 
 const practiceAreas = [
   {
     title: 'Employment and Labor Law',
-    body:
+    description:
       'Representation in workplace and public-sector matters including discharge, unemployment compensation, discrimination, and retirement-related disputes.',
   },
   {
     title: 'Property Tax Liens',
-    body:
+    description:
       'Experienced guidance in commercial and residential tax lien matters requiring careful procedural and strategic handling.',
   },
   {
     title: 'Corporate Governance and Real Estate',
-    body:
+    description:
       'Counsel for business entities, nonprofit organizations, property transactions, financing, leasing, and related operational legal issues.',
   },
   {
     title: 'Construction, Administrative, and Injury Matters',
-    body:
+    description:
       'Support in construction disputes, administrative law proceedings, and selected personal injury matters where disciplined case analysis is essential.',
   },
 ];
 
 const LegalServices = () => {
   return (
-    <div>
-      <PageHero
-        compact
-        allowImageMotion={false}
-        slides={[
-          {
-            title: 'Legal Services',
-            subtitle:
-              'Experienced legal support for government, business, nonprofit, and individual client matters.',
-            image: booksImage,
-            fit: 'contain',
-            background: '#dde3e6',
-          },
-        ]}
-        eyebrow="Legal Services"
-        actions={[
-          { label: 'Schedule a Consultation', to: '/contact' },
-          { label: 'View Testimonials', to: '/testimonials' },
-        ]}
-      />
+    <div className="overflow-hidden bg-[#f8fafc]">
+      <div className="w-full">
+        <img
+          src={legalServicesHero}
+          alt="Legal Services"
+          className="w-full h-auto block"
+        />
+      </div>
 
-      <section className="page-section page-section--white">
-        <div className="section-shell">
-          <div className="two-column">
-            <div className="body-copy">
-              <p className="section-script" style={{ textAlign: 'left', marginBottom: '0.6rem' }}>
-                Counsel
-              </p>
-              <p>
+      <section className="py-20 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
+                Practical Legal Counsel
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
                 Our office provides legal services to government employees, businesses, nonprofit
                 organizations, and individual clients who need experienced counsel and practical
                 strategy. Matters are approached with careful preparation, direct communication, and
                 a disciplined view of long-term client interests.
               </p>
-              <p>
-                The firm&apos;s legal services are presented with a broad view of client needs,
-                recognizing that serious matters often require both technical legal analysis and
-                practical judgment.
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Serious legal matters require more than activity. They require judgment, planning,
+                and an approach suited to the issue in front of you.
               </p>
             </div>
 
-            <div className="image-frame">
-              <img src={image1} alt="Legal consultation at the firm" />
+            <div className="relative">
+              <div className="absolute -inset-4 bg-slate-900/10 blur-xl"></div>
+              <div className="framed-photo-container h-[420px]">
+                <img
+                  src={officeImage}
+                  alt="Legal consultation at the firm"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="page-section page-section--soft">
-        <div className="section-shell">
-          <h2 className="section-title">Representative Practice Areas</h2>
-          <div className="section-divider">✦</div>
+      <section className="py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
+              Representative Practice Areas
+            </h2>
+          </div>
 
-          <div className="card-grid">
+          <div className="grid md:grid-cols-2 gap-8">
             {practiceAreas.map((area) => (
-              <article key={area.title} className="info-card">
-                <h3>{area.title}</h3>
-                <p>{area.body}</p>
+              <article
+                key={area.title}
+                className="bg-white rounded-[2rem] p-8 shadow-lg border border-slate-100"
+              >
+                <FleurDeLisIcon size="lg" className="mb-6" />
+                <h3 className="text-2xl font-bold text-slate-900 font-['Playfair_Display'] mb-4">
+                  {area.title}
+                </h3>
+                <p className="text-slate-600 leading-relaxed">{area.description}</p>
               </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="page-section page-section--white">
-        <div className="section-shell">
-          <div className="quote-band">
-            <p>
-              Careful legal representation requires more than activity. It requires judgment,
-              preparation, and a strategy suited to the matter at hand.
-            </p>
-          </div>
-
-          <div style={{ marginTop: '1.75rem', textAlign: 'center' }}>
-            <Link className="primary-button" to="/contact">
+          <div className="text-center mt-14">
+            <Link
+              to="/contact"
+              className="btn-premium inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F] text-white rounded-full font-bold text-lg shadow-xl"
+            >
               Contact Our Office
             </Link>
           </div>

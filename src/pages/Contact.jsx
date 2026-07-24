@@ -1,107 +1,111 @@
-import { useState } from 'react';
-import PageHero from '../components/PageHero';
-import booksImage from '../assets/books image.jpg';
+import {
+    Phone,
+    Mail,
+    Clock
+} from 'lucide-react';
+import contactHero from '../assets/Contact Us.png';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((current) => ({ ...current, [name]: value }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const subject = encodeURIComponent('Consultation Request');
-    const body = encodeURIComponent(
-      `First Name: ${formData.firstName}\nLast Name: ${formData.lastName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`,
-    );
-
-    window.location.href = `mailto:lawfirm@pjoutlawlegal.com?subject=${subject}&body=${body}`;
-  };
-
-  return (
-    <div>
-      <PageHero
-        compact
-        allowImageMotion={false}
-        slides={[
-          {
-            title: 'Contact Us',
-            subtitle:
-              'Call or email our office to discuss mediation, legal services, coaching, or training.',
-            image: booksImage,
-            fit: 'contain',
-            background: '#dde3e6',
-          },
-        ]}
-        eyebrow="Contact Us"
-      />
-
-      <section className="page-section page-section--white">
-        <div className="section-shell two-column">
-          <div className="panel">
-            <h3>Office Information</h3>
-            <div className="contact-list">
-              <p>412 H Street, NE</p>
-              <p>Washington, DC 20002</p>
-              <a href="tel:+12025482999">(202) 548-2999</a>
-              <a href="tel:+12025488114">(202) 548-8114</a>
-              <a href="mailto:lawfirm@pjoutlawlegal.com">lawfirm@pjoutlawlegal.com</a>
+    return (
+        <div className="overflow-hidden bg-[#f8fafc]">
+            {/* Hero Section */}
+            <div className="w-full">
+                <img
+                    src={contactHero}
+                    alt="Contact Us"
+                    className="w-full h-auto block"
+                />
             </div>
-            <p className="fine-print">
-              The consultation request form below opens your email client so the request can be
-              sent directly to the office without implying a backend submission system that is not
-              yet configured.
-            </p>
-          </div>
 
-          <div className="form-card panel">
-            <h3>Consultation Request</h3>
-            <form className="simple-form" onSubmit={handleSubmit}>
-              <div className="simple-form__row">
-                <label>
-                  First Name
-                  <input name="firstName" value={formData.firstName} onChange={handleChange} required />
-                </label>
-                <label>
-                  Last Name
-                  <input name="lastName" value={formData.lastName} onChange={handleChange} required />
-                </label>
-              </div>
+            <section className="py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1E3A5F 0%, #C5A03A 50%, #5B2C6F 100%)' }}>
+                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="grid gap-16">
 
-              <div className="simple-form__row">
-                <label>
-                  Email
-                  <input name="email" type="email" value={formData.email} onChange={handleChange} required />
-                </label>
-                <label>
-                  Phone
-                  <input name="phone" value={formData.phone} onChange={handleChange} />
-                </label>
-              </div>
+                        {/* Contact Details */}
+                        <div className="space-y-10 max-w-4xl mx-auto w-full">
+                            <div className="bg-white/10 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-white/20 relative overflow-hidden text-center">
 
-              <label>
-                Message
-                <textarea name="message" value={formData.message} onChange={handleChange} required />
-              </label>
+                                <h2 className="text-3xl md:text-4xl font-bold text-white font-['Playfair_Display'] mb-8 relative z-10">
+                                    Contact Our Office.
+                                </h2>
 
-              <button type="submit" className="primary-button">
-                Send Consultation Request
-              </button>
-            </form>
-          </div>
+                                <div className="grid md:grid-cols-2 gap-6 text-left relative z-10">
+                                    <div className="flex items-center gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/15 group">
+                                        <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors flex-shrink-0">
+                                            <Clock size={24} className="text-white/80 group-hover:text-white transition-colors" />
+                                        </div>
+                                        <div className="min-w-0">
+                                            <p className="text-sm font-bold text-white/60 uppercase tracking-wider mb-1">Office Hours</p>
+                                            <p className="text-sm sm:text-base lg:text-lg font-bold text-white tracking-tight">
+                                                <span className="block">Monday to Friday</span>
+                                                <span className="block">9:00 AM to 5:00 PM EST</span>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {[
+                                        { icon: Phone, title: 'Phone', value: '(202) 548-2999', href: 'tel:+12025482999' },
+                                        { icon: Phone, title: 'Fax', value: '(202) 548-8114', href: 'tel:+12025488114' },
+                                        { icon: Mail, title: 'Email', value: 'lawfirm@pjoutlawlegal.com', href: 'mailto:lawfirm@pjoutlawlegal.com' }
+                                    ].map((item, i) => (
+                                        <a key={i} href={item.href} className="flex items-center gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/15 hover:bg-white/20 transition-all group">
+                                            <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors flex-shrink-0">
+                                                <item.icon size={24} className="text-white/80 group-hover:text-white transition-colors" />
+                                            </div>
+                                            <div className="min-w-0">
+                                                <p className="text-sm font-bold text-white/60 uppercase tracking-wider mb-1">{item.title}</p>
+                                                <p className="text-[0.9rem] sm:text-lg md:text-sm lg:text-base xl:text-xl font-bold text-white truncate">{item.value}</p>
+                                            </div>
+                                        </a>
+                                    ))}
+                                </div>
+
+                                <div className="mt-10 relative z-10">
+                                    <a href="tel:+12025482999" className="btn-premium inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#1E3A5F] rounded-full font-bold text-lg shadow-lg hover:shadow-2xl">
+                                        <Phone size={20} />
+                                        <span>Call Our Office</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* DC Office Location Section */}
+            <section className="py-14 md:py-20 bg-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-[#1E3A5F]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="space-y-6">
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] leading-tight">
+                                Serving Maryland &<br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Washington, DC</span>
+                            </h2>
+                            <p className="text-base md:text-lg text-slate-600 leading-relaxed">
+                                Phyllis J. Outlaw & Associates have provided legal services to residents and local businesses in Maryland and Washington, DC. Our offices are located in the commercial district which is known for it resurgence and emerging small businesses. Our offices are convenient to the financial and business districts of the city, public transportation, as well as to the federal and local courts located in the District of Columbia and Maryland. Our office is located at:
+                            </p>
+                            <div className="mt-2">
+                                <p className="text-lg font-bold text-slate-900 font-['Playfair_Display']">412 H Street, NE</p>
+                                <p className="text-lg font-medium text-slate-700">Washington, DC 20002</p>
+                            </div>
+                        </div>
+                        <div className="relative">
+                            <div className="framed-photo-container h-[260px] md:h-[340px]">
+                                <img
+                                    src="https://media.istockphoto.com/photos/aerial-view-of-washington-dc-xxxl-picture-id183367435?k=20&m=183367435&s=612x612&w=0&h=1poAuHDFu4WELeMGIwBHYbAMg294fNdQLsV3HKPbLdI="
+                                    alt="Aerial view of Washington DC skyline"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-      </section>
-    </div>
-  );
+    );
 };
 
 export default Contact;
