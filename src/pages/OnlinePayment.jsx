@@ -95,7 +95,7 @@ const OnlinePayment = () => {
         // 1. Create order on the backend
         createOrder: async () => {
           setPaymentStatus('processing');
-          setStatusMessage('');
+          setStatusMessage('Connecting securely to PayPal...');
 
           const res = await fetch(`${API_BASE}/api/orders`, {
             method: 'POST',
@@ -120,6 +120,9 @@ const OnlinePayment = () => {
 
         // 2. Capture payment after buyer approves
         onApprove: async (data) => {
+          setPaymentStatus('processing');
+          setStatusMessage('Payment approved. Finalizing your transaction...');
+
           try {
             const res = await fetch(
               `${API_BASE}/api/orders/${data.orderID}/capture`,
@@ -129,18 +132,26 @@ const OnlinePayment = () => {
               }
             );
 
-            if (!res.ok) throw new Error('Capture failed');
+            if (!res.ok) {
+              const errorData = await res.json().catch(() => ({}));
+              throw new Error(errorData.error || 'Capture failed');
+            }
 
             const captureData = await res.json();
             const capture =
               captureData?.purchase_units?.[0]?.payments?.captures?.[0];
+
+            if (capture?.status && capture.status !== 'COMPLETED') {
+              throw new Error(`Payment capture status: ${capture.status}`);
+            }
 
             setTransactionId(capture?.id || data.orderID);
             setPaymentStatus('success');
             setStatusMessage(
               'Your payment has been successfully processed. Thank you!'
             );
-          } catch {
+          } catch (err) {
+            console.error('PayPal payment capture error:', err);
             setPaymentStatus('error');
             setStatusMessage(
               'Payment could not be completed. Please contact our office.'
@@ -149,7 +160,8 @@ const OnlinePayment = () => {
         },
 
         // 3. Handle errors
-        onError: () => {
+        onError: (err) => {
+          console.error('PayPal checkout error:', err);
           setPaymentStatus('error');
           setStatusMessage(
             'There was an issue connecting to PayPal. Please try again or contact our office.'
@@ -340,11 +352,14 @@ const OnlinePayment = () => {
                         {isFormValid ? (
                           <div className="relative">
                             {paymentStatus === 'processing' && (
-                              <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 rounded-xl flex items-center justify-center">
+                              <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 rounded-xl flex flex-col gap-2 items-center justify-center px-4 text-center">
                                 <Loader2
                                   size={28}
                                   className="text-[#1E3A5F] animate-spin"
                                 />
+                                <span className="text-sm font-medium text-slate-700">
+                                  {statusMessage || 'Processing your payment...'}
+                                </span>
                               </div>
                             )}
                             {paypalReady ? (
