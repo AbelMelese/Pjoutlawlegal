@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import onlinePaymentHero from '../assets/Online Payment.png';
 import {
   DollarSign,
@@ -12,50 +12,10 @@ import {
   Loader2,
 } from 'lucide-react';
 
-// ── Config ────────────────────────────────────────────────────────────────────
-const PAYPAL_CLIENT_ID =
-  'Ae6byRtiLr9WFlnKdi3qYI6mqfzvMC7nylLmnnkcEEax0spxg4-qHiBAZXW6wTrUZv6zPyWb5CVKeR28';
-
-// Backend URL – defaults to empty string for same-domain Netlify Edge Functions
+// Backend URL defaults to empty string for same-domain Netlify Edge Functions.
 const API_BASE =
   import.meta.env.VITE_API_BASE || '';
 
-// ── PayPal SDK Loader ─────────────────────────────────────────────────────────
-function usePayPalScript(clientId) {
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    // Already loaded
-    if (window.paypal) {
-      setReady(true);
-      return;
-    }
-
-    // Check if script tag already exists
-    const existingScript = document.querySelector(
-      `script[src*="paypal.com/sdk/js"]`
-    );
-    if (existingScript) {
-      existingScript.addEventListener('load', () => setReady(true));
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=capture`;
-    script.async = true;
-    script.onload = () => setReady(true);
-    script.onerror = () => console.error('Failed to load PayPal SDK');
-    document.head.appendChild(script);
-
-    return () => {
-      // Don't remove — other components might use it
-    };
-  }, [clientId]);
-
-  return ready;
-}
-
-// ── Component ─────────────────────────────────────────────────────────────────
 const OnlinePayment = () => {
   const [amount, setAmount] = useState('');
   const [clientName, setClientName] = useState('');
@@ -64,131 +24,136 @@ const OnlinePayment = () => {
   const [statusMessage, setStatusMessage] = useState('');
   const [transactionId, setTransactionId] = useState('');
 
-  const paypalContainerRef = useRef(null);
-  const paypalButtonsRef = useRef(null);
-  const paypalReady = usePayPalScript(PAYPAL_CLIENT_ID);
+  const captureAttemptedRef = useRef(false);
 
-  const isFormValid = clientName.trim() && description.trim() && amount && Number(amount) > 0;
+  const isFormValid = Boolean(
+    clientName.trim() && description.trim() && amount && Number(amount) > 0
+  );
 
-  // Render/re-render PayPal buttons when form becomes valid or values change
+  const paymentPageUrl = (statusParam) => {
+    const url = new URL(window.location.href);
+    url.pathname = '/online-payment';
+    url.search = statusParam;
+    url.hash = '';
+    return url.toString();
+  };
+
+  const clearPayPalQuery = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('paypal_return');
+    url.searchParams.delete('paypal_cancel');
+    url.searchParams.delete('token');
+    url.searchParams.delete('PayerID');
+    window.history.replaceState({}, '', `${url.pathname}${url.search}`);
+  };
+
+  const readPaymentError = async (res, fallbackMessage) => {
+    const data = await res.json().catch(() => ({}));
+    return data.error || fallbackMessage;
+  };
+
   useEffect(() => {
-    if (!paypalReady || !isFormValid) return;
-    if (!paypalContainerRef.current) return;
+    const params = new URLSearchParams(window.location.search);
+    const orderID = params.get('token');
 
-    // Clear previous buttons
-    if (paypalButtonsRef.current) {
-      paypalButtonsRef.current.close();
-      paypalButtonsRef.current = null;
-    }
-    paypalContainerRef.current.innerHTML = '';
-
-    try {
-      paypalButtonsRef.current = window.paypal.Buttons({
-        style: {
-          layout: 'vertical',
-          color: 'gold',
-          shape: 'pill',
-          label: 'pay',
-          height: 50,
-        },
-
-        // 1. Create order on the backend
-        createOrder: async () => {
-          setPaymentStatus('processing');
-          setStatusMessage('Connecting securely to PayPal...');
-
-          const res = await fetch(`${API_BASE}/api/orders`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              amount: Number(amount).toFixed(2),
-              description,
-              clientName,
-            }),
-          });
-
-          if (!res.ok) {
-            const data = await res.json().catch(() => ({}));
-            setPaymentStatus('error');
-            setStatusMessage(data.error || 'Could not create payment.');
-            throw new Error(data.error || 'Order creation failed');
-          }
-
-          const data = await res.json();
-          return data.id;
-        },
-
-        // 2. Capture payment after buyer approves
-        onApprove: async (data) => {
-          setPaymentStatus('processing');
-          setStatusMessage('Payment approved. Finalizing your transaction...');
-
-          try {
-            const res = await fetch(
-              `${API_BASE}/api/orders/${data.orderID}/capture`,
-              {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-              }
-            );
-
-            if (!res.ok) {
-              const errorData = await res.json().catch(() => ({}));
-              throw new Error(errorData.error || 'Capture failed');
-            }
-
-            const captureData = await res.json();
-            const capture =
-              captureData?.purchase_units?.[0]?.payments?.captures?.[0];
-
-            if (capture?.status && capture.status !== 'COMPLETED') {
-              throw new Error(`Payment capture status: ${capture.status}`);
-            }
-
-            setTransactionId(capture?.id || data.orderID);
-            setPaymentStatus('success');
-            setStatusMessage(
-              'Your payment has been successfully processed. Thank you!'
-            );
-          } catch (err) {
-            console.error('PayPal payment capture error:', err);
-            setPaymentStatus('error');
-            setStatusMessage(
-              'Payment could not be completed. Please contact our office.'
-            );
-          }
-        },
-
-        // 3. Handle errors
-        onError: (err) => {
-          console.error('PayPal checkout error:', err);
-          setPaymentStatus('error');
-          setStatusMessage(
-            'There was an issue connecting to PayPal. Please try again or contact our office.'
-          );
-        },
-
-        // 4. Handle cancellation
-        onCancel: () => {
-          setPaymentStatus('idle');
-          setStatusMessage(
-            'Payment was cancelled. You can try again when ready.'
-          );
-        },
-      });
-
-      paypalButtonsRef.current.render(paypalContainerRef.current);
-    } catch (err) {
-      console.error('PayPal buttons render error:', err);
+    if (params.get('paypal_cancel') === '1') {
+      setPaymentStatus('idle');
+      setStatusMessage('Payment was cancelled. You can try again when ready.');
+      clearPayPalQuery();
+      return;
     }
 
-    return () => {
-      if (paypalButtonsRef.current) {
-        paypalButtonsRef.current.close();
-        paypalButtonsRef.current = null;
+    if (
+      params.get('paypal_return') !== '1' ||
+      !orderID ||
+      captureAttemptedRef.current
+    ) {
+      return;
+    }
+
+    captureAttemptedRef.current = true;
+    setPaymentStatus('processing');
+    setStatusMessage('Payment approved. Finalizing your transaction...');
+
+    const capturePayment = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/orders/${orderID}/capture`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (!res.ok) {
+          throw new Error(
+            await readPaymentError(res, 'Payment capture failed.')
+          );
+        }
+
+        const captureData = await res.json();
+        const capture =
+          captureData?.purchase_units?.[0]?.payments?.captures?.[0];
+
+        if (capture?.status && capture.status !== 'COMPLETED') {
+          throw new Error(`Payment capture status: ${capture.status}`);
+        }
+
+        setTransactionId(capture?.id || orderID);
+        setPaymentStatus('success');
+        setStatusMessage(
+          'Your payment has been successfully processed. Thank you!'
+        );
+        clearPayPalQuery();
+      } catch (err) {
+        console.error('PayPal payment capture error:', err);
+        setPaymentStatus('error');
+        setStatusMessage(
+          'Payment could not be completed. Please contact our office.'
+        );
+        clearPayPalQuery();
       }
     };
-  }, [paypalReady, isFormValid, amount, description, clientName]);
+
+    capturePayment();
+  }, []);
+
+  const startPayPalCheckout = async () => {
+    if (!isFormValid || paymentStatus === 'processing') return;
+
+    setPaymentStatus('processing');
+    setStatusMessage('Opening PayPal checkout...');
+
+    try {
+      const res = await fetch(`${API_BASE}/api/orders`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: Number(amount).toFixed(2),
+          description,
+          clientName,
+          returnUrl: paymentPageUrl('?paypal_return=1'),
+          cancelUrl: paymentPageUrl('?paypal_cancel=1'),
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error(await readPaymentError(res, 'Could not create payment.'));
+      }
+
+      const data = await res.json();
+
+      if (!data.approvalUrl) {
+        throw new Error('PayPal did not return a checkout link.');
+      }
+
+      window.location.assign(data.approvalUrl);
+    } catch (err) {
+      console.error('PayPal checkout start error:', err);
+      setPaymentStatus('error');
+      setStatusMessage(
+        err.message ||
+          'There was an issue connecting to PayPal. Please try again or contact our office.'
+      );
+    }
+  };
 
   /** Reset for another payment. */
   const resetForm = () => {
@@ -347,35 +312,26 @@ const OnlinePayment = () => {
                         </div>
                       </div>
 
-                      {/* PayPal Buttons */}
+                      {/* PayPal Checkout */}
                       <div className="pt-4">
                         {isFormValid ? (
-                          <div className="relative">
-                            {paymentStatus === 'processing' && (
-                              <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 rounded-xl flex flex-col gap-2 items-center justify-center px-4 text-center">
-                                <Loader2
-                                  size={28}
-                                  className="text-[#1E3A5F] animate-spin"
-                                />
-                                <span className="text-sm font-medium text-slate-700">
-                                  {statusMessage || 'Processing your payment...'}
-                                </span>
-                              </div>
-                            )}
-                            {paypalReady ? (
-                              <div ref={paypalContainerRef} />
+                          <button
+                            type="button"
+                            onClick={startPayPalCheckout}
+                            disabled={paymentStatus === 'processing'}
+                            className="w-full bg-[#ffc439] hover:bg-[#f3ba36] disabled:bg-slate-200 disabled:text-slate-500 text-slate-900 font-bold rounded-full py-4 flex items-center justify-center gap-3 border border-[#e0a800] disabled:border-slate-200 transition-colors shadow-md disabled:shadow-none"
+                          >
+                            {paymentStatus === 'processing' ? (
+                              <Loader2 size={24} className="animate-spin" />
                             ) : (
-                              <div className="flex items-center justify-center py-6">
-                                <Loader2
-                                  size={24}
-                                  className="text-[#1E3A5F] animate-spin mr-2"
-                                />
-                                <span className="text-slate-500 text-sm">
-                                  Loading PayPal...
-                                </span>
-                              </div>
+                              <DollarSign size={24} />
                             )}
-                          </div>
+                            <span className="text-lg text-center">
+                              {paymentStatus === 'processing'
+                                ? statusMessage || 'Opening PayPal checkout...'
+                                : 'Pay with PayPal'}
+                            </span>
+                          </button>
                         ) : (
                           <div className="w-full bg-slate-100 text-slate-400 font-bold rounded-full py-4 flex items-center justify-center gap-3 cursor-not-allowed border border-slate-200">
                             <DollarSign size={24} />
@@ -383,6 +339,23 @@ const OnlinePayment = () => {
                               Fill in all fields to pay
                             </span>
                           </div>
+                        )}
+                        {paymentStatus === 'processing' && statusMessage && (
+                          <p className="text-center text-sm text-slate-600 mt-3">
+                            {statusMessage}
+                          </p>
+                        )}
+                        {paymentStatus === 'error' && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setPaymentStatus('idle');
+                              setStatusMessage('');
+                            }}
+                            className="w-full mt-3 text-sm font-semibold text-[#1E3A5F] hover:text-[#722F37]"
+                          >
+                            Try payment again
+                          </button>
                         )}
                         <p className="text-center text-xs text-slate-500 mt-4">
                           Your payment is processed securely through PayPal. We

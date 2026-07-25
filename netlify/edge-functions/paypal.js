@@ -49,7 +49,7 @@ export default async (request, context) => {
         );
       }
 
-      const { amount, description, clientName } = body;
+      const { amount, description, clientName, returnUrl, cancelUrl } = body;
 
       if (!amount || isNaN(amount) || Number(amount) <= 0) {
         return new Response(
@@ -62,16 +62,28 @@ export default async (request, context) => {
       }
 
       const formattedAmount = Number(amount).toFixed(2);
+      const requestOrigin = new URL(request.url).origin;
       const order = await createOrder({
         amount: formattedAmount,
         description,
         clientName,
+        returnUrl: sameOriginUrl(
+          returnUrl,
+          requestOrigin,
+          "/online-payment?paypal_return=1"
+        ),
+        cancelUrl: sameOriginUrl(
+          cancelUrl,
+          requestOrigin,
+          "/online-payment?paypal_cancel=1"
+        ),
         PAYPAL_CLIENT_ID,
         PAYPAL_SECRET,
         PAYPAL_API_BASE,
       });
+      const approvalUrl = approvalLink(order);
 
-      return new Response(JSON.stringify({ id: order.id }), {
+      return new Response(JSON.stringify({ id: order.id, approvalUrl }), {
         status: 200,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -139,7 +151,16 @@ async function getAccessToken(clientId, secret, apiBase) {
 }
 
 /** Create a PayPal order. */
-async function createOrder({ amount, description, clientName, PAYPAL_CLIENT_ID, PAYPAL_SECRET, PAYPAL_API_BASE }) {
+async function createOrder({
+  amount,
+  description,
+  clientName,
+  returnUrl,
+  cancelUrl,
+  PAYPAL_CLIENT_ID,
+  PAYPAL_SECRET,
+  PAYPAL_API_BASE,
+}) {
   const accessToken = await getAccessToken(PAYPAL_CLIENT_ID, PAYPAL_SECRET, PAYPAL_API_BASE);
 
   const payload = {
@@ -158,6 +179,8 @@ async function createOrder({ amount, description, clientName, PAYPAL_CLIENT_ID, 
       brand_name: "Phyllis J. Outlaw & Associates",
       shipping_preference: "NO_SHIPPING",
       user_action: "PAY_NOW",
+      return_url: returnUrl,
+      cancel_url: cancelUrl,
     },
   };
 
@@ -176,6 +199,31 @@ async function createOrder({ amount, description, clientName, PAYPAL_CLIENT_ID, 
   }
 
   return res.json();
+}
+
+function sameOriginUrl(value, requestOrigin, fallbackPath) {
+  const fallback = new URL(fallbackPath, requestOrigin);
+
+  if (!value) {
+    return fallback.toString();
+  }
+
+  try {
+    const url = new URL(value, requestOrigin);
+    return url.origin === requestOrigin ? url.toString() : fallback.toString();
+  } catch {
+    return fallback.toString();
+  }
+}
+
+function approvalLink(order) {
+  const link = order.links?.find((item) => item.rel === "approve")?.href;
+
+  if (!link) {
+    throw new Error("PayPal did not return an approval link.");
+  }
+
+  return link;
 }
 
 /** Capture an approved PayPal order. */
