@@ -9,6 +9,7 @@ import divorceMediationImg from '../assets/divorce mediation.jpg';
 import childMediationImg from '../assets/child mediation.png';
 import businessMediationImg from '../assets/business mediation.jpg';
 import officeShoot264 from '../assets/office-shoot-264.jpg';
+import courtOrderedMediationImg from '../assets/court ordered mediation.jpg';
 
 
 
@@ -23,7 +24,8 @@ const MediationServices = () => {
             benefits: [],
             color: 'from-[#2A4F7A] to-[#1E3A5F]',
             bgColor: 'bg-blue-50/50',
-            image: null,
+            image: courtOrderedMediationImg,
+            fixedHeight: true,
         },
         {
             id: 'family',
