@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import MediationServices from './pages/MediationServices';
-import Coaching from './pages/Coaching';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollReveal from './components/ScrollReveal';
@@ -19,7 +18,6 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/mediation-services" element={<MediationServices />} />
         <Route path="/legal-services" element={<LegalServices />} />
-        <Route path="/coaching" element={<Coaching />} />
         <Route path="/about-phyllis-j-outlaw" element={<AboutPhyllis />} />
         <Route path="/online-payment" element={<OnlinePayment />} />
         <Route path="/practice-areas" element={<Navigate to="/legal-services" replace />} />

@@ -25,7 +25,6 @@ const Blog = () => {
         'Divorce',
         'Family Law',
         'Business',
-        'Coaching',
         'Legal Tips'
     ];
 
@@ -33,7 +32,6 @@ const Blog = () => {
         'Mediation': { gradient: 'from-[#1E3A5F] to-[#5B2C6F]' },
         'Divorce': { gradient: 'from-[#5B2C6F] to-[#5B2C6F]' },
         'Business': { gradient: 'from-[#2A4F7A] to-[#1E3A5F]' },
-        'Coaching': { gradient: 'from-[#2A4F7A] to-[#1E3A5F]' },
         'Family Law': { gradient: 'from-[#5B2C6F] to-[#5B2C6F]' },
         'Legal Tips': { gradient: 'from-slate-600 to-slate-800' },
     };
@@ -71,9 +69,9 @@ const Blog = () => {
         },
         {
             id: 4,
-            title: 'The Role of a Divorce Coach: More Than Just Support',
-            excerpt: 'A divorce coach provides strategic guidance, emotional support, and practical tools to help you navigate one of life\'s most challenging transitions.',
-            category: 'Coaching',
+            title: 'Navigating Divorce: Strategic Guidance & Support',
+            excerpt: 'Strategic guidance, emotional awareness, and practical tools to help you navigate one of life\'s most challenging transitions.',
+            category: 'Divorce',
             author: 'Phyllis J. Outlaw',
             date: 'January 10, 2026',
             readTime: '5 min read',
@@ -134,7 +132,7 @@ const Blog = () => {
     const heroSlides = [
         {
             title: "Our Blog",
-            subtitle: "Expert insights on mediation, family law, divorce coaching, and business dispute resolution. Stay informed with the latest articles from our experienced team.",
+            subtitle: "Expert insights on mediation, family law, divorce guidance, and business dispute resolution. Stay informed with the latest articles from our experienced team.",
             image: image1
         },
         {
@@ -143,7 +141,7 @@ const Blog = () => {
             image: image2
         },
         {
-            title: "Legal & Coaching Advice",
+            title: "Legal & Dispute Advice",
             subtitle: "Strategic guidance for life's transitions and business challenges.",
             image: booksImage
         }

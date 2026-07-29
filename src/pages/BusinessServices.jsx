@@ -24,7 +24,7 @@ const BusinessServices = () => {
             'Strategic planning and leadership',
             'Internal communication clarity',
             'Team role definition',
-            'Workplace conflict coaching',
+            'Workplace conflict resolution',
             'Thought partnership',
             'Boundaries for owners',
             'Growth planning',

@@ -45,12 +45,6 @@ const Home = () => {
             color: 'from-[#2A4F7A] to-[#1E3A5F]',
             link: '/practice-areas',
         },
-        {
-            title: 'Coaching Services',
-            description: 'Our coaching services help individuals, couples, families, and businesses set goals, strengthen skills, and achieve results through personalized support and practical action steps.',
-            color: 'from-[#5B2C6F] to-[#5B2C6F]',
-            link: '/coaching',
-        },
     ];
     const marqueeServices = [...services, ...services];
 
@@ -129,12 +123,11 @@ const Home = () => {
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
                             Phyllis J. Outlaw &amp; Associates
                         </h2>
-                            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+                            <div className="mx-auto grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-3 lg:gap-4">
                                 {[
                                     { label: 'Mediation Services' },
                                     { label: 'Corporate Services' },
                                     { label: 'Individual Client Services' },
-                                    { label: 'Coaching Services' },
                                 ].map((item) => (
                                     <div
                                         key={item.label}

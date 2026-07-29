@@ -14,7 +14,6 @@ const quickLinks = [
   { name: 'Home', path: '/' },
   { name: 'Mediation Services', path: '/mediation-services' },
   { name: 'Legal Services', path: '/legal-services' },
-  { name: 'Coaching', path: '/coaching' },
   { name: 'About the Principal', path: '/about-phyllis-j-outlaw' },
   { name: 'Online Payment', path: '/online-payment' },
   { name: 'Contact Us', path: '/contact' },
@@ -23,7 +22,6 @@ const quickLinks = [
 const services = [
   { name: 'Mediation Services', path: '/mediation-services' },
   { name: 'Legal Services', path: '/legal-services' },
-  { name: 'Coaching', path: '/coaching' },
 ];
 
 const socialLinks = [
@@ -46,7 +44,7 @@ const Footer = () => {
                 Phyllis J. Outlaw & Associates
               </h3>
               <p className="text-white/70 mt-2">
-                Legal, mediation, and coaching services grounded in preparation and professional
+                Legal and mediation services grounded in preparation and professional
                 service.
               </p>
             </div>
