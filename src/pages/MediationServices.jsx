@@ -8,6 +8,7 @@ import mediationPageHero from '../assets/Mediation page.png';
 import divorceMediationImg from '../assets/divorce mediation.jpg';
 import childMediationImg from '../assets/child mediation.png';
 import businessMediationImg from '../assets/business mediation.jpg';
+import officeShoot264 from '../assets/office-shoot-264.jpg';
 
 
 
@@ -313,9 +314,13 @@ const MediationServices = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="order-2 lg:order-1 relative group">
                             <div className="absolute -inset-4 bg-[#1E3A5F]/10 rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-                            <div className="relative rounded-[2rem] overflow-hidden border border-slate-200 shadow-2xl h-[500px] bg-white flex items-center justify-center">
-                                <FleurDeLisIcon size="raw-lg" className="opacity-10 transform group-hover:scale-110 transition-transform duration-700" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent opacity-80"></div>
+                            <div className="relative rounded-[2rem] overflow-hidden border border-slate-200 shadow-2xl h-[500px]">
+                                <img
+                                    src={officeShoot264}
+                                    alt="Why Choose Mediation"
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent opacity-60"></div>
                             </div>
                         </div>
 
