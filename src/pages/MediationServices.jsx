@@ -10,6 +10,7 @@ import childMediationImg from '../assets/child mediation.png';
 import businessMediationImg from '../assets/business mediation.jpg';
 import officeShoot264 from '../assets/office-shoot-264.jpg';
 import courtOrderedMediationImg from '../assets/court ordered mediation.jpg';
+import familyCoachingImg from '../assets/family coaching.jpg';
 
 
 
@@ -38,7 +39,8 @@ const MediationServices = () => {
             ],
             color: 'from-[#1E3A5F] to-[#5B2C6F]',
             bgColor: 'bg-[#e8f4f4]/50',
-            image: divorceMediationImg,
+            image: familyCoachingImg,
+            fixedHeight: true,
         },
 
         {
@@ -70,6 +72,7 @@ const MediationServices = () => {
             color: 'from-[#5B2C6F] to-[#5B2C6F]',
             bgColor: 'bg-[#fdf2f4]/50',
             image: businessMediationImg,
+            fixedHeight: true,
         },
     ];
 
