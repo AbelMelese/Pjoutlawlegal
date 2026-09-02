@@ -2,7 +2,7 @@ export default async (request, context) => {
   const PAYPAL_CLIENT_ID = Netlify.env.get("PAYPAL_CLIENT_ID");
   const PAYPAL_SECRET = Netlify.env.get("PAYPAL_SECRET");
   const PAYPAL_API_BASE =
-    Netlify.env.get("PAYPAL_API_BASE") || "https://api-m.sandbox.paypal.com";
+    Netlify.env.get("PAYPAL_API_BASE") || "https://api-m.paypal.com";
 
   const url = new URL(request.url);
   const path = url.pathname;
