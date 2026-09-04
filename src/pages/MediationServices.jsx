@@ -5,12 +5,11 @@ import {
 } from 'lucide-react';
 import FleurDeLisIcon from '../components/FleurDeLisIcon';
 import mediationPageHero from '../assets/Mediation page.png';
-import divorceMediationImg from '../assets/divorce mediation.jpg';
+import divorceGenderEqualityImg from '../assets/divorce-gender-equality.png';
 import childMediationImg from '../assets/child mediation.png';
 import businessMediationImg from '../assets/business mediation.jpg';
 import officeShoot264 from '../assets/office-shoot-264.jpg';
 import courtOrderedMediationImg from '../assets/court ordered mediation.jpg';
-import familyCoachingImg from '../assets/family coaching.jpg';
 
 
 
@@ -39,7 +38,7 @@ const MediationServices = () => {
             ],
             color: 'from-[#1E3A5F] to-[#5B2C6F]',
             bgColor: 'bg-[#e8f4f4]/50',
-            image: familyCoachingImg,
+            image: divorceGenderEqualityImg,
             fixedHeight: true,
         },
 
