@@ -16,6 +16,104 @@ import {
 const API_BASE =
   import.meta.env.VITE_API_BASE || '';
 
+let paypalSdkPromise;
+
+const readPaymentError = async (res, fallbackMessage) => {
+  const data = await res.json().catch(() => ({}));
+  return data.error || fallbackMessage;
+};
+
+const createPayPalOrder = async ({ amount, description, clientName }) => {
+  const res = await fetch(`${API_BASE}/api/orders`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      amount: Number(amount).toFixed(2),
+      description,
+      clientName,
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(await readPaymentError(res, 'Could not create payment.'));
+  }
+
+  const data = await res.json();
+  if (!data.id) {
+    throw new Error('PayPal did not return an order ID.');
+  }
+
+  return data.id;
+};
+
+const capturePayPalOrder = async (orderID) => {
+  const res = await fetch(
+    `${API_BASE}/api/orders/${encodeURIComponent(orderID)}/capture`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error(await readPaymentError(res, 'Payment capture failed.'));
+  }
+
+  const captureData = await res.json();
+  const capture = captureData?.purchase_units?.[0]?.payments?.captures?.[0];
+
+  if (!capture || capture.status !== 'COMPLETED') {
+    throw new Error(`Payment capture status: ${capture?.status || 'unknown'}`);
+  }
+
+  return capture;
+};
+
+const loadPayPalSdk = async () => {
+  if (window.paypal?.Buttons) return window.paypal;
+  if (paypalSdkPromise) return paypalSdkPromise;
+
+  paypalSdkPromise = fetch(`${API_BASE}/api/paypal/config`)
+    .then(async (res) => {
+      if (!res.ok) {
+        throw new Error(
+          await readPaymentError(res, 'PayPal is temporarily unavailable.')
+        );
+      }
+      return res.json();
+    })
+    .then(({ clientId, currency = 'USD' }) => {
+      if (!clientId) throw new Error('PayPal is not configured.');
+
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        const query = new URLSearchParams({
+          'client-id': clientId,
+          currency,
+          components: 'buttons,funding-eligibility',
+          'enable-funding': 'card',
+        });
+
+        script.id = 'paypal-js-sdk';
+        script.src = `https://www.paypal.com/sdk/js?${query.toString()}`;
+        script.async = true;
+        script.onload = () =>
+          window.paypal?.Buttons
+            ? resolve(window.paypal)
+            : reject(new Error('PayPal checkout could not be initialized.'));
+        script.onerror = () =>
+          reject(new Error('PayPal checkout could not be loaded.'));
+        document.head.appendChild(script);
+      });
+    })
+    .catch((error) => {
+      paypalSdkPromise = undefined;
+      throw error;
+    });
+
+  return paypalSdkPromise;
+};
+
 const OnlinePayment = () => {
   const [amount, setAmount] = useState('');
   const [clientName, setClientName] = useState('');
@@ -24,136 +122,123 @@ const OnlinePayment = () => {
   const [statusMessage, setStatusMessage] = useState('');
   const [transactionId, setTransactionId] = useState('');
 
-  const captureAttemptedRef = useRef(false);
+  const [paypalSdkStatus, setPaypalSdkStatus] = useState('loading');
+  const [cardEligibilityChecked, setCardEligibilityChecked] = useState(false);
+  const [cardAvailable, setCardAvailable] = useState(false);
+  const paypalButtonRef = useRef(null);
+  const cardButtonRef = useRef(null);
+  const formDataRef = useRef({ amount, description, clientName });
+  const paymentCompleteRef = useRef(false);
 
   const isFormValid = Boolean(
-    clientName.trim() && description.trim() && amount && Number(amount) > 0
+    clientName.trim() &&
+      description.trim() &&
+      amount &&
+      Number.isFinite(Number(amount)) &&
+      Number(amount) >= 1 &&
+      Number(amount) <= 100000
   );
 
-  const paymentPageUrl = (statusParam) => {
-    const url = new URL(window.location.href);
-    url.pathname = '/online-payment';
-    url.search = statusParam;
-    url.hash = '';
-    return url.toString();
-  };
-
-  const clearPayPalQuery = () => {
-    const url = new URL(window.location.href);
-    url.searchParams.delete('paypal_return');
-    url.searchParams.delete('paypal_cancel');
-    url.searchParams.delete('token');
-    url.searchParams.delete('PayerID');
-    window.history.replaceState({}, '', `${url.pathname}${url.search}`);
-  };
-
-  const readPaymentError = async (res, fallbackMessage) => {
-    const data = await res.json().catch(() => ({}));
-    return data.error || fallbackMessage;
-  };
+  useEffect(() => {
+    formDataRef.current = { amount, description, clientName };
+  }, [amount, clientName, description]);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const orderID = params.get('token');
+    let cancelled = false;
 
-    if (params.get('paypal_cancel') === '1') {
-      setPaymentStatus('idle');
-      setStatusMessage('Payment was cancelled. You can try again when ready.');
-      clearPayPalQuery();
-      return;
-    }
-
-    if (
-      params.get('paypal_return') !== '1' ||
-      !orderID ||
-      captureAttemptedRef.current
-    ) {
-      return;
-    }
-
-    captureAttemptedRef.current = true;
-    setPaymentStatus('processing');
-    setStatusMessage('Payment approved. Finalizing your transaction...');
-
-    const capturePayment = async () => {
-      try {
-        const res = await fetch(`${API_BASE}/api/orders/${orderID}/capture`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-        });
-
-        if (!res.ok) {
-          throw new Error(
-            await readPaymentError(res, 'Payment capture failed.')
-          );
+    loadPayPalSdk()
+      .then(() => {
+        if (!cancelled) setPaypalSdkStatus('ready');
+      })
+      .catch((err) => {
+        console.error('PayPal SDK load error:', err);
+        if (!cancelled) {
+          setPaypalSdkStatus('error');
+          setPaymentStatus('error');
+          setStatusMessage(err.message || 'PayPal is temporarily unavailable.');
         }
-
-        const captureData = await res.json();
-        const capture =
-          captureData?.purchase_units?.[0]?.payments?.captures?.[0];
-
-        if (capture?.status && capture.status !== 'COMPLETED') {
-          throw new Error(`Payment capture status: ${capture.status}`);
-        }
-
-        setTransactionId(capture?.id || orderID);
-        setPaymentStatus('success');
-        setStatusMessage(
-          'Your payment has been successfully processed. Thank you!'
-        );
-        clearPayPalQuery();
-      } catch (err) {
-        console.error('PayPal payment capture error:', err);
-        setPaymentStatus('error');
-        setStatusMessage(
-          'Payment could not be completed. Please contact our office.'
-        );
-        clearPayPalQuery();
-      }
-    };
-
-    capturePayment();
-  }, []);
-
-  const startPayPalCheckout = async () => {
-    if (!isFormValid || paymentStatus === 'processing') return;
-
-    setPaymentStatus('processing');
-    setStatusMessage('Opening PayPal checkout...');
-
-    try {
-      const res = await fetch(`${API_BASE}/api/orders`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          amount: Number(amount).toFixed(2),
-          description,
-          clientName,
-          returnUrl: paymentPageUrl('?paypal_return=1'),
-          cancelUrl: paymentPageUrl('?paypal_cancel=1'),
-        }),
       });
 
-      if (!res.ok) {
-        throw new Error(await readPaymentError(res, 'Could not create payment.'));
-      }
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
-      const data = await res.json();
+  useEffect(() => {
+    if (paypalSdkStatus !== 'ready' || !isFormValid) return undefined;
 
-      if (!data.approvalUrl) {
-        throw new Error('PayPal did not return a checkout link.');
-      }
+    let cancelled = false;
+    const buttonInstances = [];
 
-      window.location.assign(data.approvalUrl);
-    } catch (err) {
-      console.error('PayPal checkout start error:', err);
+    const handlePaymentError = (err) => {
+      if (paymentCompleteRef.current) return;
+      console.error('PayPal checkout error:', err);
       setPaymentStatus('error');
       setStatusMessage(
-        err.message ||
-          'There was an issue connecting to PayPal. Please try again or contact our office.'
+        err?.message ||
+          'Payment could not be completed. Please try again or contact our office.'
       );
-    }
-  };
+    };
+
+    const buttonOptions = (fundingSource) => ({
+      fundingSource,
+      style: {
+        layout: 'vertical',
+        shape: 'pill',
+        height: 52,
+      },
+      createOrder: async () => {
+        paymentCompleteRef.current = false;
+        setPaymentStatus('processing');
+        setStatusMessage('Opening secure checkout...');
+        return createPayPalOrder(formDataRef.current);
+      },
+      onApprove: async (data) => {
+        setStatusMessage('Payment approved. Finalizing your transaction...');
+        try {
+          const capture = await capturePayPalOrder(data.orderID);
+          paymentCompleteRef.current = true;
+          setTransactionId(capture.id || data.orderID);
+          setPaymentStatus('success');
+          setStatusMessage(
+            'Your payment has been successfully processed. Thank you!'
+          );
+        } catch (err) {
+          handlePaymentError(err);
+          throw err;
+        }
+      },
+      onCancel: () => {
+        setPaymentStatus('idle');
+        setStatusMessage('Payment was cancelled. You can try again when ready.');
+      },
+      onError: handlePaymentError,
+    });
+
+    const renderButton = async (fundingSource, container, isCard = false) => {
+      if (!container || cancelled) return;
+      const buttons = window.paypal.Buttons(buttonOptions(fundingSource));
+      buttonInstances.push(buttons);
+      const eligible = buttons.isEligible();
+
+      if (isCard) {
+        setCardEligibilityChecked(true);
+        setCardAvailable(eligible);
+      }
+
+      if (eligible) await buttons.render(container);
+    };
+
+    Promise.all([
+      renderButton(window.paypal.FUNDING.PAYPAL, paypalButtonRef.current),
+      renderButton(window.paypal.FUNDING.CARD, cardButtonRef.current, true),
+    ]).catch(handlePaymentError);
+
+    return () => {
+      cancelled = true;
+      buttonInstances.forEach((buttons) => buttons.close());
+    };
+  }, [isFormValid, paypalSdkStatus]);
 
   /** Reset for another payment. */
   const resetForm = () => {
@@ -163,6 +248,7 @@ const OnlinePayment = () => {
     setPaymentStatus('idle');
     setStatusMessage('');
     setTransactionId('');
+    paymentCompleteRef.current = false;
   };
 
   return (
@@ -220,7 +306,8 @@ const OnlinePayment = () => {
                       Make a Payment
                     </h2>
                     <p className="text-slate-600 mb-8">
-                      Securely pay your invoice or retainer fee using PayPal.
+                      Securely pay your invoice or retainer fee with PayPal or
+                      a credit/debit card.
                     </p>
 
                     {/* Error Banner */}
@@ -265,6 +352,7 @@ const OnlinePayment = () => {
                             onChange={(e) => setClientName(e.target.value)}
                             className="block w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#1E3A5F] focus:border-[#1E3A5F] outline-none transition-colors"
                             placeholder="Jane Doe"
+                            maxLength={127}
                             required
                           />
                         </div>
@@ -285,6 +373,7 @@ const OnlinePayment = () => {
                             onChange={(e) => setDescription(e.target.value)}
                             className="block w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-[#1E3A5F] focus:border-[#1E3A5F] outline-none transition-colors"
                             placeholder="Payment for services"
+                            maxLength={127}
                             required
                           />
                         </div>
@@ -302,6 +391,7 @@ const OnlinePayment = () => {
                           <input
                             type="number"
                             min="1"
+                            max="100000"
                             step="0.01"
                             value={amount}
                             onChange={(e) => setAmount(e.target.value)}
@@ -315,23 +405,39 @@ const OnlinePayment = () => {
                       {/* PayPal Checkout */}
                       <div className="pt-4">
                         {isFormValid ? (
-                          <button
-                            type="button"
-                            onClick={startPayPalCheckout}
-                            disabled={paymentStatus === 'processing'}
-                            className="w-full bg-[#ffc439] hover:bg-[#f3ba36] disabled:bg-slate-200 disabled:text-slate-500 text-slate-900 font-bold rounded-full py-4 flex items-center justify-center gap-3 border border-[#e0a800] disabled:border-slate-200 transition-colors shadow-md disabled:shadow-none"
+                          <div
+                            className={
+                              paymentStatus === 'processing'
+                                ? 'pointer-events-none opacity-60'
+                                : ''
+                            }
                           >
-                            {paymentStatus === 'processing' ? (
-                              <Loader2 size={24} className="animate-spin" />
-                            ) : (
-                              <DollarSign size={24} />
+                            {paypalSdkStatus === 'loading' && (
+                              <div className="w-full bg-slate-100 text-slate-600 font-semibold rounded-full py-4 flex items-center justify-center gap-3 border border-slate-200">
+                                <Loader2 size={22} className="animate-spin" />
+                                Loading secure payment options...
+                              </div>
                             )}
-                            <span className="text-lg text-center">
-                              {paymentStatus === 'processing'
-                                ? statusMessage || 'Opening PayPal checkout...'
-                                : 'Pay with PayPal'}
-                            </span>
-                          </button>
+                            <div ref={paypalButtonRef} className="min-h-[52px]" />
+                            {cardAvailable && (
+                              <div className="my-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                                <span className="h-px flex-1 bg-slate-200" />
+                                or
+                                <span className="h-px flex-1 bg-slate-200" />
+                              </div>
+                            )}
+                            <div
+                              ref={cardButtonRef}
+                              className={cardAvailable ? 'min-h-[52px]' : ''}
+                            />
+                            {cardEligibilityChecked && !cardAvailable && (
+                              <p className="mt-3 text-center text-xs text-slate-500">
+                                Card checkout is unavailable for this payment.
+                                You can still use a card through PayPal checkout
+                                when PayPal offers it.
+                              </p>
+                            )}
+                          </div>
                         ) : (
                           <div className="w-full bg-slate-100 text-slate-400 font-bold rounded-full py-4 flex items-center justify-center gap-3 cursor-not-allowed border border-slate-200">
                             <DollarSign size={24} />
@@ -341,7 +447,8 @@ const OnlinePayment = () => {
                           </div>
                         )}
                         {paymentStatus === 'processing' && statusMessage && (
-                          <p className="text-center text-sm text-slate-600 mt-3">
+                          <p className="text-center text-sm text-slate-600 mt-3 flex items-center justify-center gap-2">
+                            <Loader2 size={16} className="animate-spin" />
                             {statusMessage}
                           </p>
                         )}
@@ -349,6 +456,10 @@ const OnlinePayment = () => {
                           <button
                             type="button"
                             onClick={() => {
+                              if (paypalSdkStatus === 'error') {
+                                window.location.reload();
+                                return;
+                              }
                               setPaymentStatus('idle');
                               setStatusMessage('');
                             }}

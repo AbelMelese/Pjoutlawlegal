@@ -14,3 +14,19 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## PayPal configuration
+
+The online-payment page creates and captures orders through the Netlify Edge
+Function in `netlify/edge-functions/paypal.js`. Configure these environment
+variables in Netlify and make them available to the **Functions** scope:
+
+- `PAYPAL_CLIENT_ID`
+- `PAYPAL_SECRET`
+- `PAYPAL_API_BASE` (`https://api-m.paypal.com` for live payments or
+  `https://api-m.sandbox.paypal.com` for sandbox testing)
+
+After changing an Edge Function environment variable, trigger a new deploy so
+the updated value is available at runtime. For local development, place the
+same variables in an uncommitted `.env` file and run the site with Netlify Dev,
+not Vite alone, so `/api/*` requests reach the Edge Function.

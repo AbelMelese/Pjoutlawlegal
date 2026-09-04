@@ -1,4 +1,6 @@
-export default async (request, context) => {
+/* global Netlify */
+
+export default async (request) => {
   const PAYPAL_CLIENT_ID = Netlify.env.get("PAYPAL_CLIENT_ID");
   const PAYPAL_SECRET = Netlify.env.get("PAYPAL_SECRET");
   const PAYPAL_API_BASE =
@@ -34,12 +36,30 @@ export default async (request, context) => {
       );
     }
 
+    // The client ID is intentionally public and is required by PayPal's
+    // JavaScript SDK. The secret never leaves this edge function.
+    if (path === "/api/paypal/config" && request.method === "GET") {
+      if (!PAYPAL_CLIENT_ID) {
+        return jsonResponse(
+          { error: "PayPal is not configured. Please contact our office." },
+          503,
+          corsHeaders
+        );
+      }
+
+      return jsonResponse(
+        { clientId: PAYPAL_CLIENT_ID, currency: "USD" },
+        200,
+        corsHeaders
+      );
+    }
+
     // Create PayPal order
     if (path === "/api/orders" && request.method === "POST") {
       let body;
       try {
         body = await request.json();
-      } catch (e) {
+      } catch {
         return new Response(
           JSON.stringify({ error: "Invalid JSON body." }),
           {
@@ -51,22 +71,25 @@ export default async (request, context) => {
 
       const { amount, description, clientName, returnUrl, cancelUrl } = body;
 
-      if (!amount || isNaN(amount) || Number(amount) <= 0) {
-        return new Response(
-          JSON.stringify({ error: "A valid payment amount is required." }),
-          {
-            status: 400,
-            headers: { ...corsHeaders, "Content-Type": "application/json" },
-          }
+      const numericAmount = Number(amount);
+      if (
+        !Number.isFinite(numericAmount) ||
+        numericAmount < 1 ||
+        numericAmount > 100000
+      ) {
+        return jsonResponse(
+          { error: "Enter a payment amount between $1.00 and $100,000.00." },
+          400,
+          corsHeaders
         );
       }
 
-      const formattedAmount = Number(amount).toFixed(2);
+      const formattedAmount = numericAmount.toFixed(2);
       const requestOrigin = new URL(request.url).origin;
       const order = await createOrder({
         amount: formattedAmount,
-        description,
-        clientName,
+        description: cleanText(description, 127),
+        clientName: cleanText(clientName, 127),
         returnUrl: sameOriginUrl(
           returnUrl,
           requestOrigin,
@@ -83,26 +106,31 @@ export default async (request, context) => {
       });
       const approvalUrl = approvalLink(order);
 
-      return new Response(JSON.stringify({ id: order.id, approvalUrl }), {
-        status: 200,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+      return jsonResponse(
+        { id: order.id, approvalUrl },
+        201,
+        corsHeaders
+      );
     }
 
     // Capture PayPal order
-    const captureMatch = path.match(/^\/api\/orders\/([^\/]+)\/capture$/);
+    const captureMatch = path.match(/^\/api\/orders\/([^/]+)\/capture$/);
     if (captureMatch && request.method === "POST") {
-      const orderID = captureMatch[1];
+      const orderID = decodeURIComponent(captureMatch[1]);
+      if (!/^[A-Z0-9]+$/i.test(orderID)) {
+        return jsonResponse(
+          { error: "Invalid PayPal order ID." },
+          400,
+          corsHeaders
+        );
+      }
       const captureData = await captureOrder(orderID, {
         PAYPAL_CLIENT_ID,
         PAYPAL_SECRET,
         PAYPAL_API_BASE,
       });
 
-      return new Response(JSON.stringify(captureData), {
-        status: 200,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+      return jsonResponse(captureData, 200, corsHeaders);
     }
 
     // Default 404 response
@@ -124,6 +152,17 @@ export default async (request, context) => {
     );
   }
 };
+
+function jsonResponse(body, status, corsHeaders) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+  });
+}
+
+function cleanText(value, maxLength) {
+  return String(value || "").trim().slice(0, maxLength);
+}
 
 /** Obtain an OAuth 2.0 access token from PayPal. */
 async function getAccessToken(clientId, secret, apiBase) {
@@ -189,6 +228,7 @@ async function createOrder({
     headers: {
       Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",
+      "PayPal-Request-Id": crypto.randomUUID(),
     },
     body: JSON.stringify(payload),
   });
@@ -235,6 +275,7 @@ async function captureOrder(orderID, { PAYPAL_CLIENT_ID, PAYPAL_SECRET, PAYPAL_A
     headers: {
       Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",
+      "PayPal-Request-Id": `capture-${orderID}`,
     },
   });
 
