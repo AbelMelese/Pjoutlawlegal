@@ -48,7 +48,13 @@ export default async (request) => {
       }
 
       return jsonResponse(
-        { clientId: PAYPAL_CLIENT_ID, currency: "USD" },
+        {
+          clientId: PAYPAL_CLIENT_ID,
+          currency: "USD",
+          environment: PAYPAL_API_BASE.includes("sandbox")
+            ? "sandbox"
+            : "production",
+        },
         200,
         corsHeaders
       );

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import onlinePaymentHero from '../assets/Online Payment.png';
 import {
   DollarSign,
@@ -10,6 +10,7 @@ import {
   CheckCircle,
   AlertCircle,
   Loader2,
+  CreditCard,
 } from 'lucide-react';
 
 // Backend URL defaults to empty string for same-domain Netlify Edge Functions.
@@ -70,7 +71,6 @@ const capturePayPalOrder = async (orderID) => {
 };
 
 const loadPayPalSdk = async () => {
-  if (window.paypal?.Buttons) return window.paypal;
   if (paypalSdkPromise) return paypalSdkPromise;
 
   paypalSdkPromise = fetch(`${API_BASE}/api/paypal/config`)
@@ -82,28 +82,39 @@ const loadPayPalSdk = async () => {
       }
       return res.json();
     })
-    .then(({ clientId, currency = 'USD' }) => {
+    .then(async ({ clientId, environment = 'production' }) => {
       if (!clientId) throw new Error('PayPal is not configured.');
 
-      return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        const query = new URLSearchParams({
-          'client-id': clientId,
-          currency,
-          components: 'buttons,funding-eligibility',
-          'enable-funding': 'card',
-        });
+      const sdkUrl =
+        environment === 'sandbox'
+          ? 'https://www.sandbox.paypal.com/web-sdk/v6/core'
+          : 'https://www.paypal.com/web-sdk/v6/core';
 
-        script.id = 'paypal-js-sdk';
-        script.src = `https://www.paypal.com/sdk/js?${query.toString()}`;
-        script.async = true;
-        script.onload = () =>
-          window.paypal?.Buttons
-            ? resolve(window.paypal)
-            : reject(new Error('PayPal checkout could not be initialized.'));
-        script.onerror = () =>
-          reject(new Error('PayPal checkout could not be loaded.'));
-        document.head.appendChild(script);
+      if (!window.paypal?.createInstance) {
+        await new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.id = 'paypal-js-sdk';
+          script.src = sdkUrl;
+          script.async = true;
+          script.onload = () =>
+            window.paypal?.createInstance
+              ? resolve()
+              : reject(new Error('PayPal checkout could not be initialized.'));
+          script.onerror = () =>
+            reject(new Error('PayPal checkout could not be loaded.'));
+          document.head.appendChild(script);
+        });
+      }
+
+      return window.paypal.createInstance({
+        clientId,
+        components: [
+          'paypal-payments',
+          'paypal-guest-payments',
+          'card-fields',
+        ],
+        pageType: 'checkout',
+        locale: 'en-US',
       });
     })
     .catch((error) => {
@@ -118,15 +129,23 @@ const OnlinePayment = () => {
   const [amount, setAmount] = useState('');
   const [clientName, setClientName] = useState('');
   const [description, setDescription] = useState('');
+  const [billingPostalCode, setBillingPostalCode] = useState('');
   const [paymentStatus, setPaymentStatus] = useState('idle'); // idle | processing | success | error
   const [statusMessage, setStatusMessage] = useState('');
   const [transactionId, setTransactionId] = useState('');
 
   const [paypalSdkStatus, setPaypalSdkStatus] = useState('loading');
   const [cardEligibilityChecked, setCardEligibilityChecked] = useState(false);
-  const [cardAvailable, setCardAvailable] = useState(false);
+  const [cardAvailable, setCardAvailable] = useState(true);
+  const [cardMode, setCardMode] = useState('checking');
+  const paypalSdkRef = useRef(null);
   const paypalButtonRef = useRef(null);
-  const cardButtonRef = useRef(null);
+  const guestCardButtonRef = useRef(null);
+  const cardNameRef = useRef(null);
+  const cardNumberRef = useRef(null);
+  const cardExpiryRef = useRef(null);
+  const cardCvvRef = useRef(null);
+  const cardSessionRef = useRef(null);
   const formDataRef = useRef({ amount, description, clientName });
   const paymentCompleteRef = useRef(false);
 
@@ -143,12 +162,46 @@ const OnlinePayment = () => {
     formDataRef.current = { amount, description, clientName };
   }, [amount, clientName, description]);
 
+  const handlePaymentError = useCallback((err) => {
+    if (paymentCompleteRef.current) return;
+    console.error('PayPal checkout error:', err);
+    setPaymentStatus('error');
+    setStatusMessage(
+      err?.message ||
+        'Payment could not be completed. Please try again or contact our office.'
+    );
+  }, []);
+
+  const finishPayment = useCallback(
+    async (orderId) => {
+      setPaymentStatus('processing');
+      setStatusMessage('Payment approved. Finalizing your transaction...');
+
+      try {
+        const capture = await capturePayPalOrder(orderId);
+        paymentCompleteRef.current = true;
+        setTransactionId(capture.id || orderId);
+        setPaymentStatus('success');
+        setStatusMessage(
+          'Your payment has been successfully processed. Thank you!'
+        );
+      } catch (err) {
+        handlePaymentError(err);
+        throw err;
+      }
+    },
+    [handlePaymentError]
+  );
+
   useEffect(() => {
     let cancelled = false;
 
     loadPayPalSdk()
-      .then(() => {
-        if (!cancelled) setPaypalSdkStatus('ready');
+      .then((sdkInstance) => {
+        if (!cancelled) {
+          paypalSdkRef.current = sdkInstance;
+          setPaypalSdkStatus('ready');
+        }
       })
       .catch((err) => {
         console.error('PayPal SDK load error:', err);
@@ -168,82 +221,221 @@ const OnlinePayment = () => {
     if (paypalSdkStatus !== 'ready' || !isFormValid) return undefined;
 
     let cancelled = false;
-    const buttonInstances = [];
+    let paypalButton;
+    let paypalClickHandler;
+    let guestCardSession;
+    let guestCardButton;
+    let guestCardClickHandler;
+    const mountedCardContainers = [];
+    const paypalButtonContainer = paypalButtonRef.current;
+    const guestCardButtonContainer = guestCardButtonRef.current;
+    const cardContainers = [
+      [cardNameRef.current, 'name', 'Name on card'],
+      [cardNumberRef.current, 'number', 'Card number'],
+      [cardExpiryRef.current, 'expiry', 'MM/YY'],
+      [cardCvvRef.current, 'cvv', 'Security code'],
+    ];
 
-    const handlePaymentError = (err) => {
-      if (paymentCompleteRef.current) return;
-      console.error('PayPal checkout error:', err);
-      setPaymentStatus('error');
-      setStatusMessage(
-        err?.message ||
-          'Payment could not be completed. Please try again or contact our office.'
-      );
-    };
+    const setupCheckout = async () => {
+      const sdk = paypalSdkRef.current;
+      if (!sdk) throw new Error('PayPal checkout is not ready.');
 
-    const buttonOptions = (fundingSource) => ({
-      fundingSource,
-      style: {
-        layout: 'vertical',
-        shape: 'pill',
-        height: 52,
-      },
-      createOrder: async () => {
-        paymentCompleteRef.current = false;
-        return createPayPalOrder(formDataRef.current);
-      },
-      onApprove: async (data) => {
-        setPaymentStatus('processing');
-        setStatusMessage('Payment approved. Finalizing your transaction...');
-        try {
-          const capture = await capturePayPalOrder(data.orderID);
-          paymentCompleteRef.current = true;
-          setTransactionId(capture.id || data.orderID);
-          setPaymentStatus('success');
-          setStatusMessage(
-            'Your payment has been successfully processed. Thank you!'
-          );
-        } catch (err) {
-          handlePaymentError(err);
-          throw err;
-        }
-      },
-      onCancel: () => {
-        setPaymentStatus('idle');
-        setStatusMessage('Payment was cancelled. You can try again when ready.');
-      },
-      onError: handlePaymentError,
-    });
+      const paymentMethods = await sdk.findEligibleMethods({
+        currencyCode: 'USD',
+      });
+      if (cancelled) return;
 
-    const renderButton = async (fundingSource, container, isCard = false) => {
-      if (!container || cancelled) return;
-      const buttons = window.paypal.Buttons(buttonOptions(fundingSource));
-      buttonInstances.push(buttons);
-      const eligible = buttons.isEligible();
+      if (paymentMethods.isEligible('paypal') && paypalButtonContainer) {
+        const paypalSession = sdk.createPayPalOneTimePaymentSession({
+          onApprove: (data) => finishPayment(data.orderId),
+          onCancel: () => {
+            setPaymentStatus('idle');
+            setStatusMessage(
+              'Payment was cancelled. You can try again when ready.'
+            );
+          },
+          onError: handlePaymentError,
+        });
 
-      if (isCard) {
-        setCardEligibilityChecked(true);
-        setCardAvailable(eligible);
+        paypalButton = document.createElement('paypal-button');
+        paypalButton.setAttribute('type', 'pay');
+        paypalButton.style.width = '100%';
+        paypalClickHandler = async () => {
+          paymentCompleteRef.current = false;
+          try {
+            const orderPromise = createPayPalOrder(formDataRef.current).then(
+              (orderId) => ({ orderId })
+            );
+            await paypalSession.start(
+              { presentationMode: 'auto', targetElement: paypalButton },
+              orderPromise
+            );
+          } catch (err) {
+            handlePaymentError(err);
+          }
+        };
+
+        paypalButton.addEventListener('click', paypalClickHandler);
+        paypalButtonContainer.replaceChildren(paypalButton);
       }
 
-      if (eligible) await buttons.render(container);
+      const isCardEligible = paymentMethods.isEligible('advanced_cards');
+      if (!isCardEligible) {
+        const isGuestCardEligible =
+          paymentMethods.isEligible('card') &&
+          typeof sdk.createPayPalGuestOneTimePaymentSession === 'function';
+
+        if (isGuestCardEligible && guestCardButtonContainer) {
+          guestCardSession = sdk.createPayPalGuestOneTimePaymentSession({
+            onApprove: (data) => finishPayment(data.orderId),
+            onCancel: () => {
+              setPaymentStatus('idle');
+              setStatusMessage(
+                'Payment was cancelled. You can try again when ready.'
+              );
+            },
+            onError: handlePaymentError,
+          });
+
+          const guestCardWrapper = document.createElement(
+            'paypal-basic-card-container'
+          );
+          guestCardButton = document.createElement(
+            'paypal-basic-card-button'
+          );
+          guestCardClickHandler = async () => {
+            paymentCompleteRef.current = false;
+            try {
+              const orderPromise = createPayPalOrder(
+                formDataRef.current
+              ).then((orderId) => ({ orderId }));
+              await guestCardSession.start(
+                {
+                  presentationMode: 'auto',
+                  targetElement: guestCardButton,
+                },
+                orderPromise
+              );
+            } catch (err) {
+              handlePaymentError(err);
+            }
+          };
+
+          guestCardButton.addEventListener('click', guestCardClickHandler);
+          guestCardWrapper.appendChild(guestCardButton);
+          guestCardButtonContainer.replaceChildren(guestCardWrapper);
+          setCardMode('guest');
+          setCardAvailable(true);
+        } else {
+          setCardMode('unavailable');
+          setCardAvailable(false);
+        }
+        setCardEligibilityChecked(true);
+        return;
+      }
+
+      if (cardContainers.some(([container]) => !container)) return;
+
+      const cardSession = sdk.createCardFieldsOneTimePaymentSession();
+      const fieldStyle = {
+        input: {
+          color: '#0f172a',
+          fontFamily: 'Arial, sans-serif',
+          fontSize: '16px',
+          lineHeight: '24px',
+          padding: '11px 14px',
+        },
+        '.invalid': { color: '#b91c1c' },
+      };
+
+      cardContainers.forEach(([container, type, placeholder]) => {
+        const field = cardSession.createCardFieldsComponent({
+          type,
+          placeholder,
+          style: fieldStyle,
+        });
+        container.replaceChildren(field);
+        mountedCardContainers.push(container);
+      });
+
+      cardSessionRef.current = cardSession;
+      setCardMode('advanced');
+      setCardAvailable(true);
+      setCardEligibilityChecked(true);
     };
 
-    Promise.all([
-      renderButton(window.paypal.FUNDING.PAYPAL, paypalButtonRef.current),
-      renderButton(window.paypal.FUNDING.CARD, cardButtonRef.current, true),
-    ]).catch(handlePaymentError);
+    setupCheckout().catch(handlePaymentError);
 
     return () => {
       cancelled = true;
-      buttonInstances.forEach((buttons) => buttons.close());
+      if (paypalButton && paypalClickHandler) {
+        paypalButton.removeEventListener('click', paypalClickHandler);
+      }
+      if (paypalButtonContainer) paypalButtonContainer.replaceChildren();
+      if (guestCardButton && guestCardClickHandler) {
+        guestCardButton.removeEventListener('click', guestCardClickHandler);
+      }
+      guestCardSession?.destroy();
+      if (guestCardButtonContainer) {
+        guestCardButtonContainer.replaceChildren();
+      }
+      mountedCardContainers.forEach((container) => container.replaceChildren());
+      cardSessionRef.current = null;
     };
-  }, [isFormValid, paypalSdkStatus]);
+  }, [
+    finishPayment,
+    handlePaymentError,
+    isFormValid,
+    paypalSdkStatus,
+  ]);
+
+  const submitCardPayment = async () => {
+    if (
+      !cardSessionRef.current ||
+      !billingPostalCode.trim() ||
+      paymentStatus === 'processing'
+    ) {
+      return;
+    }
+
+    paymentCompleteRef.current = false;
+    setPaymentStatus('processing');
+    setStatusMessage('Securely verifying your card...');
+
+    try {
+      const orderId = await createPayPalOrder(formDataRef.current);
+      const result = await cardSessionRef.current.submit(orderId, {
+        billingAddress: { postalCode: billingPostalCode.trim() },
+      });
+
+      if (result.state === 'succeeded') {
+        await finishPayment(result.data.orderId || orderId);
+        return;
+      }
+
+      if (result.state === 'canceled') {
+        setPaymentStatus('idle');
+        setStatusMessage(
+          'Card verification was cancelled. You can try again when ready.'
+        );
+        return;
+      }
+
+      throw new Error(
+        result.data?.message ||
+          'The card could not be verified. Check the details and try again.'
+      );
+    } catch (err) {
+      handlePaymentError(err);
+    }
+  };
 
   /** Reset for another payment. */
   const resetForm = () => {
     setAmount('');
     setClientName('');
     setDescription('');
+    setBillingPostalCode('');
     setPaymentStatus('idle');
     setStatusMessage('');
     setTransactionId('');
@@ -412,22 +604,85 @@ const OnlinePayment = () => {
                               </div>
                             )}
                             <div ref={paypalButtonRef} className="min-h-[52px]" />
-                            {cardAvailable && (
+                            {paypalSdkStatus === 'ready' && cardAvailable && (
                               <div className="my-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
                                 <span className="h-px flex-1 bg-slate-200" />
-                                or
+                                or pay by card
                                 <span className="h-px flex-1 bg-slate-200" />
                               </div>
                             )}
                             <div
-                              ref={cardButtonRef}
-                              className={cardAvailable ? 'min-h-[52px]' : ''}
+                              ref={guestCardButtonRef}
+                              className={
+                                paypalSdkStatus === 'ready' &&
+                                cardMode === 'guest'
+                                  ? 'min-h-[52px]'
+                                  : 'hidden'
+                              }
                             />
+                            {paypalSdkStatus === 'ready' && cardAvailable && (
+                              <div
+                                className={
+                                  cardMode === 'advanced'
+                                    ? 'rounded-2xl border border-slate-200 bg-slate-50 p-4 sm:p-5'
+                                    : 'hidden'
+                                }
+                              >
+                                <div className="space-y-3">
+                                  <div
+                                    ref={cardNameRef}
+                                    className="h-12 overflow-hidden rounded-xl border border-slate-300 bg-white"
+                                  />
+                                  <div
+                                    ref={cardNumberRef}
+                                    className="h-12 overflow-hidden rounded-xl border border-slate-300 bg-white"
+                                  />
+                                  <div className="grid grid-cols-2 gap-3">
+                                    <div
+                                      ref={cardExpiryRef}
+                                      className="h-12 overflow-hidden rounded-xl border border-slate-300 bg-white"
+                                    />
+                                    <div
+                                      ref={cardCvvRef}
+                                      className="h-12 overflow-hidden rounded-xl border border-slate-300 bg-white"
+                                    />
+                                  </div>
+                                  <input
+                                    type="text"
+                                    value={billingPostalCode}
+                                    onChange={(event) =>
+                                      setBillingPostalCode(event.target.value)
+                                    }
+                                    autoComplete="postal-code"
+                                    inputMode="text"
+                                    maxLength={12}
+                                    placeholder="Billing ZIP / postal code"
+                                    aria-label="Billing ZIP or postal code"
+                                    className="block h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-slate-900 outline-none transition-colors focus:border-[#1E3A5F] focus:ring-2 focus:ring-[#1E3A5F]"
+                                  />
+                                </div>
+                                <button
+                                  type="button"
+                                  onClick={submitCardPayment}
+                                  disabled={
+                                    !billingPostalCode.trim() ||
+                                    paymentStatus === 'processing'
+                                  }
+                                  className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-[#1E3A5F] px-5 py-3.5 font-bold text-white shadow-md transition-colors hover:bg-[#162f4d] disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none"
+                                >
+                                  {paymentStatus === 'processing' ? (
+                                    <Loader2 size={20} className="animate-spin" />
+                                  ) : (
+                                    <CreditCard size={20} />
+                                  )}
+                                  Pay securely by card
+                                </button>
+                              </div>
+                            )}
                             {cardEligibilityChecked && !cardAvailable && (
                               <p className="mt-3 text-center text-xs text-slate-500">
-                                Card checkout is unavailable for this payment.
-                                You can still use a card through PayPal checkout
-                                when PayPal offers it.
+                                Direct card checkout is unavailable for this
+                                payment. Please use the PayPal option above.
                               </p>
                             )}
                           </div>
