@@ -202,13 +202,15 @@ const MediationServices = () => {
                                         </div>
                                     )}
 
-                                    <Link
-                                        to="/contact"
-                                        className="inline-flex items-center gap-2 text-[#5B2C6F] font-bold hover:gap-4 transition-all duration-300 group"
-                                    >
-                                        <span>Schedule Your Consultation Today</span>
-                                        <ArrowRight size={18} />
-                                    </Link>
+                                    {service.id !== 'court' && (
+                                        <Link
+                                            to="/contact"
+                                            className="inline-flex items-center gap-2 text-[#5B2C6F] font-bold hover:gap-4 transition-all duration-300 group"
+                                        >
+                                            <span>Schedule Your Consultation Today</span>
+                                            <ArrowRight size={18} />
+                                        </Link>
+                                    )}
                                 </div>
 
                                 {/* Visual Side */}
@@ -222,23 +224,11 @@ const MediationServices = () => {
                                                     alt={service.title}
                                                     className={service.fixedHeight ? "w-full h-full object-cover object-center" : "w-full h-auto block"}
                                                 />
-                                                <div className="absolute bottom-6 right-6 p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/50">
-                                                    <div className="flex items-center gap-2">
-                                                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                                                        <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Available Now</span>
-                                                    </div>
-                                                </div>
                                             </div>
                                         ) : (
                                             <div className={`relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100 flex items-center justify-center h-[400px] bg-gradient-to-br ${service.color}`}>
                                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
                                                 <FleurDeLisIcon size="raw-lg" className="opacity-20 transform group-hover:scale-110 transition-transform duration-700" />
-                                                <div className="absolute bottom-6 right-6 p-4 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/50">
-                                                    <div className="flex items-center gap-2">
-                                                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                                                        <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">Available Now</span>
-                                                    </div>
-                                                </div>
                                             </div>
                                         )}
                                     </div>
@@ -280,14 +270,13 @@ const MediationServices = () => {
                                     {/* Empty side for layout balance */}
                                     <div className="flex-1 hidden lg:block"></div>
 
-                                    {/* Center Icon */}
+                                    {/* Center Step Number */}
                                     <div className="relative z-10 flex-shrink-0">
                                         <div className="w-16 h-16 rounded-full bg-white border-4 border-[#1E3A5F]/20 shadow-xl flex items-center justify-center relative group">
                                             <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F] to-[#5B2C6F] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                            <FleurDeLisIcon size="xs" className="w-7 h-7 text-[#1E3A5F] relative z-10 group-hover:scale-110 transition-transform duration-300" />
-                                            <div className="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white z-20">
+                                            <span className="text-2xl font-bold font-['Playfair_Display'] text-[#1E3A5F] relative z-10 group-hover:text-white transition-colors duration-300">
                                                 {index + 1}
-                                            </div>
+                                            </span>
                                         </div>
                                     </div>
 
