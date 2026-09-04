@@ -189,11 +189,10 @@ const OnlinePayment = () => {
       },
       createOrder: async () => {
         paymentCompleteRef.current = false;
-        setPaymentStatus('processing');
-        setStatusMessage('Opening secure checkout...');
         return createPayPalOrder(formDataRef.current);
       },
       onApprove: async (data) => {
+        setPaymentStatus('processing');
         setStatusMessage('Payment approved. Finalizing your transaction...');
         try {
           const capture = await capturePayPalOrder(data.orderID);
@@ -405,13 +404,7 @@ const OnlinePayment = () => {
                       {/* PayPal Checkout */}
                       <div className="pt-4">
                         {isFormValid ? (
-                          <div
-                            className={
-                              paymentStatus === 'processing'
-                                ? 'pointer-events-none opacity-60'
-                                : ''
-                            }
-                          >
+                          <div>
                             {paypalSdkStatus === 'loading' && (
                               <div className="w-full bg-slate-100 text-slate-600 font-semibold rounded-full py-4 flex items-center justify-center gap-3 border border-slate-200">
                                 <Loader2 size={22} className="animate-spin" />
