@@ -1,0 +1,36 @@
+{
+  "title": "Practice Areas & Case Highlights",
+  "introduction": "Phyllis J. Outlaw & Associates provides comprehensive legal services tailored to each client’s needs. Our litigation practice includes arbitration, mediation, family law—including divorce, complex marital property matters involving business assets, custody, and child support—personal injury matters such as auto tort and medical malpractice cases, real estate, probate, consumer law, business and corporate law, labor and employment matters including wrongful termination, equal employment opportunity law, discrimination law, and administrative law before federal and local agencies. We advise clients on the purchase, sale, financing, leasing, management, and renovation of real estate.",
+  "consultation": "Schedule a free consultation. 202-548-2999",
+  "areas": [
+    {
+      "id": "personal-injury",
+      "title": "Automobile, Medical Malpractice, Product Liability, Slip and Fall",
+      "description": "Phyllis J. Outlaw & Associates has represented hundreds of clients in personal injury matters. Our attorneys assist clients in securing quality medical care, managing medical expenses, and seeking compensation for lost wages, pain, and suffering. Some cases have involved multiple corporations and the general liability issues that commonly arise on construction projects.",
+      "caseHighlight": "Our firm won a substantial award for a pedestrian injured when a construction truck ran over his foot at a job site."
+    },
+    {
+      "id": "corporate-governance",
+      "title": "Corporate Governance",
+      "description": "Our firm represents small businesses before government entities, multimillion-dollar corporations, and nonprofit organizations. We help clients develop compliance systems that satisfy agency requirements. Our services include preparing articles of incorporation and bylaws for small businesses; advising on business structure, growth, expansion, partnership agreements, minutes, dissolution, and risk management; and helping organizations qualify for federal and local tax-exempt status.",
+      "caseHighlight": "Phyllis J. Outlaw & Associates achieved successful outcomes for multimillion-dollar businesses in litigation matters."
+    },
+    {
+      "id": "employment-labor",
+      "title": "Employment & Labor law",
+      "description": "Phyllis J. Outlaw & Associates represents federal, local government, and private-sector employees in Maryland and the District of Columbia in matters involving wrongful termination, unemployment compensation, retirement benefits, and discrimination.",
+      "caseHighlight": "Our firm represented a retired employee on appeal before the Federal Circuit in a retirement-benefits matter involving claims against both the District of Columbia and the Office of Personnel Management."
+    },
+    {
+      "id": "construction",
+      "title": "Construction and Construction-Related Issues",
+      "description": "The firm handles small commercial and residential construction projects and advises clients throughout every phase of the construction process, including contract negotiation and drafting for general contractors and subcontractors, permit acquisition, inspections, contractor payment draws, certificates of occupancy, change orders, code compliance, and architectural plans.",
+      "caseHighlight": "Phyllis J. Outlaw & Associates litigated a case in the United States District Court for the District of Columbia involving structural and mechanical defects in the HVAC system of a newly renovated mixed-use commercial property. The firm brought claims against the architect for malpractice, the HVAC installer, and the construction inspection company, drawing on its knowledge of architectural and engineering plans. The court’s ruling was appealed to the United States Court of Appeals for the District of Columbia."
+    }
+  ],
+  "testimonial": {
+    "title": "Client Testimonial",
+    "quote": "“Phyllis J. Outlaw & Associates provides exceptional legal services and always represents our best interest. The attorneys are accessible and highly responsive to our requests.”",
+    "attribution": "Council of Women Ministers & Male Support Division, Inc. Washington, DC"
+  }
+}

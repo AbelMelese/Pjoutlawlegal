@@ -6,7 +6,7 @@ import logo from '../assets/pjoa-logo-transparent.png';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Mediation Services', path: '/mediation-services' },
-  { name: 'Legal Services', path: '/legal-services' },
+  { name: 'Practice Areas & Case Highlights', path: '/practice-areas' },
   { name: 'About the Principal', path: '/about-phyllis-j-outlaw' },
   { name: 'Online Payment', path: '/online-payment' },
   { name: 'Contact Us', path: '/contact' },

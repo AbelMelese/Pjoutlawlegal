@@ -6,7 +6,7 @@ import MediationServices from './pages/MediationServices';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollReveal from './components/ScrollReveal';
-import LegalServices from './pages/LegalServices';
+import PracticeAreas from './pages/PracticeAreas';
 import AboutPhyllis from './pages/AboutPhyllis';
 import OnlinePayment from './pages/OnlinePayment';
 
@@ -17,13 +17,13 @@ const AnimatedRoutes = () => {
       <Routes location={location}>
         <Route path="/" element={<Home />} />
         <Route path="/mediation-services" element={<MediationServices />} />
-        <Route path="/legal-services" element={<LegalServices />} />
+        <Route path="/legal-services" element={<Navigate to="/practice-areas" replace />} />
         <Route path="/about-phyllis-j-outlaw" element={<AboutPhyllis />} />
         <Route path="/online-payment" element={<OnlinePayment />} />
-        <Route path="/practice-areas" element={<Navigate to="/legal-services" replace />} />
+        <Route path="/practice-areas" element={<PracticeAreas />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/divorce-family-law" element={<Navigate to="/legal-services" replace />} />
-        <Route path="/business-services" element={<Navigate to="/legal-services" replace />} />
+        <Route path="/divorce-family-law" element={<Navigate to="/practice-areas" replace />} />
+        <Route path="/business-services" element={<Navigate to="/practice-areas" replace />} />
         <Route path="/blog" element={<Navigate to="/" replace />} />
         <Route path="/blog/:id" element={<Navigate to="/" replace />} />
         <Route path="/meet-attorneys" element={<Navigate to="/about-phyllis-j-outlaw" replace />} />

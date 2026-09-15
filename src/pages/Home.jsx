@@ -37,7 +37,7 @@ const Home = () => {
             title: 'Corporate Services',
             description: 'Phyllis J. Outlaw & Associates provides legal services to businesses, nonprofit organizations, and individuals seeking experienced counsel. We handle each matter with careful preparation, clear communication, and a strong focus on our clients\' long-term interests.',
             color: 'from-[#1E3A5F] to-[#5B2C6F]',
-            link: '/legal-services',
+            link: '/practice-areas',
         },
         {
             title: 'Individual Client Services',
