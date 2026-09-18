@@ -19,8 +19,8 @@ const MediationServices = () => {
         {
             id: 'court',
             title: 'Court-Ordered Mediation',
-            subtitle: 'Aligned with court standards',
-            description: 'As a court-appointed mediator, Phyllis J. Outlaw has successfully mediated numerous Maryland Circuit Court cases, ensuring compliance with court standards. The resulting settlement agreements are legally enforceable and aligned with judicial expectations.',
+            subtitle: 'Complies with Court Standards',
+            description: 'As a court-appointed Mediator, Phyllis J. Outlaw has successfully mediated numerous Maryland Circuit Court cases, ensuring compliance with Maryland law. The Settlement Agreements that result from mediation are legally enforceable and consistent with court standards.',
             benefits: [],
             color: 'from-[#2A4F7A] to-[#1E3A5F]',
             bgColor: 'bg-blue-50/50',
@@ -123,7 +123,7 @@ const MediationServices = () => {
         },
         {
             title: 'Virtual Conference',
-            description: 'A confidential video conference is held to help the parties work toward resolving their challenges.',
+            description: 'A confidential video conference is held to help the parties work toward resolving their issues.',
         },
         {
             title: 'Neutral Facilitation',
@@ -254,7 +254,7 @@ const MediationServices = () => {
                             A Seven-Step Path to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Resolution</span>
                         </h2>
                         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                            Mediation provides a constructive path for parties to find common ground outside the courtroom. Our structured process offers clear guidance and keeps you informed at every stage.
+                            Our structured process offers clear guidance and keeps you informed at every stage.
                         </p>
                     </div>
 

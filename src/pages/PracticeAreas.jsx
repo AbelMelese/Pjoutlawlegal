@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, Quote } from 'lucide-react';
 import content from '../data/practiceAreas.json';
-import personalInjury from '../assets/practice-areas/personal-injury.webp';
+import personalInjury from '../assets/practice-areas/0300.png';
 import corporateGovernance from '../assets/practice-areas/corporate-governance.webp';
 import employmentLabor from '../assets/practice-areas/employment-labor.webp';
 import construction from '../assets/practice-areas/construction.webp';
@@ -10,7 +10,9 @@ import construction from '../assets/practice-areas/construction.webp';
 const photographs = {
   'personal-injury': {
     src: personalInjury,
-    alt: 'Illustration of a car with minor bumper damage after an auto accident',
+    alt: 'Woman speaking on a phone beside two damaged cars after an automobile collision',
+    width: 1280,
+    height: 853,
   },
   'corporate-governance': {
     src: corporateGovernance,
@@ -68,8 +70,8 @@ const PracticeAreas = () => (
               <img
                 src={photographs[area.id].src}
                 alt={photographs[area.id].alt}
-                width="1536"
-                height="1024"
+                width={photographs[area.id].width ?? 1536}
+                height={photographs[area.id].height ?? 1024}
                 loading="lazy"
                 decoding="async"
                 className="w-full h-auto rounded-xl shadow-md"
