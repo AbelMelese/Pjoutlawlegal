@@ -214,7 +214,7 @@ const MediationServices = () => {
 
                                 {/* Visual Side */}
                                 <div className="flex-1 w-full">
-                                    <div className="relative group">
+                                    <figure className="relative group">
                                         <div className={`absolute -inset-4 bg-gradient-to-br ${service.color.replace('from', 'from-').replace('to', 'to-')} opacity-30 rounded-[2.5rem] blur-2xl group-hover:opacity-50 transition-opacity duration-500`}></div>
                                         {service.image ? (
                                             <div className={`relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100${service.fixedHeight ? ' h-[400px]' : ''}`}>
@@ -230,7 +230,17 @@ const MediationServices = () => {
                                                 <FleurDeLisIcon size="raw-lg" className="opacity-20 transform group-hover:scale-110 transition-transform duration-700" />
                                             </div>
                                         )}
-                                    </div>
+                                        {service.id === 'business' && (
+                                            <figcaption className="relative mt-6 text-center">
+                                                <p className="font-['Playfair_Display'] text-2xl font-bold text-slate-900">
+                                                    {service.title}
+                                                </p>
+                                                <p className="mt-2 text-sm font-semibold text-[#5B2C6F]">
+                                                    Available Now
+                                                </p>
+                                            </figcaption>
+                                        )}
+                                    </figure>
                                 </div>
                             </div>
                         ))}
