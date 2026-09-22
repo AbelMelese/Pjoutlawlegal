@@ -32,7 +32,7 @@ const highlights = [
   {
     title: 'Education',
     items: [
-      'Juris. Doctorate Degree, Howard University School of Law',
+      'Juris Doctorate Degree, Howard University School of Law',
       'Bachelor of Science Degree, Major Sociology, Minor Business',
     ],
   },
@@ -44,7 +44,7 @@ const highlights = [
     ],
   },
   {
-    title: 'Article Writer',
+    title: 'Article Contributor',
     items: [
       'The National Bar Association Magazine',
       'Washington Living Magazine',
@@ -86,7 +86,7 @@ const AboutPhyllis = () => {
                 Principal and Founder
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Attorney Phyllis J. Outlaw has been in private practice in the State of Maryland and the District of Columbia. Attorney Outlaw is an experienced and seasoned litigator who has represented clients in highly complex civil cases. She has extensive litigation before local and federal courts as well as administrative agencies. Attorney Outlaw possesses knowledge, skills and expertise in litigation, arbitration and mediation of disputes relating to Family Law to include divorce, marital property, child custody, visitation, child support; Personal Injury; Medical Malpractice; Probate; Consumer Law; Real Estate; Labor Law; Equal Employment Opportunity Law; and Discrimination Law.
+                Attorney Phyllis J. Outlaw has been in private practice in the State of Maryland and the District of Columbia for decades. Attorney Outlaw is an experienced and seasoned litigator who has represented clients in highly complex civil cases. She has conducted extensive litigation before local and federal courts as well as administrative agencies. Attorney Outlaw possesses knowledge, skills and expertise in litigation, arbitration and mediation of disputes relating to Family Law to include divorce, marital property, child custody, visitation, child support; Personal Injury; Medical Malpractice; Probate; Consumer Law; Real Estate; Labor Law; Equal Employment Opportunity Law; and Discrimination Law.
               </p>
             </div>
           </div>
