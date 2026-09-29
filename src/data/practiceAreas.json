@@ -1,18 +1,18 @@
 {
   "title": "Practice Areas & Case Highlights",
-  "introduction": "Phyllis J. Outlaw & Associates provides comprehensive legal services tailored to each client’s needs. Our litigation practice includes arbitration, mediation, family law—including divorce, complex marital property matters involving business assets, custody, and child support—personal injury matters such as auto tort and medical malpractice cases, real estate, probate, consumer law, business and corporate law, labor and employment matters including wrongful termination, equal employment opportunity law, discrimination law, and administrative law before federal and local agencies. We advise clients on the purchase, sale, financing, leasing, management, and renovation of real estate.",
+  "introduction": "Phyllis J. Outlaw & Associates provides comprehensive legal services tailored to each client’s needs. Our practice areas include arbitration and mediation; family law matters, including divorce, complex marital property and business assets, custody, and child support; personal injury claims, including auto torts and medical malpractice; real estate; probate; consumer law; business and corporate law; and labor and employment matters, including wrongful termination, equal employment opportunity, discrimination, and administrative proceedings before federal and local agencies. We advise clients on the purchase, sale, financing, leasing, management, and renovation of real estate.",
   "consultation": "Schedule a free consultation. 202-548-2999",
   "areas": [
     {
       "id": "personal-injury",
       "title": "Automobile, Medical Malpractice, Product Liability, Slip and Fall",
       "description": "Phyllis J. Outlaw & Associates has represented hundreds of clients in personal injury matters. Our attorneys assist clients in securing quality medical care, managing medical expenses, and seeking compensation for lost wages, pain, and suffering. Some cases have involved multiple corporations and the general liability issues that commonly arise on construction projects.",
-      "caseHighlight": "Our firm won a substantial award for a pedestrian injured when a construction truck ran over his foot at a job site."
+      "caseHighlight": "Our firm won a substantial award for a pedestrian whose foot was run over by a construction truck at a job site."
     },
     {
       "id": "corporate-governance",
       "title": "Corporate Governance",
-      "description": "Our firm represents small businesses before government entities, multimillion-dollar corporations, and nonprofit organizations. We help clients develop compliance systems that satisfy agency requirements. Our services include preparing articles of incorporation and bylaws for small businesses; advising on business structure, growth, expansion, partnership agreements, minutes, dissolution, and risk management; and helping organizations qualify for federal and local tax-exempt status.",
+      "description": "Our firm represents multimillion-dollar corporations, nonprofit organizations and small businesses in government proceedings. We develop compliance systems that meet agency requirements and prepare articles of incorporation and bylaws. We also counsel organizations on formation, expansion, partnership agreements, corporate records, dissolution, risk management, and securing federal and local tax-exempt status.",
       "caseHighlight": "Phyllis J. Outlaw & Associates achieved successful outcomes for multimillion-dollar businesses in litigation matters."
     },
     {
@@ -28,6 +28,32 @@
       "caseHighlight": "Phyllis J. Outlaw & Associates litigated a case in the United States District Court for the District of Columbia involving structural and mechanical defects in the HVAC system of a newly renovated mixed-use commercial property. The firm brought claims against the architect for malpractice, the HVAC installer, and the construction inspection company, drawing on its knowledge of architectural and engineering plans. The court’s ruling was appealed to the United States Court of Appeals for the District of Columbia."
     }
   ],
+  "businessConsulting": {
+    "title": "Business Consulting",
+    "description": "Phyllis J. Outlaw & Associates provides results-focused consulting for business owners, executives, professionals, managers, and employees. Drawing on decades of legal and training experience, Attorney Outlaw assists clients in developing stronger leadership skills, resolving organizational challenges, and pursuing long-term goals with plans tailored to their business needs.",
+    "benefitsTitle": "How Business Consulting Can Help",
+    "benefits": [
+      "Clarify business goals and vision",
+      "Strengthen team dynamics",
+      "Establish clear boundaries",
+      "Build stronger leadership skills",
+      "Manage transitions successfully",
+      "Create a plan aligned with your business purpose",
+      "Improve organizational management",
+      "Set career goals"
+    ],
+    "testimonialsTitle": "Client Testimonials",
+    "testimonials": [
+      {
+        "quote": "“Phyllis J. Outlaw & Associates exceeded my expectations. They helped me clarify my vision, prioritize my work, and develop a strong long-term business strategy. I gained healthier ways to manage workplace pressure and a better work-life balance. Their support was the missing piece I needed to move into my next stage of growth.”",
+        "attribution": "Bonita Witherspoon, Washington, DC"
+      },
+      {
+        "quote": "“A true partner in our success. Phyllis J. Outlaw & Associates business coaching services have delivered lasting value through strategic direction, accountability, and practical solutions that work.”",
+        "attribution": "Dr. Wayne Moore, Prince Georges County, MD"
+      }
+    ]
+  },
   "testimonial": {
     "title": "Client Testimonial",
     "quote": "“Phyllis J. Outlaw & Associates provides exceptional legal services and always represents our best interest. The attorneys are accessible and highly responsive to our requests.”",

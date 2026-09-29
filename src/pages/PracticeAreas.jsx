@@ -42,7 +42,7 @@ const PracticeAreas = () => (
       </div>
     </section>
 
-    <section className="py-12 md:py-16" aria-label="Our litigation practice">
+    <section className="py-12 md:py-16" aria-label="Our practice areas">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <p className="text-lg text-slate-700 leading-relaxed">{content.introduction}</p>
       </div>
@@ -104,6 +104,44 @@ const PracticeAreas = () => (
         ) : null}
       </Fragment>
     ))}
+
+    <section id="business-consulting" aria-labelledby="business-consulting-title" className="bg-slate-50 py-12 md:py-16 scroll-mt-8">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-9 lg:gap-14 items-start">
+        <div>
+          <h2 id="business-consulting-title" className="text-3xl md:text-4xl font-bold text-[#1E3A5F] font-['Playfair_Display'] leading-tight mb-6">
+            {content.businessConsulting.title}
+          </h2>
+          <p className="text-lg text-slate-700 leading-relaxed">{content.businessConsulting.description}</p>
+        </div>
+        <div>
+          <h3 className="text-2xl font-bold text-[#1E3A5F] font-['Playfair_Display'] mb-6">
+            {content.businessConsulting.benefitsTitle}
+          </h3>
+          <ul className="list-disc pl-6 space-y-3 text-lg text-slate-700 leading-relaxed marker:text-[#1E3A5F]">
+            {content.businessConsulting.benefits.map((benefit) => (
+              <li key={benefit} className="pl-2">{benefit}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="consulting-testimonials-title" className="bg-white py-12 md:py-16">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <h2 id="consulting-testimonials-title" className="text-3xl md:text-4xl font-bold text-[#1E3A5F] font-['Playfair_Display'] text-center mb-9">
+          {content.businessConsulting.testimonialsTitle}
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          {content.businessConsulting.testimonials.map((testimonial) => (
+            <blockquote key={testimonial.attribution} className="rounded-xl border border-slate-200 p-6 sm:p-8">
+              <Quote className="mb-5 text-[#1E3A5F]" size={30} aria-hidden="true" />
+              <p className="text-lg text-slate-700 leading-relaxed">{testimonial.quote}</p>
+              <footer className="mt-6 font-semibold text-[#1E3A5F]">{testimonial.attribution}</footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
 
     <div className="py-10 text-center border-t border-slate-200">
       <Link to="/contact" className="primary-button">
