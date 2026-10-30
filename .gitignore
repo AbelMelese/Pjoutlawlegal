@@ -29,3 +29,6 @@ dist-ssr
 
 # Generated at build time from the CMS (scripts/fetch-content.mjs)
 src/content/published.generated.json
+
+# Browser test output
+tests/e2e/screenshots/

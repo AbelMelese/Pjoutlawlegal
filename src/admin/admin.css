@@ -1,0 +1,30 @@
+/* Admin-only base styles (loaded with the admin bundle, not on the public site). */
+.admin-root {
+  min-height: 100vh;
+  background: #f4f6f9;
+  color: #0f172a;
+  font-family: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+}
+
+.admin-root h1,
+.admin-root h2,
+.admin-root h3 {
+  font-family: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.admin-root .admin-brand {
+  font-family: 'Playfair Display', serif;
+}
+
+.admin-root dialog::backdrop {
+  background: rgb(15 23 42 / 0.5);
+}
+
+.admin-loading {
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+  font-family: 'Outfit', sans-serif;
+  color: #475569;
+}

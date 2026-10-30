@@ -42,6 +42,14 @@ describe('profiles', () => {
     await expectDenied(t.asUser(editor, (db) => db.query(`update public.profiles set role = 'super_admin' where id = $1`, [editor.id])));
   });
 
+  it('shows staff names to staff only', async () => {
+    const asEditor = await t.asUser(editor, (db) => db.query('select display_name from public.staff_directory() order by 1'));
+    expect(asEditor.rows.map((r) => r.display_name)).toContain('owner@example.com');
+    expect(asEditor.rows.map((r) => r.display_name)).not.toContain('visitor@example.com');
+    const asNobody = await t.asUser(noRole, (db) => db.query('select * from public.staff_directory()'));
+    expect(asNobody.rows).toEqual([]);
+  });
+
   it('lets users change their display name only through update_my_name', async () => {
     const { rows } = await t.asUser(editor, (db) => db.query(`select full_name, role from public.update_my_name('  Ed Itor  ')`));
     expect(rows[0]).toEqual({ full_name: 'Ed Itor', role: 'editor' });
@@ -159,6 +167,9 @@ describe('audit log', () => {
     );
     const actions = rows.map((r) => r.action);
     expect(actions).toEqual(expect.arrayContaining(['content.created', 'content.draft_saved', 'content.published', 'content.version_restored']));
+    const firstPublish = rows.find((r) => r.action === 'content.published');
+    expect(firstPublish.summary).toMatch(/for the first time/);
+    expect(firstPublish.details.fields).toBeNull();
     const saved = rows.find((r) => r.action === 'content.draft_saved');
     expect(saved.actor_email).toBe('editor@example.com');
     expect(saved.details.fields).toEqual(['introHeading']);

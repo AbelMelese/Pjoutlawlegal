@@ -32,6 +32,10 @@ function fakeClient() {
           email === 'taken@x.com' ? { data: null, error: new Error('User already registered') } : { data: { user: { id: '66666666-6666-4666-8666-666666666666' } }, error: null },
         ),
         updateUserById: vi.fn(async () => ({ error: null })),
+        mfa: {
+          listFactors: vi.fn(async () => ({ data: { factors: [{ id: 'f1' }, { id: 'f2' }] }, error: null })),
+          deleteFactor: vi.fn(async () => ({ error: null })),
+        },
       },
     },
     from: () => {
@@ -165,6 +169,15 @@ describe('/admin-api/users', () => {
     expect(client.auth.admin.updateUserById).toHaveBeenLastCalledWith(people.editor.id, { ban_duration: '876000h' });
     await handler(request('PATCH', token(people.super.id, 'aal2'), { userId: people.editor.id, role: 'editor', active: true }));
     expect(client.auth.admin.updateUserById).toHaveBeenLastCalledWith(people.editor.id, { ban_duration: 'none' });
+  });
+
+  it('resets a lost authenticator and audits it', async () => {
+    const client = fakeClient();
+    const handler = createUsersHandler({ getConfig: () => config, getClient: () => client });
+    const res = await handler(request('PATCH', token(people.super.id, 'aal2'), { userId: people.owner.id, action: 'reset_mfa' }));
+    expect(res.status).toBe(200);
+    expect(client.auth.admin.mfa.deleteFactor).toHaveBeenCalledTimes(2);
+    expect(client.calls.at(-1)[1]).toMatchObject({ p_action: 'user.mfa_reset', p_actor: people.super.id });
   });
 
   it('validates PATCH input', async () => {

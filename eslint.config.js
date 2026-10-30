@@ -29,11 +29,11 @@ export default defineConfig([
   },
   {
     // Modules that intentionally share hooks/helpers alongside components.
-    files: ['src/content/**/*.{js,jsx}', 'src/admin/lib/**/*.{js,jsx}'],
+    files: ['src/content/**/*.{js,jsx}', 'src/admin/lib/**/*.{js,jsx}', 'src/admin/components/ui.jsx', 'src/admin/components/fields.jsx'],
     rules: { 'react-refresh/only-export-components': 'off' },
   },
   {
-    files: ['scripts/**/*.mjs', 'netlify/**/*.{js,mjs}', 'supabase/**/*.{js,mjs}', 'tests/**/*.{js,jsx}', '*.config.js'],
+    files: ['scripts/**/*.mjs', 'netlify/**/*.{js,mjs}', 'supabase/**/*.{js,mjs}', 'tests/**/*.{js,jsx,mjs}', '*.config.js'],
     languageOptions: { globals: { ...globals.node, ...globals.browser } },
     rules: { 'react-refresh/only-export-components': 'off' },
   },

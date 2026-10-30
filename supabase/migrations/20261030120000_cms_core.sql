@@ -312,10 +312,14 @@ begin
 
   perform public.write_audit(
     'content.published', 'content', p_key,
-    format('Published "%s"', v_entry.title),
+    case when v_entry.published is null
+      then format('Published "%s" from the dashboard for the first time', v_entry.title)
+      else format('Published "%s"', v_entry.title)
+    end,
     jsonb_build_object(
       'version_id', v_version.id,
-      'fields', to_jsonb(public.changed_fields(v_entry.published, v_entry.draft)),
+      -- First publish: there is no earlier dashboard version to compare with.
+      'fields', case when v_entry.published is null then null else to_jsonb(public.changed_fields(v_entry.published, v_entry.draft)) end,
       'note', left(coalesce(p_note, ''), 500)
     )
   );
@@ -536,6 +540,20 @@ begin
 end;
 $$;
 
+-- Display names for "who changed this" in history views. Staff only; returns
+-- names and e-mails of people with dashboard access, nothing else.
+create function public.staff_directory()
+returns table (id uuid, display_name text)
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+  select p.id, coalesce(nullif(p.full_name, ''), p.email)
+  from public.profiles p
+  where public.is_staff() and p.role is not null;
+$$;
+
 -- ---------------------------------------------------------------------------
 -- Row level security
 -- ---------------------------------------------------------------------------
@@ -621,7 +639,8 @@ grant execute on function
   public.publish_content(text, text),
   public.restore_content_version(bigint),
   public.discard_content_draft(text),
-  public.update_my_name(text)
+  public.update_my_name(text),
+  public.staff_directory()
 to authenticated;
 -- set_user_access / record_user_invite / write_audit: service role only.
 grant execute on function

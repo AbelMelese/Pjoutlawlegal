@@ -3,6 +3,7 @@
  *   GET    list admin users with role, status, MFA and last sign-in
  *   POST   { email, role, fullName }  invite someone by e-mail
  *   PATCH  { userId, role, active }   change role / deactivate / reactivate
+ *   PATCH  { userId, action: 'reset_mfa' }  remove a lost authenticator
  *
  * Role changes go through the set_user_access() database function, which
  * re-checks that the actor is a super admin, protects the last super admin,
@@ -73,6 +74,26 @@ export function createUsersHandler({ getConfig = () => readConfig(), getClient =
 
     // PATCH
     const userId = String(body.userId ?? '');
+
+    if (body.action === 'reset_mfa') {
+      if (!UUID.test(userId)) throw new HttpError(400, 'Unknown user.');
+      const { data: factorData, error: listError } = await client.auth.admin.mfa.listFactors({ userId });
+      if (listError) throw new HttpError(502, 'Could not read this person\u2019s two-step verification settings.');
+      for (const factor of factorData?.factors ?? []) {
+        const { error: deleteError } = await client.auth.admin.mfa.deleteFactor({ userId, id: factor.id });
+        if (deleteError) throw new HttpError(502, 'Could not reset two-step verification. Please try again.');
+      }
+      await client.rpc('write_audit', {
+        p_action: 'user.mfa_reset',
+        p_entity_type: 'user',
+        p_entity_id: userId,
+        p_summary: 'Reset two-step verification for a user',
+        p_details: { factors_removed: (factorData?.factors ?? []).length },
+        p_actor: actor.id,
+      });
+      return json(200, { ok: true });
+    }
+
     const role = body.role === null ? null : body.role;
     const active = body.active;
     if (!UUID.test(userId)) throw new HttpError(400, 'Unknown user.');
