@@ -626,5 +626,6 @@ to authenticated;
 -- set_user_access / record_user_invite / write_audit: service role only.
 grant execute on function
   public.set_user_access(uuid, uuid, public.app_role, boolean),
-  public.record_user_invite(uuid, uuid, text, public.app_role)
+  public.record_user_invite(uuid, uuid, text, public.app_role),
+  public.write_audit(text, text, text, text, jsonb, uuid)
 to service_role;
