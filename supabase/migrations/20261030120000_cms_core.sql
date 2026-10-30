@@ -196,9 +196,14 @@ $$;
 -- Content: one row per editable area of the site (page, settings, SEO)
 -- ---------------------------------------------------------------------------
 create table public.content_entries (
-  key text primary key check (key ~ '^[a-zA-Z][a-zA-Z0-9_-]{1,63}$'),
+  -- Only the sections the site renders. Adding one needs a migration, so
+  -- nobody can create look-alike rows from the browser.
+  key text primary key check (key in ('home', 'mediation', 'practiceAreas', 'about', 'contact', 'settings', 'seo')),
   title text not null check (char_length(title) between 1 and 120),
-  kind text not null default 'page' check (kind in ('page', 'settings', 'seo')),
+  -- The kind (which decides who may edit) follows from the key, never from the caller.
+  kind text not null default 'page' check (
+    kind = case key when 'settings' then 'settings' when 'seo' then 'seo' else 'page' end
+  ),
   draft jsonb not null check (jsonb_typeof(draft) = 'object' and octet_length(draft::text) <= 500000),
   published jsonb check (published is null or jsonb_typeof(published) = 'object'),
   draft_updated_at timestamptz not null default now(),
@@ -400,8 +405,9 @@ $$;
 -- ---------------------------------------------------------------------------
 create table public.media (
   id uuid primary key default gen_random_uuid(),
-  storage_path text not null unique check (storage_path ~ '^[a-z0-9][a-z0-9/._-]{0,250}$'),
-  public_url text not null check (public_url ~ '^https://'),
+  storage_path text not null unique check (storage_path ~ '^[a-z0-9][a-z0-9/._-]{0,250}$' and storage_path !~ '\.\.'),
+  -- Must be this file's address in the project's own public "media" bucket.
+  public_url text not null check (public_url ~ '^https://' and public_url like '%/storage/v1/object/public/media/' || storage_path),
   file_name text not null check (char_length(file_name) between 1 and 200),
   mime_type text not null check (mime_type in ('image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/avif', 'application/pdf')),
   size_bytes integer not null check (size_bytes between 1 and 10485760),
@@ -474,6 +480,10 @@ declare
   v_after public.profiles;
   v_actor_role public.app_role;
 begin
+  -- One access change at a time, so two concurrent demotions cannot both pass
+  -- the "last super admin" check below.
+  perform pg_advisory_xact_lock(hashtext('public.set_user_access'));
+
   select role into v_actor_role from public.profiles where id = p_actor and is_active;
   if v_actor_role is distinct from 'super_admin' then
     raise exception 'Only a super administrator can change user access.' using errcode = '42501';
@@ -615,7 +625,7 @@ grant select on public.profiles to authenticated;
 
 grant select, delete on public.content_entries to authenticated;
 grant insert (key, title, kind, draft) on public.content_entries to authenticated;
-grant update (title, draft) on public.content_entries to authenticated;
+grant update (draft) on public.content_entries to authenticated; -- titles are fixed at creation
 
 grant select on public.content_versions to authenticated;
 

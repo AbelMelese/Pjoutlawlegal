@@ -13,6 +13,8 @@ import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { loadEnv } from 'vite';
 import { CONTENT_KEYS, validatePublishedPayload } from './lib/content-keys.mjs';
+import { AREA_BY_KEY } from '../src/admin/lib/schemas.js';
+import { validateContent } from '../src/admin/lib/validate.js';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const outFile = fileURLToPath(new URL('../src/content/published.generated.json', import.meta.url));
@@ -40,6 +42,14 @@ async function main() {
 
   const rows = await response.json();
   const content = validatePublishedPayload(rows);
+  // Same rules as the dashboard editor, enforced here because content can
+  // also be written directly through the database API.
+  const problems = Object.entries(content).flatMap(([key, data]) =>
+    Object.entries(validateContent(AREA_BY_KEY[key], data)).map(([field, message]) => `${key}.${field}: ${message}`),
+  );
+  if (problems.length) {
+    throw new Error(`Published content failed validation:\n  ${problems.slice(0, 20).join('\n  ')}`);
+  }
   await writeFile(outFile, `${JSON.stringify(content, null, 2)}\n`);
   const keys = Object.keys(content);
   console.log(`[content] Baked published content for: ${keys.length ? keys.join(', ') : '(nothing published yet)'}`);

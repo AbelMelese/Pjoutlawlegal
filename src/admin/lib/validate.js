@@ -30,12 +30,21 @@ export function isSafeUrl(value, { httpsOnly = false } = {}) {
   return /^\/(?!\/)/.test(value) || /^mailto:[^\s@]+@[^\s@]+$/i.test(value) || /^tel:\+?[0-9]{6,15}$/.test(value);
 }
 
+const isSafeImageSrc = (src) => /^asset:[a-z0-9-]+$/.test(src) || /^\/(?!\/)/.test(src) || isSafeUrl(src, { httpsOnly: true });
+
 const isEmpty = (value) => value === undefined || value === null || (typeof value === 'string' && value.trim() === '');
 
 function checkField(field, value, path, errors) {
   const fail = (message) => {
     errors[path] = message;
   };
+
+  const isObject = (v) => v && typeof v === 'object' && !Array.isArray(v);
+  // Wrong data types (possible if content is written outside the dashboard) would crash the site.
+  if (['list', 'strings', 'images'].includes(field.type) && value !== undefined && value !== null && !Array.isArray(value)) return fail('This must be a list.');
+  if (['group', 'image'].includes(field.type) && value !== undefined && value !== null && !isObject(value)) return fail('This has the wrong format.');
+  if (field.type === 'checkbox' && value !== undefined && typeof value !== 'boolean') return fail('This must be on or off.');
+  if (!['list', 'strings', 'images', 'group', 'image', 'checkbox'].includes(field.type) && value !== undefined && value !== null && typeof value !== 'string') return fail('This must be text.');
 
   if (field.type === 'group') {
     for (const child of field.fields) checkField(child, value?.[child.name], `${path}.${child.name}`, errors);
@@ -46,6 +55,10 @@ function checkField(field, value, path, errors) {
     if (field.min && items.length < field.min) fail(`Add at least ${field.min}.`);
     if (field.max && items.length > field.max) fail(`No more than ${field.max}.`);
     items.forEach((item, index) => {
+      if (!isObject(item)) {
+        errors[`${path}.${index}`] = 'This item has the wrong format.';
+        return;
+      }
       for (const child of field.fields) checkField(child, item?.[child.name], `${path}.${index}.${child.name}`, errors);
     });
     if (field.fields.some((child) => child.type === 'slug')) {
@@ -64,7 +77,9 @@ function checkField(field, value, path, errors) {
     if (field.min && items.length < field.min) fail(`Add at least ${field.min} image${field.min > 1 ? 's' : ''}.`);
     if (field.max && items.length > field.max) fail(`No more than ${field.max} images.`);
     items.forEach((image, index) => {
-      if (!image?.src) errors[`${path}.${index}`] = 'Choose an image.';
+      if (!isObject(image) || typeof image.src !== 'string') errors[`${path}.${index}`] = 'This image has the wrong format.';
+      else if (!image.src) errors[`${path}.${index}`] = 'Choose an image.';
+      else if (!isSafeImageSrc(image.src)) errors[`${path}.${index}`] = 'Choose an image from the media library.';
       else if (!image.alt?.trim()) errors[`${path}.${index}`] = 'Describe this image for people using screen readers.';
     });
     return;
@@ -73,12 +88,15 @@ function checkField(field, value, path, errors) {
     const items = Array.isArray(value) ? value : [];
     if (field.max && items.length > field.max) fail(`No more than ${field.max}.`);
     items.forEach((item, index) => {
-      if (isEmpty(item)) errors[`${path}.${index}`] = 'Fill in or remove this line.';
+      if (typeof item !== 'string') errors[`${path}.${index}`] = 'This must be text.';
+      else if (isEmpty(item)) errors[`${path}.${index}`] = 'Fill in or remove this line.';
       else if (field.maxLength && item.length > field.maxLength) errors[`${path}.${index}`] = `Keep this under ${field.maxLength} characters.`;
     });
     return;
   }
   if (field.type === 'image') {
+    if (value?.src !== undefined && typeof value.src !== 'string') return fail('This image has the wrong format.');
+    if (value?.src && !isSafeImageSrc(value.src)) return fail('Choose an image from the media library.');
     if (field.required && !value?.src) fail('Choose an image.');
     else if (value?.src && !value.alt?.trim()) fail('Describe this image for people using screen readers.');
     return;

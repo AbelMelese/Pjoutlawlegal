@@ -125,9 +125,13 @@ export async function updateMedia(id, changes) {
 }
 
 export async function deleteMedia(item) {
+  // Remove the stored file first: if that fails, the library entry stays so
+  // the file is not left publicly reachable with no way to find it again.
+  const { data: removed, error: storageError } = await supabase.storage.from('media').remove([item.storage_path]);
+  if (storageError) throw storageError;
+  if (!removed?.length) throw new Error('The file could not be removed from storage. Please try again or contact your administrator.');
   const { error } = await supabase.from('media').delete().eq('id', item.id);
   if (error) throw error;
-  await supabase.storage.from('media').remove([item.storage_path]);
 }
 
 export function formatBytes(bytes) {

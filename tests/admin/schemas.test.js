@@ -69,6 +69,21 @@ describe('validation', () => {
     expect(isSafeUrl('http://example.com')).toBe(false);
   });
 
+  it('rejects wrong data types that would crash the site (content written outside the dashboard)', () => {
+    const home = CONTENT_AREAS.find((a) => a.key === 'home');
+    const settings = CONTENT_AREAS.find((a) => a.key === 'settings');
+    expect(validateContent(settings, { ...defaultContent.settings, socialLinks: 'oops' }).socialLinks).toMatch(/list/);
+    expect(validateContent(home, { ...defaultContent.home, introHeading: { x: 1 } }).introHeading).toMatch(/text/);
+    expect(validateContent(home, { ...defaultContent.home, services: ['x'] })['services.0']).toMatch(/format/);
+    expect(validateContent(home, { ...defaultContent.home, heroSlides: [{ src: 'javascript:alert(1)', alt: 'x' }] })).not.toEqual({});
+  });
+
+  it('rejects protocol-relative links that would leave the site', () => {
+    const home = CONTENT_AREAS.find((a) => a.key === 'home');
+    const services = [{ ...defaultContent.home.services[0], link: '//evil.example' }];
+    expect(validateContent(home, { ...defaultContent.home, services })['services.0.link']).toBeTruthy();
+  });
+
   it('makes readable link names', () => {
     expect(slugify('Child Custody & Visitation Mediation')).toBe('child-custody-and-visitation-mediation');
     expect(slugify('  Ünïcode  Tëst ')).toBe('unicode-test');

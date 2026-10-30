@@ -186,6 +186,15 @@ describe('/admin-api/users', () => {
     expect(res.status).toBe(400);
   });
 
+  it('maps database errors to fixed messages', async () => {
+    const client = fakeClient();
+    client.rpc = vi.fn(async () => ({ error: { message: 'duplicate key value violates unique constraint "profiles_pkey" on relation internals' } }));
+    const handler = createUsersHandler({ getConfig: () => config, getClient: () => client });
+    const res = await handler(request('PATCH', token(people.super.id, 'aal2'), { userId: people.editor.id, role: 'owner', active: true }));
+    expect(res.status).toBe(400);
+    expect((await res.json()).error).not.toMatch(/constraint|relation/);
+  });
+
   it('does not leak internal error details', async () => {
     const client = fakeClient();
     client.auth.admin.listUsers = async () => {

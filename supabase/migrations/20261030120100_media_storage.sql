@@ -18,6 +18,13 @@ on conflict (id) do update
       file_size_limit = excluded.file_size_limit,
       allowed_mime_types = excluded.allowed_mime_types;
 
+-- Staff need to "see" bucket objects for deletes/replacements to match any
+-- rows (Postgres applies SELECT policies to DELETE/UPDATE ... WHERE).
+-- The bucket is public anyway, so this reveals nothing extra.
+create policy "media bucket: staff read" on storage.objects
+  for select to authenticated
+  using (bucket_id = 'media' and public.is_staff());
+
 create policy "media bucket: staff upload" on storage.objects
   for insert to authenticated
   with check (bucket_id = 'media' and public.can_write(array['super_admin', 'owner', 'editor']::public.app_role[]));

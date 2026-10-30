@@ -17,6 +17,13 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const BANNED = '876000h'; // ~100 years
 
+// Messages from set_user_access() that are safe and useful to show; anything else is generic.
+const KNOWN_ACCESS_ERRORS = [/At least one active super administrator is required/, /Only a super administrator/, /User not found/];
+const accessError = (error) =>
+  new HttpError(400, KNOWN_ACCESS_ERRORS.find((pattern) => pattern.test(error?.message ?? ''))
+    ? error.message
+    : 'The change could not be saved. Please refresh and try again.');
+
 export function createUsersHandler({ getConfig = () => readConfig(), getClient = serviceClient } = {}) {
   return handle(['GET', 'POST', 'PATCH'], async (request) => {
     const config = getConfig();
@@ -67,7 +74,7 @@ export function createUsersHandler({ getConfig = () => readConfig(), getClient =
       }
       const invitedId = data.user.id;
       const access = await client.rpc('set_user_access', { p_actor: actor.id, p_user: invitedId, p_role: role, p_active: true });
-      if (access.error) throw new HttpError(400, access.error.message);
+      if (access.error) throw accessError(access.error);
       await client.rpc('record_user_invite', { p_actor: actor.id, p_user: invitedId, p_email: email, p_role: role });
       return json(201, { ok: true, userId: invitedId });
     }
@@ -101,7 +108,7 @@ export function createUsersHandler({ getConfig = () => readConfig(), getClient =
     if (typeof active !== 'boolean') throw new HttpError(400, 'Choose whether the account is active.');
 
     const result = await client.rpc('set_user_access', { p_actor: actor.id, p_user: userId, p_role: role, p_active: active });
-    if (result.error) throw new HttpError(400, result.error.message);
+    if (result.error) throw accessError(result.error);
 
     const ban = await client.auth.admin.updateUserById(userId, { ban_duration: active ? 'none' : BANNED });
     if (ban.error) throw new HttpError(502, 'Access was updated, but the sign-in block could not be changed. Please try again.');

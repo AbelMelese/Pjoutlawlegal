@@ -76,6 +76,22 @@ describe('content permissions', () => {
     expect(res.rows).toEqual([]); // RLS hides the row from the update
   });
 
+  it('derives who may edit from the key: editors cannot claim settings or SEO as a "page"', async () => {
+    // Security review finding: before this check an editor could create these rows first.
+    for (const key of ['seo']) {
+      await expectDenied(t.asUser(editor, (db) => insertEntry(db, key, 'page', { defaultTitle: 'x' })), /check constraint/);
+    }
+    await expectDenied(t.asUser(owner, (db) => insertEntry(db, 'contact', 'settings', {})), /check constraint/);
+  });
+
+  it('only allows the sections the site renders', async () => {
+    await expectDenied(t.asUser(editor, (db) => insertEntry(db, 'fakepage', 'page', {})), /check constraint/);
+  });
+
+  it('does not let anyone rename a section (titles appear in the history)', async () => {
+    await expectDenied(t.asUser(owner, (db) => db.query(`update public.content_entries set title = 'Deleted by super admin' where key = 'home'`)));
+  });
+
   it('does not let anyone write "published" directly; only publish_content can', async () => {
     await expectDenied(t.asUser(owner, (db) => db.query(`update public.content_entries set published = '{}' where key = 'home'`)));
   });
@@ -96,7 +112,7 @@ describe('content permissions', () => {
   it('rejects malformed content', async () => {
     await expectDenied(t.asUser(owner, (db) => insertEntry(db, 'bad key!', 'page', {})), /check constraint/);
     await expectDenied(
-      t.asUser(owner, (db) => db.query(`insert into public.content_entries (key, title, kind, draft) values ('x1', 'x', 'page', '[]')`)),
+      t.asUser(owner, (db) => db.query(`insert into public.content_entries (key, title, kind, draft) values ('contact', 'x', 'page', '[]')`)),
       /check constraint/,
     );
   });
@@ -247,6 +263,12 @@ describe('media library', () => {
     await expectDenied(t.asUser(editor, (db) => insertMedia(db, media({ storage_path: 'a/x.svg', mime_type: 'image/svg+xml' }))), /check constraint/);
     await expectDenied(t.asUser(editor, (db) => insertMedia(db, media({ storage_path: 'a/big.jpg', size_bytes: 20000000 }))), /check constraint/);
     await expectDenied(t.asUser(editor, (db) => insertMedia(db, media({ storage_path: 'a/h.jpg', public_url: 'http://x/h.jpg' }))), /check constraint/);
+    // Security review: rows pointing at other websites or escaping folders.
+    await expectDenied(t.asUser(editor, (db) => insertMedia(db, media({ storage_path: 'a/t.png', public_url: 'https://evil.example/track.png' }))), /check constraint/);
+    await expectDenied(
+      t.asUser(editor, (db) => insertMedia(db, media({ storage_path: 'general/../pages/x.png', public_url: 'https://p.supabase.co/storage/v1/object/public/media/general/../pages/x.png' }))),
+      /check constraint/,
+    );
   });
 
   it('only lets owners and super admins delete files', async () => {
@@ -262,6 +284,9 @@ describe('media library', () => {
     const stranger = await t.createUser('stranger@example.com');
     await expectDenied(t.asUser(stranger, (db) => db.query(`insert into storage.objects (bucket_id, name) values ('media', 'general/c.jpg')`)));
     await expectDenied(t.asUser(inactive, (db) => db.query(`insert into storage.objects (bucket_id, name) values ('media', 'general/d.jpg')`)));
+    // Security review: deletes used to match nothing (no SELECT policy), leaving files public.
+    const removed = await t.asUser(owner, (db) => db.query(`delete from storage.objects where bucket_id = 'media' and name = 'general/a.jpg' returning name`));
+    expect(removed.rows).toEqual([{ name: 'general/a.jpg' }]);
     const bucket = await t.asAdmin((db) => db.query(`select public, file_size_limit, allowed_mime_types from storage.buckets where id = 'media'`));
     expect(bucket.rows[0].allowed_mime_types).not.toContain('image/svg+xml');
   });
