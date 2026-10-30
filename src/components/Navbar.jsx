@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/pjoa-logo-transparent.png';
+import { telHref, useContent } from '../content';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -15,6 +16,7 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const settings = useContent('settings');
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -26,14 +28,14 @@ const Navbar = () => {
   return (
     <header className="site-header">
       <div className="section-shell brand-row">
-        <Link to="/" className="brand-block" aria-label="Phyllis J. Outlaw & Associates home">
-          <img className="brand-logo" src={logo} alt="Phyllis J. Outlaw & Associates logo" />
+        <Link to="/" className="brand-block" aria-label={`${settings.businessName} home`}>
+          <img className="brand-logo" src={logo} alt={`${settings.businessName} logo`} />
         </Link>
 
         <div className="brand-actions">
           <div className="brand-actions__callout">
-            <span>Contact Us Today</span>
-            <a href="tel:+12025482999">(202) 548-2999</a>
+            <span>{settings.headerCallout}</span>
+            <a href={telHref(settings.phone)}>{settings.phone}</a>
           </div>
 
           <button

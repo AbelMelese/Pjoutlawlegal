@@ -1,0 +1,144 @@
+{
+  "heroImage": {
+    "src": "asset:mediation-hero",
+    "alt": "Mediation Services"
+  },
+  "services": [
+    {
+      "id": "court",
+      "title": "Court-Ordered Mediation",
+      "subtitle": "Complies with Court Standards",
+      "description": "As a court-appointed Mediator, Phyllis J. Outlaw has successfully mediated numerous Maryland Circuit Court cases, ensuring compliance with Maryland law. The Settlement Agreements that result from mediation are legally enforceable and consistent with court standards.",
+      "benefits": [],
+      "image": {
+        "src": "asset:court-ordered-mediation",
+        "alt": "Court-Ordered Mediation"
+      }
+    },
+    {
+      "id": "family",
+      "title": "Divorce and Family Mediation",
+      "subtitle": "Cooperation for long-term stability",
+      "description": "Helps spouses and families navigate separation, divorce, and post-divorce matters through a cooperative process focused on long-term stability, especially when children are involved. Divorce settlement agreements can address:",
+      "benefits": [
+        "Spousal Alimony Support",
+        "Property and asset division/distribution"
+      ],
+      "image": {
+        "src": "asset:divorce-gender-equality",
+        "alt": "Divorce and Family Mediation"
+      }
+    },
+    {
+      "id": "custody",
+      "title": "Child Custody and Visitation Mediation",
+      "subtitle": "Balanced agreements for families",
+      "description": "Assists parents in creating balanced, practical parenting agreements that prioritize their children’s best interests while respecting each parent’s rights and responsibilities.",
+      "benefits": [
+        "Child Custody and Parenting Plans",
+        "Child Support agreements"
+      ],
+      "image": {
+        "src": "asset:child-mediation",
+        "alt": "Child Custody and Visitation Mediation"
+      }
+    },
+    {
+      "id": "business",
+      "title": "Business Dispute Mediation",
+      "subtitle": "Practical resolution for organizations",
+      "description": "Disputes involving business partners, employers, employees, vendors, or clients can disrupt operations and strain relationships. Mediation offers a practical way to resolve conflicts while helping companies avoid significant legal costs.",
+      "benefits": [
+        "Partnership Disputes",
+        "Contract Disputes",
+        "Workplace conflicts",
+        "Employer–Employee Disputes",
+        "Vendor Service Disputes"
+      ],
+      "image": {
+        "src": "asset:business-mediation",
+        "alt": "Business Dispute Mediation"
+      }
+    }
+  ],
+  "ctaLabel": "Schedule Your Consultation Today",
+  "stepsEyebrow": "How Mediation Works",
+  "stepsHeading": "A Seven-Step Path to",
+  "stepsHeadingAccent": "Resolution",
+  "steps": [
+    {
+      "title": "Initial Consultation",
+      "description": "Discuss your concerns with the mediator to determine whether mediation is the right option and to clarify your goals."
+    },
+    {
+      "title": "Agreement and Documentation",
+      "description": "After signing a mediation agreement with our firm and paying the mediation fee, you will submit the necessary documents and information for the mediator’s review."
+    },
+    {
+      "title": "Contact Parties",
+      "description": "All parties are contacted to confirm their willingness to mediate the issues that need resolution."
+    },
+    {
+      "title": "Mediation Scheduling",
+      "description": "Once all affected parties agree to proceed, virtual mediation sessions are scheduled at times convenient for everyone."
+    },
+    {
+      "title": "Virtual Conference",
+      "description": "A confidential video conference is held to help the parties work toward resolving their issues."
+    },
+    {
+      "title": "Neutral Facilitation",
+      "description": "The mediator remains neutral while encouraging open discussion and guiding the parties toward practical dispute resolution."
+    },
+    {
+      "title": "Resolution Agreement",
+      "description": "The mediator prepares a written summary or draft agreement outlining the terms accepted by the parties. The agreement may be reviewed by an attorney before signing."
+    }
+  ],
+  "benefitsEyebrow": "Benefits",
+  "benefitsHeading": "Why Choose",
+  "benefitsHeadingAccent": "Mediation",
+  "benefitsImage": {
+    "src": "asset:office-shoot-264",
+    "alt": "Why Choose Mediation"
+  },
+  "benefits": [
+    {
+      "title": "Open Dialogue",
+      "description": "Encourages open, productive dialogue."
+    },
+    {
+      "title": "Confidentiality",
+      "description": "Maintains confidentiality by keeping mediation discussions private."
+    },
+    {
+      "title": "Faster Resolution",
+      "description": "Resolves disputes more quickly and helps avoid court litigation."
+    },
+    {
+      "title": "Cost-Effective",
+      "description": "Offers a cost-effective alternative to expensive court battles."
+    },
+    {
+      "title": "Party Control",
+      "description": "Allows parties to retain control over the outcome."
+    },
+    {
+      "title": "Virtual Sessions",
+      "description": "Provides virtual sessions accessible from anywhere in the world."
+    }
+  ],
+  "reviewsEyebrow": "Client Experiences",
+  "reviewsHeading": "Mediation",
+  "reviewsHeadingAccent": "Reviews",
+  "reviews": [
+    {
+      "quote": "“Ms. Outlaw is a phenomenal mediator. She took extremely tense moments and somehow made them comfortable, productive, and even humorous. She has a remarkable ability to relate to people, help them see logic, and encourage fairness without making anyone feel unheard. I am beyond grateful for her. I went from the very real possibility of not seeing my 6-year-old son during the school year except every other weekend—only four days per month—to receiving TOTAL equal parenting time. 🙌🏿😂🤎 If it were not for Ms. Outlaw, I truly believe my relationship with my son would have ultimately been impaired….4 days per month would’ve been a tragedy. And honestly, I received so much more than that but for the sake of time I’ll just say I felt heard, respected, and understood throughout the process. Ms. Outlaw is a GODSEND, and it is my absolute pleasure to write this review.”",
+      "attribution": "Wayne, Montgomery County, MD"
+    },
+    {
+      "quote": "“Thank you again for the opportunity to observe your thoughtful and skillful approach to mediation. It was truly a valuable experience, and I learned so much from watching your approach, especially the way you connected with and listened to both parties.”",
+      "attribution": "Michelle Jones, Mediator, Maryland"
+    }
+  ]
+}

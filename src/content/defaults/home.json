@@ -1,0 +1,57 @@
+{
+  "heroSlides": [
+    {
+      "src": "asset:design-slide-1",
+      "alt": "Phyllis J. Outlaw & Associates – Slide 1"
+    },
+    {
+      "src": "asset:design-slide-2",
+      "alt": "Phyllis J. Outlaw & Associates – Slide 2"
+    },
+    {
+      "src": "asset:design-slide-3",
+      "alt": "Phyllis J. Outlaw & Associates – Slide 3"
+    },
+    {
+      "src": "asset:design-slide-4",
+      "alt": "Phyllis J. Outlaw & Associates – Slide 4"
+    }
+  ],
+  "introHeading": "Phyllis J. Outlaw & Associates",
+  "services": [
+    {
+      "title": "Mediation Services",
+      "description": "Whether you are going through a divorce, addressing a family dispute, or managing workplace conflict, our proven process helps you reach effective results.",
+      "link": "/mediation-services"
+    },
+    {
+      "title": "Corporate Services",
+      "description": "Phyllis J. Outlaw & Associates provides legal services to businesses, nonprofit organizations, and individuals seeking experienced counsel. We handle each matter with careful preparation, clear communication, and a strong focus on our clients' long-term interests.",
+      "link": "/practice-areas"
+    },
+    {
+      "title": "Individual Client Services",
+      "description": "Phyllis J. Outlaw & Associates possess extensive trial experience in federal and local courts and have represented clients before agencies in Washington, D.C., and Maryland. Our firm has substantial knowledge and skills in litigation, arbitration, and mediation involving family law matters, including divorce, marital property, child custody, visitation, and child support, as well as personal injury, medical malpractice, probate, consumer law, real estate, labor law, equal employment opportunity law, and discrimination law.",
+      "link": "/practice-areas"
+    }
+  ],
+  "testimonialsHeading": "Client",
+  "testimonialsHeadingAccent": "Testimonials",
+  "testimonials": [
+    {
+      "quote": "I am very pleased and satisfied with the firm's work. They kept me fully informed both in person and with a written copy of all details. The attorneys have been competent, thorough and timely in their legal work.",
+      "author": "Terrance Howell",
+      "role": "Prince Georges County, MD"
+    },
+    {
+      "quote": "From the beginning, Attorney Outlaw was very upfront with me about my case, and she directed me how to proceed with my case. Throughout the process, Atty. Outlaw and her staff kept me informed of what to expect. I appreciated her professionalism in handling my case. I would highly recommend Phyllis J. Outlaw & Associates to anyone who needs legal representation. Thank you for handling my case.",
+      "author": "Sheryl Garrison",
+      "role": "Newnan, GA"
+    },
+    {
+      "quote": "Phyllis J. Outlaw & Associates represented me after I was injured in a car accident. Attorney Outlaw and her staff were professional and kept me informed throughout my case. I highly recommend Phyllis J. Outlaw & Associates to anyone in need of legal services.",
+      "author": "Emma Dorsey",
+      "role": "Washington, DC"
+    }
+  ]
+}

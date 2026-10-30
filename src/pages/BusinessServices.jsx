@@ -1,7 +1,14 @@
 import {
     ArrowRight,
+    Briefcase,
+    Building2,
     CheckCircle,
-    Quote
+    HardHat,
+    Landmark,
+    Quote,
+    Scale,
+    Stethoscope,
+    Users
 } from 'lucide-react';
 import FleurDeLisIcon from '../components/FleurDeLisIcon';
 import PageHero from '../components/PageHero';

@@ -1,0 +1,67 @@
+{
+  "heroImage": {
+    "src": "asset:about-hero",
+    "alt": "About the Principal"
+  },
+  "portrait": {
+    "src": "asset:principal-portrait",
+    "alt": "Phyllis J. Outlaw portrait"
+  },
+  "name": "Esq. Phyllis J. Outlaw",
+  "role": "Principal and Founder",
+  "bio": "Attorney Phyllis J. Outlaw has been in private practice in the State of Maryland and the District of Columbia for decades. Attorney Outlaw is an experienced and seasoned litigator who has represented clients in highly complex civil cases. She has conducted extensive litigation before local and federal courts as well as administrative agencies. Attorney Outlaw possesses knowledge, skills and expertise in litigation, arbitration and mediation of disputes relating to Family Law to include divorce, marital property, child custody, visitation, child support; Personal Injury; Medical Malpractice; Probate; Consumer Law; Real Estate; Labor Law; Equal Employment Opportunity Law; and Discrimination Law.",
+  "highlights": [
+    {
+      "title": "Admitted to Practice",
+      "items": [
+        "United States Supreme Court",
+        "Maryland Court of Appeals",
+        "District of Columbia Court of Appeals",
+        "United States Court of Appeals",
+        "United States Court of Appeals for the Federal Circuit"
+      ]
+    },
+    {
+      "title": "Bar Association Membership",
+      "items": [
+        "Maryland Bar Association",
+        "District of Columbia Bar Association"
+      ]
+    },
+    {
+      "title": "Certificates",
+      "items": [
+        "Mediator Certificate",
+        "Marital Property Mediator Certificate",
+        "Child Custody and Visitation Certificate"
+      ]
+    },
+    {
+      "title": "Education",
+      "items": [
+        "Juris Doctorate Degree, Howard University School of Law",
+        "Bachelor of Science Degree, Major Sociology, Minor Business"
+      ]
+    },
+    {
+      "title": "Featured in",
+      "items": [
+        "Ebony Magazine",
+        "Jet Magazine"
+      ]
+    },
+    {
+      "title": "Article Contributor",
+      "items": [
+        "The National Bar Association Magazine",
+        "Washington Living Magazine"
+      ]
+    }
+  ],
+  "mediaHeading": "Media Appearances",
+  "mediaText": "Attorney Phyllis J. Outlaw has appeared as a guest on national and local television as well as radio broadcasts",
+  "mediaLogos": {
+    "src": "asset:media-logos",
+    "alt": "Media appearances including CNN, C-SPAN, FOX News, WUSA 9, WYCB Podcast, WPFW, WHUT, JET, Ebony, Essence, and Bottomline"
+  }
+}

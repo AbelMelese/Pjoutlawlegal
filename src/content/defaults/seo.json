@@ -1,0 +1,15 @@
+{
+  "siteUrl": "https://pjoutlawlegal.com",
+  "defaultTitle": "Phyllis J Outlaw Mediation Service | Divorce, Family & Business Mediation",
+  "titleSuffix": " | Phyllis J. Outlaw & Associates",
+  "defaultDescription": "Expert mediation services in Michigan & Maryland. Specializing in divorce, elder care, family disputes, and business conflict resolution. Led by Phyllis J Outlaw.",
+  "defaultOgImage": "",
+  "pages": [
+    { "path": "/", "label": "Home", "title": "", "description": "", "ogImage": "", "noindex": false },
+    { "path": "/mediation-services", "label": "Mediation Services", "title": "", "description": "", "ogImage": "", "noindex": false },
+    { "path": "/practice-areas", "label": "Practice Areas & Case Highlights", "title": "Practice Areas & Case Highlights", "description": "", "ogImage": "", "noindex": false },
+    { "path": "/about-phyllis-j-outlaw", "label": "About the Principal", "title": "", "description": "", "ogImage": "", "noindex": false },
+    { "path": "/online-payment", "label": "Online Payment", "title": "", "description": "", "ogImage": "", "noindex": false },
+    { "path": "/contact", "label": "Contact Us", "title": "", "description": "", "ogImage": "", "noindex": false }
+  ]
+}
