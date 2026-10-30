@@ -148,7 +148,7 @@ await step('rejects unsupported file types before upload', async () => {
 await step('website health runs real checks', async () => {
   await page.goto(`${BASE}/admin/health`);
   await page.getByText('Home page answered in').waitFor();
-  await page.getByText('Placeholder link that goes nowhere').first().waitFor();
+  await page.getByText('No broken links or missing images found.').waitFor();
   await page.screenshot({ path: `${shots}08-health.png`, fullPage: true });
 });
 

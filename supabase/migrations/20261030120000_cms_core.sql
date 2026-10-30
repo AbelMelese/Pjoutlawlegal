@@ -198,7 +198,7 @@ $$;
 create table public.content_entries (
   -- Only the sections the site renders. Adding one needs a migration, so
   -- nobody can create look-alike rows from the browser.
-  key text primary key check (key in ('home', 'mediation', 'practiceAreas', 'about', 'contact', 'settings', 'seo')),
+  key text primary key check (key in ('home', 'mediation', 'practiceAreas', 'about', 'contact', 'privacy', 'terms', 'settings', 'seo')),
   title text not null check (char_length(title) between 1 and 120),
   -- The kind (which decides who may edit) follows from the key, never from the caller.
   kind text not null default 'page' check (

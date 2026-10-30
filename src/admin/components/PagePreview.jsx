@@ -5,6 +5,7 @@ import MediationServices from '../../pages/MediationServices';
 import PracticeAreas from '../../pages/PracticeAreas';
 import AboutPhyllis from '../../pages/AboutPhyllis';
 import Contact from '../../pages/Contact';
+import LegalPage from '../../pages/LegalPage';
 import { ContentPreviewProvider } from '../../content';
 import { seoForPath } from '../../content/seo';
 
@@ -14,6 +15,8 @@ const PAGE_COMPONENTS = {
   practiceAreas: PracticeAreas,
   about: AboutPhyllis,
   contact: Contact,
+  privacy: () => <LegalPage contentKey="privacy" />,
+  terms: () => <LegalPage contentKey="terms" />,
   settings: Contact, // business details are most visible on the Contact page + header/footer
 };
 

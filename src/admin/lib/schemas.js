@@ -13,6 +13,8 @@ export const SITE_PAGES = [
   { value: '/about-phyllis-j-outlaw', label: 'About the Principal' },
   { value: '/online-payment', label: 'Online Payment' },
   { value: '/contact', label: 'Contact Us' },
+  { value: '/privacy-policy', label: 'Privacy Policy' },
+  { value: '/terms-of-use', label: 'Terms of Use' },
 ];
 
 const heading = (name, label, help) => ({ name, label, type: 'text', maxLength: 120, required: true, help });
@@ -307,6 +309,68 @@ export const CONTENT_AREAS = [
     ],
   },
   {
+    key: 'privacy',
+    title: 'Privacy Policy',
+    kind: 'page',
+    route: '/privacy-policy',
+    summary: 'What information the website collects and how it is used.',
+    sections: [
+      {
+        title: 'Page',
+        help: 'Legal text. Have the attorney review every change before publishing.',
+        fields: [
+          heading('title', 'Page title'),
+          { name: 'lastUpdated', label: 'Date line', type: 'text', maxLength: 80, required: true, help: 'Update this whenever the policy changes.' },
+          { name: 'intro', label: 'Introduction', type: 'textarea', maxLength: 2000 },
+          {
+            name: 'sections',
+            label: 'Sections',
+            type: 'list',
+            itemLabel: 'Section',
+            titleField: 'heading',
+            min: 1,
+            max: 20,
+            fields: [
+              { name: 'heading', label: 'Heading', type: 'text', maxLength: 120, required: true },
+              { name: 'body', label: 'Text', type: 'textarea', maxLength: 5000, required: true, help: 'Leave an empty line between paragraphs.' },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    key: 'terms',
+    title: 'Terms of Use',
+    kind: 'page',
+    route: '/terms-of-use',
+    summary: 'Terms for using the website, including the legal-advice disclaimer.',
+    sections: [
+      {
+        title: 'Page',
+        help: 'Legal text. Have the attorney review every change before publishing.',
+        fields: [
+          heading('title', 'Page title'),
+          { name: 'lastUpdated', label: 'Date line', type: 'text', maxLength: 80, required: true, help: 'Update this whenever the policy changes.' },
+          { name: 'intro', label: 'Introduction', type: 'textarea', maxLength: 2000 },
+          {
+            name: 'sections',
+            label: 'Sections',
+            type: 'list',
+            itemLabel: 'Section',
+            titleField: 'heading',
+            min: 1,
+            max: 20,
+            fields: [
+              { name: 'heading', label: 'Heading', type: 'text', maxLength: 120, required: true },
+              { name: 'body', label: 'Text', type: 'textarea', maxLength: 5000, required: true, help: 'Leave an empty line between paragraphs.' },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
     key: 'settings',
     title: 'Business details',
     kind: 'settings',
@@ -366,8 +430,8 @@ export const CONTENT_AREAS = [
               { name: 'url', label: 'Profile address', type: 'url', required: true, httpsOnly: true },
             ],
           },
-          { name: 'termsUrl', label: 'Terms of Use link', type: 'url', help: 'Currently "#" (goes nowhere). Add the page address when one exists.' },
-          { name: 'privacyUrl', label: 'Privacy Policy link', type: 'url', help: 'Currently "#" (goes nowhere). Add the page address when one exists.' },
+          { name: 'termsUrl', label: 'Terms of Use link', type: 'url', help: 'Normally /terms-of-use (edit that page under Pages).' },
+          { name: 'privacyUrl', label: 'Privacy Policy link', type: 'url', help: 'Normally /privacy-policy (edit that page under Pages).' },
         ],
       },
     ],

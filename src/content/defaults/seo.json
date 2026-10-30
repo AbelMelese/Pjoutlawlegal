@@ -2,14 +2,72 @@
   "siteUrl": "https://pjoutlawlegal.com",
   "defaultTitle": "Phyllis J Outlaw Mediation Service | Divorce, Family & Business Mediation",
   "titleSuffix": " | Phyllis J. Outlaw & Associates",
-  "defaultDescription": "Expert mediation services in Michigan & Maryland. Specializing in divorce, elder care, family disputes, and business conflict resolution. Led by Phyllis J Outlaw.",
+  "defaultDescription": "Mediation and legal services in Maryland and Washington, DC: divorce and family mediation, child custody, business disputes and court-ordered mediation.",
   "defaultOgImage": "",
   "pages": [
-    { "path": "/", "label": "Home", "title": "", "description": "", "ogImage": "", "noindex": false },
-    { "path": "/mediation-services", "label": "Mediation Services", "title": "", "description": "", "ogImage": "", "noindex": false },
-    { "path": "/practice-areas", "label": "Practice Areas & Case Highlights", "title": "Practice Areas & Case Highlights", "description": "", "ogImage": "", "noindex": false },
-    { "path": "/about-phyllis-j-outlaw", "label": "About the Principal", "title": "", "description": "", "ogImage": "", "noindex": false },
-    { "path": "/online-payment", "label": "Online Payment", "title": "", "description": "", "ogImage": "", "noindex": false },
-    { "path": "/contact", "label": "Contact Us", "title": "", "description": "", "ogImage": "", "noindex": false }
+    {
+      "path": "/",
+      "label": "Home",
+      "title": "",
+      "description": "",
+      "ogImage": "",
+      "noindex": false
+    },
+    {
+      "path": "/mediation-services",
+      "label": "Mediation Services",
+      "title": "",
+      "description": "",
+      "ogImage": "",
+      "noindex": false
+    },
+    {
+      "path": "/practice-areas",
+      "label": "Practice Areas & Case Highlights",
+      "title": "Practice Areas & Case Highlights",
+      "description": "",
+      "ogImage": "",
+      "noindex": false
+    },
+    {
+      "path": "/about-phyllis-j-outlaw",
+      "label": "About the Principal",
+      "title": "",
+      "description": "",
+      "ogImage": "",
+      "noindex": false
+    },
+    {
+      "path": "/online-payment",
+      "label": "Online Payment",
+      "title": "",
+      "description": "",
+      "ogImage": "",
+      "noindex": false
+    },
+    {
+      "path": "/contact",
+      "label": "Contact Us",
+      "title": "",
+      "description": "",
+      "ogImage": "",
+      "noindex": false
+    },
+    {
+      "path": "/privacy-policy",
+      "label": "Privacy Policy",
+      "title": "Privacy Policy",
+      "description": "How Phyllis J. Outlaw & Associates handles information received through its website and online payments.",
+      "ogImage": "",
+      "noindex": false
+    },
+    {
+      "path": "/terms-of-use",
+      "label": "Terms of Use",
+      "title": "Terms of Use",
+      "description": "Terms for using the Phyllis J. Outlaw & Associates website, including that it does not provide legal advice.",
+      "ogImage": "",
+      "noindex": false
+    }
   ]
 }

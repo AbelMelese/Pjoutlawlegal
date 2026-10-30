@@ -10,8 +10,8 @@
   "officeHoursTime": "9:00 AM to 5:00 PM EST",
   "footerTagline": "Legal and mediation services grounded in preparation and professional service.",
   "copyright": "Copyright © 2026, Phyllis J. Outlaw & Associates",
-  "termsUrl": "#",
-  "privacyUrl": "#",
+  "termsUrl": "/terms-of-use",
+  "privacyUrl": "/privacy-policy",
   "socialLinks": [
     {
       "platform": "facebook",

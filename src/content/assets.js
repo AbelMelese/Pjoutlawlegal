@@ -21,6 +21,7 @@ import aboutHero from '../assets/about the principal.png';
 import principalPortrait from "../assets/use this picture in PJO's resume.jpg";
 import mediaLogos from '../assets/media-logos-strip.png';
 import contactHero from '../assets/Contact Us.png';
+import dcStreetOffice from '../assets/dc-street-office.webp';
 import logo from '../assets/pjoa-logo-transparent.png';
 
 export const bundledAssets = {
@@ -42,6 +43,7 @@ export const bundledAssets = {
   'principal-portrait': principalPortrait,
   'media-logos': mediaLogos,
   'contact-hero': contactHero,
+  'dc-street-office': dcStreetOffice,
   logo,
 };
 

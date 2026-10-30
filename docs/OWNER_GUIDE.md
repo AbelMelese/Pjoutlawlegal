@@ -64,13 +64,21 @@ to change them.
 Please only describe services, credentials and results that are accurate and
 current. Legal advertising rules apply to everything on the website.
 
-## 5. Phone number, e-mail, address and office hours
+## 5. Privacy Policy and Terms of Use
+
+These are under **Pages** like any other page. They are legal text: have
+Attorney Outlaw review every change before publishing, and update the date
+line when you do. If the website starts collecting new information (for
+example adding Google Analytics or a contact form), the Privacy Policy must
+be updated first.
+
+## 6. Phone number, e-mail, address and office hours
 
 These appear in several places (header, footer, Contact page, call buttons),
 so they are kept in one spot: **Settings → Business details**. Change them
 once and they update everywhere.
 
-## 6. Publishing
+## 7. Publishing
 
 1. Open the page and click the **Preview** tab to check how it will look.
 2. Click **Publish**.
@@ -94,31 +102,28 @@ click **Restore**, then **Publish**. If you have saved a draft but not
 published it, **Discard draft** throws the draft away and goes back to what
 is live.
 
-## 7. Website traffic
+## 8. Website traffic
 
 **Analytics** will show visits, popular pages and where visitors come from.
 It is **not connected yet**, so it says "Not connected" rather than showing
 numbers. Once your developer connects Google Analytics, real figures will
 appear there.
 
-## 8. Inquiries
+## 9. Inquiries
 
 The website does not have a contact form; visitors call, fax or e-mail the
 office. **Contact Submissions** will list messages if a form is ever added.
 
-## 9. Spotting website problems
+## 10. Spotting website problems
 
 * **Overview** (the first page after signing in) shows whether the website
   is online and if anything is waiting to be published.
 * **Website Health** runs checks and lists broken links or missing pictures,
   each with a **Fix** button that takes you to the right page.
-  Today it lists three things to review: the "Terms of Use" and "Privacy
-  Policy" links in the footer go nowhere yet, and the Washington, DC photo on
-  the Contact page is loaded from another website.
 * If the website itself seems down, contact your developer. Automatic
   "site is down" e-mails are not set up yet.
 
-## 10. Who can do what
+## 11. Who can do what
 
 | | Content Editor | Website Owner | Super Administrator |
 | --- | :-: | :-: | :-: |

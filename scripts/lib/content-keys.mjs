@@ -1,5 +1,5 @@
 /** Content entries the public site knows how to render. */
-export const CONTENT_KEYS = ['settings', 'home', 'mediation', 'practiceAreas', 'about', 'contact', 'seo'];
+export const CONTENT_KEYS = ['settings', 'home', 'mediation', 'practiceAreas', 'about', 'contact', 'seo', 'privacy', 'terms'];
 
 /**
  * Validate rows from get_published_content() -> { key: data }.

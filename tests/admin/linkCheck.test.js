@@ -4,15 +4,19 @@ import { checkContentLinks } from '../../src/admin/lib/linkCheck';
 import { defaultContent } from '../../src/content';
 
 describe('content link checker', () => {
-  it('finds the real problems in the current site content', () => {
-    const issues = checkContentLinks(defaultContent);
-    const summary = issues.map((i) => `${i.areaKey}:${i.path}:${i.severity}`);
-    // Terms of Use / Privacy Policy are "#" placeholders on the live site today.
-    expect(summary).toContain('settings:termsUrl:warning');
-    expect(summary).toContain('settings:privacyUrl:warning');
-    // The Contact page photo is hot-linked from iStock.
-    expect(summary).toContain('contact:officeImage.src:warning');
-    expect(issues.filter((i) => i.severity === 'error')).toEqual([]);
+  it('finds no problems in the current site content', () => {
+    // Previously: "#" Terms/Privacy links and a photo hot-linked from iStock.
+    expect(checkContentLinks(defaultContent)).toEqual([]);
+  });
+
+  it('still flags placeholder links and images from other websites', () => {
+    const content = {
+      ...defaultContent,
+      settings: { ...defaultContent.settings, termsUrl: '#' },
+      contact: { ...defaultContent.contact, officeImage: { src: 'https://media.istockphoto.com/x.jpg', alt: 'x' } },
+    };
+    const summary = checkContentLinks(content).map((i) => `${i.areaKey}:${i.path}:${i.severity}`);
+    expect(summary).toEqual(['contact:officeImage.src:warning', 'settings:termsUrl:warning']);
   });
 
   it('flags broken internal links, anchors and images', () => {

@@ -15,8 +15,10 @@ import practiceAreas from './defaults/practiceAreas.json';
 import about from './defaults/about.json';
 import contact from './defaults/contact.json';
 import seo from './defaults/seo.json';
+import privacy from './defaults/privacy.json';
+import terms from './defaults/terms.json';
 
-export const defaultContent = { settings, home, mediation, practiceAreas, about, contact, seo };
+export const defaultContent = { settings, home, mediation, practiceAreas, about, contact, seo, privacy, terms };
 
 // Optional file: absent in a fresh checkout or when no CMS is configured.
 const generated = import.meta.glob('./published.generated.json', { eager: true, import: 'default' });
