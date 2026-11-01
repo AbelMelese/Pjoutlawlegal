@@ -2,20 +2,19 @@ import { Link } from 'react-router-dom';
 import {
     ArrowRight
 } from 'lucide-react';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import PageHero from '../components/PageHero';
-import designSlide1 from '../assets/design_  slide1.png';
-import designSlide2 from '../assets/design_  slide2.png';
-import designSlide3 from '../assets/design_  slide3.png';
-import designSlide4 from '../assets/design_  slide4.png';
+import { useContent } from '../content';
+import { resolveImage } from '../content/assets';
 import FleurDeLisIcon from '../components/FleurDeLisIcon';
 
 
 const Home = () => {
     const [activeTestimonial, setActiveTestimonial] = useState(0);
     const [heroSlideIndex, setHeroSlideIndex] = useState(0);
-    const heroSlideImages = [designSlide1, designSlide2, designSlide3, designSlide4];
+    const content = useContent('home');
+    const heroSlides = content.heroSlides;
 
     // Scroll reveal refs for each section
     const servicesHeaderRef = useScrollReveal();
@@ -24,58 +23,31 @@ const Home = () => {
 
 
     const testimonialsRef = useScrollReveal();
-    const ctaRef = useScrollReveal();
 
-    const services = [
-        {
-            title: 'Mediation Services',
-            description: 'Whether you are going through a divorce, addressing a family dispute, or managing workplace conflict, our proven process helps you reach effective results.',
-            color: 'from-[#2A4F7A] to-[#1E3A5F]',
-            link: '/mediation-services',
-        },
-        {
-            title: 'Corporate Services',
-            description: 'Phyllis J. Outlaw & Associates provides legal services to businesses, nonprofit organizations, and individuals seeking experienced counsel. We handle each matter with careful preparation, clear communication, and a strong focus on our clients\' long-term interests.',
-            color: 'from-[#1E3A5F] to-[#5B2C6F]',
-            link: '/practice-areas',
-        },
-        {
-            title: 'Individual Client Services',
-            description: 'Phyllis J. Outlaw & Associates possess extensive trial experience in federal and local courts and have represented clients before agencies in Washington, D.C., and Maryland. Our firm has substantial knowledge and skills in litigation, arbitration, and mediation involving family law matters, including divorce, marital property, child custody, visitation, and child support, as well as personal injury, medical malpractice, probate, consumer law, real estate, labor law, equal employment opportunity law, and discrimination law.',
-            color: 'from-[#2A4F7A] to-[#1E3A5F]',
-            link: '/practice-areas',
-        },
+    // Card gradients are part of the design, not the content: they cycle in order.
+    const serviceColors = [
+        'from-[#2A4F7A] to-[#1E3A5F]',
+        'from-[#1E3A5F] to-[#5B2C6F]',
+        'from-[#2A4F7A] to-[#1E3A5F]',
     ];
+    const services = content.services.map((service, index) => ({
+        ...service,
+        color: serviceColors[index % serviceColors.length],
+    }));
     const marqueeServices = [...services, ...services];
 
 
 
 
-    const testimonials = [
-        {
-            quote: "I am very pleased and satisfied with the firm's work. They kept me fully informed both in person and with a written copy of all details. The attorneys have been competent, thorough and timely in their legal work.",
-            author: 'Terrance Howell',
-            role: 'Prince Georges County, MD',
-        },
-        {
-            quote: 'From the beginning, Attorney Outlaw was very upfront with me about my case, and she directed me how to proceed with my case. Throughout the process, Atty. Outlaw and her staff kept me informed of what to expect. I appreciated her professionalism in handling my case. I would highly recommend Phyllis J. Outlaw & Associates to anyone who needs legal representation. Thank you for handling my case.',
-            author: 'Sheryl Garrison',
-            role: 'Newnan, GA',
-        },
-        {
-            quote: 'Phyllis J. Outlaw & Associates represented me after I was injured in a car accident. Attorney Outlaw and her staff were professional and kept me informed throughout my case. I highly recommend Phyllis J. Outlaw & Associates to anyone in need of legal services.',
-            author: 'Emma Dorsey',
-            role: 'Washington, DC',
-        },
-    ];
+    const testimonials = content.testimonials;
 
     // Auto slide for Hero images
     useEffect(() => {
         const heroInterval = setInterval(() => {
-            setHeroSlideIndex((prev) => (prev + 1) % heroSlideImages.length);
+            setHeroSlideIndex((prev) => (prev + 1) % heroSlides.length);
         }, 4000);
         return () => clearInterval(heroInterval);
-    }, [heroSlideImages.length]);
+    }, [heroSlides.length]);
 
     // Auto slide for Testimonials
     useEffect(() => {
@@ -89,11 +61,11 @@ const Home = () => {
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Slider Section */}
             <div className="hero-slider w-full relative overflow-hidden">
-                {heroSlideImages.map((slide, index) => (
+                {heroSlides.map((slide, index) => (
                     <img
                         key={index}
-                        src={slide}
-                        alt={`Phyllis J. Outlaw & Associates – Slide ${index + 1}`}
+                        src={resolveImage(slide.src)}
+                        alt={slide.alt}
                         className={`hero-slider__slide ${
                             index === heroSlideIndex ? 'hero-slider__slide--active' : ''
                         }`}
@@ -101,7 +73,7 @@ const Home = () => {
                 ))}
                 {/* Slider Dots */}
                 <div className="hero-slider__dots">
-                    {heroSlideImages.map((_, index) => (
+                    {heroSlides.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => setHeroSlideIndex(index)}
@@ -121,14 +93,10 @@ const Home = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div ref={servicesHeaderRef} className="scroll-reveal text-center mb-10 md:mb-14">
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                            Phyllis J. Outlaw &amp; Associates
+                            {content.introHeading}
                         </h2>
                             <div className="mx-auto grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-3 lg:gap-4">
-                                {[
-                                    { label: 'Mediation Services' },
-                                    { label: 'Corporate Services' },
-                                    { label: 'Individual Client Services' },
-                                ].map((item) => (
+                                {services.map((service) => ({ label: service.title })).map((item) => (
                                     <div
                                         key={item.label}
                                         className="flex min-h-16 items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 shadow-sm"
@@ -182,7 +150,7 @@ const Home = () => {
 
                 <div ref={testimonialsRef} className="scroll-reveal max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <h2 className="text-3xl md:text-5xl font-bold text-white font-['Playfair_Display'] mb-4">
-                        Client <span className="text-[#C5A03A]">Testimonials</span>
+                        {content.testimonialsHeading} <span className="text-[#C5A03A]">{content.testimonialsHeadingAccent}</span>
                     </h2>
                     <div className="w-20 h-[3px] bg-gradient-to-r from-[#C5A03A] to-[#5B2C6F] mx-auto mb-10 md:mb-14 rounded-full"></div>
 

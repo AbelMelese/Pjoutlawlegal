@@ -9,6 +9,7 @@ import {
   Twitter,
   Youtube,
 } from 'lucide-react';
+import { telHref, useContent } from '../content';
 
 const quickLinks = [
   { name: 'Home', path: '/' },
@@ -24,14 +25,18 @@ const services = [
   { name: 'Practice Areas & Case Highlights', path: '/practice-areas' },
 ];
 
-const socialLinks = [
-  { Icon: Facebook, href: 'https://www.facebook.com/CLRCommunityEmpowerment/' },
-  { Icon: Youtube, href: 'https://www.youtube.com/channel/UCBD_unvoJ9pascMwOcYHpqg/videos' },
-  { Icon: Twitter, href: 'https://x.com/clrcommunity' },
-  { Icon: Linkedin, href: 'https://www.linkedin.com/in/phyllis-j-outlaw-esq/' },
-];
+const socialIcons = {
+  facebook: Facebook,
+  youtube: Youtube,
+  twitter: Twitter,
+  linkedin: Linkedin,
+};
 
 const Footer = () => {
+  const settings = useContent('settings');
+  const socialLinks = settings.socialLinks
+    .filter((link) => socialIcons[link.platform] && /^https:\/\//.test(link.url))
+    .map((link) => ({ Icon: socialIcons[link.platform], href: link.url, label: link.platform }));
   return (
     <footer className="relative overflow-hidden">
       <div className="relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #1E3A5F 0%, #2A1F4E 40%, #5B2C6F 100%)' }}>
@@ -41,11 +46,10 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="mb-6">
               <h3 className="text-lg md:text-xl font-bold font-['Playfair_Display'] text-white whitespace-nowrap">
-                Phyllis J. Outlaw & Associates
+                {settings.businessName}
               </h3>
               <p className="text-white/70 mt-2">
-                Legal and mediation services grounded in preparation and professional
-                service.
+                {settings.footerTagline}
               </p>
             </div>
             <div className="flex gap-3">
@@ -121,8 +125,8 @@ const Footer = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Phone</p>
-                  <a href="tel:+12025482999" className="text-white/90 hover:text-white transition-colors font-medium">
-                    (202) 548-2999
+                  <a href={telHref(settings.phone)} className="text-white/90 hover:text-white transition-colors font-medium">
+                    {settings.phone}
                   </a>
                 </div>
               </div>
@@ -132,8 +136,8 @@ const Footer = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Fax</p>
-                  <a href="tel:+12025488114" className="text-white/90 hover:text-white transition-colors font-medium">
-                    (202) 548-8114
+                  <a href={telHref(settings.fax)} className="text-white/90 hover:text-white transition-colors font-medium">
+                    {settings.fax}
                   </a>
                 </div>
               </div>
@@ -143,8 +147,8 @@ const Footer = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Email</p>
-                  <a href="mailto:lawfirm@pjoutlawlegal.com" className="text-white/90 hover:text-white transition-colors font-medium break-all">
-                    lawfirm@pjoutlawlegal.com
+                  <a href={`mailto:${settings.email}`} className="text-white/90 hover:text-white transition-colors font-medium break-all">
+                    {settings.email}
                   </a>
                 </div>
               </div>
@@ -155,7 +159,7 @@ const Footer = () => {
                 <div className="flex-1 min-w-0">
                   <p className="text-white/50 text-xs font-bold uppercase tracking-wider mb-1">Address</p>
                   <p className="text-white/90 text-[0.8rem] xl:text-sm tracking-tight whitespace-nowrap font-medium">
-                    412 H Street, NE, Washington, DC 20002
+                    {settings.addressLine1}, {settings.addressLine2}
                   </p>
                 </div>
               </div>
@@ -168,11 +172,11 @@ const Footer = () => {
       <div className="relative bg-[#C5A03A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#1E3A5F]">
-            <p className="whitespace-nowrap">Copyright © 2026, Phyllis J. Outlaw & Associates</p>
+            <p className="whitespace-nowrap">{settings.copyright}</p>
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
+              <a href={settings.termsUrl || '#'} className="hover:text-white transition-colors">Terms of Use</a>
               <span>|</span>
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href={settings.privacyUrl || '#'} className="hover:text-white transition-colors">Privacy Policy</a>
             </div>
           </div>
         </div>

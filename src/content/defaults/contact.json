@@ -1,0 +1,17 @@
+{
+  "heroImage": {
+    "src": "asset:contact-hero",
+    "alt": "Contact Us"
+  },
+  "heading": "Contact Our Office.",
+  "callButtonLabel": "Call Our Office",
+  "officeHeading": "Serving Maryland &",
+  "officeHeadingAccent": "Washington, DC",
+  "officeText": "Phyllis J. Outlaw & Associates have provided legal services to residents and local businesses in Maryland and Washington, DC. Our offices are located in the commercial district which is known for it resurgence and emerging small businesses. Our offices are convenient to the financial and business districts of the city, public transportation, as well as to the federal and local courts located in the District of Columbia and Maryland. Our office is located at:",
+  "officeImage": {
+    "src": "asset:dc-street-office",
+    "alt": "A downtown Washington, DC street at dusk",
+    "width": 1600,
+    "height": 1067
+  }
+}

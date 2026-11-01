@@ -1,0 +1,33 @@
+{
+  "businessName": "Phyllis J. Outlaw & Associates",
+  "headerCallout": "Contact Us Today",
+  "phone": "(202) 548-2999",
+  "fax": "(202) 548-8114",
+  "email": "lawfirm@pjoutlawlegal.com",
+  "addressLine1": "412 H Street, NE",
+  "addressLine2": "Washington, DC 20002",
+  "officeHoursDays": "Monday to Friday",
+  "officeHoursTime": "9:00 AM to 5:00 PM EST",
+  "footerTagline": "Legal and mediation services grounded in preparation and professional service.",
+  "copyright": "Copyright © 2026, Phyllis J. Outlaw & Associates",
+  "termsUrl": "/terms-of-use",
+  "privacyUrl": "/privacy-policy",
+  "socialLinks": [
+    {
+      "platform": "facebook",
+      "url": "https://www.facebook.com/CLRCommunityEmpowerment/"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/channel/UCBD_unvoJ9pascMwOcYHpqg/videos"
+    },
+    {
+      "platform": "twitter",
+      "url": "https://x.com/clrcommunity"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/in/phyllis-j-outlaw-esq/"
+    }
+  ]
+}

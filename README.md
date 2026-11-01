@@ -1,19 +1,25 @@
-# React + Vite
+# Phyllis J. Outlaw & Associates website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Public website for pjoutlawlegal.com (React 19 + Vite + Tailwind, hosted on
+Netlify) with a built-in **Website Manager** at `/admin` for editing content,
+managing images, publishing with version history, and administering users.
 
-Currently, two official plugins are available:
+* **Website owner:** see [docs/OWNER_GUIDE.md](docs/OWNER_GUIDE.md)
+* **Developers:** see [docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Quick start
 
-## React Compiler
+```bash
+npm install
+npm run dev        # http://localhost:5173 (admin at /admin)
+npm test           # unit, snapshot, database and function tests
+npm run lint
+npm run build      # fetches published CMS content, builds, writes SEO files
+npm run test:e2e   # browser smoke test of the admin against a local stand-in
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Copy `.env.example` to `.env` for local configuration. The site works without
+any configuration; the admin needs Supabase (see the developer guide).
 
 ## PayPal configuration
 

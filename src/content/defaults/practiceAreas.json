@@ -7,25 +7,43 @@
       "id": "personal-injury",
       "title": "Automobile, Medical Malpractice, Product Liability, Slip and Fall",
       "description": "Phyllis J. Outlaw & Associates has represented hundreds of clients in personal injury matters. Our attorneys assist clients in securing quality medical care, managing medical expenses, and seeking compensation for lost wages, pain, and suffering. Some cases have involved multiple corporations and the general liability issues that commonly arise on construction projects.",
-      "caseHighlight": "Our firm won a substantial award for a pedestrian whose foot was run over by a construction truck at a job site."
+      "caseHighlight": "Our firm won a substantial award for a pedestrian whose foot was run over by a construction truck at a job site.",
+      "image": {
+        "src": "asset:practice-personal-injury",
+        "alt": "Woman speaking on a phone beside two damaged cars after an automobile collision",
+        "width": 1280,
+        "height": 853
+      }
     },
     {
       "id": "corporate-governance",
       "title": "Corporate Governance",
       "description": "Our firm represents multimillion-dollar corporations, nonprofit organizations and small businesses in government proceedings. We develop compliance systems that meet agency requirements and prepare articles of incorporation and bylaws. We also counsel organizations on formation, expansion, partnership agreements, corporate records, dissolution, risk management, and securing federal and local tax-exempt status.",
-      "caseHighlight": "Phyllis J. Outlaw & Associates achieved successful outcomes for multimillion-dollar businesses in litigation matters."
+      "caseHighlight": "Phyllis J. Outlaw & Associates achieved successful outcomes for multimillion-dollar businesses in litigation matters.",
+      "image": {
+        "src": "asset:practice-corporate-governance",
+        "alt": "Illustration of a diverse business team with a man leading a meeting"
+      }
     },
     {
       "id": "employment-labor",
       "title": "Employment & Labor law",
       "description": "Phyllis J. Outlaw & Associates represents federal, local government, and private-sector employees in Maryland and the District of Columbia in matters involving wrongful termination, unemployment compensation, retirement benefits, and discrimination.",
-      "caseHighlight": "Our firm represented a retired employee on appeal before the Federal Circuit in a retirement-benefits matter involving claims against both the District of Columbia and the Office of Personnel Management."
+      "caseHighlight": "Our firm represented a retired employee on appeal before the Federal Circuit in a retirement-benefits matter involving claims against both the District of Columbia and the Office of Personnel Management.",
+      "image": {
+        "src": "asset:practice-employment-labor",
+        "alt": "Illustration of employees peacefully protesting outside a business"
+      }
     },
     {
       "id": "construction",
       "title": "Construction and Construction-Related Issues",
       "description": "The firm handles small commercial and residential construction projects and advises clients throughout every phase of the construction process, including contract negotiation and drafting for general contractors and subcontractors, permit acquisition, inspections, contractor payment draws, certificates of occupancy, change orders, code compliance, and architectural plans.",
-      "caseHighlight": "Phyllis J. Outlaw & Associates litigated a case in the United States District Court for the District of Columbia involving structural and mechanical defects in the HVAC system of a newly renovated mixed-use commercial property. The firm brought claims against the architect for malpractice, the HVAC installer, and the construction inspection company, drawing on its knowledge of architectural and engineering plans. The court’s ruling was appealed to the United States Court of Appeals for the District of Columbia."
+      "caseHighlight": "Phyllis J. Outlaw & Associates litigated a case in the United States District Court for the District of Columbia involving structural and mechanical defects in the HVAC system of a newly renovated mixed-use commercial property. The firm brought claims against the architect for malpractice, the HVAC installer, and the construction inspection company, drawing on its knowledge of architectural and engineering plans. The court’s ruling was appealed to the United States Court of Appeals for the District of Columbia.",
+      "image": {
+        "src": "asset:practice-construction",
+        "alt": "Illustration of workers renovating the interior of a home"
+      }
     }
   ],
   "businessConsulting": {
@@ -58,5 +76,8 @@
     "title": "Client Testimonial",
     "quote": "“Phyllis J. Outlaw & Associates provides exceptional legal services and always represents our best interest. The attorneys are accessible and highly responsive to our requests.”",
     "attribution": "Council of Women Ministers & Male Support Division, Inc. Washington, DC"
-  }
+  },
+  "eyebrow": "Phyllis J. Outlaw & Associates",
+  "caseHighlightLabel": "Case Highlight",
+  "ctaLabel": "Contact Our Office"
 }

@@ -3,16 +3,19 @@ import {
     Mail,
     Clock
 } from 'lucide-react';
-import contactHero from '../assets/Contact Us.png';
+import { telHref, useContent } from '../content';
+import { resolveImage } from '../content/assets';
 
 const Contact = () => {
+    const content = useContent('contact');
+    const settings = useContent('settings');
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             {/* Hero Section */}
             <div className="w-full">
                 <img
-                    src={contactHero}
-                    alt="Contact Us"
+                    src={resolveImage(content.heroImage?.src)}
+                    alt={content.heroImage?.alt ?? ''}
                     className="w-full h-auto block"
                 />
             </div>
@@ -29,7 +32,7 @@ const Contact = () => {
                             <div className="bg-white/10 backdrop-blur-md rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-white/20 relative overflow-hidden text-center">
 
                                 <h2 className="text-3xl md:text-4xl font-bold text-white font-['Playfair_Display'] mb-8 relative z-10">
-                                    Contact Our Office.
+                                    {content.heading}
                                 </h2>
 
                                 <div className="grid md:grid-cols-2 gap-6 text-left relative z-10">
@@ -40,16 +43,16 @@ const Contact = () => {
                                         <div className="min-w-0">
                                             <p className="text-sm font-bold text-white/60 uppercase tracking-wider mb-1">Office Hours</p>
                                             <p className="text-sm sm:text-base lg:text-lg font-bold text-white tracking-tight">
-                                                <span className="block">Monday to Friday</span>
-                                                <span className="block">9:00 AM to 5:00 PM EST</span>
+                                                <span className="block">{settings.officeHoursDays}</span>
+                                                <span className="block">{settings.officeHoursTime}</span>
                                             </p>
                                         </div>
                                     </div>
 
                                     {[
-                                        { icon: Phone, title: 'Phone', value: '(202) 548-2999', href: 'tel:+12025482999' },
-                                        { icon: Phone, title: 'Fax', value: '(202) 548-8114', href: 'tel:+12025488114' },
-                                        { icon: Mail, title: 'Email', value: 'lawfirm@pjoutlawlegal.com', href: 'mailto:lawfirm@pjoutlawlegal.com' }
+                                        { icon: Phone, title: 'Phone', value: settings.phone, href: telHref(settings.phone) },
+                                        { icon: Phone, title: 'Fax', value: settings.fax, href: telHref(settings.fax) },
+                                        { icon: Mail, title: 'Email', value: settings.email, href: `mailto:${settings.email}` }
                                     ].map((item, i) => (
                                         <a key={i} href={item.href} className="flex items-center gap-6 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/15 hover:bg-white/20 transition-all group">
                                             <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors flex-shrink-0">
@@ -64,9 +67,9 @@ const Contact = () => {
                                 </div>
 
                                 <div className="mt-10 relative z-10">
-                                    <a href="tel:+12025482999" className="btn-premium inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#1E3A5F] rounded-full font-bold text-lg shadow-lg hover:shadow-2xl">
+                                    <a href={telHref(settings.phone)} className="btn-premium inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#1E3A5F] rounded-full font-bold text-lg shadow-lg hover:shadow-2xl">
                                         <Phone size={20} />
-                                        <span>Call Our Office</span>
+                                        <span>{content.callButtonLabel}</span>
                                     </a>
                                 </div>
                             </div>
@@ -82,22 +85,22 @@ const Contact = () => {
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="space-y-6">
                             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-['Playfair_Display'] leading-tight">
-                                Serving Maryland &<br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Washington, DC</span>
+                                {content.officeHeading}<br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">{content.officeHeadingAccent}</span>
                             </h2>
                             <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-                                Phyllis J. Outlaw & Associates have provided legal services to residents and local businesses in Maryland and Washington, DC. Our offices are located in the commercial district which is known for it resurgence and emerging small businesses. Our offices are convenient to the financial and business districts of the city, public transportation, as well as to the federal and local courts located in the District of Columbia and Maryland. Our office is located at:
+                                {content.officeText}
                             </p>
                             <div className="mt-2">
-                                <p className="text-lg font-bold text-slate-900 font-['Playfair_Display']">412 H Street, NE</p>
-                                <p className="text-lg font-medium text-slate-700">Washington, DC 20002</p>
+                                <p className="text-lg font-bold text-slate-900 font-['Playfair_Display']">{settings.addressLine1}</p>
+                                <p className="text-lg font-medium text-slate-700">{settings.addressLine2}</p>
                             </div>
                         </div>
                         <div className="relative">
                             <div className="framed-photo-container h-[260px] md:h-[340px]">
                                 <img
-                                    src="https://media.istockphoto.com/photos/aerial-view-of-washington-dc-xxxl-picture-id183367435?k=20&m=183367435&s=612x612&w=0&h=1poAuHDFu4WELeMGIwBHYbAMg294fNdQLsV3HKPbLdI="
-                                    alt="Aerial view of Washington DC skyline"
+                                    src={resolveImage(content.officeImage?.src)}
+                                    alt={content.officeImage?.alt ?? ''}
                                 />
                             </div>
                         </div>

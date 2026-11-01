@@ -1,40 +1,18 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, Quote } from 'lucide-react';
-import content from '../data/practiceAreas.json';
-import personalInjury from '../assets/practice-areas/0300.png';
-import corporateGovernance from '../assets/practice-areas/corporate-governance.webp';
-import employmentLabor from '../assets/practice-areas/employment-labor.webp';
-import construction from '../assets/practice-areas/construction.webp';
+import { resolveImage } from '../content/assets';
+import { telHref, useContent } from '../content';
 
-const photographs = {
-  'personal-injury': {
-    src: personalInjury,
-    alt: 'Woman speaking on a phone beside two damaged cars after an automobile collision',
-    width: 1280,
-    height: 853,
-  },
-  'corporate-governance': {
-    src: corporateGovernance,
-    alt: 'Illustration of a diverse business team with a man leading a meeting',
-  },
-  'employment-labor': {
-    src: employmentLabor,
-    alt: 'Illustration of employees peacefully protesting outside a business',
-  },
-  construction: {
-    src: construction,
-    alt: 'Illustration of workers renovating the interior of a home',
-  },
-};
-
-const PracticeAreas = () => (
+const PracticeAreas = () => {
+  const content = useContent('practiceAreas');
+  const settings = useContent('settings');
+  return (
   <div className="bg-white">
-    <title>{`${content.title} | Phyllis J. Outlaw & Associates`}</title>
     <section className="bg-[#1E3A5F] text-white py-14 md:py-20">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <p className="text-[#E4C76C] text-sm font-semibold tracking-widest uppercase mb-5">
-          Phyllis J. Outlaw &amp; Associates
+          {content.eyebrow}
         </p>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-['Playfair_Display'] leading-tight max-w-4xl">
           {content.title}
@@ -62,23 +40,23 @@ const PracticeAreas = () => (
               </h2>
               <p className="text-lg text-slate-700 leading-relaxed">{area.description}</p>
               <div className="mt-8 border-l-4 border-[#C5A03A] bg-[#f7f4ec] p-6">
-                <h3 className="text-sm font-bold uppercase tracking-widest text-[#1E3A5F] mb-3">Case Highlight</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest text-[#1E3A5F] mb-3">{content.caseHighlightLabel}</h3>
                 <p className="text-slate-700 leading-relaxed">{area.caseHighlight}</p>
               </div>
             </div>
             <div className={index % 2 === 1 ? 'lg:order-first' : ''}>
               <img
-                src={photographs[area.id].src}
-                alt={photographs[area.id].alt}
-                width={photographs[area.id].width ?? 1536}
-                height={photographs[area.id].height ?? 1024}
+                src={resolveImage(area.image?.src)}
+                alt={area.image?.alt ?? ''}
+                width={area.image?.width ?? 1536}
+                height={area.image?.height ?? 1024}
                 loading="lazy"
                 decoding="async"
                 className="w-full h-auto rounded-xl shadow-md"
               />
               {index === 0 ? (
                 <a
-                  href="tel:+12025482999"
+                  href={telHref(settings.phone)}
                   className="mt-5 flex items-center justify-center gap-3 rounded-xl bg-[#3a4381] px-5 py-5 text-white text-center font-semibold hover:bg-[#30386c] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3a4381]"
                 >
                   <Phone size={22} className="shrink-0" aria-hidden="true" />
@@ -145,10 +123,11 @@ const PracticeAreas = () => (
 
     <div className="py-10 text-center border-t border-slate-200">
       <Link to="/contact" className="primary-button">
-        Contact Our Office <ArrowRight size={18} aria-hidden="true" />
+        {content.ctaLabel} <ArrowRight size={18} aria-hidden="true" />
       </Link>
     </div>
   </div>
-);
+  );
+};
 
 export default PracticeAreas;

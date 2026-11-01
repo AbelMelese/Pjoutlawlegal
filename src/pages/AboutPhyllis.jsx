@@ -1,64 +1,16 @@
 import FleurDeLisIcon from '../components/FleurDeLisIcon';
-import portrait from "../assets/use this picture in PJO's resume.jpg";
-import mediaLogosStrip from '../assets/media-logos-strip.png';
-import aboutThePrincipalHero from '../assets/about the principal.png';
-
-const highlights = [
-  {
-    title: 'Admitted to Practice',
-    items: [
-      'United States Supreme Court',
-      'Maryland Court of Appeals',
-      'District of Columbia Court of Appeals',
-      'United States Court of Appeals',
-      'United States Court of Appeals for the Federal Circuit',
-    ],
-  },
-  {
-    title: 'Bar Association Membership',
-    items: [
-      'Maryland Bar Association',
-      'District of Columbia Bar Association',
-    ],
-  },
-  {
-    title: 'Certificates',
-    items: [
-      'Mediator Certificate',
-      'Marital Property Mediator Certificate',
-      'Child Custody and Visitation Certificate',
-    ],
-  },
-  {
-    title: 'Education',
-    items: [
-      'Juris Doctorate Degree, Howard University School of Law',
-      'Bachelor of Science Degree, Major Sociology, Minor Business',
-    ],
-  },
-  {
-    title: 'Featured in',
-    items: [
-      'Ebony Magazine',
-      'Jet Magazine',
-    ],
-  },
-  {
-    title: 'Article Contributor',
-    items: [
-      'The National Bar Association Magazine',
-      'Washington Living Magazine',
-    ],
-  },
-];
+import { useContent } from '../content';
+import { resolveImage } from '../content/assets';
 
 const AboutPhyllis = () => {
+  const content = useContent('about');
+  const highlights = content.highlights;
   return (
     <div className="overflow-hidden bg-[#f8fafc]">
       <div className="w-full">
         <img
-          src={aboutThePrincipalHero}
-          alt="About the Principal"
+          src={resolveImage(content.heroImage?.src)}
+          alt={content.heroImage?.alt ?? ''}
           className="w-full h-auto block"
         />
       </div>
@@ -72,7 +24,7 @@ const AboutPhyllis = () => {
               <div className="relative max-w-[50%] lg:max-w-none lg:w-full">
                 <div className="absolute -inset-4 bg-gradient-to-tr from-[#1E3A5F]/30 to-[#2A4F7A]/30 blur-xl"></div>
                 <div className="framed-photo-container relative">
-                  <img src={portrait} alt="Phyllis J. Outlaw portrait" />
+                  <img src={resolveImage(content.portrait?.src)} alt={content.portrait?.alt ?? ''} />
                 </div>
               </div>
             </div>
@@ -80,13 +32,13 @@ const AboutPhyllis = () => {
             {/* Text on the right */}
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-2">
-                Esq. Phyllis J. Outlaw
+                {content.name}
               </h2>
               <p className="text-xl text-[#5B2C6F] font-medium mb-8 font-serif italic">
-                Principal and Founder
+                {content.role}
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Attorney Phyllis J. Outlaw has been in private practice in the State of Maryland and the District of Columbia for decades. Attorney Outlaw is an experienced and seasoned litigator who has represented clients in highly complex civil cases. She has conducted extensive litigation before local and federal courts as well as administrative agencies. Attorney Outlaw possesses knowledge, skills and expertise in litigation, arbitration and mediation of disputes relating to Family Law to include divorce, marital property, child custody, visitation, child support; Personal Injury; Medical Malpractice; Probate; Consumer Law; Real Estate; Labor Law; Equal Employment Opportunity Law; and Discrimination Law.
+                {content.bio}
               </p>
             </div>
           </div>
@@ -126,10 +78,10 @@ const AboutPhyllis = () => {
           <div className="portrait-panel" style={{ gridTemplateColumns: '1fr', textAlign: 'center' }}>
             <div className="body-copy">
               <p className="section-script" style={{ textAlign: 'center', marginBottom: '0.6rem' }}>
-                Media Appearances
+                {content.mediaHeading}
               </p>
               <p>
-                Attorney Phyllis J. Outlaw has appeared as a guest on national and local television as well as radio broadcasts
+                {content.mediaText}
               </p>
             </div>
           </div>
@@ -139,8 +91,8 @@ const AboutPhyllis = () => {
               {[0, 1].map((index) => (
                 <img
                   key={index}
-                  src={mediaLogosStrip}
-                  alt="Media appearances including CNN, C-SPAN, FOX News, WUSA 9, WYCB Podcast, WPFW, WHUT, JET, Ebony, Essence, and Bottomline"
+                  src={resolveImage(content.mediaLogos?.src)}
+                  alt={content.mediaLogos?.alt ?? ''}
                 />
               ))}
             </div>

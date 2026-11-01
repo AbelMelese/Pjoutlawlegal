@@ -5,9 +5,9 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'coverage']),
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{js,jsx,mjs}'],
     extends: [
       js.configs.recommended,
       reactHooks.configs.flat.recommended,
@@ -23,7 +23,18 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // Capitalised names are JSX components, which this config cannot see being used.
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^[A-Z_]' }],
     },
+  },
+  {
+    // Modules that intentionally share hooks/helpers alongside components.
+    files: ['src/content/**/*.{js,jsx}', 'src/admin/lib/**/*.{js,jsx}', 'src/admin/components/ui.jsx', 'src/admin/components/fields.jsx'],
+    rules: { 'react-refresh/only-export-components': 'off' },
+  },
+  {
+    files: ['scripts/**/*.mjs', 'netlify/**/*.{js,mjs}', 'supabase/**/*.{js,mjs}', 'tests/**/*.{js,jsx,mjs}', '*.config.js'],
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
+    rules: { 'react-refresh/only-export-components': 'off' },
   },
 ])

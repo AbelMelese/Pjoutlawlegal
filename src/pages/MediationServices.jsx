@@ -4,154 +4,37 @@ import {
     CheckCircle
 } from 'lucide-react';
 import FleurDeLisIcon from '../components/FleurDeLisIcon';
-import mediationPageHero from '../assets/Mediation page.png';
-import divorceGenderEqualityImg from '../assets/divorce-gender-equality.png';
-import childMediationImg from '../assets/child mediation.png';
-import businessMediationImg from '../assets/business mediation.jpg';
-import officeShoot264 from '../assets/office-shoot-264.jpg';
-import courtOrderedMediationImg from '../assets/court ordered mediation.jpg';
+import { useContent } from '../content';
+import { resolveImage } from '../content/assets';
 
 
 
 
 const MediationServices = () => {
-    const services = [
-        {
-            id: 'court',
-            title: 'Court-Ordered Mediation',
-            subtitle: 'Complies with Court Standards',
-            description: 'As a court-appointed Mediator, Phyllis J. Outlaw has successfully mediated numerous Maryland Circuit Court cases, ensuring compliance with Maryland law. The Settlement Agreements that result from mediation are legally enforceable and consistent with court standards.',
-            benefits: [],
-            color: 'from-[#2A4F7A] to-[#1E3A5F]',
-            bgColor: 'bg-blue-50/50',
-            image: courtOrderedMediationImg,
-            fixedHeight: true,
-        },
-        {
-            id: 'family',
-            title: 'Divorce and Family Mediation',
-            subtitle: 'Cooperation for long-term stability',
-            description: 'Helps spouses and families navigate separation, divorce, and post-divorce matters through a cooperative process focused on long-term stability, especially when children are involved. Divorce settlement agreements can address:',
-            benefits: [
-                'Spousal Alimony Support',
-                'Property and asset division/distribution',
-            ],
-            color: 'from-[#1E3A5F] to-[#5B2C6F]',
-            bgColor: 'bg-[#e8f4f4]/50',
-            image: divorceGenderEqualityImg,
-            fixedHeight: true,
-        },
-
-        {
-            id: 'custody',
-            title: 'Child Custody and Visitation Mediation',
-            subtitle: 'Balanced agreements for families',
-            description: 'Assists parents in creating balanced, practical parenting agreements that prioritize their children’s best interests while respecting each parent’s rights and responsibilities.',
-            benefits: [
-                'Child Custody and Parenting Plans',
-                'Child Support agreements',
-            ],
-            color: 'from-[#2A4F7A] to-[#1E3A5F]',
-            bgColor: 'bg-[#e8f4f4]/50',
-            image: childMediationImg,
-            fixedHeight: true,
-        },
-        {
-            id: 'business',
-            title: 'Business Dispute Mediation',
-            subtitle: 'Practical resolution for organizations',
-            description: 'Disputes involving business partners, employers, employees, vendors, or clients can disrupt operations and strain relationships. Mediation offers a practical way to resolve conflicts while helping companies avoid significant legal costs.',
-            benefits: [
-                'Partnership Disputes',
-                'Contract Disputes',
-                'Workplace conflicts',
-                'Employer–Employee Disputes',
-                'Vendor Service Disputes',
-            ],
-            color: 'from-[#5B2C6F] to-[#5B2C6F]',
-            bgColor: 'bg-[#fdf2f4]/50',
-            image: businessMediationImg,
-            fixedHeight: true,
-        },
+    const content = useContent('mediation');
+    // Card colours are design, not content; they cycle in order.
+    const serviceStyles = [
+        { color: 'from-[#2A4F7A] to-[#1E3A5F]', bgColor: 'bg-blue-50/50' },
+        { color: 'from-[#1E3A5F] to-[#5B2C6F]', bgColor: 'bg-[#e8f4f4]/50' },
+        { color: 'from-[#2A4F7A] to-[#1E3A5F]', bgColor: 'bg-[#e8f4f4]/50' },
+        { color: 'from-[#5B2C6F] to-[#5B2C6F]', bgColor: 'bg-[#fdf2f4]/50' },
     ];
-
-
-
-    const whyChoose = [
-        {
-            title: 'Open Dialogue',
-            description: 'Encourages open, productive dialogue.',
-        },
-        {
-            title: 'Confidentiality',
-            description: 'Maintains confidentiality by keeping mediation discussions private.',
-        },
-        {
-            title: 'Faster Resolution',
-            description: 'Resolves disputes more quickly and helps avoid court litigation.',
-        },
-        {
-            title: 'Cost-Effective',
-            description: 'Offers a cost-effective alternative to expensive court battles.',
-        },
-        {
-            title: 'Party Control',
-            description: 'Allows parties to retain control over the outcome.',
-        },
-        {
-            title: 'Virtual Sessions',
-            description: 'Provides virtual sessions accessible from anywhere in the world.',
-        },
-    ];
-
-    const steps = [
-        {
-            title: 'Initial Consultation',
-            description: 'Discuss your concerns with the mediator to determine whether mediation is the right option and to clarify your goals.',
-        },
-        {
-            title: 'Agreement and Documentation',
-            description: 'After signing a mediation agreement with our firm and paying the mediation fee, you will submit the necessary documents and information for the mediator’s review.',
-        },
-        {
-            title: 'Contact Parties',
-            description: 'All parties are contacted to confirm their willingness to mediate the issues that need resolution.',
-        },
-        {
-            title: 'Mediation Scheduling',
-            description: 'Once all affected parties agree to proceed, virtual mediation sessions are scheduled at times convenient for everyone.',
-        },
-        {
-            title: 'Virtual Conference',
-            description: 'A confidential video conference is held to help the parties work toward resolving their issues.',
-        },
-        {
-            title: 'Neutral Facilitation',
-            description: 'The mediator remains neutral while encouraging open discussion and guiding the parties toward practical dispute resolution.',
-        },
-        {
-            title: 'Resolution Agreement',
-            description: 'The mediator prepares a written summary or draft agreement outlining the terms accepted by the parties. The agreement may be reviewed by an attorney before signing.',
-        }
-    ];
-
-    const reviews = [
-        {
-            quote: '“Ms. Outlaw is a phenomenal mediator. She took extremely tense moments and somehow made them comfortable, productive, and even humorous. She has a remarkable ability to relate to people, help them see logic, and encourage fairness without making anyone feel unheard. I am beyond grateful for her. I went from the very real possibility of not seeing my 6-year-old son during the school year except every other weekend—only four days per month—to receiving TOTAL equal parenting time. 🙌🏿😂🤎 If it were not for Ms. Outlaw, I truly believe my relationship with my son would have ultimately been impaired….4 days per month would’ve been a tragedy. And honestly, I received so much more than that but for the sake of time I’ll just say I felt heard, respected, and understood throughout the process. Ms. Outlaw is a GODSEND, and it is my absolute pleasure to write this review.”',
-            attribution: 'Wayne, Montgomery County, MD',
-        },
-        {
-            quote: '“Thank you again for the opportunity to observe your thoughtful and skillful approach to mediation. It was truly a valuable experience, and I learned so much from watching your approach, especially the way you connected with and listened to both parties.”',
-            attribution: 'Michelle Jones, Mediator, Maryland',
-        },
-    ];
+    const services = content.services.map((service, index) => ({
+        ...service,
+        benefits: service.benefits ?? [],
+        ...serviceStyles[index % serviceStyles.length],
+        fixedHeight: true,
+    }));
+    const whyChoose = content.benefits;
+    const steps = content.steps;
+    const reviews = content.reviews;
 
     return (
         <div className="overflow-hidden bg-[#f8fafc]">
             <div className="w-full">
                 <img
-                    src={mediationPageHero}
-                    alt="Mediation Services"
+                    src={resolveImage(content.heroImage?.src)}
+                    alt={content.heroImage?.alt ?? ''}
                     className="w-full h-auto block"
                 />
             </div>
@@ -206,7 +89,7 @@ const MediationServices = () => {
                                             to="/contact"
                                             className="inline-flex items-center gap-2 text-[#5B2C6F] font-bold hover:gap-4 transition-all duration-300 group"
                                         >
-                                            <span>Schedule Your Consultation Today</span>
+                                            <span>{content.ctaLabel}</span>
                                             <ArrowRight size={18} />
                                         </Link>
                                     )}
@@ -216,11 +99,11 @@ const MediationServices = () => {
                                 <div className="flex-1 w-full">
                                     <figure className="relative group">
                                         <div className={`absolute -inset-4 bg-gradient-to-br ${service.color.replace('from', 'from-').replace('to', 'to-')} opacity-30 rounded-[2.5rem] blur-2xl group-hover:opacity-50 transition-opacity duration-500`}></div>
-                                        {service.image ? (
+                                        {service.image?.src ? (
                                             <div className={`relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-100${service.fixedHeight ? ' h-[400px]' : ''}`}>
                                                 <img
-                                                    src={service.image}
-                                                    alt={service.title}
+                                                    src={resolveImage(service.image?.src)}
+                                                    alt={service.image?.alt ?? service.title}
                                                     className={service.fixedHeight ? "w-full h-full object-cover object-center" : "w-full h-auto block"}
                                                 />
                                             </div>
@@ -258,10 +141,10 @@ const MediationServices = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-20">
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#1E3A5F]/10 rounded-full mb-6 border border-[#1E3A5F]/30">
-                            <span className="text-[#5B2C6F] font-bold text-sm tracking-wide uppercase">How Mediation Works</span>
+                            <span className="text-[#5B2C6F] font-bold text-sm tracking-wide uppercase">{content.stepsEyebrow}</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-6">
-                            A Seven-Step Path to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Resolution</span>
+                            {content.stepsHeading} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">{content.stepsHeadingAccent}</span>
                         </h2>
                         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                             Our structured process offers clear guidance and keeps you informed at every stage.
@@ -319,8 +202,8 @@ const MediationServices = () => {
                             <div className="absolute -inset-4 bg-[#1E3A5F]/10 rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
                             <div className="relative rounded-[2rem] overflow-hidden border border-slate-200 shadow-2xl h-[500px]">
                                 <img
-                                    src={officeShoot264}
-                                    alt="Why Choose Mediation"
+                                    src={resolveImage(content.benefitsImage?.src)}
+                                    alt={content.benefitsImage?.alt ?? ''}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent opacity-60"></div>
@@ -329,10 +212,10 @@ const MediationServices = () => {
 
                         <div className="order-1 lg:order-2">
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#d1e9ea] rounded-full mb-6 border border-[#b3d9db]">
-                                <span className="text-[#1E3A5F] font-bold text-sm tracking-wide uppercase">Benefits</span>
+                                <span className="text-[#1E3A5F] font-bold text-sm tracking-wide uppercase">{content.benefitsEyebrow}</span>
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 font-['Playfair_Display'] mb-8">
-                                Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Mediation</span>
+                                {content.benefitsHeading} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">{content.benefitsHeadingAccent}</span>
                             </h2>
                             <p className="text-slate-600 text-lg mb-12">
                                 Mediation provides a constructive path for parties to find common ground outside the courtroom.
@@ -365,10 +248,10 @@ const MediationServices = () => {
                     <div className="mb-12 text-center">
                         <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#1E3A5F]/20 bg-[#1E3A5F]/5 px-4 py-2">
                             <FleurDeLisIcon size="xs" />
-                            <span className="text-sm font-bold uppercase tracking-wide text-[#1E3A5F]">Client Experiences</span>
+                            <span className="text-sm font-bold uppercase tracking-wide text-[#1E3A5F]">{content.reviewsEyebrow}</span>
                         </div>
                         <h2 className="font-['Playfair_Display'] text-4xl font-bold text-slate-900 md:text-5xl">
-                            Mediation <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">Reviews</span>
+                            {content.reviewsHeading} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#5B2C6F]">{content.reviewsHeadingAccent}</span>
                         </h2>
                     </div>
 
