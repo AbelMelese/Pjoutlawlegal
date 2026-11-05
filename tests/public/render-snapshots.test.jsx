@@ -16,7 +16,6 @@ import PracticeAreas from '../../src/pages/PracticeAreas';
 import AboutPhyllis from '../../src/pages/AboutPhyllis';
 import OnlinePayment from '../../src/pages/OnlinePayment';
 import Contact from '../../src/pages/Contact';
-import LegalPage from '../../src/pages/LegalPage';
 
 const routes = [
   ['/', Home],
@@ -25,8 +24,6 @@ const routes = [
   ['/about-phyllis-j-outlaw', AboutPhyllis],
   ['/online-payment', OnlinePayment],
   ['/contact', Contact],
-  ['/privacy-policy', () => <LegalPage contentKey="privacy" />],
-  ['/terms-of-use', () => <LegalPage contentKey="terms" />],
 ];
 
 const render = (path, element) =>

@@ -52,22 +52,6 @@
       "description": "",
       "ogImage": "",
       "noindex": false
-    },
-    {
-      "path": "/privacy-policy",
-      "label": "Privacy Policy",
-      "title": "Privacy Policy",
-      "description": "How Phyllis J. Outlaw & Associates handles information received through its website and online payments.",
-      "ogImage": "",
-      "noindex": false
-    },
-    {
-      "path": "/terms-of-use",
-      "label": "Terms of Use",
-      "title": "Terms of Use",
-      "description": "Terms for using the Phyllis J. Outlaw & Associates website, including that it does not provide legal advice.",
-      "ogImage": "",
-      "noindex": false
     }
   ]
 }

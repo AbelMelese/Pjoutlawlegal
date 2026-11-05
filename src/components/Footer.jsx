@@ -173,11 +173,6 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#1E3A5F]">
             <p className="whitespace-nowrap">{settings.copyright}</p>
-            <div className="flex items-center gap-6">
-              <a href={settings.termsUrl || '#'} className="hover:text-white transition-colors">Terms of Use</a>
-              <span>|</span>
-              <a href={settings.privacyUrl || '#'} className="hover:text-white transition-colors">Privacy Policy</a>
-            </div>
           </div>
         </div>
       </div>

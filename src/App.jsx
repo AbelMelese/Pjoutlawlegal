@@ -11,7 +11,6 @@ import RouteSeo from './components/RouteSeo';
 import PracticeAreas from './pages/PracticeAreas';
 import AboutPhyllis from './pages/AboutPhyllis';
 import OnlinePayment from './pages/OnlinePayment';
-import LegalPage from './pages/LegalPage';
 
 // The admin is a separate bundle: public visitors never download it.
 const AdminApp = lazy(() => import('./admin/AdminApp'));
@@ -23,8 +22,6 @@ const publicRoutes = [
   { path: '/online-payment', element: <OnlinePayment /> },
   { path: '/practice-areas', element: <PracticeAreas /> },
   { path: '/contact', element: <Contact /> },
-  { path: '/privacy-policy', element: <LegalPage contentKey="privacy" /> },
-  { path: '/terms-of-use', element: <LegalPage contentKey="terms" /> },
 ];
 
 const legacyRedirects = [

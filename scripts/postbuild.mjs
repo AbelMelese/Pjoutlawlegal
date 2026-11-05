@@ -29,6 +29,9 @@ async function main() {
   const generatedPath = fileURLToPath(new URL('../src/content/published.generated.json', import.meta.url));
   const published = existsSync(generatedPath) ? JSON.parse(await readFile(generatedPath, 'utf8')) : {};
   const seo = { ...defaults, ...(published.seo ?? {}) };
+  // The Privacy Policy and Terms of Use pages are taken down; skip them even if published SEO still lists them.
+  const RETIRED = new Set(['/privacy-policy', '/terms-of-use']);
+  seo.pages = (seo.pages ?? []).filter((page) => !RETIRED.has(normalizePath(page.path)));
 
   const template = await readFile(path.join(dist, 'index.html'), 'utf8');
 
